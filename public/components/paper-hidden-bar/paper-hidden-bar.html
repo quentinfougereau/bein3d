@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<link rel="import" href="../core-toolbar/core-toolbar.html">
+<link rel="import" href="../core-menu/core-menu.html">
+<link rel="import" href="../core-item/core-item.html">
+
+<polymer-element name="paper-hidden-bar" extends="core-header-panel" drawer fullbleed vertical layout id="left-menu" is="auto-binding">
+    <template>
+        <link rel="stylesheet" type="text/css" href="paper-hidden-bar.css">
+            <core-toolbar class="medium-tall">
+                <h2 id="left-title">BEin3D</h2>
+            </core-toolbar>
+            <core-menu>
+                <core-item label="Shop"></core-item>
+                <core-item label="Design"></core-item>
+                <core-item label="Sell"></core-item>
+            </core-menu>
+        
+    </template>
+    <script>
+        Polymer("paper-hidden-bar",{
+      ready: function(){
+
+      }
+  });
+    </script>
+</polymer-element>

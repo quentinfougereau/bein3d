@@ -26,7 +26,7 @@ class ConnexionController extends Zend_Controller_Action {
             $all = $ct->fetchAll();
             $connect = 0;
             foreach ($all as $client) {
-                if ($client->Login == $_POST['email'] && $client->Motdepasse == $_POST['mdp']) {
+                if ($client->login == $_POST['email'] && $client->motdepasse == $_POST['mdp']) {
                     $connect = 1;
                     $this->view->Login=$client->Nom;
                 }

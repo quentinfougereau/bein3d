@@ -17,6 +17,8 @@
         <link rel="import"
               href="../public/components/core-icons/core-icons.html">
         <link rel="import"
+              href="../public/components/core-icon-button/core-icon-button.html">
+        <link rel="import"
               href="../public/components/paper-icon-button/paper-icon-button.html">
         <link rel="import"
               href="../public/components/paper-menu-button/paper-menu-button.html">
@@ -36,7 +38,9 @@
         <link rel="import"
               href="../public/components/core-form-inscription/core-form-inscription.html">     
         <link rel="import"
-              href="../public/components/core-form-connexion/core-form-connexion.html">  
+              href="../public/components/core-form-connexion/core-form-connexion.html">
+        <link rel="import"
+              href="../public/components/paper-hidden-bar/paper-hidden-bar.html">
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="style/CSS.css" type="text/css">
@@ -103,14 +107,7 @@
 
     <core-drawer-panel id="drawerPanel">
 
-        <core-header-panel drawer vertical layout id="left-menu">
-            <core-toolbar class="medium-tall" id="barre" ><div style='cursor:pointer' id="accueil"><h2>BEin3D</h2></div></core-toolbar>
-            <core-menu><!--
-                -->                <core-item label="Shop"></core-item>
-                <core-item label="Design"></core-item>
-                <core-item label="Sell"></core-item><!--
-                -->            </core-menu>
-        </core-header-panel>
+        <paper-hidden-bar></paper-hidden-bar>
 
         <core-header-panel main >
             <core-toolbar class="medium-tall" id="barre2">
@@ -197,14 +194,36 @@
                     </div>
                 </div>
                 <hr/>
+                       <p>blabla</p>
+        <p>blabla</p>
+        
+        <p>blabla</p>
+        <p>blabla</p>
+        <p>blabla</p>
+               <p>blabla</p>
+        <p>blabla</p>
+        
+        <p>blabla</p>
+        <p>blabla</p>
+        <p>blabla</p>
+               <p>blabla</p>
+        <p>blabla</p>
+        
+        <p>blabla</p>
+        <p>blabla</p>
+        <p>blabla</p>       <p>blabla</p>
+        <p>blabla</p>
+        
+        <p>blabla</p>
+        <p>blabla</p>
+        <p>blabla</p>
+        
 
             </div>
         </core-header-panel>
-
+ 
     </core-drawer-panel>
 
-
-</core-header-panel>
 <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
     <script>
         Polymer('component-form', {
@@ -233,6 +252,14 @@
                 }.bind(this));
             },
         });
+        
+        document.addEventListener('polymer-ready', function(){
+    var navicon=document.getElementById('navicon');
+    var drawerPanel=document.getElementById('drawerPanel');
+    navicon.addEventListener('click',function(){
+        drawerPanel.togglePanel();
+    })
+})
     </script>
 </polymer-element>
 

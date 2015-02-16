@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/bein3d/application/models/Client.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/connexion/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/public/components/core-form-connexion/core-form-connexion.html</file>
-            <file>file:/C:/wamp/www/bein3d/application/models/ClientRow.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/ConnexionController.php</file>
+            <file>file:/C:/wamp/www/git/bein3d/public/components/paper-hidden-bar/paper-hidden-bar.css</file>
+            <file>file:/C:/wamp/www/git/bein3d/application/views/scripts/index/index.phtml</file>
+            <file>file:/C:/wamp/www/git/bein3d/application/views/scripts/index/form.phtml</file>
+            <file>file:/C:/wamp/www/git/bein3d/public/components/paper-hidden-bar/paper-hidden-bar.html</file>
+            <file>file:/C:/wamp/www/git/bein3d/public/components/core-header-panel/core-header-panel.html</file>
+            <file>file:/C:/wamp/www/git/bein3d/public/components/core-header-panel/core-header-panel.css</file>
         </group>
     </open-files>
 </project-private>
