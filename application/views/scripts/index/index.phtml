@@ -15,7 +15,11 @@
         <link rel="import"
               href="../public/components/core-item/core-item.html">
         <link rel="import"
+              href="../public/components/core-icon/core-icon.html">
+        <link rel="import"
               href="../public/components/core-icons/core-icons.html">
+        <link rel="import"
+              href="../public/components/core-icon-button/core-icon-button.html">
         <link rel="import"
               href="../public/components/paper-icon-button/paper-icon-button.html">
         <link rel="import"
@@ -101,9 +105,9 @@
     </head>
     <body fullbleed vertical layout unresolved>
 
-    <core-drawer-panel id="drawerPanel">
+    <core-drawer-panel  id="drawerPanel">
 
-        <core-header-panel drawer vertical layout id="left-menu">
+        <core-header-panel  drawer vertical layout id="left-menu">
             <core-toolbar class="medium-tall" id="barre" ><div style='cursor:pointer' id="accueil"><h2>BEin3D</h2></div></core-toolbar>
             <core-menu><!--
                 -->                <core-item label="Shop"></core-item>
@@ -194,10 +198,39 @@
                     </div>
                     <div id="blockdroite">
                         <img src='../public/image/Image1.PNG'>
+                        <br/>
+                        Laissez parler l'artiste 3D qui est en vous ! &nbsp; Découvrer 3D Concept !<core-icon-button icon="add-circle" tittle="add"></core-icon-button>
                     </div>
                 </div>
                 <hr/>
+                <div id="grosblock" fullbleed>
+                    <center><h2>Avec l'impression 3D c'est vous la star ! </h2></center>
+                    <div id='petitblock'>
+                        <img src='../public/image/Image2.PNG'>
+                        <br/>
+                        Des masques 3D à votre image...ou celle des autres !
+                        <br/>
+                        Créer le votre! <core-icon-button icon='add-circle'></core-icon-button>
 
+                    </div>
+                    <div id='petitblock'>
+                        <img src='../public/image/Image3.PNG'>
+                        <br/>
+                        Des figurines 3D à partir de votre photo 2D ! 
+                    </div>
+                </div>
+              
+                <div id="grosblock" fullbleed>
+                    <div id='petitblock'>
+                        <table>
+                            <th>DE JOLIE PUZZLE 3D A IMPRIMER !</th>
+                            <tr><img src='../public/image/Image4.PNG'></tr>
+                        </table>
+                    </div>
+                 
+                    
+                    
+                </div>
             </div>
         </core-header-panel>
 
