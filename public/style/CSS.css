@@ -1,4 +1,5 @@
 body {
+    height: 2000px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
 }
 
@@ -57,24 +58,36 @@ hr:after {  /* Not really supposed to work, but does */
 }
 #grosbloc{
    
-   height:250px;
+   height:350px;
 
 }
 #blockgauche{
- 
+    float : left;
     position:relative;
+    height : 150px;
     font-size:25px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
     color : LightSkyBlue;
-    margin-right: 70%;
+    width: 600px;
 }
 #blockdroite{
-   
-    height : 150px;
-    font-size:19px;
+   float :left;
+   margin-left: 220px;
+    height : 100px;
+    font-size:30px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
     color : LightSkyBlue;
-    
+    width : 650px;
+   
+}
+#petitblock{
+    position : relative;
+   float :right;
+    height : 100px;
+    font-size:30px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    color : LightSkyBlue;
+    width : 550px;
    
 }
 #produit{

@@ -39,6 +39,7 @@ class ConnexionController extends Zend_Controller_Action {
         } else {
             $this->render('no-connexion');
         }
+
     }
 
 }
