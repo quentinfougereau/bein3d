@@ -104,7 +104,7 @@
     <core-drawer-panel id="drawerPanel">
 
         <core-header-panel drawer vertical layout id="left-menu">
-            <core-toolbar class="medium-tall" id="barre" ><div style='cursor:pointer' id="accueil"><h2>BEin3D</h2></div></core-toolbar>
+            <core-toolbar class="medium-tall" id="barre"><h2>BEin3D</h2></core-toolbar>
             <core-menu><!--
                 -->                <core-item label="Shop"></core-item>
                 <core-item label="Design"></core-item>
@@ -123,52 +123,36 @@
                 </paper-tabs>
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                 <paper-icon-button icon="search"></paper-icon-button>
-
-                <template is="auto-binding">
-                    <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
-                    <paper-dialog heading="Connexion" class="size-position">
-                        <core-form-connexion>           
-                        </core-form-connexion> 
-                    </paper-dialog>
-                </template>
-
-                <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
-                <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
-
-
-                    <core-form-inscription>           
-                    </core-form-inscription>
-
-                </paper-dialog><!--
+                <?php
+                echo $this->Login;
+                ?>
+                <!--
                 <!-- BOTTOM TOOLBAR -->
 
                 <!--<div class="bottom" id="sous-menu"> -->
-                <!--                <div id="shop-content1" >-->
-                <paper-tabs  id="shop-content1" class="hide bottom" flex selected="{{selected}}">
+
+                <paper-tabs class="bottom" flex selected="{{selected}}">
                     <paper-tab>+POPULAIRES</paper-tab>
                     <paper-tab>NOUVEAUTES</paper-tab>
                     <paper-tab>ART</paper-tab>
                     <paper-tab>MEILLEURS MAKERS</paper-tab>
                     <paper-tab>CONCOURS</paper-tab>
                 </paper-tabs>                
-                <!--</div>-->          
+
             </core-toolbar>
 
 
-
+            <div id="connect">
+               connection good
+                
+            </div>
             <div id="shop-content" class="hide">
                 <table>
                     <tr> 
                         <?php
                         for ($i = 0; $i < 100; $i++) {
-                            
-                        }
-                        foreach ($this->all as $produit) {
                             echo "<td>";
-                            echo "<div id='produit'>$produit->Nom</div>";
-                            echo "</td>";
-                            echo "<td>";
-                            echo $produit->PrixUnitaire;
+                            echo "<div id='produit'>adazdaz</div>";
                             echo "</td>";
                         }
                         ?>
@@ -178,25 +162,6 @@
             <div id="design-content" class="hide">
                 <center> ntm
                 </center>
-
-            </div>
-            <div id="accueil-content" >
-                <div id="grosbloc" fullbleed>accueil</div>
-                <hr/>
-                <div id="grosbloc" fullbleed>
-                    <div id="blockgauche">
-                        <h2>3D CONCEPT ! </h2>
-                        Vous voulez créer votre propre fichier 3D ?
-                        <br/>
-                        Vendre vos propres modèles ?
-                        <br/>
-                        <p> Grace à l'impression 3D, vous pouvez laisser libre court à votre imagination et concevoir un produit dans ses mondres détails.</p>
-                    </div>
-                    <div id="blockdroite">
-                        <img src='../public/image/Image1.PNG'>
-                    </div>
-                </div>
-                <hr/>
 
             </div>
         </core-header-panel>
@@ -246,12 +211,10 @@
         if (!$('#design-content').hasClass('hide')) { // it checks if mobile_billing is not open
             $('#design-content').toggleClass("hide");
         }
-        if (!$('#accueil-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#accueil-content').toggleClass("hide");
+           if (!$('#connect').hasClass('hide')) { // it checks if mobile_billing is not open
+             $('#connect').toggleClass("hide");
         }
-        if ($('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
-        }
+       
         $('#shop-content').toggleClass("hide");
 
 
@@ -261,33 +224,14 @@
         if (!$('#shop-content').hasClass('hide')) { // it checks if mobile_billing is not open
             $('#shop-content').toggleClass("hide");
         }
-        if (!$('#accueil-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#accueil-content').toggleClass("hide");
-        }
-        if ($('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
+        if (!$('#connect').hasClass('hide')) { // it checks if mobile_billing is not open
+             $('#connect').toggleClass("hide");
         }
         $('#design-content').toggleClass("hide");
 
 
 
     });
-    $("#accueil").click(function () {
-        if (!$('#shop-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#shop-content').toggleClass("hide");
-        }
-        if (!$('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
-        }
-        if (!$('#design-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#design-content').toggleClass("hide");
-        }
-        $('#accueil-content').toggleClass("hide");
-
-
-
-    });
-
 
 //
 //    function addName() {
