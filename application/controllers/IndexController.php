@@ -1,5 +1,5 @@
 <?php
-
+require_once '../application/models/Produit.php';
 class IndexController extends Zend_Controller_Action
 {
 
@@ -10,10 +10,12 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
+       $p= new Produit();
+       $this->view->all=$p->fetchall();
         // action body
     }
     public function formAction(){
-       
+     
         $this->view->login= $_POST['Login'];
         $this->view->mdp=$_POST['mdp'];
         

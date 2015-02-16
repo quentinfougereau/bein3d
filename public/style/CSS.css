@@ -47,6 +47,36 @@ div#contenu {
 .hide{
     display: none;
 }
+hr {
+    border: 0;
+    height: 0; /* Firefox... */
+    box-shadow: 0 0 10px 1px grey;
+}
+hr:after {  /* Not really supposed to work, but does */
+    content: "\00a0";  /* Prevent margin collapse */
+}
+#grosbloc{
+   
+   height:250px;
+
+}
+#blockgauche{
+ 
+    position:relative;
+    font-size:25px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    color : LightSkyBlue;
+    margin-right: 70%;
+}
+#blockdroite{
+   
+    height : 150px;
+    font-size:19px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    color : LightSkyBlue;
+    
+   
+}
 #produit{
     width : 50px;
     height:70px;

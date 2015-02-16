@@ -6,7 +6,6 @@
         <script
             src="../public/components/platform/platform.js">
         </script>
-     
         <link rel="import"
               href="../public/components/core-toolbar/core-toolbar.html">
         <link rel="import"
@@ -124,23 +123,10 @@
                 </paper-tabs>
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                 <paper-icon-button icon="search"></paper-icon-button>
-
-                <template is="auto-binding">
-                    <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
-                    <paper-dialog heading="Connexion" class="size-position">
-                        <core-form-connexion>           
-                        </core-form-connexion> 
-                    </paper-dialog>
-                </template>
-
-                <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
-                <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
-
-
-                    <core-form-inscription>           
-                    </core-form-inscription>
-
-                </paper-dialog><!--
+                <?php
+                echo $this->Login;
+                ?>
+                <!--
                 <!-- BOTTOM TOOLBAR -->
 
                 <!--<div class="bottom" id="sous-menu"> -->
@@ -157,11 +143,8 @@
 
 
             <div id="connect">
-                Utilisateur ou mot de passe incorrect
-                <center>
-                <core-form-connexion>           
-                </core-form-connexion> 
-                    </center>
+               connection good
+                
             </div>
             <div id="shop-content" class="hide">
                 <table>

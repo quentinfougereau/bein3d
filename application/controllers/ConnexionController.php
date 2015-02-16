@@ -18,15 +18,27 @@ class ConnexionController extends Zend_Controller_Action {
     public function init() {
         /* Initialize action controller here */
     }
+
     public function indexAction() {
-        foreach($all as $client){
-            if($client->Nom==$_POST['email'] && $client->Motdepasse==$_POST['mdp']){
-                $this->render('index');
-                exit();
-            };
+
+        if ($_POST['email'] != "" && $_POST['mdp'] != "") {
+            $ct = new Client();
+            $all = $ct->fetchAll();
+            $connect = 0;
+            foreach ($all as $client) {
+                if ($client->Login == $_POST['email'] && $client->Motdepasse == $_POST['mdp']) {
+                    $connect = 1;
+                    $this->view->Login=$client->Nom;
+                }
+            }
+            if ($connect == 1) {
+                $this->render('connect');
+            } else {
+                $this->render('no-connexion');
+            }
+        } else {
+            $this->render('no-connexion');
         }
-                   $this->render('noConnexion');
     }
-  
 
 }
