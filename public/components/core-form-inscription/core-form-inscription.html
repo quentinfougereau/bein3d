@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<polymer-element name="core-form-inscription" noscript>
+    <template>
+        <link rel="stylesheet" href="core-form-inscription.css">
+        
+        <form  is="component-form" name="inscription" method="POST" action="http://localhost/bein3d/public/index/form">
+
+                    <paper-input floatingLabel label="Login" name="login" ></paper-input>
+                    <paper-input floatingLabel label="Mot de passe" type="password" name="mdp"></paper-input>
+                    <paper-input floatingLabel label="Confirmer mot de passe" type="password" name="cmdp"></paper-input>
+                    <paper-input floatingLabel label="Email" type="email" name="email"></paper-input>
+                    <paper-checkbox floatingLabel label="S'inscrire à la newsletter"></paper-checkbox>
+                    <paper-button class="colored" type="submit" label='OK' >
+                        <core-icon icon='check'> 
+                        </core-icon>
+                    </paper-button>
+                    <paper-button type="reset"  label='CANCEL' onclick="resetForm()">
+                        <core-icon icon='clear'> 
+                        </core-icon>
+                    </paper-button>
+
+        </form>
+    </template>
+    <script>
+        Polymer({
+      ready: function() {
+        //...
+      }
+    });
+    
+    function resetForm() {
+                var name = document.querySelectorAll("paper-input")[1];
+
+                name.inputValue = "";
+                var name = document.querySelectorAll("paper-input")[2];
+
+                name.inputValue = "";
+                var name = document.querySelectorAll("paper-input")[3];
+
+                name.inputValue = "";
+                var name = document.querySelectorAll("paper-input")[4];
+
+                name.inputValue = "";
+
+
+            }
+            ;
+    </script>
+</polymer-element>

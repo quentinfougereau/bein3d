@@ -1,0 +1,257 @@
+<html>
+    <head>
+        <title>01-introduction</title>
+        <!-- Load Polymer -->
+        <script
+            src="../public/components/platform/platform.js">
+        </script>
+        <link rel="import"
+              href="../public/components/core-toolbar/core-toolbar.html">
+        <link rel="import"
+              href="../public/components/core-header-panel/core-header-panel.html">
+        <link rel="import"
+              href="../public/components/core-icons/core-icons.html">
+        <link rel="import"
+              href="../public/components/paper-icon-button/paper-icon-button.html">
+        <link rel="import"
+              href="../public/components/paper-menu-button/paper-menu-button.html">
+        <link rel="import"
+              href="../public/components/paper-item/paper-item.html">
+        <link rel="import"
+              href="../public/components/paper-tabs/paper-tabs.html">
+        <link rel="import"
+              href="../public/components/paper-input/paper-input.html">
+        <link rel="import" href="hello-john-doe.html">
+        <link rel="import" href="protro-element.html">
+        <link rel="import"
+              href="../public/components/paper-dialog/paper-dialog.html">
+        <link rel="import"
+              href="../public/components/paper-button/paper-button.html">
+        <link rel="stylesheet" href="engine1/style.css">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="cssSlider created with cssSlider, a free wizard program that helps you easily generate beautiful web slideshow" />
+
+
+
+
+        <script type="text/javascript">
+
+
+            function addName() {
+                var recup = document.querySelectorAll("hello-john-doe")[0];
+                document.querySelector("buddies-list").buddies.push({name: recup.name});
+            }
+            ;
+
+            function toggleDialog(transition) {
+                var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
+                dialog.toggle();
+            }
+            ;
+            function resetForm() {
+                var name = document.querySelectorAll("paper-input")[1];
+
+                name.inputValue = "";
+                var name = document.querySelectorAll("paper-input")[2];
+
+                name.inputValue = "";
+                var name = document.querySelectorAll("paper-input")[3];
+
+                name.inputValue = "";
+                var name = document.querySelectorAll("paper-input")[4];
+
+                name.inputValue = "";
+
+
+            }
+            ;
+
+            function recupinfo() {
+                var login = document.querySelectorAll("paper-input")[1];
+                document.getElementById('affiche').innerHTML = login.inputValue;
+
+                var mdp = document.querySelectorAll("paper-input")[2];
+
+
+                var Cmdp = document.querySelectorAll("paper-input")[3];
+                if (mdp != Cmdp) {
+                    document.getElementById('affiche').innerHTML = "Veuillez confirmez votre mot de passe."
+                }
+
+                var email = document.querySelectorAll("paper-input")[4];
+                document.getElementById('affiche').innerHTML = login.inputValue;
+            }
+
+
+
+        </script>
+        <STYLE type="text/css">
+            body {
+                font-family: sans-serif;
+                background-color: #7092BF ;
+
+            }
+            #grosbloc{
+                position : relative;
+                top : 25px;
+                background-color: white;
+                border-radius : 25px;
+                width : 80%;
+                margin : auto;
+                height : 800px;
+
+            }
+
+            #bloc1{
+                position : relative;
+                top : 25px;
+                border-bottom : 3px solid #777777;
+                border-bottom : linear-gradient (blue, transparent);
+
+            }
+            core-toolbar {
+                background-color: white;
+                border-radius : 25px;
+                width : 80%;
+                margin : auto;
+            }
+            paper-tabs{
+                width : 30%;
+                margin-right : 200px;
+            }
+
+            #inscription{
+                position : relative;
+                left : 80%;
+            }
+            #tabs {
+                width: 70%;
+                margin: 0;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                text-transform: uppercase
+            }
+            .toolbar-1 {
+                background-color: #3b78e7;
+            }
+
+
+        </STYLE>
+
+
+    </head>
+    <body fullbleed vertical layout unresolved>
+
+    <core-header-panel flex>
+        <core-toolbar   class="medium-tall">
+
+
+
+            <span flex>Be In </span>
+
+
+
+            <paper-tabs  class="top" selected="0">
+                <paper-tab>ONE</paper-tab>
+                <paper-tab>TWO</paper-tab>
+                <paper-tab>ONE</paper-tab>
+                <paper-tab>TWO</paper-tab>
+            </paper-tabs>
+            <paper-input floatingLabel label="Rechercher"></paper-input>
+
+
+            <paper-icon-button id="searchbutton" icon="search"></paper-icon-button>
+            </br>
+
+
+            <paper-button   class="bottom " label="connexion" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
+            <paper-dialog heading="Connexion" transition="paper-dialog-transition-center">
+                <form  is="component-form" name="Connexion" method="POST" action="Connexion/index"> 
+
+
+                    <paper-input floatingLabel label="Email" type="email" name="email"></paper-input>
+                    <paper-input floatingLabel label="Mot de passe" type="password" name="mdp"></paper-input>
+
+
+                    <paper-button type="submit" label='ok' ><core-icon icon='check'> 
+
+                        </core-icon></paper-button>
+
+                    <paper-button  label='cancel' onclick="resetForm()"><core-icon icon='clear'> 
+                        </core-icon></paper-button>
+
+                </form>
+
+            </paper-dialog>
+
+        </core-toolbar>
+        <div id="grosbloc">
+            <div id="bloc1">
+
+                <!--[if IE]><link rel="stylesheet" href="engine1/ie.css"><![endif]-->
+                <!--[if lte IE 9]><script type="text/javascript" src="engine1/ie.js"></script><![endif]-->
+                <table border="1">
+                    <th>idChamps</th>
+                    <th>superfice</th>
+                
+
+                    <?php foreach ($this->client as $client) : ?>
+                        <tr>
+                            <td> <?php echo $client->Id ?>   </td>
+                            <td> <?php echo $client->Nom ?>   </td>
+                <!--            <td><?php //echo $planta->getNbVilles() . " champs "  ?>
+                                <a href='Planta/Champs/id/<?php //echo $planta->ID;  ?>'>detail</a></td>
+                             <td><?php //echo $planta->getNbCulture() . " culture "  ?>
+                                <a href='Planta/Culture/id/<?php //echo $planta->ID;  ?>'>detail</a></td>-->
+
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+
+                <center></center>
+            </div>
+            <img src="Capture.png">
+        </div>
+
+
+
+    </core-header-panel>
+    <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
+        <script>
+            Polymer('component-form', {
+                handleClick: function (event, detail, sender) {
+                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
+                        this.prepareSubmit();
+                        this.submit();
+                    }
+                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
+
+                        this.form.reset();
+                    }
+
+                },
+                prepareSubmit: function () {
+                    Array.prototype.forEach.call(this.children, function (child) {
+                        var name = child.getAttribute('name');
+                        // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
+                        if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
+                            element = document.createElement('input');
+                            element.setAttribute('type', 'hidden');
+                            element.setAttribute('name', name);
+                            element.setAttribute('value', child.value);
+                            this.appendChild(element);
+                        }
+                    }.bind(this));
+                },
+            });
+        </script>
+    </polymer-element>
+
+
+
+</body>
+
+</html>

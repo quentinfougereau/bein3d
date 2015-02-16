@@ -1,0 +1,57 @@
+body {
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+}
+
+core-toolbar {
+    background-color: #2196F3;
+    color:whitesmoke;
+
+}
+
+paper-tab{
+    font-size:20px;
+}
+
+#inscription-button{
+    color:whitesmoke;
+}
+#search-mainpage-input{
+    color:whitesmoke;
+}
+
+#left-menu{
+    background-color:#E3F2FD;
+}
+
+core-drawer-panel:not([narrow]) #navicon{
+    display:none;
+}
+
+#sous-menu{
+    white-space: nowrap;
+}
+
+#sous-menu paper-button{
+    font-size:19px;
+}
+
+div{
+    text-align:center;
+}
+div#contenu {
+    width:600px;
+    height:400px;
+    background-color:#FFCC00;
+}
+
+.hide{
+    display: none;
+}
+#produit{
+    width : 50px;
+    height:70px;
+    background-color: red;
+    margin-top: 20px;
+    margin-left : 20px;
+}
+
