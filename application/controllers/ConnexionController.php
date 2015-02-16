@@ -25,7 +25,7 @@ class ConnexionController extends Zend_Controller_Action {
                 exit();
             };
         }
-                   $this->render('noConnexion');
+                   $this->render('no-connexion');
     }
   
 
