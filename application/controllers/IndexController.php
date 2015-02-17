@@ -16,7 +16,7 @@ class IndexController extends Zend_Controller_Action
     }
     public function formAction(){
      
-        $this->view->login= $_POST['Login'];
+        $this->view->login= $_POST['login'];
         $this->view->mdp=$_POST['mdp'];
         
                 $this->render('form');

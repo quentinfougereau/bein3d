@@ -4,18 +4,25 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/index/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/public/components/core-icons/core-icons.html</file>
             <file>file:/C:/wamp/www/bein3d/public/style/CSS.css</file>
             <file>file:/C:/wamp/www/bein3d/public/components/core-icon-button/core-icon-button.html</file>
 =======
 <<<<<<< HEAD
+>>>>>>> 120c098d07d55faef53535d0e34cd4bd29d3d6e1
             <file>file:/C:/wamp/www/git/bein3d/public/components/paper-hidden-bar/paper-hidden-bar.css</file>
+            <file>file:/C:/wamp/www/git/bein3d/public/components/core-form-connexion/core-form-connexion.html</file>
             <file>file:/C:/wamp/www/git/bein3d/application/views/scripts/index/index.phtml</file>
             <file>file:/C:/wamp/www/git/bein3d/application/views/scripts/index/form.phtml</file>
+            <file>file:/C:/wamp/www/git/bein3d/public/components/core-form-inscription/core-form-inscription.html</file>
             <file>file:/C:/wamp/www/git/bein3d/public/components/paper-hidden-bar/paper-hidden-bar.html</file>
             <file>file:/C:/wamp/www/git/bein3d/public/components/core-header-panel/core-header-panel.html</file>
             <file>file:/C:/wamp/www/git/bein3d/public/components/core-header-panel/core-header-panel.css</file>
+<<<<<<< HEAD
+=======
 =======
             <file>file:/C:/wamp/www/Git/bein3d/bein3d/public/style/CSS.css</file>
             <file>file:/C:/wamp/www/Git/bein3d/bein3d/public/components/core-form-connexion/core-form-connexion.html</file>
@@ -23,6 +30,7 @@
             <file>file:/C:/wamp/www/Git/bein3d/bein3d/public/components/core-form-inscription/core-form-inscription.html</file>
 >>>>>>> 7011058cdeca4925edcd8e7b058d4793750941fe
 >>>>>>> 72aef518fdd518c33b470bc6b4d29fdf4eefb862
+>>>>>>> 120c098d07d55faef53535d0e34cd4bd29d3d6e1
         </group>
     </open-files>
 </project-private>

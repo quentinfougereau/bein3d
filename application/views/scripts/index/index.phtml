@@ -35,6 +35,8 @@
               href="../public/components/paper-dialog/paper-dialog.html">
         <link rel="import"
               href="../public/components/paper-button/paper-button.html">
+        <link rel="import"
+              href="../public/components/core-pages/core-pages.html">
 
         <!-- NEW ELEMENTS -->
         <link rel="import"
@@ -110,15 +112,15 @@
     <core-drawer-panel  id="drawerPanel">
 
         <paper-hidden-bar></paper-hidden-bar>
-
+        <template is="auto-binding"> 
         <core-header-panel main >
             <core-toolbar class="medium-tall" id="barre2">
                 <!-- TOP TOOLBAR -->
                 <core-icon-button id="navicon" icon="menu" on-tap="{{menuAction}}"></core-icon-button>
-                <paper-tabs flex selected="{{selected}}">
-                    <paper-tab id="shop">SHOP</paper-tab>
-                    <paper-tab id="design">DESIGN</paper-tab>
-                    <paper-tab>SELL</paper-tab>
+                <paper-tabs flex selected="{{menu}}" valueattr="menu-cat">
+                    <paper-tab menu-cat="shop">SHOP</paper-tab>
+                    <paper-tab menu-cat="design">DESIGN</paper-tab>
+                    <paper-tab menu-cat="sell">SELL</paper-tab>
                 </paper-tabs>
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                 <paper-icon-button icon="search"></paper-icon-button>
@@ -133,7 +135,6 @@
 
                 <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
                 <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
-
 
                     <core-form-inscription>           
                     </core-form-inscription>
@@ -153,10 +154,10 @@
                 <!--</div>-->          
             </core-toolbar>
 
-
-            <!---DEBUT CONTENT-->
-            <!---SHOP CONTENT-->
-            <div id="shop-content" class="hide">
+            <core-pages selected="{{menu}}" valueattr="menu-cat">
+                <section menu-cat="shop">
+                    <h1>Shop</h1>
+                    <div id="shop-content" class="hide">
                 <table>
                     <tr> 
                         <?php
@@ -175,6 +176,23 @@
                     </tr>
                 </table>
             </div>
+                </section>
+                <section menu-cat="design">
+                    <h1>Design</h1>
+                </section>
+                <section menu-cat="sell">
+                    <h1>Sell</h1>
+                </section>
+            </core-pages>
+            
+            
+        </core-header-panel>
+        </template>
+
+
+            <!---DEBUT CONTENT-->
+            <!---SHOP CONTENT-->
+            
             <!---DESIGN CONTENT-->
             <div id="design-content" class="hide">
                 <center> ntm
@@ -304,53 +322,6 @@
 
 </html>
 <script type="text/javascript">
-    $("#shop").click(function () {
-        if (!$('#design-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#design-content').toggleClass("hide");
-        }
-        if (!$('#accueil-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#accueil-content').toggleClass("hide");
-        }
-        if ($('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
-        }
-        $('#shop-content').toggleClass("hide");
-
-
-
-    });
-    $("#design").click(function () {
-        if (!$('#shop-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#shop-content').toggleClass("hide");
-        }
-        if (!$('#accueil-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#accueil-content').toggleClass("hide");
-        }
-        if ($('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
-        }
-        $('#design-content').toggleClass("hide");
-
-
-
-    });
-    $("#accueil").click(function () {
-        if (!$('#shop-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#shop-content').toggleClass("hide");
-        }
-        if (!$('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
-        }
-        if (!$('#design-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#design-content').toggleClass("hide");
-        }
-        $('#accueil-content').toggleClass("hide");
-
-
-
-    });
-
-
 //
 //    function addName() {
 //        var recup = document.querySelectorAll("hello-john-doe")[0];
