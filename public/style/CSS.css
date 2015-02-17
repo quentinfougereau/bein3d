@@ -56,12 +56,12 @@ hr:after {  /* Not really supposed to work, but does */
     content: "\00a0";  /* Prevent margin collapse */
 }
 #grosbloc{
-   
-   height:250px;
+
+    height:250px;
 
 }
 #blockgauche{
- 
+
     position:relative;
     font-size:25px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
@@ -69,13 +69,13 @@ hr:after {  /* Not really supposed to work, but does */
     margin-right: 70%;
 }
 #blockdroite{
-   
+
     height : 150px;
     font-size:19px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
     color : LightSkyBlue;
-    
-   
+
+
 }
 #produit{
     width : 50px;
@@ -85,3 +85,44 @@ hr:after {  /* Not really supposed to work, but does */
     margin-left : 20px;
 }
 
+
+/* Style de la page du profil de l utilisateur connecte */
+
+.profil {
+    float: left;
+    margin: 10px;
+    width: 100%;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    margin: 10px;
+}
+
+.avatarUser {
+    display: -webkit-box;   
+    width: 25%;
+    margin-left: 90px;  
+}
+
+.profil-top {
+    display: -webkit-inline-box;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.collapse {
+    margin-left: 20px;
+    float: right;
+    position: relative;
+    width: 60%;
+}
+
+.head-collapse {
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    padding: 10px;
+}
