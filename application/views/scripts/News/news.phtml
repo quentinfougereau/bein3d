@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <title>news</title>
+        <!-- Load Polymer -->
+
+        <script
+            src="../public/js/news.js">
+        </script>
+
+        <!-- STYLESHEETS -->
+
+        <link rel="stylesheet" href="style/shadow-dom.css" type="text/css">
+        <!-- FONTS -->
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
+
+    </head>
+    <body fullbleed vertical layout unresolved>
+        <?php
+        if($this->news!=null){
+           
+        $first = true;
+
+        foreach ($this->news as $news) {
+            if ($first) {
+                print '<script>setId(' . $news->id . ');</script>';
+                $first = false;
+            }
+            print '<li><span class="id">' . $news->id . '</span>' . $news->message . '</li>';
+        };
+        }
+        ?>
+    </body>
+
+</html>
