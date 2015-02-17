@@ -82,13 +82,33 @@ hr:after {  /* Not really supposed to work, but does */
 }
 #petitblock{
     position : relative;
-   float :right;
+    float :right;
     height : 100px;
     font-size:30px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
     color : LightSkyBlue;
     width : 550px;
    
+}
+#petitbloc1{
+    
+    position : relative;
+    padding-left: 500px;
+    padding-top:300px;
+    height : 1000px;
+    font-size:30px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    color : LightSkyBlue;
+}
+th{
+    background-color: #6495ED;
+    font-size: 35px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    color : white;
+}
+tr{
+    font-size: 23px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
 }
 #produit{
     width : 50px;
