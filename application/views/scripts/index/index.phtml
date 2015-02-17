@@ -37,6 +37,8 @@
               href="../public/components/paper-button/paper-button.html">
         <link rel="import"
               href="../public/components/core-pages/core-pages.html">
+        <link rel="import"
+              href="../public/components/paper-shadow/paper-shadow.html">
 
         <!-- NEW ELEMENTS -->
         <link rel="import"
@@ -103,9 +105,6 @@
         </style>
 
 
-
-
-
     </head>
     <body fullbleed vertical layout unresolved>
 
@@ -118,6 +117,7 @@
                 <!-- TOP TOOLBAR -->
                 <core-icon-button id="navicon" icon="menu" on-tap="{{menuAction}}"></core-icon-button>
                 <paper-tabs flex selected="{{menu}}" valueattr="menu-cat">
+                    <paper-tab menu-cat="home">HOME</paper-tab>
                     <paper-tab menu-cat="shop">SHOP</paper-tab>
                     <paper-tab menu-cat="design">DESIGN</paper-tab>
                     <paper-tab menu-cat="sell">SELL</paper-tab>
@@ -155,52 +155,8 @@
             </core-toolbar>
 
             <core-pages selected="{{menu}}" valueattr="menu-cat">
-                <section menu-cat="shop">
-                    <h1>Shop</h1>
-                    <div id="shop-content" class="hide">
-                <table>
-                    <tr> 
-                        <?php
-                        for ($i = 0; $i < 100; $i++) {
-                            
-                        }
-                        foreach ($this->all as $produit) {
-                            echo "<td>";
-                            echo "<div id='produit'>$produit->Nom</div>";
-                            echo "</td>";
-                            echo "<td>";
-                            echo $produit->PrixUnitaire;
-                            echo "</td>";
-                        }
-                        ?>
-                    </tr>
-                </table>
-            </div>
-                </section>
-                <section menu-cat="design">
-                    <h1>Design</h1>
-                </section>
-                <section menu-cat="sell">
-                    <h1>Sell</h1>
-                </section>
-            </core-pages>
-            
-            
-        </core-header-panel>
-        </template>
-
-
-            <!---DEBUT CONTENT-->
-            <!---SHOP CONTENT-->
-            
-            <!---DESIGN CONTENT-->
-            <div id="design-content" class="hide">
-                <center> ntm
-                </center>
-
-            </div>
-            <!---ACCUEIL CONTENT-->
-            <div id="accueil-content" >
+                <section menu-cat="home">
+                    <div id="accueil-content" >
                 <div id="grosbloc" fullbleed>accueil</div>
                 <hr/>
                 <div id="grosbloc" fullbleed>
@@ -261,19 +217,48 @@
                 </div>
                 
 
-                <div id="footer">
-                    <table id="contact"  >
-                        <tr>
-                            <td>Be in 3D <br/> 145 AVENUE DES CHAMPS ELYSEES <br/> 75008 PARIS CEDEX<BR/> Tel : 01.45.56.25.33 <br/> Fax : 01.45.56.55.58</td>
-                            <td><paper-input id="contact-champs" label="Name" ></paper-input> <paper-input id="contact-champs" class="floated-label" label="Message"></paper-input>
-                                <paper-input id="contact-champs" label="Email"></paper-input>
-                                <paper-input id="contact-champs" label="Subject"></paper-input></td>
-                            <td></td>
-                        </tr>
-                    </table>
+                    <div id="footer">
+                        <table id="contact"  >
+                            <tr>
+                                <td>Be in 3D <br/> 145 AVENUE DES CHAMPS ELYSEES <br/> 75008 PARIS CEDEX<BR/> Tel : 01.45.56.25.33 <br/> Fax : 01.45.56.55.58</td>
+                                <td><paper-input id="contact-champs" label="Name" ></paper-input> <paper-input id="contact-champs" class="floated-label" label="Message"></paper-input>
+                                    <paper-input id="contact-champs" label="Email"></paper-input>
+                                    <paper-input id="contact-champs" label="Subject"></paper-input></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-            </div>
+                </section>
+                <section menu-cat="shop">
+                    <h1>Shop</h1>
+                    <center><table class="catalogue" cellspacing="30">
+                        <tr>
+                            <?php
+                            foreach ($this->lesProduits as $produit) {
+                                echo "<td class='produit-catalogue'><paper-shadow z='1'>";                                    
+                                echo "<img src='../public/image/produits/$produit->image'>";
+                                echo "<h4>$produit->nom</h4>";
+                                //echo "<p class='nom'>";
+                                echo "<span flex><p>$produit->prixunitaire</p>";
+                                echo "<paper-button>LIKE</paper-button>";
+                                echo "</paper-shadow></td>";
+                            }
+                            ?>
+                        </tr>
+                        </table></center>
+                        
+                </section>
+                <section menu-cat="design">
+                    <h1>Design</h1>
+                </section>
+                <section menu-cat="sell">
+                    <h1>Sell</h1>
+                </section>
+            </core-pages>
+          
         </core-header-panel>
+        </template>
 
     </core-drawer-panel>
 
