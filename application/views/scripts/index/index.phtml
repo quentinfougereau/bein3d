@@ -157,6 +157,25 @@
             <core-pages selected="{{menu}}" valueattr="menu-cat">
                 <section menu-cat="shop">
                     <h1>Shop</h1>
+                    <div id="shop-content" class="hide">
+                <table>
+                    <tr> 
+                        <?php
+                        for ($i = 0; $i < 100; $i++) {
+                            
+                        }
+                        foreach ($this->all as $produit) {
+                            echo "<td>";
+                            echo "<div id='produit'>$produit->Nom</div>";
+                            echo "</td>";
+                            echo "<td>";
+                            echo $produit->PrixUnitaire;
+                            echo "</td>";
+                        }
+                        ?>
+                    </tr>
+                </table>
+            </div>
                 </section>
                 <section menu-cat="design">
                     <h1>Design</h1>
@@ -169,46 +188,133 @@
             
         </core-header-panel>
         </template>
+
+
+            <!---DEBUT CONTENT-->
+            <!---SHOP CONTENT-->
+            
+            <!---DESIGN CONTENT-->
+            <div id="design-content" class="hide">
+                <center> ntm
+                </center>
+
+            </div>
+            <!---ACCUEIL CONTENT-->
+            <div id="accueil-content" >
+                <div id="grosbloc" fullbleed>accueil</div>
+                <hr/>
+                <div id="grosbloc" fullbleed>
+                    <div id="blockgauche">
+                        <h2>3D CONCEPT ! </h2>
+                        Vous voulez créer votre propre fichier 3D ?
+                        <br/>
+                        Vendre vos propres modèles ?
+                        <br/>
+                        <p> Grace à l'impression 3D, vous pouvez laisser libre court à votre imagination et concevoir un produit dans ses mondres détails.</p>
+                    </div>
+                    <div id="blockdroite">
+                        <img src='../public/image/Image1.PNG'>
+                        <br/>
+                        Laissez parler l'artiste 3D qui est en vous ! &nbsp; Découvrer 3D Concept !<core-icon-button icon="add-circle" tittle="add"></core-icon-button>
+                    </div>
+                </div>
+                <hr/>
+                <div id="grosblock" fullbleed>
+                    <center><h2>Avec l'impression 3D c'est vous la star ! </h2></center>
+                    <div id='petitblock'>
+                        <img src='../public/image/Image2.PNG'>
+                        <br/>
+                        Des masques 3D à votre image...ou celle des autres !
+                        <br/>
+                        Créer le votre! <core-icon-button icon='add-circle'></core-icon-button>
+                    </div>
+                    <div id='petitblock'>
+                        <img src='../public/image/Image3.PNG'>
+                        <br/>
+                        Des figurines 3D à partir de votre photo 2D ! 
+                    </div>
+                </div>
+
+                <div id='petitbloc1'>
+
+                    <table>
+                        <th>DE JOLIE PUZZLE 3D A IMPRIMER !</th>
+                        <tr><td><img src='../public/image/Image4.PNG'></td></tr>
+                        <tr><td>De 5 à 185 pièces, une centaines de combinaisons de couleurs </td></tr>
+                        <tr><td>possibles pour un prix plancher de 15€ par puzzle, Créer le votre <core-icon-button icon="add-circle"></core-icon-button> </td></tr>
+
+                    </table>
+                    <table id="top">
+                        <th>TOP DU MOIS!</th>
+                        <tr></tr>
+                        <tr><td><center>VISITER NOTRE BOUTIQUE</center></td></tr>
+                        <tr><td><img src='../public/image/images5.PNG'></td></tr>
+
+                    </table>
+                    <table id="bot">
+                        <th>AVIS AUX COLLECTIONNEURS !</th>
+                        <tr><td>Fan de mangas,figurines héroic fantasy,monstres,voitures,avions ...</td></tr>
+                         <tr><td>Quelques soient vos envies nous les réalisons...</td></tr>
+                        <tr><td><img src='../public/image/image6.PNG'></td></tr>
+
+                    </table>
+                </div>
+                
+
+                <div id="footer">
+                    <table id="contact"  >
+                        <tr>
+                            <td>Be in 3D <br/> 145 AVENUE DES CHAMPS ELYSEES <br/> 75008 PARIS CEDEX<BR/> Tel : 01.45.56.25.33 <br/> Fax : 01.45.56.55.58</td>
+                            <td><paper-input id="contact-champs" label="Name" ></paper-input> <paper-input id="contact-champs" class="floated-label" label="Message"></paper-input>
+                                <paper-input id="contact-champs" label="Email"></paper-input>
+                                <paper-input id="contact-champs" label="Subject"></paper-input></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </core-header-panel>
+
     </core-drawer-panel>
 
-<polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
-    <script>
-        Polymer('component-form', {
-            handleClick: function (event, detail, sender) {
-                if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
-                    this.prepareSubmit();
-                    this.submit();
-                }
-                if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
-
-                    this.form.reset();
-                }
-
-            },
-            prepareSubmit: function () {
-                Array.prototype.forEach.call(this.children, function (child) {
-                    var name = child.getAttribute('name');
-                    // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
-                    if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
-                        element = document.createElement('input');
-                        element.setAttribute('type', 'hidden');
-                        element.setAttribute('name', name);
-                        element.setAttribute('value', child.value);
-                        this.appendChild(element);
+    <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
+        <script>
+            Polymer('component-form', {
+                handleClick: function (event, detail, sender) {
+                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
+                        this.prepareSubmit();
+                        this.submit();
                     }
-                }.bind(this));
-            },
-        });
-        
-        document.addEventListener('polymer-ready', function(){
-    var navicon=document.getElementById('navicon');
-    var drawerPanel=document.getElementById('drawerPanel');
-    navicon.addEventListener('click',function(){
-        drawerPanel.togglePanel();
-    })
-})
-    </script>
-</polymer-element>
+                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
+
+                        this.form.reset();
+                    }
+
+                },
+                prepareSubmit: function () {
+                    Array.prototype.forEach.call(this.children, function (child) {
+                        var name = child.getAttribute('name');
+                        // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
+                        if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
+                            element = document.createElement('input');
+                            element.setAttribute('type', 'hidden');
+                            element.setAttribute('name', name);
+                            element.setAttribute('value', child.value);
+                            this.appendChild(element);
+                        }
+                    }.bind(this));
+                },
+            });
+
+            document.addEventListener('polymer-ready', function () {
+                var navicon = document.getElementById('navicon');
+                var drawerPanel = document.getElementById('drawerPanel');
+                navicon.addEventListener('click', function () {
+                    drawerPanel.togglePanel();
+                })
+            })
+        </script>
+    </polymer-element>
 
 
 
