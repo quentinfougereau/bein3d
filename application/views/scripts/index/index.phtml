@@ -40,7 +40,9 @@
         <link rel="import"
               href="../public/components/core-form-inscription/core-form-inscription.html">     
         <link rel="import"
-              href="../public/components/core-form-connexion/core-form-connexion.html">  
+              href="../public/components/core-form-connexion/core-form-connexion.html">
+        <link rel="import"
+              href="../public/components/paper-hidden-bar/paper-hidden-bar.html">
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="style/CSS.css" type="text/css">
@@ -107,14 +109,7 @@
 
     <core-drawer-panel  id="drawerPanel">
 
-        <core-header-panel  drawer vertical layout id="left-menu">
-            <core-toolbar class="medium-tall" id="barre" ><div style='cursor:pointer' id="accueil"><h2>BEin3D</h2></div></core-toolbar>
-            <core-menu><!--
-                -->                <core-item label="Shop"></core-item>
-                <core-item label="Design"></core-item>
-                <core-item label="Sell"></core-item><!--
-                -->            </core-menu>
-        </core-header-panel>
+        <paper-hidden-bar></paper-hidden-bar>
 
         <core-header-panel main >
             <core-toolbar class="medium-tall" id="barre2">
@@ -159,7 +154,8 @@
             </core-toolbar>
 
 
-
+            <!---DEBUT CONTENT-->
+            <!---SHOP CONTENT-->
             <div id="shop-content" class="hide">
                 <table>
                     <tr> 
@@ -179,11 +175,13 @@
                     </tr>
                 </table>
             </div>
+            <!---DESIGN CONTENT-->
             <div id="design-content" class="hide">
                 <center> ntm
                 </center>
 
             </div>
+            <!---ACCUEIL CONTENT-->
             <div id="accueil-content" >
                 <div id="grosbloc" fullbleed>accueil</div>
                 <hr/>
@@ -211,7 +209,6 @@
                         Des masques 3D à votre image...ou celle des autres !
                         <br/>
                         Créer le votre! <core-icon-button icon='add-circle'></core-icon-button>
-
                     </div>
                     <div id='petitblock'>
                         <img src='../public/image/Image3.PNG'>
@@ -221,66 +218,85 @@
                 </div>
 
                 <div id='petitbloc1'>
-                    
+
                     <table>
                         <th>DE JOLIE PUZZLE 3D A IMPRIMER !</th>
                         <tr><td><img src='../public/image/Image4.PNG'></td></tr>
                         <tr><td>De 5 à 185 pièces, une centaines de combinaisons de couleurs </td></tr>
-                       <tr><td>possibles pour un prix plancher de 15€ par puzzle, Créer le votre <core-icon-button icon="add-circle"></core-icon-button> </td></tr>
-                        
+                        <tr><td>possibles pour un prix plancher de 15€ par puzzle, Créer le votre <core-icon-button icon="add-circle"></core-icon-button> </td></tr>
+
                     </table>
-                    <table>
-                        <th>LE BLOG ! ;)</th>
+                    <table id="top">
+                        <th>TOP DU MOIS!</th>
                         <tr></tr>
-                        <tr><td>De 5 à 185 pièces, une centaines de combinaisons de couleurs </td></tr>
-                       <tr><td>possibles pour un prix plancher de 15€ par puzzle, Créer le votre <core-icon-button icon="add-circle"></core-icon-button> </td></tr>
-                        
+                        <tr><td><center>VISITER NOTRE BOUTIQUE</center></td></tr>
+                        <tr><td><img src='../public/image/images5.PNG'></td></tr>
+
+                    </table>
+                    <table id="bot">
+                        <th>AVIS AUX COLLECTIONNEURS !</th>
+                        <tr><td>Fan de mangas,figurines héroic fantasy,monstres,voitures,avions ...</td></tr>
+                         <tr><td>Quelques soient vos envies nous les réalisons...</td></tr>
+                        <tr><td><img src='../public/image/image6.PNG'></td></tr>
+
                     </table>
                 </div>
                 
-                    
-                    
-                
 
-
-
+                <div id="footer">
+                    <table id="contact"  >
+                        <tr>
+                            <td>Be in 3D <br/> 145 AVENUE DES CHAMPS ELYSEES <br/> 75008 PARIS CEDEX<BR/> Tel : 01.45.56.25.33 <br/> Fax : 01.45.56.55.58</td>
+                            <td><paper-input id="contact-champs" label="Name" ></paper-input> <paper-input id="contact-champs" class="floated-label" label="Message"></paper-input>
+                                <paper-input id="contact-champs" label="Email"></paper-input>
+                                <paper-input id="contact-champs" label="Subject"></paper-input></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </core-header-panel>
 
     </core-drawer-panel>
 
-
-</core-header-panel>
-<polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
-    <script>
-        Polymer('component-form', {
-            handleClick: function (event, detail, sender) {
-                if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
-                    this.prepareSubmit();
-                    this.submit();
-                }
-                if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
-
-                    this.form.reset();
-                }
-
-            },
-            prepareSubmit: function () {
-                Array.prototype.forEach.call(this.children, function (child) {
-                    var name = child.getAttribute('name');
-                    // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
-                    if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
-                        element = document.createElement('input');
-                        element.setAttribute('type', 'hidden');
-                        element.setAttribute('name', name);
-                        element.setAttribute('value', child.value);
-                        this.appendChild(element);
+    <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
+        <script>
+            Polymer('component-form', {
+                handleClick: function (event, detail, sender) {
+                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
+                        this.prepareSubmit();
+                        this.submit();
                     }
-                }.bind(this));
-            },
-        });
-    </script>
-</polymer-element>
+                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
+
+                        this.form.reset();
+                    }
+
+                },
+                prepareSubmit: function () {
+                    Array.prototype.forEach.call(this.children, function (child) {
+                        var name = child.getAttribute('name');
+                        // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
+                        if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
+                            element = document.createElement('input');
+                            element.setAttribute('type', 'hidden');
+                            element.setAttribute('name', name);
+                            element.setAttribute('value', child.value);
+                            this.appendChild(element);
+                        }
+                    }.bind(this));
+                },
+            });
+
+            document.addEventListener('polymer-ready', function () {
+                var navicon = document.getElementById('navicon');
+                var drawerPanel = document.getElementById('drawerPanel');
+                navicon.addEventListener('click', function () {
+                    drawerPanel.togglePanel();
+                })
+            })
+        </script>
+    </polymer-element>
 
 
 

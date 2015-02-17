@@ -32,7 +32,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 #dropShadow {
-  position: absolute;
+  position: absolute;;
   top: 0;
   left: 0;
   right: 0;
