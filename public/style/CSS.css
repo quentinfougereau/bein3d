@@ -161,3 +161,32 @@ tr{
 #contact-champs{
    color:white;
 }
+
+//boutique liste produit
+
+.catalogue{
+    text-align:center;
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+.catalogue tr td{
+    padding:15px;
+}
+
+.produit-catalogue{
+    width:200px;
+    height:300px;
+}
+
+.produit-catalogue h4{
+    text-align:center;
+    font-weight:normal;
+    text-decoration:underline;
+}
+
+.produit-catalogue img{
+    width:200px;
+    height:200px;
+    border-radius:2px;
+}

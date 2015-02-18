@@ -11,7 +11,7 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
        $p= new Produit();
-       $this->view->all=$p->fetchall();
+       $this->view->lesProduits=$p->fetchall();
         // action body
     }
     public function formAction(){

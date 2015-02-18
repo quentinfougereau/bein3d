@@ -12,5 +12,9 @@
  * @author Pierre
  */
 class ProduitRow extends Zend_Db_Table_Row_Abstract{
-    //put your code here
+   
+
+    public function getMaker(){
+        
+    }
 }
