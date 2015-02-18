@@ -28,7 +28,7 @@ class ConnexionController extends Zend_Controller_Action {
             foreach ($all as $client) {
                 if ($client->login == $_POST['email'] && $client->motdepasse == $_POST['mdp']) {
                     $connect = 1;
-                    $this->view->Login=$client->Nom;
+                    $this->view->login=$client->nom;
                 }
             }
             if ($connect == 1) {
@@ -41,5 +41,7 @@ class ConnexionController extends Zend_Controller_Action {
         }
 
     }
+    
+    
 
 }

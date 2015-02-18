@@ -166,7 +166,6 @@ tr{
 
 .catalogue{
     text-align:center;
-    border-spacing: 10px;
     border-collapse: separate;
 }
 
@@ -180,13 +179,36 @@ tr{
 }
 
 .produit-catalogue h4{
+    position:relative;
+    bottom:10px;
+    font-family: 'Abel', sans-serif;
+    margin-bottom:10px;
     text-align:center;
     font-weight:normal;
     text-decoration:underline;
 }
 
 .produit-catalogue img{
-    width:200px;
-    height:200px;
+    width:270px;
+    height:250px;
     border-radius:2px;
+    box-shadow:3px 3px 3px #c3c3c3;
+}
+
+.produit-catalogue .prix-produit{
+    text-align:right;
+}
+
+.produit-catalogue paper-button{
+    color:white;
+    display:inline-block;
+    //width:10%;
+}
+
+.produit-catalogue .like{
+    background-color:#0D47A1;
+}
+
+.produit-catalogue .add-panier{
+    background-color:#4CAF50;
 }
