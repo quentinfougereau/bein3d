@@ -1,4 +1,5 @@
 <?php
+require_once '../application/models/News.php';
 require_once '../application/models/Produit.php';
 require_once '../application/models/Client.php';
 
@@ -15,12 +16,17 @@ class IndexController extends Zend_Controller_Action
        $p= new Produit();
        $c= new Client();
        $this->view->lesProduits=$p->fetchall();
+<<<<<<< HEAD
        $tab=array();
        foreach ($p->fetchall() as $unproduit){
            $idclient=$unproduit->idmaker;
            $client=$c->unClient($idclient);
            $tab[$unproduit]=$client;
        }
+=======
+        $news = new News();
+        $this->view->news = $news->getLast5News();
+>>>>>>> e5f44ead1b0a4c6d9c89f95a12831957415cccab
         // action body
     }
     public function formAction(){

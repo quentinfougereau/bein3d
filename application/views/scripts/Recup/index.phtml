@@ -1,0 +1,11 @@
+<?php
+$first = true;
+foreach ($this->news as $news) {
+    if ($first) {
+        print '<script>setId(' . $news["id"] . ');</script>';
+        $first = false;
+    }
+    print '<li><span class="id">' . $news["id"] . '</span>' . $news["message"] . '</li>';
+}
+?>
+ 
