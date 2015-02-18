@@ -55,6 +55,16 @@ class News extends Zend_Db_Table_Abstract {
         $news = News::$db->fetchall($sql);
         return $news;
     }
+    public function getLast5News() {
+       
+        
+        $sql = News::$db->select();
+        $sql->from('news')
+           ->order('id DESC')
+            ->limit(10);
+        $news = News::$db->fetchall($sql);
+        return $news;
+    }
     
 
 }

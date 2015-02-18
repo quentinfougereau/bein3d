@@ -1,4 +1,5 @@
 <?php
+require_once '../application/models/News.php';
 require_once '../application/models/Produit.php';
 class IndexController extends Zend_Controller_Action
 {
@@ -12,6 +13,8 @@ class IndexController extends Zend_Controller_Action
     {
        $p= new Produit();
        $this->view->lesProduits=$p->fetchall();
+        $news = new News();
+        $this->view->news = $news->getLast5News();
         // action body
     }
     public function formAction(){
