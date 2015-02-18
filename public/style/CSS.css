@@ -125,4 +125,8 @@ hr:after {  /* Not really supposed to work, but does */
     background-color: #ecf0f1;
     border-radius: 5px;
     padding: 10px;
+    cursor:pointer;
+}
+.core-form-personal-data{
+margin-left: 235px;
 }

@@ -38,12 +38,20 @@
         <link rel="import" 
               href="../components/core-collapse/core-collapse.html">
 
+        <link rel="import" 
+              href="../components/core-collapse/core-collapse.html">
+        <link rel="import" href="../components/paper-radio-group/paper-radio-group.html">
+        <link rel="import" href="../components/paper-radio-button/paper-radio-button.html">
+
+
 
         <!-- NEW ELEMENTS -->
         <link rel="import"
               href="../components/core-form-inscription/core-form-inscription.html">     
         <link rel="import"
-              href="../components/core-form-connexion/core-form-connexion.html">  
+              href="../components/core-form-connexion/core-form-connexion.html">
+        <link rel="import"
+              href="../components/core-form-personal-data/core-form-personal-data.html"> 
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="../style/CSS.css" type="text/css">
@@ -164,7 +172,13 @@
                     <div class="collapse">
                         <div class="head-collapse" onclick="document.querySelector('#collapse').toggle();">Information personnelles</div>
                         <core-collapse id="collapse">
-                            blablablablablabla
+                            <p>lool</p>
+                            <p><?php var_dump($this->name); ?></p>
+                            <p><?php var_dump($this->sexe); ?></p>
+                            <p><?php var_dump($this->error); ?></p>
+                            <div class="core-form-personal-data">
+                                <core-form-personal-data></core-form-personal-data>
+                            </div>
                         </core-collapse>
                     </div>
                 </div>
@@ -195,37 +209,54 @@
     </core-drawer-panel>
 
 
-</core-header-panel>
-<polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
-    <script>
-        Polymer('component-form', {
-            handleClick: function (event, detail, sender) {
-                if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
-                    this.prepareSubmit();
-                    this.submit();
-                }
-                if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
 
-                    this.form.reset();
-                }
+    <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
 
-            },
-            prepareSubmit: function () {
-                Array.prototype.forEach.call(this.children, function (child) {
-                    var name = child.getAttribute('name');
-                    // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
-                    if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
-                        element = document.createElement('input');
-                        element.setAttribute('type', 'hidden');
-                        element.setAttribute('name', name);
-                        element.setAttribute('value', child.value);
-                        this.appendChild(element);
+        <script>
+            Polymer('component-form', {
+                handleClick: function (event, detail, sender) {
+                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
+                        this.prepareSubmit();
+                        this.submit();
                     }
-                }.bind(this));
-            },
-        });
-    </script>
-</polymer-element>
+                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
+
+                        this.form.reset();
+                    }
+
+                },
+                prepareSubmit: function () {
+                    var femme = $('#femme').val();
+                    var homme = $('#homme').val();
+                    if (femme === '' || homme === '') {
+                        alert('les champs doivent être remplis');
+                    } else {
+                        $.ajax({
+                            url: $this.attr('Profil'),
+                            type: $this.attr('post'),
+                            data: $this.serialize(),
+                            success: function(html) {
+                                alert(html);
+                            }
+                            
+                        })
+                    };
+                    Array.prototype.forEach.call(this.children, function (child) {
+                        var name = child.getAttribute('name');
+                        console.log(name);
+                        // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
+                        if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
+                            element = document.createElement('input');
+                            element.setAttribute('type', 'hidden');
+                            element.setAttribute('name', name);
+                            element.setAttribute('value', child.value);
+                            this.appendChild(element);
+                        }
+                    }.bind(this));
+                },
+            });
+        </script>
+    </polymer-element>
 
 
 
@@ -273,19 +304,16 @@
 
 
     function recupinfo() {
-        var login = document.querySelectorAll("paper-input")[1];
+        var name = document.querySelectorAll("paper-input")[1];
         document.getElementById('affiche').innerHTML = login.inputValue;
 
-        var mdp = document.querySelectorAll("paper-input")[2];
-
-
-        var Cmdp = document.querySelectorAll("paper-input")[3];
-        if (mdp != Cmdp) {
-            document.getElementById('affiche').innerHTML = "Veuillez confirmez votre mot de passe."
+        var fname = document.querySelectorAll("paper-input")[2];
+        if (fname === null) {
+            console.log(fname);
+            document.getElementById('affiche').innerHTML = "Les champs doivent etre rempli !"
         }
 
-        var email = document.querySelectorAll("paper-input")[4];
-        document.getElementById('affiche').innerHTML = login.inputValue;
+        var adress = document.querySelectorAll("paper-input")[3];
     }
     var scope = document.querySelector('template[is=auto-binding]');
 

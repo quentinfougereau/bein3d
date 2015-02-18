@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/bein3d/application/models/Client.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/connexion/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/public/components/core-form-connexion/core-form-connexion.html</file>
-            <file>file:/C:/wamp/www/bein3d/application/models/ClientRow.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/ConnexionController.php</file>
+            <file>file:/var/www/html/bein3d/public/style/CSS.css</file>
+            <file>file:/var/www/html/bein3d/application/configs/application.ini</file>
+            <file>file:/var/www/html/bein3d/application/views/scripts/index/index.phtml</file>
+            <file>file:/var/www/html/bein3d/application/views/scripts/profil/index.phtml</file>
+            <file>file:/var/www/html/bein3d/application/models/ClientRow.php</file>
+            <file>file:/var/www/html/bein3d/application/controllers/ConnexionController.php</file>
+            <file>file:/var/www/html/bein3d/application/views/scripts/connexion/index.phtml</file>
+            <file>file:/var/www/html/bein3d/application/models/Client.php</file>
+            <file>file:/var/www/html/bein3d/application/views/scripts/connexion/connect.phtml</file>
         </group>
     </open-files>
 </project-private>
