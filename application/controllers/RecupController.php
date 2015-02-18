@@ -13,15 +13,23 @@
  */
 require_once '../application/models/News.php';
 
-class NewsController extends Zend_Controller_Action {
+class RecupController extends Zend_Controller_Action {
 
     //put your code here
     public function indexAction() {
         $news = new News();
-        $this->view->news = $news->getNews();
-        
+        if (!isset($_GET['id'])) {
+            
+            $this->view->news = $news->getNews();
+        } else {
+          
+            ini_set('error_reporting', E_STRICT);
+            $this->view->news =$news->getLastNews($_GET['id']);
+            
+        }
+     
     }
 
-  
+   
 
 }

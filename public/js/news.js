@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function(){
-    setInterval(chargerNews,5000);
+    setInterval(chargerNews,10000);
 });
 var dernier_id;
 
@@ -14,9 +14,16 @@ function setId(id){
 }
 function chargerNews(){
     jQuery.ajax({
-        url: 'News?id='+dernier_id,
+        url: 'Recup?id='+dernier_id,
         success: function(data){
-            $('#actus').prepend(data);
+           
+            if(data.length>1){
+                $(data).prependTo('#actus').hide().animate({'height':'toggle','opacity':'toggle'},2000);
+                $('#actus li:last-child').animate({'height':'toggle','opacity':'toggle'},2000,function(){
+                    $(this).remove();
+                });
+            }
+            
         }
     })
 }
