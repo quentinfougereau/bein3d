@@ -43,18 +43,48 @@
                 </paper-dialog><!--
                 <!-- BOTTOM TOOLBAR -->
 
-                <!--<div class="bottom" id="sous-menu"> -->
-                <!--                <div id="shop-content1" >-->
-                <paper-tabs  id="shop-content1" class="hide bottom" flex selected="{{selected}}">
-                    <paper-tab>+POPULAIRES</paper-tab>
-                    <paper-tab>NOUVEAUTES</paper-tab>
-                    <paper-tab>ART</paper-tab>
-                    <paper-tab>MEILLEURS MAKERS</paper-tab>
-                    <paper-tab>CONCOURS</paper-tab>
-                </paper-tabs>                
+                <core-pages class="bottom" selected="{{menu}}" valueattr="menu-cat" fullbleed>
+                    
+                        <paper-tabs  menu-cat="home" flex selected="{{}}">                            
+                            <paper-tab>ART</paper-tab>
+                            <paper-tab>MEILLEURS MAKERS</paper-tab>
+                            <paper-tab>CONCOURS</paper-tab>
+                        </paper-tabs>
+                    
+                    
+                    <paper-button label="ok" menu-cat="shop"></paper-button>
+                    
+                        <core-item menu-cat="design">
+                            <paper-tabs  flex selected="{{}}">                            
+                            <paper-tab>ART</paper-tab>
+                            <paper-tab>MEILLEURS MAKERS</paper-tab>
+                            <paper-tab>CONCOURS</paper-tab>
+                        </paper-tabs>
+                            <paper-button label="ok"></paper-button>
+                            <paper-button label="ok"></paper-button>
+                        </core-item>
+                    <core-item menu-cat="design">
+                            <a href="../public/" target="_self">CHOIX2</a>
+                        </core-item>
+                    </div>
+                    
+                </core-pages>
+                                
                 <!--</div>-->          
             </core-toolbar>
-
+            
+            <core-pages selected="{{menu}}" valueattr="menu-cat">
+                <paper-tabs  menu-cat="home" flex selected="{{0}}">                            
+                    <paper-tab href="../">ART</paper-tab>
+                            <paper-tab>MEILLEURS MAKERS</paper-tab>
+                            <paper-tab>CONCOURS</paper-tab>
+                        </paper-tabs>
+                <paper-tabs  menu-cat="shop" flex selected="{{0}}">                            
+                            <paper-tab>NOUVEAUTES</paper-tab>
+                            <paper-tab>MEILLEURS MAKERS</paper-tab>
+                            <paper-tab>LOTO 3D</paper-tab>
+                        </paper-tabs>
+            </core-pages>
             <core-pages selected="{{menu}}" valueattr="menu-cat">
                 <section menu-cat="home">
                     <div id="accueil-content" >
@@ -145,7 +175,8 @@
                             <?php
                             $cmp=1;
                             foreach ($this->lesProduits as $produit) {
-                                echo "<td class='produit-catalogue'><paper-shadow z='1' animated>";                                    
+                                echo "<td class='produit-catalogue'>"
+                                . "<paper-shadow z='1' animated>";                                    
                                 echo "<img src='../public/image/produits/$produit->image'>";
                                 echo "<h4>$produit->nom</h4>";
                                 //echo "<p class='nom'>";
@@ -208,13 +239,6 @@
                 },
             });
 
-            document.addEventListener('polymer-ready', function () {
-                var navicon = document.getElementById('navicon');
-                var drawerPanel = document.getElementById('drawerPanel');
-                navicon.addEventListener('click', function () {
-                    drawerPanel.togglePanel();
-                })
-            })
         </script>
     </polymer-element>
 

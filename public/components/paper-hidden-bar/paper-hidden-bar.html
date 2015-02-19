@@ -7,19 +7,33 @@ and open the template in the editor.
 
 <link rel="import" href="../core-toolbar/core-toolbar.html">
 <link rel="import" href="../core-menu/core-menu.html">
+<link rel="import" href="../core-menu/core-submenu.html">
 <link rel="import" href="../core-item/core-item.html">
+<link rel="import" href="../paper-ripple/paper-ripple.html">
 
-<polymer-element name="paper-hidden-bar" extends="core-header-panel" drawer fullbleed vertical layout id="left-menu" is="auto-binding">
+<polymer-element name="paper-hidden-bar" is="core-header-panel" drawer fullbleed vertical is="auto-binding">
     <template>
         <link rel="stylesheet" type="text/css" href="paper-hidden-bar.css">
             <core-toolbar class="medium-tall">
                 <h2 id="left-title"><a href="../../">BEin3D</a></h2>
             </core-toolbar>
-            <core-menu>
-                <core-item label="Shop"></core-item>
-                <core-item label="Design"></core-item>
-                <core-item label="Sell"></core-item>
+            <core-menu fullbleed flex>
+                <paper-shadow z="2"></paper-shadow>
+                <core-submenu icon="shop" label="Shop">
+                    <core-item label="La Boutique"><a href="../../"></a></core-item>
+                    <core-item label="Nouveautés"></core-item>
+                    <core-item label="Nos Makers"></core-item>
+                </core-submenu>
+                <core-submenu icon="rotation-3d" label="Design">
+                    <core-item label="Créer mon objet"></core-item>
+                    <core-item label="Topic 2"></core-item>
+                </core-submenu>
+                <core-submenu icon="payment" label="Sell">
+                    <core-item label="Mes Objets"></core-item>
+                    <core-item label="Mes Ventes"></core-item>
+                </core-submenu>
             </core-menu>
+        
         
     </template>
     <script>

@@ -5,51 +5,6 @@
             require '../public/requires/head-import.php';
         ?>
 
-        <style shim-shadowdom>
-
-
-            section {
-                padding: 20px 0;
-            }
-
-            section > div {
-                padding: 14px;
-                font-size: 16px;
-            }
-
-            button{
-                margin: 8px 4px;
-            }
-
-            html /deep/ [autofocus] {
-                color: #03a9f4;
-            }
-
-            html /deep/ .scrolling::shadow #scroller {
-                height: 350px;
-            }
-
-            html /deep/ .colored {
-                border: 1px solid #0f9d58;
-                background-color: #b7e1cd;
-                color: #0f9d58;
-            }
-
-            html /deep/ .size-position {
-                position: fixed;
-                top: 156px;
-
-                right: 150px;
-                left: 65%;
-            }
-
-            html /deep/ .size-position::shadow #scroller {
-                width: 300px;
-                height: 300px;
-            }
-
-        </style>
-
 
     </head>
     <body fullbleed vertical layout unresolved>
@@ -232,13 +187,7 @@
                 },
             });
 
-            document.addEventListener('polymer-ready', function () {
-                var navicon = document.getElementById('navicon');
-                var drawerPanel = document.getElementById('drawerPanel');
-                navicon.addEventListener('click', function () {
-                    drawerPanel.togglePanel();
-                })
-            })
+            
         </script>
     </polymer-element>
 

@@ -20,9 +20,6 @@ paper-tab{
     color:whitesmoke;
 }
 
-#left-menu{
-    background-color:#E3F2FD;
-}
 
 core-drawer-panel:not([narrow]) #navicon{
     display:none;
