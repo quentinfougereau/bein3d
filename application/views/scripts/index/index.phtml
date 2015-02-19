@@ -220,7 +220,7 @@
 
             },
             prepareSubmit: function () {
-                Array.prototype.forEach.call(this.children, function (child) {
+                Array.prototype.forEach.call(this.children, function (child) {                    
                     var name = child.getAttribute('name');
                     // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
                     if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
