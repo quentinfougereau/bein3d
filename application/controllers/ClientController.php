@@ -18,26 +18,24 @@ class ClientController extends Zend_Controller_Action {
     
     public function inscriptionAction(){
         
-//        $db = new Zend_Db_Adapter_Pdo_Mysql(array(
-//            'host'     => 'localhost',
-//            'username' => 'root',
-//            'password' => '',
-//            'dbname'   => 'projet0'
-//        ));
+        $this->view->acces='../../../';
+        
+
         
         $client=new Client();
         if ($_POST['typeform']=='inscription'){           
             $tab=array(
-                'Id'=> '',
+                //'Id'=> '',
                 'login' => $_POST['login'],
                 'motdepasse' => $_POST['mdp']
                 
             );
             $this->view->login=$_POST['login'];
             $client->inscription($tab);
-//            $db->query("insert into client values ('','null','null','".$_POST['login']."','".$_POST['mdp']."');");
         }
+
         
         $this->redirect('http://localhost/bein3d/public/');
+
     }
 }

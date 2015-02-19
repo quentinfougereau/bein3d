@@ -24,7 +24,5 @@ class Client extends Zend_Db_Table_Abstract {
         $this->insert($tabclient,'client');
     }
     
-//    public function unClient($id){
-//        return $this->select->where('Id='.$id);
-//    }
+
 }
