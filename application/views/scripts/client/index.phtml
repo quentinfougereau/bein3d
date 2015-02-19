@@ -6,9 +6,6 @@
         <script
             src="../public/components/platform/platform.js">
         </script>
-        <script
-            src="../public/js/news.js">
-        </script>
         <link rel="import"
               href="../public/components/core-toolbar/core-toolbar.html">
         <link rel="import"
@@ -130,22 +127,8 @@
                 </paper-tabs>
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                 <paper-icon-button icon="search"></paper-icon-button>
-                 <paper-icon-button icon="shopping-cart"><input type="hidden" id="panier" value="0"></paper-icon-button>
-                <template is="auto-binding">
-                    <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
-                    <paper-dialog heading="Connexion" class="size-position">
-                        <core-form-connexion>           
-                        </core-form-connexion> 
-                    </paper-dialog>
-                </template>
 
-                <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
-                <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
-
-                    <core-form-inscription>           
-                    </core-form-inscription>
-
-                </paper-dialog><!--
+                <paper-button><?php echo $this->login ?></paper-button>
                 <!-- BOTTOM TOOLBAR -->
 
                 <!--<div class="bottom" id="sous-menu"> -->
@@ -213,7 +196,6 @@
                         <tr><td><img src='../public/image/images5.PNG'></td></tr>
 
                     </table>
-                    
                     <table id="bot">
                         <th>AVIS AUX COLLECTIONNEURS !</th>
                         <tr><td>Fan de mangas,figurines héroic fantasy,monstres,voitures,avions ...</td></tr>
@@ -222,12 +204,6 @@
 
                     </table>
                 </div>
-                <div id="gauche">
-                        <h1>Mes Actus</h1>
-                         <ul id="actus">
-                         <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Recup\index.phtml'; ?>
-                             </ul>
-                    </div>
                 
 
                     <div id="footer">
@@ -248,9 +224,7 @@
                     <center><table class="catalogue" cellspacing="60">
                         <tr>
                             <?php
-                              $cmp=1;
-                            $nbproduit=new Zend_Session_Namespace('nbproduit');
-                            $nbproduit->array=array();
+                            $cmp=1;
                             foreach ($this->lesProduits as $produit) {
                                 echo "<td class='produit-catalogue'><paper-shadow z='1'>";                                    
                                 echo "<img src='../public/image/produits/$produit->image'>";
@@ -259,18 +233,15 @@
                                 echo "<span flex><p class='prix-produit'>$produit->prixunitaire €</p>";
                                 echo "<paper-button raised role='button' class='like'>"
                                 . "<core-icon icon='add'></core-icon></paper-button>";
-                                echo "<paper-button raised role='button' class='add-panier' onclick='addpanier()'>"
-                                . "<core-icon icon='add-shopping-cart' ></core-icon></paper-button>";
+                                echo "<paper-button raised role='button' class='add-panier'>"
+                                . "<core-icon icon='add-shopping-cart'></core-icon></paper-button>";
                                 echo "</paper-shadow></td>";
                                 $cmp++;
                                 if($cmp>3){
                                     $cmp=0;
                                     echo"</tr><tr>";
                                 }
-                               array_push ($nbproduit->array,$produit->nom,$produit->prixunitaire);
-                                 
                             }
-                            var_dump($nbproduit->array);
                             ?>
                         </tr>
                         </table></center>
@@ -347,9 +318,20 @@
     ;
 
 
-   function addpanier() {
-         var nbproduit=document.getElementById('nbproduit').value;
-        document.getElementById('panier').innerHTML = nbproduit+1;
+    function recupinfo() {
+        var login = document.querySelectorAll("paper-input")[1];
+        document.getElementById('affiche').innerHTML = login.inputValue;
+
+        var mdp = document.querySelectorAll("paper-input")[2];
+
+
+        var Cmdp = document.querySelectorAll("paper-input")[3];
+        if (mdp != Cmdp) {
+            document.getElementById('affiche').innerHTML = "Veuillez confirmez votre mot de passe."
+        }
+
+        var email = document.querySelectorAll("paper-input")[4];
+        document.getElementById('affiche').innerHTML = login.inputValue;
     }
     var scope = document.querySelector('template[is=auto-binding]');
 

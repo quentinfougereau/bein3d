@@ -11,19 +11,23 @@
  *
  * @author Pierre
  */
-class Produit extends Zend_Db_Table_Abstract {
+require"ProduitRow.php";
 
+class Produit extends Zend_Db_Table_Abstract {
+       
     //put your code here 
     protected $_name = 'produit';
     protected $_primary = 'id';
-//    protected $_rowClass = 'ProduitRow';
-// 
-//    protected $_referenceMap=array(
-//        'MonMaker' =>array(
-//            'columns'=>'idmaker',
-//            'refTableClass'=>'Client',
-//            'refColumns'=>'Id'
-//            
-//        ));
+    protected $_rowClass = 'ProduitRow';
+ 
+    protected $_referenceMap=array(
+        'MonMaker' =>array(
+            'columns'=>'idmaker',
+            'refTableClass'=>'Client',
+            'refColumns'=>'Id'
+            
+        ));
+    
+    
     
 }
