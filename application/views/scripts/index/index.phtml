@@ -1,11 +1,11 @@
 <html>
     <head>
-        
+
         <?php
-            require '../public/requires/head-import.php';
+        require '../public/requires/head-import.php';
         ?>
 
-
+        <script type="text/javascript" src="../public/js/Ajax.js">> </script>
     </head>
     <body fullbleed vertical layout unresolved>
 
@@ -13,176 +13,177 @@
 
         <paper-hidden-bar></paper-hidden-bar>
         <template is="auto-binding"> 
-        <core-header-panel main >
-            <core-toolbar class="medium-tall" id="barre2">
-                <!-- TOP TOOLBAR -->
-                <core-icon-button id="navicon" icon="menu" on-tap="{{menuAction}}"></core-icon-button>
-                <paper-tabs flex selected="{{menu}}" valueattr="menu-cat">
-                    <paper-tab menu-cat="home">HOME</paper-tab>
-                    <paper-tab menu-cat="shop">SHOP</paper-tab>
-                    <paper-tab menu-cat="design">DESIGN</paper-tab>
-                    <paper-tab menu-cat="sell">SELL</paper-tab>
-                </paper-tabs>
-                <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
-                <paper-icon-button icon="search"></paper-icon-button>
-                 <paper-icon-button icon="shopping-cart"><input type="hidden" id="panier" value="0"></paper-icon-button>
-                <template is="auto-binding">
-                    <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
-                    <paper-dialog heading="Connexion" class="size-position">
-                        <core-form-connexion>           
-                        </core-form-connexion> 
-                    </paper-dialog>
-                </template>
+            <core-header-panel main >
+                <core-toolbar class="medium-tall" id="barre2">
+                    <!-- TOP TOOLBAR -->
+                    <core-icon-button id="navicon" icon="menu" on-tap="{{menuAction}}"></core-icon-button>
+                    <paper-tabs flex selected="{{menu}}" valueattr="menu-cat">
+                        <paper-tab menu-cat="home">HOME</paper-tab>
+                        <paper-tab menu-cat="shop">SHOP</paper-tab>
+                        <paper-tab menu-cat="design">DESIGN</paper-tab>
+                        <paper-tab menu-cat="sell">SELL</paper-tab>
+                    </paper-tabs>
+                    <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
+                    <paper-icon-button icon="search"></paper-icon-button>
+                   
+                       <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
+                     <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
+                    <template is="auto-binding">
+                        <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
+                        <paper-dialog heading="Connexion" class="size-position">
+                            <core-form-connexion>           
+                            </core-form-connexion> 
+                        </paper-dialog>
+                    </template>
 
-                <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
-                <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
+                    <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
+                    <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
 
-                    <core-form-inscription>           
-                    </core-form-inscription>
+                        <core-form-inscription>           
+                        </core-form-inscription>
 
-                </paper-dialog><!--
-                <!-- BOTTOM TOOLBAR -->
+                    </paper-dialog><!--
+                    <!-- BOTTOM TOOLBAR -->
 
-                <!--<div class="bottom" id="sous-menu"> -->
-                <!--                <div id="shop-content1" >-->
-                <paper-tabs  id="shop-content1" class="hide bottom" flex selected="{{selected}}">
-                    <paper-tab>+POPULAIRES</paper-tab>
-                    <paper-tab>NOUVEAUTES</paper-tab>
-                    <paper-tab>ART</paper-tab>
-                    <paper-tab>MEILLEURS MAKERS</paper-tab>
-                    <paper-tab>CONCOURS</paper-tab>
-                </paper-tabs>                
-                <!--</div>-->          
-            </core-toolbar>
+                    <!--<div class="bottom" id="sous-menu"> -->
+                    <!--                <div id="shop-content1" >-->
+                    <paper-tabs  id="shop-content1" class="hide bottom" flex selected="{{selected}}">
+                        <paper-tab>+POPULAIRES</paper-tab>
+                        <paper-tab>NOUVEAUTES</paper-tab>
+                        <paper-tab>ART</paper-tab>
+                        <paper-tab>MEILLEURS MAKERS</paper-tab>
+                        <paper-tab>CONCOURS</paper-tab>
+                    </paper-tabs>                
+                    <!--</div>-->          
+                </core-toolbar>
 
-            <core-pages selected="{{menu}}" valueattr="menu-cat">
-                <section menu-cat="home">
-                    <div id="accueil-content" >
-                <div id="grosbloc" fullbleed>accueil</div>
-                <hr/>
-                <div id="grosbloc" fullbleed>
-                    <div id="blockgauche">
-                        <h2>3D CONCEPT ! </h2>
-                        Vous voulez créer votre propre fichier 3D ?
-                        <br/>
-                        Vendre vos propres modèles ?
-                        <br/>
-                        <p> Grace à l'impression 3D, vous pouvez laisser libre court à votre imagination et concevoir un produit dans ses mondres détails.</p>
-                    </div>
-                    <div id="blockdroite">
-                        <img src='../public/image/Image1.PNG'>
-                        <br/>
-                        Laissez parler l'artiste 3D qui est en vous ! &nbsp; Découvrer 3D Concept !<core-icon-button icon="add-circle" tittle="add"></core-icon-button>
-                    </div>
-                </div>
-                <hr/>
-                <div id="grosblock" fullbleed>
-                    <center><h2>Avec l'impression 3D c'est vous la star ! </h2></center>
-                    <div id='petitblock'>
-                        <img src='../public/image/Image2.PNG'>
-                        <br/>
-                        Des masques 3D à votre image...ou celle des autres !
-                        <br/>
-                        Créer le votre! <core-icon-button icon='add-circle'></core-icon-button>
-                    </div>
-                    <div id='petitblock'>
-                        <img src='../public/image/Image3.PNG'>
-                        <br/>
-                        Des figurines 3D à partir de votre photo 2D ! 
-                    </div>
-                </div>
+                <core-pages selected="{{menu}}" valueattr="menu-cat">
+                    <section menu-cat="home">
+                        <div id="accueil-content" >
+                            <div id="grosbloc" fullbleed>accueil</div>
+                            <hr/>
+                            <div id="grosbloc" fullbleed>
+                                <div id="blockgauche">
+                                    <h2>3D CONCEPT ! </h2>
+                                    Vous voulez créer votre propre fichier 3D ?
+                                    <br/>
+                                    Vendre vos propres modèles ?
+                                    <br/>
+                                    <p> Grace à l'impression 3D, vous pouvez laisser libre court à votre imagination et concevoir un produit dans ses mondres détails.</p>
+                                </div>
+                                <div id="blockdroite">
+                                    <img src='../public/image/Image1.PNG'>
+                                    <br/>
+                                    Laissez parler l'artiste 3D qui est en vous ! &nbsp; Découvrer 3D Concept !<core-icon-button icon="add-circle" tittle="add"></core-icon-button>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div id="grosblock" fullbleed>
+                                <center><h2>Avec l'impression 3D c'est vous la star ! </h2></center>
+                                <div id='petitblock'>
+                                    <img src='../public/image/Image2.PNG'>
+                                    <br/>
+                                    Des masques 3D à votre image...ou celle des autres !
+                                    <br/>
+                                    Créer le votre! <core-icon-button icon='add-circle'></core-icon-button>
+                                </div>
+                                <div id='petitblock'>
+                                    <img src='../public/image/Image3.PNG'>
+                                    <br/>
+                                    Des figurines 3D à partir de votre photo 2D ! 
+                                </div>
+                            </div>
 
-                <div id='petitbloc1'>
+                            <div id='petitbloc1'>
 
-                    <table>
-                        <th>DE JOLIE PUZZLE 3D A IMPRIMER !</th>
-                        <tr><td><img src='../public/image/Image4.PNG'></td></tr>
-                        <tr><td>De 5 à 185 pièces, une centaines de combinaisons de couleurs </td></tr>
-                        <tr><td>possibles pour un prix plancher de 15€ par puzzle, Créer le votre <core-icon-button icon="add-circle"></core-icon-button> </td></tr>
+                                <table>
+                                    <th>DE JOLIE PUZZLE 3D A IMPRIMER !</th>
+                                    <tr><td><img src='../public/image/Image4.PNG'></td></tr>
+                                    <tr><td>De 5 à 185 pièces, une centaines de combinaisons de couleurs </td></tr>
+                                    <tr><td>possibles pour un prix plancher de 15€ par puzzle, Créer le votre <core-icon-button icon="add-circle"></core-icon-button> </td></tr>
 
-                    </table>
-                    <table id="top">
-                        <th>TOP DU MOIS!</th>
-                        <tr></tr>
-                        <tr><td><center>VISITER NOTRE BOUTIQUE</center></td></tr>
-                        <tr><td><img src='../public/image/images5.PNG'></td></tr>
+                                </table>
+                                <table id="top">
+                                    <th>TOP DU MOIS!</th>
+                                    <tr></tr>
+                                    <tr><td><center>VISITER NOTRE BOUTIQUE</center></td></tr>
+                                    <tr><td><img src='../public/image/images5.PNG'></td></tr>
 
-                    </table>
-                    
-                    <table id="bot">
-                        <th>AVIS AUX COLLECTIONNEURS !</th>
-                        <tr><td>Fan de mangas,figurines héroic fantasy,monstres,voitures,avions ...</td></tr>
-                         <tr><td>Quelques soient vos envies nous les réalisons...</td></tr>
-                        <tr><td><img src='../public/image/image6.PNG'></td></tr>
+                                </table>
 
-                    </table>
-                </div>
-                <div id="gauche">
-                        <h1>Mes Actus</h1>
-                         <ul id="actus">
-                         <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Recup\index.phtml'; ?>
-                             </ul>
-                    </div>
-                
+                                <table id="bot">
+                                    <th>AVIS AUX COLLECTIONNEURS !</th>
+                                    <tr><td>Fan de mangas,figurines héroic fantasy,monstres,voitures,avions ...</td></tr>
+                                    <tr><td>Quelques soient vos envies nous les réalisons...</td></tr>
+                                    <tr><td><img src='../public/image/image6.PNG'></td></tr>
 
-                    <div id="footer">
-                        <table id="contact"  >
-                            <tr>
-                                <td>Be in 3D <br/> 145 AVENUE DES CHAMPS ELYSEES <br/> 75008 PARIS CEDEX<BR/> Tel : 01.45.56.25.33 <br/> Fax : 01.45.56.55.58</td>
-                                <td><paper-input id="contact-champs" label="Name" ></paper-input> <paper-input id="contact-champs" class="floated-label" label="Message"></paper-input>
+                                </table>
+                            </div>
+                            <div id="gauche">
+                                <h1>Mes Actus</h1>
+                                <ul id="actus">
+                                    <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Recup\index.phtml'; ?>
+                                </ul>
+                            </div>
+
+
+                            <div id="footer">
+                                <table id="contact"  >
+                                    <tr>
+                                        <td>Be in 3D <br/> 145 AVENUE DES CHAMPS ELYSEES <br/> 75008 PARIS CEDEX<BR/> Tel : 01.45.56.25.33 <br/> Fax : 01.45.56.55.58</td>
+                                        <td><paper-input id="contact-champs" label="Name" ></paper-input> <paper-input id="contact-champs" class="floated-label" label="Message"></paper-input>
                                     <paper-input id="contact-champs" label="Email"></paper-input>
                                     <paper-input id="contact-champs" label="Subject"></paper-input></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                </section>
-                <section menu-cat="shop">
-                    <h1>Shop</h1>
-                    <center><table class="catalogue" cellspacing="60">
-                        <tr>
-                            <?php
-                              $cmp=1;
-                            $nbproduit=new Zend_Session_Namespace('nbproduit');
-                            $nbproduit->array=array();
-                            foreach ($this->lesProduits as $produit) {
-                                echo "<td class='produit-catalogue'><paper-shadow z='1' animated>";                                    
-                                echo "<img src='../public/image/produits/$produit->image'>";
-                                echo "<h4>$produit->nom</h4>";
-                                //echo "<p class='nom'>";
-                                echo "<span flex><p class='prix-produit'>$produit->prixunitaire €</p>";
-                               
-                                echo "<paper-button raised role='button' class='add-panier' onclick='addpanier()'>"
-                                . "<core-icon icon='add-shopping-cart' ></core-icon></paper-button>"
-                                . "<core-icon icon='favorite'></core-icon></paper-button>";
-                                echo "<paper-button raised role='button' class='add-panier'>"
-                                . "<core-icon icon='add-shopping-cart'></core-icon></paper-button>";
+                                    <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                    <section menu-cat="shop">
+                        <h1>Shop</h1>
+                        <table id="monpanier"></table>
+                        <p id="panier">azaz</p>
+                        <center><form name="produit" action=""><table class="catalogue" cellspacing="60">
+                                <tr>
+                                    <?php
+                                    
+                                    $cmp = 1;
+                                    
+                                    foreach ($this->lesProduits as $produit) {
+                                        echo "<td class='produit-catalogue'><paper-shadow z='1' animated>";
+                                        echo "<img src='../public/image/produits/$produit->image'>";
+                                        echo "<h4>$produit->nom</h4>";
+                                        echo "<input type='hidden' id='idprod' value=".$produit->id."></h4>";
+                                        //echo "<p class='nom'>";
+                                        echo "<span flex><p class='prix-produit'>$produit->prixunitaire €</p>";
 
-                                echo "</paper-shadow></td>";
-                                $cmp++;
-                                if($cmp>3){
-                                    $cmp=0;
-                                    echo"</tr><tr>";
-                                }
-                               array_push ($nbproduit->array,$produit->nom,$produit->prixunitaire);
-                                 
-                            }
-                            var_dump($nbproduit->array);
-                            ?>
-                        </tr>
-                        </table></center>
-                        
-                </section>
-                <section menu-cat="design">
-                    <h1>Design</h1>
-                </section>
-                <section menu-cat="sell">
-                    <h1>Sell</h1>
-                </section>
-            </core-pages>
-          
-        </core-header-panel>
+                                        echo "<paper-button raised role='button' class='like'><core-icon icon='favorite' ></core-icon></paper-button>" .
+                                        "<paper-button raised role='button' class='add-panier' onclick='envoyerDonnees($produit->id)'>
+                                        <core-icon icon='add-shopping-cart' ></core-icon></paper-button>";
+
+                                        echo "</paper-shadow></td>";
+                                        $cmp++;
+                                        if ($cmp > 3) {
+                                            $cmp = 0;
+                                            echo"</tr><tr>";
+                                        }
+                                    }
+                                        
+                                    ?>
+                                </tr>
+                            </table></form></center>
+
+                    </section>
+                    <section menu-cat="design">
+                        <h1>Design</h1>
+                    </section>
+                    <section menu-cat="sell">
+                        <h1>Sell</h1>
+                    </section>
+                </core-pages>
+
+            </core-header-panel>
         </template>
 
     </core-drawer-panel>
@@ -244,11 +245,9 @@
     }
     ;
 
-
-   function addpanier() {
-         var nbproduit=document.getElementById('nbproduit').value;
-        document.getElementById('panier').innerHTML = nbproduit+1;
-    }
+     var MonTableau = new Array();
+   
+    
     var scope = document.querySelector('template[is=auto-binding]');
 
     scope.toggleDialog1 = function (e) {
