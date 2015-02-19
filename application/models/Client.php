@@ -25,6 +25,6 @@ class Client extends Zend_Db_Table_Abstract {
     }
     
     public function unClient($id){
-        return $this->select->where('Id='.$id);
+        return $this->select()->where('Id='.$id);
     }
 }

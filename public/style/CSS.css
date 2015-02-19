@@ -193,7 +193,56 @@ li{
    color:white;
 }
 
+// desgintoggle formulaire
+
+section {
+    padding: 20px 0;
+}
+
+section > div {
+    padding: 14px;
+    font-size: 16px;
+}
+
+button{
+    margin: 8px 4px;
+}
+
+html /deep/ [autofocus] {
+    color: #03a9f4;
+}
+
+html /deep/ .scrolling::shadow #scroller {
+    height: 350px;
+}
+
+html /deep/ .colored {
+    border: 1px solid #0f9d58;
+    background-color: #b7e1cd;
+    color: #0f9d58;
+}
+
+html /deep/ .size-position {
+    position: fixed;
+    top: 156px;
+
+    right: 150px;
+    left: 65%;
+}
+
+html /deep/ .size-position::shadow #scroller {
+    width: 300px;
+    height: 300px;
+}
+            
+// fin toogle
+
+
 //boutique liste produit
+
+core-pages section h1{
+    margin:auto;
+}
 
 .catalogue{
     text-align:center;
