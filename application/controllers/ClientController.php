@@ -12,7 +12,7 @@
  * @author JimSobieski
  */
 require_once '../application/models/Client.php';
-
+require_once '../application/models/Produit.php';
 class ClientController extends Zend_Controller_Action {
     
     
@@ -33,5 +33,9 @@ class ClientController extends Zend_Controller_Action {
             $this->view->login=$_POST['login'];
             $client->inscription($tab);
         }
+
+        
+        $this->redirect('http://localhost/bein3d/public/');
+
     }
 }

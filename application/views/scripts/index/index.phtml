@@ -1,11 +1,11 @@
 <html>
     <head>
-        
+
         <?php
-            require '../public/requires/head-import.php';
+        require '../public/requires/head-import.php';
         ?>
 
-
+        <script type="text/javascript" src="../public/js/Ajax.js">> </script>
     </head>
     <body fullbleed vertical layout unresolved>
 
@@ -13,6 +13,7 @@
 
         <paper-hidden-bar></paper-hidden-bar>
         <template is="auto-binding"> 
+<<<<<<< HEAD
         <core-header-panel main >
             <core-toolbar class="medium-tall" id="barre2">
                 <!-- TOP TOOLBAR -->
@@ -25,6 +26,16 @@
                 </paper-tabs>
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                 <paper-icon-button icon="search"></paper-icon-button>
+                
+                <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
+                     <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
+                    <template is="auto-binding">
+                        <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
+                        <paper-dialog heading="Connexion" class="size-position">
+                            <core-form-connexion>           
+                            </core-form-connexion> 
+                        </paper-dialog>
+                    </template>
 
                 <template is="auto-binding">
                     <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
@@ -207,7 +218,6 @@
           
         </core-header-panel>
         </template>
-
     </core-drawer-panel>
 
     <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
@@ -260,22 +270,9 @@
     }
     ;
 
-
-    function recupinfo() {
-        var login = document.querySelectorAll("paper-input")[1];
-        document.getElementById('affiche').innerHTML = login.inputValue;
-
-        var mdp = document.querySelectorAll("paper-input")[2];
-
-
-        var Cmdp = document.querySelectorAll("paper-input")[3];
-        if (mdp != Cmdp) {
-            document.getElementById('affiche').innerHTML = "Veuillez confirmez votre mot de passe."
-        }
-
-        var email = document.querySelectorAll("paper-input")[4];
-        document.getElementById('affiche').innerHTML = login.inputValue;
-    }
+     var MonTableau = new Array();
+   
+    
     var scope = document.querySelector('template[is=auto-binding]');
 
     scope.toggleDialog1 = function (e) {

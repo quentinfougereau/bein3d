@@ -14,18 +14,20 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         $this->view->acces='../';
-        
+        Zend_Session::start();
        $p= new Produit();
        $c= new Client();
        $this->view->lesProduits=$p->fetchall();
 
        $tab=array();
-       foreach ($p->fetchall() as $unproduit){
-           $idclient=$unproduit->idmaker;
-           $client=$c->unClient($idclient);
-           //$tab[$unproduit->id]=$client->login;
-           //var_dump($client);
-       }
+
+//       foreach ($p->fetchall() as $unproduit){
+//           $idclient=$unproduit->idmaker;
+//           $client=$c->unClient($idclient);
+//           //$tab[$unproduit->id]=$client->login;
+//           //var_dump($client);
+//       }
+
 
         $news = new News();
         $this->view->news = $news->getLast5News();

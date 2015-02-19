@@ -19,7 +19,7 @@ class Produit extends Zend_Db_Table_Abstract {
     protected $_name = 'produit';
     protected $_primary = 'id';
     protected $_rowClass = 'ProduitRow';
- 
+   
     protected $_referenceMap=array(
         'MonMaker' =>array(
             'columns'=>'idmaker',
@@ -28,6 +28,17 @@ class Produit extends Zend_Db_Table_Abstract {
             
         ));
     
+
+    
+    
+    public function getproduit($id) {
+        
+        $sql = $this->_db->select();
+        $sql->from('produit')
+            ->where('id='.$id);
+        $produit =$this->_db->fetchall($sql);
+        return $produit;
+    }
     
     
 }

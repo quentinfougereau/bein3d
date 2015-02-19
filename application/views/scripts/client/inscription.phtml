@@ -1,3 +1,6 @@
+<?php
+Zend_Session::start();
+?>
 <html>
     <head>
         <?php
@@ -69,7 +72,7 @@
                 </paper-tabs>
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                 <paper-icon-button icon="search"></paper-icon-button>
-
+                <paper-icon-button icon="shopping-cart"><input type="hidden" id="panier" value="0"></paper-icon-button>
                 <paper-button><?php echo $this->login ?></paper-button>
                 <!-- BOTTOM TOOLBAR -->
 
@@ -167,23 +170,28 @@
                         <tr>
                             <?php
                             $cmp=1;
+                            $nbproduit=new Zend_Session_Namespace('nbproduit');
+                            $nbproduit->array=array();
                             foreach ($this->lesProduits as $produit) {
                                 echo "<td class='produit-catalogue'><paper-shadow z='1'>";                                    
-                                echo "<img src='../public/image/produits/$produit->image'>";
+                                echo "<img src='../../../public/image/produits/$produit->image'>";
                                 echo "<h4>$produit->nom</h4>";
                                 //echo "<p class='nom'>";
                                 echo "<span flex><p class='prix-produit'>$produit->prixunitaire €</p>";
                                 echo "<paper-button raised role='button' class='like'>"
                                 . "<core-icon icon='add'></core-icon></paper-button>";
-                                echo "<paper-button raised role='button' class='add-panier'>"
-                                . "<core-icon icon='add-shopping-cart'></core-icon></paper-button>";
+                                echo "<paper-button raised role='button' class='add-panier' onclick='addpanier()'>"
+                                . "<core-icon icon='add-shopping-cart' ></core-icon></paper-button>";
                                 echo "</paper-shadow></td>";
                                 $cmp++;
                                 if($cmp>3){
                                     $cmp=0;
                                     echo"</tr><tr>";
                                 }
+                                $nbproduit->array['nom']=$produit->nom;
+                                $nbproduit->array['prixunitaire']=$produit->prixunitaire;
                             }
+                            var_dump($nbproduit->array);
                             ?>
                         </tr>
                         </table></center>
@@ -260,20 +268,9 @@
     ;
 
 
-    function recupinfo() {
-        var login = document.querySelectorAll("paper-input")[1];
-        document.getElementById('affiche').innerHTML = login.inputValue;
-
-        var mdp = document.querySelectorAll("paper-input")[2];
-
-
-        var Cmdp = document.querySelectorAll("paper-input")[3];
-        if (mdp != Cmdp) {
-            document.getElementById('affiche').innerHTML = "Veuillez confirmez votre mot de passe."
-        }
-
-        var email = document.querySelectorAll("paper-input")[4];
-        document.getElementById('affiche').innerHTML = login.inputValue;
+    function addpanier() {
+         var nbproduit=document.getElementById('nbproduit').value;
+        document.getElementById('panier').innerHTML = nbproduit+1;
     }
     var scope = document.querySelector('template[is=auto-binding]');
 
