@@ -9,6 +9,12 @@ core-toolbar {
 
 }
 
+core-drawer-panel:not([narrow]) #navicon{
+    display:none;
+}
+
+
+
 paper-tab{
     font-size:20px;
 }
@@ -18,11 +24,6 @@ paper-tab{
 }
 #search-mainpage-input{
     color:whitesmoke;
-}
-
-
-core-drawer-panel:not([narrow]) #navicon{
-    display:none;
 }
 
 #sous-menu{
@@ -168,27 +169,6 @@ li{
     margin-top: 20px;
     margin-left : 20px;
 }
-#footer{
-    border-radius: 45px;
-    position: relative;
-   margin-top: 900px;
-    
-    font-family: 'Yanone Kaffeesatz', sans-serif; 
-    background-color:#2196F3;
-    
-}
-#contact{
-   width: 1600px;
-   color:white;
-  
-    
-}
-#contact td{
-    border-right: solid 2px white;
-}
-#contact-champs{
-   color:white;
-}
 
 // desgintoggle formulaire
 
@@ -235,6 +215,10 @@ html /deep/ .size-position::shadow #scroller {
 // fin toogle
 
 
+html paper-tabs /deep/ .pink::shadow #selectionBar {
+  background-color: red;
+}
+
 //boutique liste produit
 
 core-pages section h1{
@@ -251,8 +235,8 @@ core-pages section h1{
 }
 
 .produit-catalogue{
-    width:200px;
-    height:300px;
+    width:180px;
+    height:260px;
 }
 
 .produit-catalogue h4{
