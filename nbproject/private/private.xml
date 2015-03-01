@@ -3,35 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/bein3d/application/models/Client.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/connexion/index.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Panier/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/client/inscription.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/controllers/IndexController.php</file>
+            <file>file:/C:/wamp/www/bein3d/application/controllers/PanierController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/index/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/controllers/ClientController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/client/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/public/style/CSS.css</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/index/form.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/models/Produit.php</file>
-<<<<<<< HEAD
-=======
-            <file>file:/C:/wamp/www/bein3d/application/controllers/NewsController.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Recup/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/models/NewsRow.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/IndexController.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/index/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/RecupController.php</file>
-            <file>file:/C:/wamp/www/bein3d/public/style/CSS.css</file>
             <file>file:/C:/wamp/www/bein3d/application/models/News.php</file>
-            <file>file:/C:/wamp/www/bein3d/public/js/news.js</file>
-<<<<<<< HEAD
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/News/index.phtml</file>
-=======
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/News/news.phtml</file>
->>>>>>> e5f44ead1b0a4c6d9c89f95a12831957415cccab
->>>>>>> 2ddcd4609436b4cd2e4996b550d6b4c524841b22
-=======
->>>>>>> a358a259eaa87092ab7d151ccb6dce377bfa89e8
+            <file>file:/C:/wamp/www/bein3d/public/js/Ajax.js</file>
+            <file>file:/C:/wamp/www/bein3d/application/models/Produit.php</file>
         </group>
     </open-files>
 </project-private>
