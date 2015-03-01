@@ -7,6 +7,7 @@
             src="<?php echo $chemin; ?>public/components/platform/platform.js">
         </script>
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript" src="<?php echo $chemin; ?>public/app.js"></script>
         <script
             src="<?php echo $chemin; ?>public/js/news.js">
         </script>
@@ -23,7 +24,7 @@
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/core-icons/core-icons.html">
         <link rel="import"
-              href=<?php echo $chemin; ?>public/components/core-icons/social-icons.html">
+              href="<?php echo $chemin; ?>public/components/core-icons/hardware-icons.html">
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/core-icon-button/core-icon-button.html">
         <link rel="import"
@@ -45,7 +46,8 @@
               href="<?php echo $chemin; ?>public/components/core-pages/core-pages.html">
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/paper-shadow/paper-shadow.html">
-
+        <link rel="import"
+              href="<?php echo $chemin; ?>public/components/paper-ripple/paper-ripple.html">
         <!-- NEW ELEMENTS -->
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/core-form-inscription/core-form-inscription.html">     
@@ -53,6 +55,8 @@
               href="<?php echo $chemin; ?>public/components/core-form-connexion/core-form-connexion.html">
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/paper-hidden-bar/paper-hidden-bar.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>public/components/paper-footer/paper-footer.html">
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="<?php echo $chemin; ?>/public/style/CSS.css" type="text/css">

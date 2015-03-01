@@ -23,15 +23,29 @@ core-toolbar h2 a {
 }
 
 core-submenu{
+    font-size:20px;
     background-color:#2196f3;
+    color:whitesmoke;
+    text-decoration:underline;
 }
 
 core-item{
-    background-color:#B3E5FC;
+    font-size:17px;
+    width:100%;
+    float:left;
+    border-left:1px solid white;
+}
+
+core-item[label]{
+    
+}
+
+core-item[active]{
+    //color:#EF5350;
 }
 
 core-menu{
-    border-radius:2px;
+
 }
 
 :host(core-toolbar){

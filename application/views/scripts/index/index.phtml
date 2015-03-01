@@ -8,34 +8,34 @@
         <script type="text/javascript" src="../public/js/Ajax.js">> </script>
     </head>
     <body fullbleed vertical layout unresolved>
-
+    <template is="auto-binding" id="super-template">
     <core-drawer-panel  id="drawerPanel">
-
         <paper-hidden-bar></paper-hidden-bar>
-        <template is="auto-binding"> 
-<<<<<<< HEAD
+        
+        
+         
         <core-header-panel main >
-            <core-toolbar class="medium-tall" id="barre2">
+            
+            <core-toolbar class="medium" id="barre2">
                 <!-- TOP TOOLBAR -->
-                <core-icon-button id="navicon" icon="menu" on-tap="{{menuAction}}"></core-icon-button>
-                <paper-tabs flex selected="{{menu}}" valueattr="menu-cat">
+                <core-icon-button id="navicon" icon="menu"></core-icon-button>
+                <paper-tabs flex selected="{{menu}}" valueattr="menu-cat" noink>
                     <paper-tab menu-cat="home">HOME</paper-tab>
                     <paper-tab menu-cat="shop">SHOP</paper-tab>
                     <paper-tab menu-cat="design">DESIGN</paper-tab>
                     <paper-tab menu-cat="sell">SELL</paper-tab>
                 </paper-tabs>
+<!--                <core-field>                 
+                    <label></label>
+                    <input placeholder="Recherche" flex>
+                    <core-icon-button icon="search"></core-icon-button>
+                </core-field>-->
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
-                <paper-icon-button icon="search"></paper-icon-button>
+                <core-icon-button icon="search"></core-icon-button>
                 
-                <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
+                <?php //include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
+                <core-icon-button icon='shopping-cart'></core-icon-button>
                      <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
-                    <template is="auto-binding">
-                        <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
-                        <paper-dialog heading="Connexion" class="size-position">
-                            <core-form-connexion>           
-                            </core-form-connexion> 
-                        </paper-dialog>
-                    </template>
 
                 
 
@@ -46,32 +46,6 @@
                     </core-form-inscription>
 
                 </paper-dialog><!--
-                <!-- BOTTOM TOOLBAR -->
-
-                <core-pages class="bottom" selected="{{menu}}" valueattr="menu-cat" fullbleed>
-                    
-                        <paper-tabs  menu-cat="home" flex selected="{{}}">                            
-                            <paper-tab>ART</paper-tab>
-                            <paper-tab>MEILLEURS MAKERS</paper-tab>
-                            <paper-tab>CONCOURS</paper-tab>
-                        </paper-tabs>
-                    
-                    
-                    <paper-button label="ok" menu-cat="shop"></paper-button>
-                    
-                        <core-item menu-cat="design">
-                            <paper-tabs  flex selected="{{}}">                            
-                            <paper-tab>ART</paper-tab>
-                            <paper-tab>MEILLEURS MAKERS</paper-tab>
-                            <paper-tab>CONCOURS</paper-tab>
-                        </paper-tabs>
-                            <paper-button label="ok"></paper-button>
-                            <paper-button label="ok"></paper-button>
-                        </core-item>
-                    <core-item menu-cat="design">
-                            <a href="../public/" target="_self">CHOIX2</a>
-                        </core-item>
-                    </div>
                     
                 </core-pages>
                                 
@@ -79,20 +53,14 @@
             </core-toolbar>
             
             <core-pages selected="{{menu}}" valueattr="menu-cat">
-                <paper-tabs  menu-cat="home" flex selected="{{0}}">                            
-                    <paper-tab href="../">ART</paper-tab>
-                            <paper-tab>MEILLEURS MAKERS</paper-tab>
-                            <paper-tab>CONCOURS</paper-tab>
-                        </paper-tabs>
-                <paper-tabs  menu-cat="shop" flex selected="{{0}}">                            
-                            <paper-tab>NOUVEAUTES</paper-tab>
-                            <paper-tab>MEILLEURS MAKERS</paper-tab>
-                            <paper-tab>LOTO 3D</paper-tab>
-                        </paper-tabs>
-            </core-pages>
-            <core-pages selected="{{menu}}" valueattr="menu-cat">
                 <section menu-cat="home">
-                    <div id="accueil-content" >
+                    <paper-tabs  menu-cat="home" flex selected="{{selected}}">                            
+                        <paper-tab>ACCUEIL</paper-tab>
+                        <paper-tab>QUI SOMMES NOUS</paper-tab>
+                        <paper-tab>NOS PRODUITS</paper-tab>
+                    </paper-tabs>
+                    
+<!--                    <div id="accueil-content" >
                 <div id="grosbloc" fullbleed>accueil</div>
                 <hr/>
                 <div id="grosbloc" fullbleed>
@@ -125,9 +93,9 @@
                         <br/>
                         Des figurines 3D à partir de votre photo 2D ! 
                     </div>
-                </div>
+                </div>-->
 
-                <div id='petitbloc1'>
+<!--                <div id='petitbloc1'>
 
                     <table>
                         <th>DE JOLIE PUZZLE 3D A IMPRIMER !</th>
@@ -157,23 +125,18 @@
                          <ul id="actus">
                          <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Recup\index.phtml'; ?>
                              </ul>
-                    </div>
+                    </div>-->
                 
 
-                    <div id="footer">
-                        <table id="contact"  >
-                            <tr>
-                                <td>Be in 3D <br/> 145 AVENUE DES CHAMPS ELYSEES <br/> 75008 PARIS CEDEX<BR/> Tel : 01.45.56.25.33 <br/> Fax : 01.45.56.55.58</td>
-                                <td><paper-input id="contact-champs" label="Name" ></paper-input> <paper-input id="contact-champs" class="floated-label" label="Message"></paper-input>
-                                    <paper-input id="contact-champs" label="Email"></paper-input>
-                                    <paper-input id="contact-champs" label="Subject"></paper-input></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
+                <paper-footer></paper-footer>
                 </div>
                 </section>
                 <section menu-cat="shop">
+                    <paper-tabs  menu-cat="shop" flex selected="{{selected}}">                            
+                        <paper-tab>LA BOUTIQUE</paper-tab>
+                        <paper-tab>NOUVEAUTES</paper-tab>
+                        <paper-tab>NOS MAKERS</paper-tab>
+                    </paper-tabs>
                     <h1>Shop</h1>
                     <center><table class="catalogue" cellspacing="60">
                         <tr>
@@ -203,17 +166,26 @@
                         
                 </section>
                 <section menu-cat="design">
+                    <paper-tabs  menu-cat="design" flex selected="{{selected}}">                            
+                        <paper-tab>CREER MON OBJET</paper-tab>
+                        <paper-tab>QUI SOMMES NOUS</paper-tab>
+                        <paper-tab>NOS PRODUITS</paper-tab>
+                    </paper-tabs>
                     <h1>Design</h1>
                 </section>
-                <section menu-cat="sell">
+                <section menu-cat="sell">                   
+                    <paper-tabs  menu-cat="sell" flex selected="{{selected}}">                            
+                        <paper-tab>MES OBJETS</paper-tab>
+                        <paper-tab>MES VENTES</paper-tab>
+                    </paper-tabs>
                     <h1>Sell</h1>
                 </section>
             </core-pages>
-          
+            
         </core-header-panel>
-        </template>
+        
     </core-drawer-panel>
-
+    </template>
     <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
         <script>
             Polymer('component-form', {
@@ -279,6 +251,25 @@
         }
         d.toggle();
     };
+    
+    var content=document.getElementById('super-template');
+    //alert(content);
+    var nav=document.getElementById('navicon');
+    //alert(nav);
+    content.addEventListerner('template-bound',function() {
+        console.log(document.query-selector('navicon'));
+    })
+    
+//    document.addEventListener('polymer-ready', function(){
+//        var navicon=document.getElementById('navicon');
+//        alert(navicon);
+//        var drawerPanel=document.getElementById('drawerPanel');
+//        navicon.addEventListener('click',function(){
+//            drawerPanel.togglePanel();
+//        });
+//    });
+    
+    
 
 
 
