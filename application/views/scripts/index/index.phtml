@@ -13,6 +13,7 @@
     <template is="auto-binding" id="super-template">
         <core-drawer-panel  id="drawerPanel">
             <core-header-panel drawer>
+            
                 <core-toolbar class="medium">
                     <h2 id="left-title"><a href="../../">BEin3D</a></h2>
                 </core-toolbar>
@@ -60,12 +61,48 @@
 
 
             
-                                
-                            </core-pages>
-                                            
-                            <!--</div>-->          
-                        </core-toolbar>
+            <core-header-panel main>
+                
 
+                <core-toolbar class="medium" id="barre2">
+                    <!-- TOP TOOLBAR -->
+                    <core-icon-button id="navicon" icon="menu"></core-icon-button>
+                    <paper-tabs flex selected="{{menu}}" valueattr="menu-cat" noink>
+                        <paper-tab menu-cat="home">HOME</paper-tab>
+                        <paper-tab menu-cat="shop">SHOP</paper-tab>
+                        <paper-tab menu-cat="design">DESIGN</paper-tab>
+                        <paper-tab menu-cat="sell">SELL</paper-tab>
+                    </paper-tabs>
+    <!--                <core-field>                 
+                        <label></label>
+                        <input placeholder="Recherche" flex>
+                        <core-icon-button icon="search"></core-icon-button>
+                    </core-field>-->
+                    <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
+                    <core-icon-button icon="search"></core-icon-button>
+
+                    <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
+                  
+                    <paper-button  id="connexion-button" label="CONNEXION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
+                    <paper-dialog heading="CONNEXION" transition="paper-dialog-transition-center">
+
+                        <core-form-connexion></core-form-connexion>
+
+                    </paper-dialog>
+
+
+                    <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
+                    <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
+
+                        <core-form-inscription>           
+                        </core-form-inscription>
+
+                    </paper-dialog><!--
+                        
+                    </core-pages>
+                                    
+                    <!--</div>-->          
+                </core-toolbar>
                         <core-pages selected="{{menu}}" valueattr="menu-cat">
                             <section menu-cat="home">
                                 <paper-tabs  menu-cat="home" flex selected="{{selected}}">                            
