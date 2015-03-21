@@ -4,13 +4,31 @@ body {
 }
 
 core-toolbar {
-    background-color: #2196F3;
+    background-color:#607D8B;
     color:whitesmoke;
 
 }
 
+core-toolbar a{
+    color:white;
+    text-decoration:none;
+}
+
+core-header-panel[drawer]{
+    background-color:#CFD8DC;
+}
+
+core-menu{
+    background-color:#607D8B;
+    color:white;
+}
+
 core-drawer-panel:not([narrow]) #navicon{
     display:none;
+}
+
+section paper-tabs{
+    background-color:#ECEFF1;
 }
 
 
@@ -268,6 +286,7 @@ core-pages section h1{
 
 .produit-catalogue .like{
     background-color:#0D47A1;
+    width:50px;
 }
 
 .produit-catalogue .add-panier{
