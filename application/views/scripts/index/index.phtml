@@ -5,7 +5,9 @@
         require '../public/requires/head-import.php';
         ?>
 
-        <script type="text/javascript" src="../public/js/Ajax.js">> </script>
+        <script type="text/javascript" src="../public/js/Ajax.js"> </script>
+               
+
     </head>
     <body fullbleed vertical layout unresolved>
     <template is="auto-binding" id="super-template">
@@ -33,9 +35,9 @@
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                 <core-icon-button icon="search"></core-icon-button>
                 
-                <?php //include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
-                <core-icon-button icon='shopping-cart'></core-icon-button>
-                     <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
+                <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
+                
+<!--                     <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>-->
 
                 
 
@@ -123,7 +125,7 @@
                 <div id="gauche">
                         <h1>Mes Actus</h1>
                          <ul id="actus">
-                         <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Recup\index.phtml'; ?>
+                         <?php // include_once 'C:\wamp\www\bein3d\application\views\scripts\Recup\index.phtml'; ?>
                              </ul>
                     </div>-->
                 
@@ -142,6 +144,7 @@
                         <tr>
                             <?php
                             $cmp=1;
+                            //var_dump($_SESSION['nbproduit']);
                             foreach ($this->lesProduits as $produit) {
                                 echo "<td class='produit-catalogue'>"
                                 . "<paper-shadow z='1' animated>";                                    
@@ -151,7 +154,7 @@
                                 echo "<span flex><p class='prix-produit'>$produit->prixunitaire €</p>";
                                 echo "<paper-button raised role='button' class='like'>"
                                 . "<core-icon icon='favorite'></core-icon></paper-button>";
-                                echo "<paper-button raised role='button' class='add-panier'>"
+                                echo "<paper-button raised role='button' class='add-panier' onclick='envoyerDonnees($produit->id)'>"
                                 . "<core-icon icon='add-shopping-cart'></core-icon></paper-button>";
                                 echo "</paper-shadow></td>";
                                 $cmp++;
