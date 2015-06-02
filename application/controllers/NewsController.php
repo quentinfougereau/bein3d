@@ -15,7 +15,11 @@ require_once '../application/models/News.php';
 
 class NewsController extends Zend_Controller_Action {
 
-    //put your code here
+    public function init()
+    {
+        $this->view->acces='../../';
+    }
+    
     public function indexAction() {
         $news = new News();
         $this->view->news = $news->getNews();

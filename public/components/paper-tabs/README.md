@@ -1,4 +1,5 @@
 paper-tabs
 ============
 
-See the [component page](http://www.polymer-project.org/docs/elements/paper-elements.html#paper-tabs) for more information.
+**This element is compatible with Polymer 0.5 and lower only, and will be deprecated.**  
+You can check out a similar 0.8+-compatible version of this element at [https://github.com/polymerelements/paper-tabs](https://github.com/polymerelements/paper-tabs)

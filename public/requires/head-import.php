@@ -1,7 +1,7 @@
 <?php
     $chemin=$this->acces;
 ?>
-    <title>01-introduction</title>
+    <title>BE in 3D</title>
         <!-- Load Polymer -->
         <script
             src="<?php echo $chemin; ?>public/components/platform/platform.js">
@@ -37,6 +37,8 @@
               href="<?php echo $chemin; ?>public/components/paper-tabs/paper-tabs.html">
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/paper-input/paper-input.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>public/components/core-image/core-image.html">
 
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/paper-dialog/paper-dialog.html">
@@ -64,6 +66,7 @@
         <!-- FONTS -->
         <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic' rel='stylesheet' type='text/css'>
         
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">

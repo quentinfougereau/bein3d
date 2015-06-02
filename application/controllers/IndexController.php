@@ -20,20 +20,25 @@ class IndexController extends Zend_Controller_Action
        $this->view->lesProduits=$p->fetchall();
 
        $tab=array();
-
 //       foreach ($p->fetchall() as $unproduit){
 //           $idclient=$unproduit->idmaker;
 //           $client=$c->unClient($idclient);
 //           //$tab[$unproduit->id]=$client->login;
 //           //var_dump($client);
 //       }
-
-
         $news = new News();
         $this->view->news = $news->getLast5News();
-
         // action body
     }
+    
+    public function qsnAction(){
+        $this->view->acces='../../';
+    }
+    
+    public function nosproduitsAction(){
+        $this->view->acces='../../';
+    }
+    
     public function formAction(){
      
         $this->view->login= $_POST['login'];
