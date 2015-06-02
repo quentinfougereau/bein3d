@@ -4,18 +4,15 @@
         <?php
         require '../public/requires/head-import.php';
         ?>
-        <script type="text/javascript" src="../public/js/Ajax.js">></script>
+        
     </head>
     <body fullbleed vertical layout unresolved>
         
         
-    <template is="auto-binding" id="super-template">
+    
         <script>
     document.addEventListener('polymer-ready', function(){
-        alert ('yolo');
-        var tmp=document.querySelector('#super-template');
-        var navicon=tmp.getElementById('navicon');
-        alert(navicon);
+        var navicon=document.getElementById('navicon');
         var drawerPanel=document.getElementById('drawerPanel');
         navicon.addEventListener('click',function(){
             drawerPanel.togglePanel();
@@ -23,6 +20,7 @@
     });  
             
         </script>
+        <template is="auto-binding" id="super-template">
         <core-drawer-panel  id="drawerPanel">
             <!--DRAWER-->
             <core-header-panel drawer>
@@ -33,7 +31,7 @@
                                 'action' => 'index'))?>">BEin3D</a>
                     </h2>
                 </core-toolbar>
-                <core-menu fullbleed flex selected="{{menu}}" valueattr="menu-cat">
+                <core-menu fullbleed flex selected="{{menu}}"  valueattr="menu-cat">
                     <core-submenu icon="home" label="Home" menu-cat="home" selected="{{sub}}" valueattr="menu-sub">
                         <paper-shadow z="1"></paper-shadow>
                         <core-item label="Accueil" menu-sub="accueil">
@@ -93,6 +91,7 @@
                 <core-toolbar class="medium" id="barre2">
                     <!-- TOP TOOLBAR -->
                     <core-icon-button id="navicon" icon="menu"></core-icon-button>
+                    <!--<paper-test></paper-test>-->
                     <paper-tabs flex selected="{{menu}}" valueattr="menu-cat" link noink noslide>
                         <paper-tab menu-cat="home">
                             <a href="<?php
@@ -113,11 +112,6 @@
                                     'action' => 'mesobjets'))?>"horizontal center-center layout>SELL</a>
                         </paper-tab>
                     </paper-tabs>
-    <!--                <core-field>                 
-                        <label></label>
-                        <input placeholder="Recherche" flex>
-                        <core-icon-button icon="search"></core-icon-button>
-                    </core-field>-->
                     <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                     <core-icon-button icon="search"></core-icon-button>
 
@@ -143,6 +137,7 @@
                                     
                     <!--</div>-->          
                 </core-toolbar>
+                
                 <core-pages selected="{{menu}}" valueattr="menu-cat">
                     <section menu-cat="home">
                         <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
@@ -209,12 +204,13 @@
                             <paper-tab menu-sub="mesventes">MES VENTES</paper-tab>
                         </paper-tabs>
                     </section>
-                </core-pages>               
+                </core-pages>
+            
                 <?php                
                     echo $this->layout()->content;
                 ?>  
             </core-header-panel>
-
+            
         </core-drawer-panel>
     </template>
 </body>

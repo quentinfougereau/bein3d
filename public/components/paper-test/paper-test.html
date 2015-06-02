@@ -1,0 +1,44 @@
+
+
+@group Paper Elements
+@element paper-input
+@extends core-input
+@homepage github.io
+
+<link href="../polymer/polymer.html" rel="import">
+<link href="../paper-tabs/paper-tabs.html" rel="import">
+<link href="../paper-tabs/paper-tab.html" rel="import">
+
+<polymer-element name="paper-test" layout horizontal>
+
+  <template>
+
+      <paper-tabs valueattr="menu-cat" selected="{{menu}}">
+          <template repeat="{{m in menusCat}}">
+            <paper-tab menu-cat="{{m.value}}">{{m.name}}</paper-tab>
+          </template>
+      </paper-tabs>
+
+    
+
+  </template>
+
+  <script>
+
+  Polymer('paper-test', {
+      
+      ready: function() {
+        this.menu ='shop';
+        
+        this.menusCat = [
+          {name: 'HOME', value: 'home'},
+          {name: 'SHOP', value: 'shop'},
+          {name: 'DESIGN', value: 'design'},
+          {name: 'SELL', value: 'sell'}
+        ];
+      }
+  });
+
+  </script>
+
+</polymer-element>
