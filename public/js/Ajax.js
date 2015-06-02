@@ -26,10 +26,10 @@ function creerInstance(){
 };
 
 function envoyerDonnees (num){
-  var nbprod=parseInt(document.getElementById('nbproduit').value);
-        document.getElementById('nbproduit').value = eval(nbprod + 1) ;
-        var nbajout = document.getElementById('nbproduit').value;
-        document.getElementById("panier").innerHTML = "("+nbajout+")";
+//  var nbprod=parseInt(document.getElementById('nbproduit').value);
+//        document.getElementById('nbproduit').value = eval(nbprod + 1) ;
+//        var nbajout = document.getElementById('nbproduit').value;
+//        document.getElementById("panier").innerHTML = "("+nbajout+")";
   var req =  creerInstance();
   var donneeproduit;
  /* On récupère les données du formulaire */
@@ -48,7 +48,11 @@ function envoyerDonnees (num){
   }
 }   
   donneeproduit = "donnees="+donneeClient ;
+   
+
   req.open("POST", "Panier", true);
   req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-   req.send(donneeproduit);
+  req.send(donneeproduit);
+
+  
 }

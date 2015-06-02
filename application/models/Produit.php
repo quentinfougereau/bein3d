@@ -32,7 +32,6 @@ class Produit extends Zend_Db_Table_Abstract {
     
     
     public function getproduit($id) {
-        
         $sql = $this->_db->select();
         $sql->from('produit')
             ->where('id='.$id);

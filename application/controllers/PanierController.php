@@ -19,14 +19,16 @@ class PanierController extends Zend_Controller_Action {
     public function indexAction() {
         $this->view->acces = '../../../';
         Zend_Session::start();
-            $nbproduit = new Zend_Session_Namespace('nbproduit');
-        
-           
+        if (!isset($_SESSION['nbproduit'])) {
+//            $nbproduit = new Zend_Session_Namespace('nbproduit');
+//           $nbproduit->array = array();
+            $_SESSION['nbproduit']=array();
+        };
+         
         $p = new Produit();
         $produit = $p->getproduit($_POST['donnees']);
-        $tabprod=array();
 
-
+        $tabprod = array();
         foreach ($produit as $prod) {
             $tabprod = array(
                 "id" => $prod['id'],
@@ -34,11 +36,11 @@ class PanierController extends Zend_Controller_Action {
                 "prix" => $prod['prixunitaire'],
             );
         }
-        array_push($nbproduit->array, $tabprod);
-        $nbprod=count($nbproduit->array);
-        var_dump($nbproduit->array);
-       
         
+        array_push($_SESSION['nbproduit'], $tabprod);
+        
+        var_dump($_SESSION['nbproduit']);
+    
     }
 
 }

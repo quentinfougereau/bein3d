@@ -2,9 +2,24 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/wamp/www/bein3d/application/controllers/DesignController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
         </group>
+=======
+<<<<<<< HEAD
+        <group>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Panier/index.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/controllers/PanierController.php</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/index/index.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/public/js/news.js</file>
+            <file>file:/C:/wamp/www/bein3d/public/js/Ajax.js</file>
+            <file>file:/C:/wamp/www/bein3d/application/models/Produit.php</file>
+        </group>
+=======
+        <group/>
+>>>>>>> b2882ed09aa3fc1f96cdc5f6e16e330096259e5e
+>>>>>>> 1abe6bd0f69ecc497b6130c9091648cc8d1e433b
     </open-files>
 </project-private>

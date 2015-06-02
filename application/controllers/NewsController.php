@@ -23,7 +23,6 @@ class NewsController extends Zend_Controller_Action {
     public function indexAction() {
         $news = new News();
         $this->view->news = $news->getNews();
-        
     }
 
   
