@@ -1,15 +1,87 @@
 body {
+    height: 2000px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
 }
 
 core-toolbar {
-    background-color: #2196F3;
+    background-image:linear-gradient(#1B2C6E,#01579B,#4BB5C1);
+    //background-color:#111C47;
     color:whitesmoke;
 
 }
 
+core-toolbar a{
+    color:white;
+    text-decoration:none;
+}
+
+core-header-panel[drawer]{
+    //background-color:#ECEFF1;
+    background-image:linear-gradient(#d1d1d1,#BCAAA4);
+}
+
+core-menu{
+    background-image:linear-gradient(#4BB5C1,#01579B,#1B2C6E);
+    //background-color:#FFAB91;
+    color:white;
+}
+
+core-drawer-panel:not([narrow]) #navicon{
+    display:none;
+}
+
+section paper-tabs{
+    background-image:linear-gradient(#ECEFF1,#c4af91);
+}
+
+paper-tabs.pink::shadow #selectionBar {
+  background-color: red;
+}
+
+paper-tabs.pink paper-tab::shadow #ink {
+  color: red;
+}
+
 paper-tab{
     font-size:20px;
+}
+
+core-toolbar paper-tab a{
+    text-decoration:none;
+    color:whitesmoke;
+}
+paper-tab a{
+    text-decoration:none;
+    color:#1B2C6E;
+}
+
+.contenu{
+    position:relative;
+    top:48px;
+}
+
+footer{
+    position:relative;
+    margin:auto;
+    bottom:0px;
+    padding-top:24px;
+    width:232px;
+    height:48px;
+    color:whitesmoke;
+    text-align:center;
+    background-image:linear-gradient(#A6A5A5,#4F4B4B);
+    border-radius:2px 2px 2px 2px;
+    -moz-box-shadow: 1px 1px 15px 0px #656565;
+    -webkit-box-shadow: 1px 1px 15px 0px #656565;
+    -o-box-shadow: 1px 1px 15px 0px #656565;
+    box-shadow: 1px 1px 15px 0px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
+}
+
+#divfoot{
+    height:350px;
+    max-height:500px;
+    min-height: 40px;
 }
 
 #inscription-button{
@@ -17,14 +89,6 @@ paper-tab{
 }
 #search-mainpage-input{
     color:whitesmoke;
-}
-
-#left-menu{
-    background-color:#E3F2FD;
-}
-
-core-drawer-panel:not([narrow]) #navicon{
-    display:none;
 }
 
 #sous-menu{
@@ -56,26 +120,112 @@ hr:after {  /* Not really supposed to work, but does */
     content: "\00a0";  /* Prevent margin collapse */
 }
 #grosbloc{
-
-    height:250px;
+   
+   height:350px;
 
 }
 #blockgauche{
-
+    float : left;
     position:relative;
+    height : 150px;
     font-size:25px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
     color : LightSkyBlue;
-    margin-right: 70%;
+    width: 600px;
 }
 #blockdroite{
-
-    height : 150px;
-    font-size:19px;
+   float :left;
+   margin-left: 220px;
+    height : 100px;
+    font-size:30px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
     color : LightSkyBlue;
+    width : 650px;
+   
+}
+#petitblock{
+    position : relative;
+    float :right;
+    height : 100px;
+    font-size:30px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    color : LightSkyBlue;
+    width : 550px;
+   
+}
+#petitbloc1{
 
+    position : relative;
+    padding-left: 500px;
+    padding-top:300px;
+    height : 500px;
+    font-size:30px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    color : LightSkyBlue;
+}
+th{
+    background-color: #6495ED;
+    font-size: 35px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    color : white;
+}
+tr{
+    font-size: 23px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+}
+#top{
+    position : relative;
+    padding-left:520px;
+    margin-top:-275px;
+    
+    font-size:30px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    
+}
+#top tr{
+    font-size:25px;
+  color : white;
+  background-color: #6495ED;
+}
+#bot{
+    margin-top:-75px;
+   padding-left: 200px;
+    width: 100px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+}
+#bot th{
+    font-size: 25px;
+    background-color : white;
+    color : LightSkyBlue;
+}
+#gauche{
+   margin-top:-885px;
+   margin-right: 0px;
+   height: 200px;
+    width: 100px;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+}
+ul{
+    list-style:none;
+    border:1px solid black;
+    margin:0px;
+    padding:0px;
+    width:250px;
+    background-color:#d6e1f1;
+}
 
+li{
+    display:block;
+    width:250px;
+    font-family:monospace;
+    font-size:30px;
+    height:50px;
+}
+
+.id{
+   font-size:40px;
+   color:red;
+   float:left;
 }
 #produit{
     width : 50px;
@@ -88,10 +238,9 @@ hr:after {  /* Not really supposed to work, but does */
 
 /* Style de la page du profil de l utilisateur connecte */
 
-.profil {
-    float: left;
-    margin: 10px;
-    width: 100%;
+.profile-title {
+    margin-top:30px;
+    margin-left:50px;
 }
 
 .avatar {
@@ -107,7 +256,7 @@ hr:after {  /* Not really supposed to work, but does */
     margin-left: 90px;  
 }
 
-.profil-top {
+.profile-top {
     display: -webkit-inline-box;
     float: left;
     position: relative;
@@ -129,4 +278,128 @@ hr:after {  /* Not really supposed to work, but does */
 }
 .core-form-personal-data{
 margin-left: 235px;
+}
+
+
+
+// desgintoggle formulaire
+
+section {
+    padding: 20px 0;
+}
+
+section > div {
+    padding: 14px;
+    font-size: 16px;
+}
+
+button{
+    margin: 8px 4px;
+}
+
+paper-tabs .pink::shadow #selectionBar {
+  background-color: red;
+}
+
+html /deep/ [autofocus] {
+    color: #03a9f4;
+}
+
+html /deep/ .scrolling::shadow #scroller {
+    height: 350px;
+}
+
+html /deep/ .colored {
+    border: 1px solid #0f9d58;
+    background-color: #b7e1cd;
+    color: #0f9d58;
+}
+
+html /deep/ .size-position {
+    position: fixed;
+    top: 156px;
+
+    right: 150px;
+    left: 65%;
+}
+
+html /deep/ .size-position::shadow #scroller {
+    width: 300px;
+    height: 300px;
+}
+            
+// fin toogle
+
+
+html paper-tabs /deep/ .pink::shadow #selectionBar {
+  background-color: red;
+}
+
+//accueil
+.photo-accueil{
+    width:100%;
+}
+
+//boutique liste produit
+
+core-pages section h1{
+    margin:auto;
+}
+
+.catalogue{
+    text-align:center;
+    border-collapse: separate;
+}
+
+.catalogue tr td{
+    padding:15px;
+}
+
+.produit-catalogue{
+    width:180px;
+    height:260px;
+}
+
+.produit-catalogue h4{
+    position:relative;
+    bottom:10px;
+    color:#1B2C6E;
+    font-family: 'Merriweather', serif;
+    font-size:18px;
+    margin-bottom:10px;
+    text-align:center;
+    font-weight:normal;
+    text-decoration:underline;
+}
+
+.produit-catalogue img{
+    width:270px;
+    height:270px;
+    border-radius:2px;
+    box-shadow:3px 3px 3px #c3c3c3;
+}
+
+.produit-catalogue core-image{
+    width:300px;
+    height:300px;
+}
+
+.produit-catalogue .prix-produit{
+    text-align:right;
+}
+
+.produit-catalogue paper-button{
+    color:white;
+    display:inline-block;
+    width:30px;
+    //width:10%;
+}
+
+.produit-catalogue .like{
+    background-color:#F3284A;
+    width:50px;
+}
+
+.produit-catalogue .add-panier{
+    background-color:#4CAF50;
 }

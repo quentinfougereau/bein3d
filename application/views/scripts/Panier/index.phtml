@@ -1,0 +1,7 @@
+<?php
+Zend_Session::start();
+    echo "<paper-icon-button icon='shopping-cart'></paper-icon-button>";
+    echo $this->nb;
+    echo "(".count($_SESSION['nbproduit']).")";
+    
+?>

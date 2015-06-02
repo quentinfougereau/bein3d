@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<polymer-element name="paper-footer" is="footer" fullbleed horizontal>
+    <template>
+        <paper-shadow z="2"></paper-shadow>
+        <link rel="stylesheet" type="text/css" href="paper-footer.css">
+        <table>
+            <tr>
+                <td>
+                    <p>Be in 3D <br/> 145 AVENUE DES CHAMPS ELYSEES
+                    <br/> 75008 PARIS CEDEX
+                    <br/> Tel : 01.45.56.25.33 
+                    <br/> Fax : 01.45.56.55.58</p>
+                </td>
+                <td>
+                    <paper-input label="Name" ></paper-input>
+                    <paper-input label="Message"></paper-input>
+                    <paper-input label="Email"></paper-input>
+                    <paper-input label="Subject"></paper-input>
+                </td>
+                <td>
+                    <core-icon icon="keyboard"></core-icon>
+                </td>
+            </tr>
+        </table>
+            
+
+            
+        
+    </template>
+    <script>
+        Polymer("paper-footer",{
+      ready: function(){
+
+      }
+  });
+    </script>
+</polymer-element>

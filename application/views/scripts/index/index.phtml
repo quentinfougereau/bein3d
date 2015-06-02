@@ -1,8 +1,9 @@
+<!-- <<<<<<< HEAD
 <html>
     <head>
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
         <title>01-introduction</title>
-        <!-- Load Polymer -->
+        <!-- Load Polymer 
         <script
             src="../public/components/platform/platform.js">
         </script>
@@ -32,16 +33,16 @@
         <link rel="import"
               href="../public/components/paper-button/paper-button.html">
 
-        <!-- NEW ELEMENTS -->
+        <!-- NEW ELEMENTS
         <link rel="import"
               href="../public/components/core-form-inscription/core-form-inscription.html">     
         <link rel="import"
               href="../public/components/core-form-connexion/core-form-connexion.html">  
-        <!-- STYLESHEETS -->
+        <!-- STYLESHEETS 
 
         <link rel="stylesheet" href="style/CSS.css" type="text/css">
         <link rel="stylesheet" href="style/shadow-dom.css" type="text/css">
-        <!-- FONTS -->
+        <!-- FONTS 
         <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -106,15 +107,15 @@
         <core-header-panel drawer vertical layout id="left-menu">
             <core-toolbar class="medium-tall" id="barre" ><div style='cursor:pointer' id="accueil"><h2>BEin3D</h2></div></core-toolbar>
             <core-menu><!--
-                -->                <core-item label="Shop"></core-item>
+                           <core-item label="Shop"></core-item>
                 <core-item label="Design"></core-item>
                 <core-item label="Sell"></core-item><!--
-                -->            </core-menu>
+                      </core-menu>
         </core-header-panel>
 
         <core-header-panel main >
             <core-toolbar class="medium-tall" id="barre2">
-                <!-- TOP TOOLBAR -->
+                <!-- TOP TOOLBAR 
                 <core-icon-button id="navicon" icon="menu" on-tap="{{menuAction}}"></core-icon-button>
                 <paper-tabs flex selected="{{selected}}">
                     <paper-tab id="shop">SHOP</paper-tab>
@@ -143,7 +144,7 @@
                 <!-- BOTTOM TOOLBAR -->
 
                 <!--<div class="bottom" id="sous-menu"> -->
-                <!--                <div id="shop-content1" >-->
+                <!--                <div id="shop-content1" >
                 <paper-tabs  id="shop-content1" class="hide bottom" flex selected="{{selected}}">
                     <paper-tab>+POPULAIRES</paper-tab>
                     <paper-tab>NOUVEAUTES</paper-tab>
@@ -151,7 +152,7 @@
                     <paper-tab>MEILLEURS MAKERS</paper-tab>
                     <paper-tab>CONCOURS</paper-tab>
                 </paper-tabs>                
-                <!--</div>-->          
+                <!--</div>   
             </core-toolbar>
 
 
@@ -159,7 +160,7 @@
             <div id="shop-content" class="hide">
                 <table>
                     <tr> 
-                        <?php
+                        <?php /*
                         for ($i = 0; $i < 100; $i++) {
                             
                         }
@@ -170,7 +171,7 @@
                             echo "<td>";
                             echo $produit->prixunitaire;
                             echo "</td>";
-                        }
+                        } */
                         ?>
                     </tr>
                 </table>
@@ -202,9 +203,32 @@
         </core-header-panel>
 
     </core-drawer-panel>
+=======-->
+<script>
+    $(document).ready(function(){
+                var tmp=document.querySelector('#super-template');
+                tmp.menu='home';
+                tmp.sub='accueil';             
+            });
+</script>
+<style>
+    .pano{
+        width:100%;
+        -moz-box-shadow: 1px 1px 15px 0px #656565;
+        -webkit-box-shadow: 1px 1px 15px 0px #656565;
+        -o-box-shadow: 1px 1px 15px 0px #656565;
+        box-shadow: 1px 1px 15px 0px #656565;
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
+    }
+</style>
+<div class="contenu">
+    <img class='pano' src='../public/images/panorama.jpg'>
+    <h2>Bienvenue sur BEin3D</h2>
+    <h3>Le site de l'impression 3D en ligne</h3>
+</div>
 
 
-</core-header-panel>
+<!--
 <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
     <script>
         Polymer('component-form', {
@@ -233,62 +257,11 @@
                 }.bind(this));
             },
         });
+
     </script>
 </polymer-element>
 
-
-
-</body>
-
-</html>
 <script type="text/javascript">
-    $("#shop").click(function () {
-        if (!$('#design-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#design-content').toggleClass("hide");
-        }
-        if (!$('#accueil-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#accueil-content').toggleClass("hide");
-        }
-        if ($('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
-        }
-        $('#shop-content').toggleClass("hide");
-
-
-
-    });
-    $("#design").click(function () {
-        if (!$('#shop-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#shop-content').toggleClass("hide");
-        }
-        if (!$('#accueil-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#accueil-content').toggleClass("hide");
-        }
-        if ($('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
-        }
-        $('#design-content').toggleClass("hide");
-
-
-
-    });
-    $("#accueil").click(function () {
-        if (!$('#shop-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#shop-content').toggleClass("hide");
-        }
-        if (!$('#shop-content1').hasClass("hide")) {
-            $('#shop-content1').toggleClass("hide");
-        }
-        if (!$('#design-content').hasClass('hide')) { // it checks if mobile_billing is not open
-            $('#design-content').toggleClass("hide");
-        }
-        $('#accueil-content').toggleClass("hide");
-
-
-
-    });
-
-
 //
 //    function addName() {
 //        var recup = document.querySelectorAll("hello-john-doe")[0];
@@ -302,33 +275,98 @@
     ;
 
 
-    function recupinfo() {
-        var login = document.querySelectorAll("paper-input")[1];
-        document.getElementById('affiche').innerHTML = login.inputValue;
 
-        var mdp = document.querySelectorAll("paper-input")[2];
+            
+
+-->
+
+            
+           
+             
+                    <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
+                        <script>
+                            Polymer('component-form', {
+                                handleClick: function (event, detail, sender) {
+                                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
+                                        this.prepareSubmit();
+                                        this.submit();
+                                    }
+                                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
+
+                                        this.form.reset();
+                                    }
+
+                                },
+                                prepareSubmit: function () {
+                                    Array.prototype.forEach.call(this.children, function (child) {
+                                        var name = child.getAttribute('name');
+                                        // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
+                                        if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
+                                            element = document.createElement('input');
+                                            element.setAttribute('type', 'hidden');
+                                            element.setAttribute('name', name);
+                                            element.setAttribute('value', child.value);
+                                            this.appendChild(element);
+                                        }
+                                    }.bind(this));
+                                },
+                            });
+
+                        </script>
+                    </polymer-element>
 
 
-        var Cmdp = document.querySelectorAll("paper-input")[3];
-        if (mdp != Cmdp) {
-            document.getElementById('affiche').innerHTML = "Veuillez confirmez votre mot de passe."
-        }
 
-        var email = document.querySelectorAll("paper-input")[4];
-        document.getElementById('affiche').innerHTML = login.inputValue;
-    }
-    var scope = document.querySelector('template[is=auto-binding]');
+                    </body>
 
-    scope.toggleDialog1 = function (e) {
-//        if (e.target.localName != 'paper-button') {
-//            return;
-//        }
-        var d = e.target.nextElementSibling;
-        if (!d) {
-            return;
-        }
-        d.toggle();
-    };
+                    </html>
+                    <script type="text/javascript">
+                    //
+                    //    function addName() {
+                    //        var recup = document.querySelectorAll("hello-john-doe")[0];
+                    //        document.querySelector("buddies-list").buddies.push({name: recup.name});
+                    //    }
+                    //    ;
+                        function toggleDialog(transition) {
+                            var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
+                            dialog.toggle();
+                        }
+                        ;
+
+                        var MonTableau = new Array();
+
+
+                        var scope = document.querySelector('template[is=auto-binding]');
+
+                        scope.toggleDialog1 = function (e) {
+                    //        if (e.target.localName != 'paper-button') {
+                    //            return;
+                    //        }
+                            var d = e.target.nextElementSibling;
+                            if (!d) {
+                                return;
+                            }
+                            d.toggle();
+                        };
+
+                        var content = document.getElementById('super-template');
+                        //alert(content);
+                        var nav = document.getElementById('navicon');
+                        //alert(nav);
+                        content.addEventListerner('template-bound', function () {
+                            console.log(document.query - selector('navicon'));
+                        })
+
+                    //    document.addEventListener('polymer-ready', function(){
+                    //        var navicon=document.getElementById('navicon');
+                    //        alert(navicon);
+                    //        var drawerPanel=document.getElementById('drawerPanel');
+                    //        navicon.addEventListener('click',function(){
+                    //            drawerPanel.togglePanel();
+                    //        });
+                    //    });
+
+
 
 
 

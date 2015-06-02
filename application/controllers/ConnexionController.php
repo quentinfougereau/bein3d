@@ -20,15 +20,17 @@ class ConnexionController extends Zend_Controller_Action {
     }
 
     public function indexAction() {
+        
+        $this->view->acces='../../../';
 
         if ($_POST['email'] != "" && $_POST['mdp'] != "") {
             $ct = new Client();
             $all = $ct->fetchAll();
             $connect = 0;
             foreach ($all as $client) {
-                if ($client->Login == $_POST['email'] && $client->Motdepasse == $_POST['mdp']) {
+                if ($client->login == $_POST['email'] && $client->motdepasse == $_POST['mdp']) {
                     $connect = 1;
-                    $this->view->Login=$client->Nom;
+                    $this->view->login=$client->nom;
                 }
             }
             if ($connect == 1) {
@@ -41,5 +43,7 @@ class ConnexionController extends Zend_Controller_Action {
         }
 
     }
+    
+    
 
 }
