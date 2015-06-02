@@ -26,6 +26,7 @@ function creerInstance(){
 };
 
 function envoyerDonnees (num){
+    
 //  var nbprod=parseInt(document.getElementById('nbproduit').value);
 //        document.getElementById('nbproduit').value = eval(nbprod + 1) ;
 //        var nbajout = document.getElementById('nbproduit').value;

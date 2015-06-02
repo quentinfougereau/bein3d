@@ -115,19 +115,20 @@
                     </core-field>-->
                     <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                     <core-icon-button icon="search"></core-icon-button>
-               
+
                     <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
-                     <paper-dialog  class="size-position"  >
-                         <?php
-                         if(isset($_SESSION['nbproduit'])){
-                          foreach($_SESSION['nbproduit'] as $key=>$prod){
+                    <paper-dialog  class="size-position"  >
+                        <?php
+                        if (isset($_SESSION['nbproduit'])) {
+                            foreach ($_SESSION['nbproduit'] as $key => $prod) {
 //                              var_dump($prod);
-                              echo "<core-icon-button icon='cancel' onclick='alert()'></core-icon-button>";
-                              echo $prod['nom']."</br>";
-                          }
-                         }
-                         ?>
-                     </paper-dialog>
+                                echo "<core-icon-button icon='cancel' onclick='alert()'></core-icon-button>";
+                                echo $prod['nom'] . "</br>";
+                            }
+                        }
+                        ?>
+                    </paper-dialog>
+                   
                     <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>
                     <paper-dialog heading="CONNEXION" class="size-position" >
 

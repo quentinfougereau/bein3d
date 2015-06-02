@@ -13,8 +13,10 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        
         $this->view->acces='../';
         Zend_Session::start();
+        
        $p= new Produit();
        $c= new Client();
        $this->view->lesProduits=$p->fetchall();

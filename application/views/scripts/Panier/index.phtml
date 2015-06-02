@@ -1,8 +1,8 @@
 <?php
 
-Zend_Session::start();
 echo "<paper-icon-button icon='shopping-cart' on-tap='{{toggleDialog1}}'></paper-icon-button>";
 if (isset($_SESSION['nbproduit'])) {
-    echo "(" . count($_SESSION['nbproduit']) . ")";
+    $nbpanier = count($_SESSION['nbproduit']);
+    echo "(" . $nbpanier . ")";
 }
 ?>
