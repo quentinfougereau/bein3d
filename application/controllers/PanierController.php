@@ -17,7 +17,7 @@ require_once '../application/models/Produit.php';
 class PanierController extends Zend_Controller_Action {
 
     public function indexAction() {
-        $this->view->acces = '../../../';
+        $this->view->acces = '../../';
         Zend_Session::start();
         if (!isset($_SESSION['nbproduit'])) {
 //            $nbproduit = new Zend_Session_Namespace('nbproduit');

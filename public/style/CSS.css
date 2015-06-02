@@ -4,7 +4,8 @@ body {
 }
 
 core-toolbar {
-    background-color:#607D8B;
+    background-image:linear-gradient(#1B2C6E,#01579B,#4BB5C1);
+    //background-color:#111C47;
     color:whitesmoke;
 
 }
@@ -15,11 +16,13 @@ core-toolbar a{
 }
 
 core-header-panel[drawer]{
-    background-color:#CFD8DC;
+    //background-color:#ECEFF1;
+    background-image:linear-gradient(#d1d1d1,#BCAAA4);
 }
 
 core-menu{
-    background-color:#607D8B;
+    background-image:linear-gradient(#4BB5C1,#01579B,#1B2C6E);
+    //background-color:#FFAB91;
     color:white;
 }
 
@@ -28,13 +31,57 @@ core-drawer-panel:not([narrow]) #navicon{
 }
 
 section paper-tabs{
-    background-color:#ECEFF1;
+    background-image:linear-gradient(#ECEFF1,#c4af91);
 }
 
+paper-tabs.pink::shadow #selectionBar {
+  background-color: red;
+}
 
+paper-tabs.pink paper-tab::shadow #ink {
+  color: red;
+}
 
 paper-tab{
     font-size:20px;
+}
+
+core-toolbar paper-tab a{
+    text-decoration:none;
+    color:whitesmoke;
+}
+paper-tab a{
+    text-decoration:none;
+    color:#1B2C6E;
+}
+
+.contenu{
+    position:relative;
+    top:48px;
+}
+
+footer{
+    position:relative;
+    margin:auto;
+    bottom:0px;
+    padding-top:24px;
+    width:232px;
+    height:48px;
+    color:whitesmoke;
+    text-align:center;
+    background-image:linear-gradient(#A6A5A5,#4F4B4B);
+    border-radius:2px 2px 2px 2px;
+    -moz-box-shadow: 1px 1px 15px 0px #656565;
+    -webkit-box-shadow: 1px 1px 15px 0px #656565;
+    -o-box-shadow: 1px 1px 15px 0px #656565;
+    box-shadow: 1px 1px 15px 0px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
+}
+
+#divfoot{
+    height:350px;
+    max-height:500px;
+    min-height: 40px;
 }
 
 #inscription-button{
@@ -205,6 +252,12 @@ button{
 
 
 
+
+//accueil
+.photo-accueil{
+    width:100%;
+}
+
 //boutique liste produit
 
 core-pages section h1{
@@ -228,7 +281,9 @@ core-pages section h1{
 .produit-catalogue h4{
     position:relative;
     bottom:10px;
-    font-family: 'Abel', sans-serif;
+    color:#1B2C6E;
+    font-family: 'Merriweather', serif;
+    font-size:18px;
     margin-bottom:10px;
     text-align:center;
     font-weight:normal;
@@ -237,9 +292,14 @@ core-pages section h1{
 
 .produit-catalogue img{
     width:270px;
-    height:250px;
+    height:270px;
     border-radius:2px;
     box-shadow:3px 3px 3px #c3c3c3;
+}
+
+.produit-catalogue core-image{
+    width:300px;
+    height:300px;
 }
 
 .produit-catalogue .prix-produit{
@@ -249,11 +309,12 @@ core-pages section h1{
 .produit-catalogue paper-button{
     color:white;
     display:inline-block;
+    width:30px;
     //width:10%;
 }
 
 .produit-catalogue .like{
-    background-color:#0D47A1;
+    background-color:#F3284A;
     width:50px;
 }
 

@@ -51,7 +51,7 @@ function envoyerDonnees (num){
   donneeproduit = "donnees="+donneeClient ;
    
 
-  req.open("POST", "Panier", true);
+  req.open("POST", "../Panier", true);
   req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   req.send(donneeproduit);
 
