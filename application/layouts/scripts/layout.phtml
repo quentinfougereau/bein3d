@@ -1,10 +1,45 @@
 <?php echo $this->doctype() ?>
 <html>
     <head>
+          <style shim-shadowdom>
+            html /deep/ [autofocus] {
+                color: #03a9f4;
+            }
+
+            html /deep/ .scrolling::shadow #scroller {
+                height: 350px;
+            }
+
+            html /deep/ .colored {
+                border: 1px solid #0f9d58;
+                background-color: #b7e1cd;
+                color: #0f9d58;
+            }
+
+            html /deep/ .size-position {
+                position: fixed;
+                top: 156px;
+
+                right: 150px;
+                left: 65%;
+            }
+
+            html /deep/ .size-position::shadow #scroller {
+                width: 300px;
+                height: 300px;
+            }
+
+            // fin toogle
+
+
+            html paper-tabs /deep/ .pink::shadow #selectionBar {
+                background-color: red;
+            }
+        </style>
         <?php
         require '../public/requires/head-import.php';
         ?>
-        
+
     </head>
     <body fullbleed vertical layout unresolved>
         
@@ -114,18 +149,31 @@
                     </paper-tabs>
                     <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                     <core-icon-button icon="search"></core-icon-button>
+                    
+                    <paper-dialog  class="size-position"  >
+                        <?php
+                        if (isset($_SESSION['nbproduit'])) {
+                            foreach ($_SESSION['nbproduit'] as $key => $prod) {
+//                              var_dump($prod);
+                                echo "<core-icon-button icon='cancel' onclick='alert()'></core-icon-button>";
+                                echo $prod['nom'] . "</br>";
+                            }
+                        }
+                        ?>
+                    </paper-dialog>
+                         <?php  include_once("../application/views/scripts/Panier/index.phtml"); ?>
+                    
 
-                    <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
                     <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
-                    <paper-button  id="connexion-button" label="CONNEXION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
-                    <paper-dialog heading="CONNEXION" transition="paper-dialog-transition-center">
+                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>
+                    <paper-dialog heading="CONNEXION" class="size-position" >
 
                         <core-form-connexion></core-form-connexion>
 
                     </paper-dialog>
 
 
-                    <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
+                    <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')" ></paper-button>
                     <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
 
                         <core-form-inscription>           
@@ -215,4 +263,56 @@
     </template>
 </body>
 
+<script type="text/javascript">
+    //
+    //    function addName() {
+    //        var recup = document.querySelectorAll("hello-john-doe")[0];
+    //        document.querySelector("buddies-list").buddies.push({name: recup.name});
+    //    }
+    //    ;
+    function toggleDialog(transition) {
+        var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
+        dialog.toggle();
+    }
+    ;
+
+    var MonTableau = new Array();
+
+
+    var scope = document.querySelector('template[is=auto-binding]');
+
+    scope.toggleDialog1 = function (e) {
+//                if (e.target.localName != 'paper-button') {
+//                    return;
+//                }
+        var d = e.target.nextElementSibling;
+        if (!d) {
+            return;
+        }
+        d.toggle();
+    };
+  
+
+    var content = document.getElementById('super-template');
+    //alert(content);
+    var nav = document.getElementById('navicon');
+    //alert(nav);
+    content.addEventListerner('template-bound', function () {
+        console.log(document.query - selector('navicon'));
+    })
+
+    //    document.addEventListener('polymer-ready', function(){
+    //        var navicon=document.getElementById('navicon');
+    //        alert(navicon);
+    //        var drawerPanel=document.getElementById('drawerPanel');
+    //        navicon.addEventListener('click',function(){
+    //            drawerPanel.togglePanel();
+    //        });
+    //    });
+    
+    
+
+
+
+</script>
 </html>

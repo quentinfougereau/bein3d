@@ -13,7 +13,7 @@ function setId(id){
     dernier_id = id;
 }
 function chargerNews(){
-    jQuery.ajax({
+    $.ajax({
         url: 'Recup?id='+dernier_id,
         success: function(data){
            

@@ -1,5 +1,5 @@
 <?php
-
+require_once '../application/models/Produit.php';
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,10 +18,9 @@ class ShopController extends Zend_Controller_Action{
     
     public function boutiqueAction(){
         $this->view->acces='../../';
-        $db=Zend_Db_Table::getDefaultAdapter();
-        $req="select * from produit";
-        $result=$db->fetchAll($req);
-        $this->view->lesProduits=$result;
+        $p= new Produit();
+        $this->view->lesProduits=$p->fetchall();
+       
         
         
     }

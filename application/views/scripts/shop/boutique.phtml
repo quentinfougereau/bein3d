@@ -8,31 +8,38 @@
 <div class="contenu">
     <h3>La Boutique</h3>
     
-    <table class="catalogue" cellspacing="60">
-        <tr>
-            <?php
-            $cmp = 1;
-            foreach ($this->lesProduits as $produit) {
-            ?>
-                <td class='produit-catalogue'>
-                    <paper-shadow z='1' animated>
-                    <img src='../../public/images/produits/<?php echo $produit['image']?>'>
-                    <h4><?php echo $produit['nom'];?></h4>
-                    <p class='nom'>
-                    <span flex><p class='prix-produit'><?php echo $produit['prixunitaire']?> €</p>
-                    <paper-button raised role='button' class='like' style="width: 30px;">
-                    <core-icon icon='favorite'></core-icon></paper-button>
-                    <paper-button raised role='button' class='add-panier'>
-                    <core-icon icon='add-shopping-cart'></core-icon></paper-button>
-                    </paper-shadow></td>
-            <?php              
-                $cmp++;
-                if ($cmp > 3) {
-                    $cmp = 1;
-                    echo"</tr><tr>";
-                }
-            }
-            ?>
-        </tr>
-    </table>
+   <table class="catalogue" cellspacing="60">
+                                <tr>
+
+                                    <?php
+                                    Zend_Session::start();
+                                    $cmp = 1;
+                                    //var_dump($_SESSION['nbproduit']);
+                                    foreach ($this->lesProduits as $produit) {
+                                        echo "<td class='produit-catalogue'>"
+                                        . "<paper-shadow z='1' animated>";
+                                        echo "<img src='../../public/images/produits/$produit->image'>";
+                                        echo "<h4>$produit->nom</h4>";
+                                        //echo "<p class='nom'>";
+                                        echo "<span flex><p class='prix-produit'>$produit->prixunitaire €</p>";
+                                        echo "<paper-button raised role='button' class='like'>"
+                                        . "<core-icon icon='favorite'></core-icon></paper-button>";
+                                        echo "<paper-button raised role='button' class='add-panier' onclick='envoyerDonnees($produit->id)'>"
+                                        . "<core-icon icon='add-shopping-cart'></core-icon></paper-button>";
+                                        echo "</paper-shadow></td>";
+                                        $cmp++;
+                                        if ($cmp > 3) {
+                                            $cmp = 0;
+                                            echo"</tr><tr>";
+                                        }
+
+            
+           
+          
+
+                                    }
+                                    ?>
+
+                                </tr>
+                            </table>
 </div>

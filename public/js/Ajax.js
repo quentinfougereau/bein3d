@@ -26,6 +26,7 @@ function creerInstance(){
 };
 
 function envoyerDonnees (num){
+    
 //  var nbprod=parseInt(document.getElementById('nbproduit').value);
 //        document.getElementById('nbproduit').value = eval(nbprod + 1) ;
 //        var nbajout = document.getElementById('nbproduit').value;
@@ -50,7 +51,7 @@ function envoyerDonnees (num){
   donneeproduit = "donnees="+donneeClient ;
    
 
-  req.open("POST", "Panier", true);
+  req.open("POST", "../Panier", true);
   req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   req.send(donneeproduit);
 

@@ -1,0 +1,76 @@
+<!-- <script src="../webcomponentsjs/webcomponents.js"></script> -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ajax-form/ajax-form.html">
+<link rel="import" href="../core-ajax/core-ajax.html">
+
+<polymer-element name="form-profile-personal-data">
+    <template>        
+        <div id="content">
+            <!-- <form is="ajax-form" action="#" method="post" id="form"> -->
+            <div id="infoPerso">
+                <paper-input floatingLabel name="nom" label="Nom" value="{{nom}}"></paper-input>
+                <paper-input floatingLabel name="prenom" label="Prénom" value="{{prenom}}"></paper-input>
+                <paper-input floatingLabel name=email label="Adresse Email" value="{{email}}"></paper-input>
+                <paper-input floatingLabel name="adresse" label="Adresse" value="{{adresse}}"></paper-input>
+                <paper-input floatingLabel name="ville" label="ville" value="{{ville}}"></paper-input>
+                <paper-input floatingLabel name="cp" label="Code Postal" value="{{cp}}"></paper-input>
+            </div>
+            <!-- <input type="submit"> -->
+            <paper-button class="colored" label='OK' on-click="{{send}}">
+                <core-icon icon='check'> 
+                </core-icon>
+            </paper-button>
+            <core-ajax id="ajax" url="http://localhost/bein3d/public/profil/update-personal-data" method="POST" params='{"nom": "{{nom}}","prenom": "{{prenom}}", "email": "{{email}}", "adresse": "{{adresse}}", "ville": "{{ville}}", "cp": "{{cp}}"}' response="{{response}}"></core-ajax>
+            <!-- </form> -->
+        </div>
+    </template>
+    <script>
+        Polymer('form-profile-personal-data', {
+            send: function() {
+                this.$.ajax.go();
+            }
+        });
+        /* Polymer({
+         ready: function () {
+         var form = this.$.form,
+         content = document.getElementById('content');
+         var infoPerso = this.$.infoPerso;
+         
+         form.addEventListener('invalid', function () {
+         alertify.error('Some form fields are invalid!');
+         });
+         form.addEventListener('submitting', function (event) {
+         content.className = 'hidden';
+         event.detail.raytest = 'foobar';
+         event.detail.color = 'blue';
+         }); 
+         form.addEventListener('submitted', function (event) {
+         //content.className = '';
+         if (event.detail.status > 299) {
+         alertify.error('Submission failed!  Please try again.')
+         }
+         else {
+         //je récupère la valeur du paper input d'id nomUser
+         var nom = infoPerso.children[0].value;
+         console.log(nom);
+         var prenom = infoPerso.children()[1].value;
+         var email = infoPerso.children()[2].value;
+         var adresse = infoPerso.children()[3].value;
+         var ville = infoPerso.children()[4].value;
+         var cp = infoPerso.children()[5].value;
+         $.ajax({
+         url: 'http://localhost/bein3d/public/profil/formdata',
+         type: 'POST', // Le type de la requête HTTP, ici devenu POST
+         dataType: 'html',
+         data: 'nom=' + nom + '&prenom=' + prenom + '&email=' + email + '&adresse=' + adresse + '&ville=' + ville + '&cp=' + cp,
+         success: function (result)//retour de requête
+         {
+         alert("Vos informations ont bien été mises à jour");
+         }
+         });
+         }
+         });
+         }
+         }); */
+    </script>
+</polymer-element>
