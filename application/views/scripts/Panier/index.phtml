@@ -1,6 +1,19 @@
 <?php
 
 echo "<paper-icon-button icon='shopping-cart' on-tap='{{toggleDialog1}}'></paper-icon-button>";
+echo "<paper-dialog  class='size-position'  >";
+
+if (isset($_SESSION['nbproduit'])) {
+    foreach ($_SESSION['nbproduit'] as $key => $prod) {
+//                              var_dump($prod);
+        echo "<core-icon-button icon='cancel' onclick='alert()'></core-icon-button>";
+        echo $prod['nom'] . "<paper-icon-button icon='remove-circle' ></paper-icon-button>
+                                  <input type='text' value='" . $prod['quantite'] . "' size='1'>
+                                 <paper-icon-button icon='add-circle' ></paper-icon-button></br>";
+    }
+}
+
+echo"  </paper-dialog>";
 if (isset($_SESSION['nbproduit'])) {
     $nbpanier = count($_SESSION['nbproduit']);
     echo "(" . $nbpanier . ")";

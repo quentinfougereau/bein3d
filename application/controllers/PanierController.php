@@ -22,27 +22,38 @@ class PanierController extends Zend_Controller_Action {
         if (!isset($_SESSION['nbproduit'])) {
 //            $nbproduit = new Zend_Session_Namespace('nbproduit');
 //           $nbproduit->array = array();
-            $_SESSION['nbproduit']=array();
+            $_SESSION['nbproduit'] = array();
         };
-         
+
         $p = new Produit();
         $produit = $p->getproduit($_POST['donnees']);
 
         $tabprod = array();
         foreach ($produit as $prod) {
+
             $tabprod = array(
                 "id" => $prod['id'],
                 "nom" => $prod['nom'],
                 "prix" => $prod['prixunitaire'],
+                "quantite" => 1,
             );
+            if (!in_array($tabprod, $_SESSION['nbproduit'])) {
+                array_push($_SESSION['nbproduit'], $tabprod);
+            }else{
+                foreach($_SESSION['nbproduit'] as $key => $prod2){
+                    if($prod2['id']==$prod['id']){
+                        $_SESSION['nbproduit'][$key][$prod2]['quantite']=$_SESSION['nbproduit'][$key][$prod2]['quantite']+1;
+                    }
+                }
+            }
         }
-        
-        array_push($_SESSION['nbproduit'], $tabprod);
-        
+
+
+
         var_dump($_SESSION['nbproduit']);
-    
     }
-    public function sup(){
+
+    public function sup() {
         
     }
 

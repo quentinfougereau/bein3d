@@ -129,7 +129,9 @@
                     <core-icon-button id="navicon" icon="menu"></core-icon-button>
                     <paper-tabs flex selected="{{menu}}" valueattr="menu-cat" link noink noslide>
                         <paper-tab menu-cat="home">
-                            <a href="http://localhost/bein3d/public/" horizontal center-center layout>HOME</a>
+                            <a href="<?php
+                                echo $this->url(array('controller' => 'Index',
+                                    'action' => 'index'))?>" horizontal center-center layout>HOME</a>
                         </paper-tab>
                         <paper-tab menu-cat="shop">
                             <a href="<?php
@@ -315,8 +317,8 @@
     //            drawerPanel.togglePanel();
     //        });
     //    });
-
-
+    
+    
 
 
 
