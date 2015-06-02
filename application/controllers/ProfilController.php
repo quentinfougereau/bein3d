@@ -1,5 +1,7 @@
 <?php
 
+require_once '../application/models/Client.php';
+
 class ProfilController extends Zend_Controller_Action {
 
     public function init() {
@@ -14,17 +16,50 @@ class ProfilController extends Zend_Controller_Action {
             $this->view->fname = $_POST['fname'];
             $this->view->adress = $_POST['adress'];
             $this->view->sexe = $_POST['sexe'];
-            var_dump($_POST);
         } else {
-            $this->view->error = "Erreur";
+            $this->view->error = $this->_request->getPost('name');
         }
+
+
+
 
         $request = $this->getRequest();
 
         if ($request->isXmlHttpRequest()) { // If it's ajax call
-            $data = $request->getPost('data');
-            var_dump($data);
+            $name = $this->_getParam('name', 1);
+            echo "<script> alert($name) </script>";
         }
+    }
+
+    //ça fonctionne ap
+    public function formdataAction() {
+        
+        if (isset($_POST['nom'])) {
+            //recupération de la valeur envoyée par ajax-form
+            $nom = $_POST['nom'];
+            $prenom = $_POST["prenom"];
+            $email = $_POST["email"];
+            $adresse = $_POST["adresse"];
+            $ville = $_POST["ville"];
+            $cp = $_POST["cp"];
+//            valeur de test
+            $id = 45;
+
+            //mise à jour de la table client
+            $client = new Client();
+            $data = array(
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $email,
+                'adresse' => $adresse,
+                'ville' => $ville,
+                'cp' => $cp,
+            );
+            $where = $client->getAdapter()->quoteInto('Id = ?', $id);
+
+            $client->update($data, $where);
+        }
+        
     }
 
 }

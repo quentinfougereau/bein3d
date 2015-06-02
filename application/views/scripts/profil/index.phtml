@@ -1,11 +1,13 @@
 <html>
     <head>
-        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-        <title>01-introduction</title>
+        <title>Profil</title>
         <!-- Load Polymer -->
         <script
             src="../components/platform/platform.js">
         </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <link rel="import" 
+              href="../components/polymer/polymer.html">
         <link rel="import"
               href="../components/core-toolbar/core-toolbar.html">
         <link rel="import"
@@ -52,6 +54,8 @@
               href="../components/core-form-connexion/core-form-connexion.html">
         <link rel="import"
               href="../components/core-form-personal-data/core-form-personal-data.html"> 
+        <link rel="import"
+              href="../components/form-profile-personal-data/form-profile-personal-data.html"> 
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="../style/CSS.css" type="text/css">
@@ -113,13 +117,10 @@
 
         <!-- Ajax-form imports -->
 
-        <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
-        <link rel="import" href="../../bower_components/ajax-form/ajax-form.html">
-        <!--This is only used for mocking the HTTP requests since this demo does not have a server to handle requests.-->
-        <script src="../../bower_components/ajax-form/demo_resources/sinon-server-1.10.2.js"></script>
-        <link rel="import" href="../../public/components/polymer/polymer.html">
+<!--        <script src="../components/webcomponentsjs/webcomponents.js"></script>
+        <link rel="import" href="../components/ajax-form/ajax-form.html">-->
 
-        <!-- Fin des imports -->
+        <!-- Fin des imports Ajax-form -->
 
 
 
@@ -181,50 +182,35 @@
                     <div class="collapse">
                         <div class="head-collapse" onclick="document.querySelector('#collapse').toggle();">Information personnelles</div>
                         <core-collapse id="collapse">
-                            <p><?php var_dump($this->name); ?></p>
-                            <p><?php var_dump($this->sexe); ?></p>
-                            <p><?php var_dump($this->error); ?></p>
                             <div class="core-form-personal-data">
-                                <core-form-personal-data></core-form-personal-data>
+<!--                                <core-form-personal-data></core-form-personal-data>-->
 
 
-                                <!-- Test de l'ajax form -->
+                                <!-- Ajax form -->
+                                <!--                                <div>
+                                                                    <div id="content">
+                                                                        <form is="ajax-form" action="#" method="post">
+                                                                            <div id='infoPerso'>
+                                                                                <paper-input floatingLabel name="nom" label="Nom"></paper-input>
+                                                                                <paper-input floatingLabel name="prenom" label="Prénom"></paper-input>
+                                                                                <paper-input floatingLabel name=email label="Adresse Email"></paper-input>
+                                                                                <paper-input floatingLabel name="adresse" label="Adresse"></paper-input>
+                                                                                <paper-input floatingLabel name="ville" label="ville"></paper-input>
+                                                                                <paper-input floatingLabel name="cp" label="Code Postal"></paper-input>
+                                                                            </div>
+                                                                            <input type="submit">
+                                                                            <paper-button class="colored" type="submit" label='OK' onClick="submitForm()">
+                                                                                <core-icon icon='check'> 
+                                                                                </core-icon>
+                                                                            </paper-button>
+                                                                        </form>
+                                                                    </div>
+                                
+                                                                </div>-->
 
-                                <div>
-                                    <div id="content">
-                                        <form is="ajax-form" action="http://localhost/bein3d/public/profil/index" method="post">
-                                            <div>
-                                                <paper-input name='name'></paper-input>
-                                            </div>
-
-                                            <div>
-                                                <label>Address: <input type="text" name="address" required></label>
-                                            </div>
-
-                                            <div>
-                                                <label>Favorite color: <input type="text" name="color"></label>
-                                            </div>
-
-                                            <div>
-                                                <b>Receive periodic email updates from us?</b>
-                                                <input type="radio" name="emailCommunication" value="yes" checked>yes
-                                                <input type="radio" name="emailCommunication" value="no">no
-
-                                                <paper-radio-group name='sexe'>
-                                                    <paper-radio-button name='femme' value='0' ></paper-radio-button>
-                                                    <paper-radio-button name='homme' value='1' ></paper-radio-button>
-                                                </paper-radio-group>
-
-                                            </div>
-
-                                            <input type="submit">
-                                        </form>
-                                    </div>
-
-                                </div>
-
-                                <!-- fin test -->
-
+                                <!-- fin ajax-form -->
+                                <form-profile-personal-data></form-profile-personal-data>
+                            </div>
                         </core-collapse>
                     </div>
                 </div>
@@ -254,102 +240,11 @@
 
     </core-drawer-panel>
 
-
-
-    <polymer-element name="component-form" extends="form" on-submit="{{ prepareSubmit }}" on-click="{{ handleClick }}">
-
-        <script>
-            Polymer('component-form', {
-                handleClick: function (event, detail, sender) {
-                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'submit') {
-                        this.prepareSubmit();
-                        this.prepareSubmitDeux();
-                        this.submit();
-                    }
-                    if (event.target.localName.indexOf('-') !== -1 && event.target.getAttribute('type') === 'reset') {
-
-                        this.form.reset();
-                    }
-
-                },
-                prepareSubmit: function () {
-//                    var femme = $('#femme').val();
-//                    var homme = $('#homme').val();
-//                    if (femme === '' || homme === '') {
-//                        alert('les champs doivent être remplis');
-//                    } else {
-//                        $.ajax({
-//                            url: $this.attr('Profil'),
-//                            type: $this.attr('post'),
-//                            data: $this.serialize(),
-//                            success: function(html) {
-//                                alert(html);
-//                            }
-//                            
-//                        })
-//                    };
-
-
-
-                    Array.prototype.forEach.call(this.children, function (child) {
-
-
-//                        var shadowhost = document.getElementById('ShadowHost');
-//                        var shadowroot = new WebKitShadowRoot(shadowhost);
-//                        console.log(shadowroot);
-//                        if (name && name.val() === 'sexe') {
-//
-//                            element = document.createElement('input');
-//                            element.setAttribute('type', 'hidden');
-//                            element.setAttribute('name', name);
-//                            element.setAttribute('value', choix);
-//                            this.appendChild(element);
-//
-//                        }
-                        var name = child.getAttribute('name');
-                        // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
-                        if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
-                            element = document.createElement('input');
-                            element.setAttribute('type', 'hidden');
-                            element.setAttribute('name', name);
-                            element.setAttribute('value', child.value);
-                            this.appendChild(element);
-                        }
-                    }.bind(this));
-                },
-                prepareSubmitDeux: function () {
-
-                    var radioButtonTab = document.querySelectorAll('html /deep/ paper-radio-button');
-                    var choix = [];
-
-                    for (i = 0; i < radioButtonTab.length; ++i) {
-                        choix[i] = radioButtonTab[i].id;
-                    }
-                    alert(choix[1]);
-                    $.ajax({
-                        type: "POST",
-                        data: {femme: choix[0], homme: choix[1]},
-                        url: "http://localhost/bein3d/public/profil/index",
-                        success: function (msg) {
-                            $('.answer').html(msg);
-                            alert('9a marche !');
-                        }
-                    });
-
-
-                },
-            });
-        </script>
-    </polymer-element>
-
-
-
-
 </body>
 
 <!-- Script de l'ajax-form -->
 
-<script>
+<!--<script>
     (function () {
         var form = document.querySelectorAll('form')[0],
                 content = document.getElementById('content');
@@ -357,41 +252,38 @@
             alertify.error('Some form fields are invalid!');
         });
         form.addEventListener('submitting', function (event) {
-            document.getElementById('pleaseWait').className = '';
             content.className = 'hidden';
             event.detail.raytest = 'foobar';
             event.detail.color = 'blue';
         });
         form.addEventListener('submitted', function (event) {
-            document.getElementById('pleaseWait').className = 'hidden';
             content.className = '';
             if (event.detail.status > 299) {
                 alertify.error('Submission failed!  Please try again.')
             }
             else {
-                content.innerHTML = 'Thanks!  Your choices have been submitted!';
+                //je récupère la valeur du paper input d'id nomUser
+                var infoPerso = $('#infoPerso');
+                var nom = infoPerso.children()[0].value;
+                var prenom = infoPerso.children()[1].value;
+                var email = infoPerso.children()[2].value;
+                var adresse = infoPerso.children()[3].value;
+                var ville = infoPerso.children()[4].value;
+                var cp = infoPerso.children()[5].value;
+                $.ajax({
+                    url: 'http://localhost/bein3d/public/profil/formdata',
+                    type: 'POST', // Le type de la requête HTTP, ici devenu POST
+                    dataType: 'html',
+                    data: 'nom=' + nom + '&prenom=' + prenom + '&email=' + email + '&adresse=' + adresse + '&ville=' + ville + '&cp=' + cp,
+                    success: function (result)//retour de requête
+                    {
+                        alert("Vos informations ont bien été mises à jour");
+                    }
+                });
             }
         });
-    }());
-</script>
+    }());</script>-->
 
-<script>
-    // This code is only used to mock/intercept HTTP requests associated
-    // with the form submit.  This is needed since the demo doesn't have
-    // a server to handle these requests.
-    (function () {
-        sinon.FakeXMLHttpRequest.useFilters = true;
-        sinon.FakeXMLHttpRequest.addFilter(function (method, url) {
-            return !(/test/).test(url);
-        });
-        var server = sinon.fakeServer.create();
-        server.respondWith([200, {}, '']);
-        server.autoRespond = true;
-        server.autoRespondAfter = 5000;
-    }());
-</script>
-
-<!-- Fin du script -->
 
 
 </html>
@@ -422,31 +314,12 @@
 
     });
 
-//
-//    function addName() {
-//        var recup = document.querySelectorAll("hello-john-doe")[0];
-//        document.querySelector("buddies-list").buddies.push({name: recup.name});
-//    }
-//    ;
     function toggleDialog(transition) {
         var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
         dialog.toggle();
     }
     ;
 
-
-    function recupinfo() {
-        var name = document.querySelectorAll("paper-input")[1];
-        document.getElementById('affiche').innerHTML = login.inputValue;
-
-        var fname = document.querySelectorAll("paper-input")[2];
-        if (fname === null) {
-            console.log(fname);
-            document.getElementById('affiche').innerHTML = "Les champs doivent etre rempli !"
-        }
-
-        var adress = document.querySelectorAll("paper-input")[3];
-    }
     var scope = document.querySelector('template[is=auto-binding]');
 
     scope.toggleDialog1 = function (e) {
