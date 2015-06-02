@@ -153,8 +153,6 @@
                     <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                     <core-icon-button icon="search"></core-icon-button>
                     
-                    
-                    <?php include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
                     <paper-dialog  class="size-position"  >
                         <?php
                         if (isset($_SESSION['nbproduit'])) {
@@ -166,6 +164,14 @@
                         }
                         ?>
                     </paper-dialog>
+
+                    <?php //Import de pierre
+                          //include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
+                    
+                    <?php //Import de quentin - les chemins absolus ne correspondent pas. Chemin relatif ?
+                           include_once("../application/views/scripts/Panier/index.phtml"); ?>
+                    
+
                     <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
                     <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>
                     <paper-dialog heading="CONNEXION" class="size-position" >

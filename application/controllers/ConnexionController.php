@@ -34,7 +34,7 @@ class ConnexionController extends Zend_Controller_Action {
                 }
             }
             if ($connect == 1) {
-                $this->render('connect');
+                $this->_redirect('profil/index');
             } else {
                 $this->render('no-connexion');
             }

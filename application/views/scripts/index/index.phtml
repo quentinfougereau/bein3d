@@ -1,3 +1,209 @@
+<!-- <<<<<<< HEAD
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <title>01-introduction</title>
+        <!-- Load Polymer 
+        <script
+            src="../public/components/platform/platform.js">
+        </script>
+        <link rel="import"
+              href="../public/components/core-toolbar/core-toolbar.html">
+        <link rel="import"
+              href="../public/components/core-drawer-panel/core-drawer-panel.html">
+        <link rel="import"
+              href="../public/components/core-header-panel/core-header-panel.html">
+        <link rel="import"
+              href="../public/components/core-item/core-item.html">
+        <link rel="import"
+              href="../public/components/core-icons/core-icons.html">
+        <link rel="import"
+              href="../public/components/paper-icon-button/paper-icon-button.html">
+        <link rel="import"
+              href="../public/components/paper-menu-button/paper-menu-button.html">
+        <link rel="import"
+              href="../public/components/paper-item/paper-item.html">
+        <link rel="import"
+              href="../public/components/paper-tabs/paper-tabs.html">
+        <link rel="import"
+              href="../public/components/paper-input/paper-input.html">
+
+        <link rel="import"
+              href="../public/components/paper-dialog/paper-dialog.html">
+        <link rel="import"
+              href="../public/components/paper-button/paper-button.html">
+
+        <!-- NEW ELEMENTS
+        <link rel="import"
+              href="../public/components/core-form-inscription/core-form-inscription.html">     
+        <link rel="import"
+              href="../public/components/core-form-connexion/core-form-connexion.html">  
+        <!-- STYLESHEETS 
+
+        <link rel="stylesheet" href="style/CSS.css" type="text/css">
+        <link rel="stylesheet" href="style/shadow-dom.css" type="text/css">
+        <!-- FONTS 
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="cssSlider created with cssSlider, a free wizard program that helps you easily generate beautiful web slideshow" />
+
+
+        <style shim-shadowdom>
+
+
+            section {
+                padding: 20px 0;
+            }
+
+            section > div {
+                padding: 14px;
+                font-size: 16px;
+            }
+
+            button{
+                margin: 8px 4px;
+            }
+
+            html /deep/ [autofocus] {
+                color: #03a9f4;
+            }
+
+            html /deep/ .scrolling::shadow #scroller {
+                height: 350px;
+            }
+
+            html /deep/ .colored {
+                border: 1px solid #0f9d58;
+                background-color: #b7e1cd;
+                color: #0f9d58;
+            }
+
+            html /deep/ .size-position {
+                position: fixed;
+                top: 156px;
+
+                right: 150px;
+                left: 65%;
+            }
+
+            html /deep/ .size-position::shadow #scroller {
+                width: 300px;
+                height: 300px;
+            }
+
+        </style>
+
+
+
+
+
+    </head>
+    <body fullbleed vertical layout unresolved>
+
+    <core-drawer-panel id="drawerPanel">
+
+        <core-header-panel drawer vertical layout id="left-menu">
+            <core-toolbar class="medium-tall" id="barre" ><div style='cursor:pointer' id="accueil"><h2>BEin3D</h2></div></core-toolbar>
+            <core-menu><!--
+                           <core-item label="Shop"></core-item>
+                <core-item label="Design"></core-item>
+                <core-item label="Sell"></core-item><!--
+                      </core-menu>
+        </core-header-panel>
+
+        <core-header-panel main >
+            <core-toolbar class="medium-tall" id="barre2">
+                <!-- TOP TOOLBAR 
+                <core-icon-button id="navicon" icon="menu" on-tap="{{menuAction}}"></core-icon-button>
+                <paper-tabs flex selected="{{selected}}">
+                    <paper-tab id="shop">SHOP</paper-tab>
+                    <paper-tab id="design">DESIGN</paper-tab>
+                    <paper-tab>SELL</paper-tab>
+                </paper-tabs>
+                <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
+                <paper-icon-button icon="search"></paper-icon-button>
+
+                <template is="auto-binding">
+                    <paper-button   label="CONNEXION" on-tap="{{toggleDialog1}}" ></paper-button>
+                    <paper-dialog heading="Connexion" class="size-position">
+                        <core-form-connexion>           
+                        </core-form-connexion> 
+                    </paper-dialog>
+                </template>
+
+                <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
+                <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
+
+
+                    <core-form-inscription>           
+                    </core-form-inscription>
+
+                </paper-dialog><!--
+                <!-- BOTTOM TOOLBAR -->
+
+                <!--<div class="bottom" id="sous-menu"> -->
+                <!--                <div id="shop-content1" >
+                <paper-tabs  id="shop-content1" class="hide bottom" flex selected="{{selected}}">
+                    <paper-tab>+POPULAIRES</paper-tab>
+                    <paper-tab>NOUVEAUTES</paper-tab>
+                    <paper-tab>ART</paper-tab>
+                    <paper-tab>MEILLEURS MAKERS</paper-tab>
+                    <paper-tab>CONCOURS</paper-tab>
+                </paper-tabs>                
+                <!--</div>   
+            </core-toolbar>
+
+
+
+            <div id="shop-content" class="hide">
+                <table>
+                    <tr> 
+                        <?php /*
+                        for ($i = 0; $i < 100; $i++) {
+                            
+                        }
+                        foreach ($this->all as $produit) {
+                            echo "<td>";
+                            echo "<div id='produit'>$produit->nom</div>";
+                            echo "</td>";
+                            echo "<td>";
+                            echo $produit->prixunitaire;
+                            echo "</td>";
+                        } */
+                        ?>
+                    </tr>
+                </table>
+            </div>
+            <div id="design-content" class="hide">
+                <center> ntm
+                </center>
+
+            </div>
+            <div id="accueil-content" >
+                <div id="grosbloc" fullbleed>accueil</div>
+                <hr/>
+                <div id="grosbloc" fullbleed>
+                    <div id="blockgauche">
+                        <h2>3D CONCEPT ! </h2>
+                        Vous voulez créer votre propre fichier 3D ?
+                        <br/>
+                        Vendre vos propres modèles ?
+                        <br/>
+                        <p> Grace à l'impression 3D, vous pouvez laisser libre court à votre imagination et concevoir un produit dans ses mondres détails.</p>
+                    </div>
+                    <div id="blockdroite">
+                        <img src='../public/image/Image1.PNG'>
+                    </div>
+                </div>
+                <hr/>
+
+            </div>
+        </core-header-panel>
+
+    </core-drawer-panel>
+=======-->
 <script>
     $(document).ready(function(){
                 var tmp=document.querySelector('#super-template');
@@ -38,7 +244,7 @@
 
             },
             prepareSubmit: function () {
-                Array.prototype.forEach.call(this.children, function (child) {
+                Array.prototype.forEach.call(this.children, function (child) {                    
                     var name = child.getAttribute('name');
                     // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
                     if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {
