@@ -42,5 +42,8 @@ class PanierController extends Zend_Controller_Action {
         var_dump($_SESSION['nbproduit']);
     
     }
+    public function sup(){
+        
+    }
 
 }

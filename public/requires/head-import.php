@@ -57,6 +57,7 @@
               href="<?php echo $chemin; ?>public/components/paper-hidden-bar/paper-hidden-bar.html">
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/paper-footer/paper-footer.html">
+  
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="<?php echo $chemin; ?>/public/style/CSS.css" type="text/css">
