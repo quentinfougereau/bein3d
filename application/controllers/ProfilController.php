@@ -5,32 +5,24 @@ require_once '../application/models/Client.php';
 class ProfilController extends Zend_Controller_Action {
 
     public function init() {
-        /* Initialize action controller here */
+        
     }
 
     public function indexAction() {
         
+        Zend_Session::start();  
         $this->view->acces = '../../';
         
-        //if (($_POST['name'] != null) && ($_POST['fname'] != null) && ($_POST['adress'] != null) && ($_POST['sexe'] != null)) {
-        if (isset($_POST['name'])) {
-            $this->view->name = $_POST['name'];
-            $this->view->fname = $_POST['fname'];
-            $this->view->adress = $_POST['adress'];
-            $this->view->sexe = $_POST['sexe'];
-        } else {
-            $this->view->error = $this->_request->getPost('name');
-        }
-
-
-
-
-        $request = $this->getRequest();
-
-        if ($request->isXmlHttpRequest()) { // If it's ajax call
-            $name = $this->_getParam('name', 1);
-            echo "<script> alert($name) </script>";
-        }
+        $client = new Client();
+        $currentClient = $client->fetchRow($client->select()->where('login = ?', $_SESSION['email']));
+        
+        $this->view->nomCurrentClient = $currentClient['nom'];
+        $this->view->prenomCurrentClient = $currentClient['prenom'];
+        $this->view->emailCurrentClient = $currentClient['email'];
+        $this->view->adresseCurrentClient = $currentClient['adresse'];
+        $this->view->cpCurrentClient = $currentClient['cp'];
+        $this->view->villeCurrentClient = $currentClient['ville'];
+        
     }
 
     public function updatePersonalDataAction() {
@@ -46,7 +38,7 @@ class ProfilController extends Zend_Controller_Action {
 //            valeur de test
             $id = 45;
 
-            //mise à jour de la table client
+            //mise à jour du client dans la table client
             $client = new Client();
             $data = array(
                 'nom' => $nom,

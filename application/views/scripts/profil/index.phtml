@@ -17,3 +17,19 @@
         </core-collapse>
     </div>
 </div>
+
+<!-- ACCES A SHADOW DOM !!! -->
+<script type="text/javascript">$(document).ready(function () {
+        var nom = '<?php echo $this->nomCurrentClient ?>';
+        var prenom = '<?php echo $this->prenomCurrentClient ?>';
+        var email = '<?php echo $this->emailCurrentClient; ?>';
+        var adresse = '<?php echo $this->adresseCurrentClient ?>';
+        var ville = '<?php echo $this->villeCurrentClient ?>';
+        var cp = '<?php echo $this->cpCurrentClient ?>';
+        $('body /deep/ #nom').val(nom);
+        $('body /deep/ #prenom').val(prenom);
+        $('body /deep/ #email').val(email);
+        $('body /deep/ #adresse').val(adresse);
+        $('body /deep/ #ville').val(ville);
+        $('body /deep/ #cp').val(cp);
+    });</script>

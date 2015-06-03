@@ -2,7 +2,7 @@
     <head>
         
         <?php
-            require '../../../public/requires/head-import.php';
+//            require '../../../public/requires/head-import.php';
         ?>
 
         <script type="text/javascript">
@@ -147,7 +147,7 @@
 
 
                     <paper-button type="submit" label='ok' ><core-icon icon='check'> 
-
+                            <h2><?php echo $this->test ?></h2>
                         </core-icon></paper-button>
 
                     <paper-button  label='cancel' onclick="resetForm()"><core-icon icon='clear'> 
@@ -160,13 +160,13 @@
         </core-toolbar>
         <div id="grosbloc">
             <div id="bloc1">
-
+                
                 <!--[if IE]><link rel="stylesheet" href="engine1/ie.css"><![endif]-->
                 <!--[if lte IE 9]><script type="text/javascript" src="engine1/ie.js"></script><![endif]-->
                 <table border="1">
                     <th>idChamps</th>
                     <th>superfice</th>
-                
+                    
 
                     <?php foreach ($this->client as $client) : ?>
                         <tr>

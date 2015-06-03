@@ -1,7 +1,7 @@
 <?php echo $this->doctype() ?>
 <html>
     <head>
-          <style shim-shadowdom>
+        <style shim-shadowdom>
             html /deep/ [autofocus] {
                 color: #03a9f4;
             }
@@ -41,21 +41,21 @@
         ?>
     </head>
     <body fullbleed vertical layout unresolved>
-        
-        
+
+
     <template is="auto-binding" id="super-template">
         <script>
-    document.addEventListener('polymer-ready', function(){
-        alert ('yolo');
-        var tmp=document.querySelector('#super-template');
-        var navicon=tmp.getElementById('navicon');
-        alert(navicon);
-        var drawerPanel=document.getElementById('drawerPanel');
-        navicon.addEventListener('click',function(){
-            drawerPanel.togglePanel();
-        });
-    });  
-            
+            document.addEventListener('polymer-ready', function () {
+                alert('yolo');
+                var tmp = document.querySelector('#super-template');
+                var navicon = tmp.getElementById('navicon');
+                alert(navicon);
+                var drawerPanel = document.getElementById('drawerPanel');
+                navicon.addEventListener('click', function () {
+                    drawerPanel.togglePanel();
+                });
+            });
+
         </script>
         <core-drawer-panel  id="drawerPanel">
             <!--DRAWER-->
@@ -63,8 +63,9 @@
                 <core-toolbar class="medium">
                     <h2 id="left-title">
                         <a href="<?php
-                            echo $this->url(array('controller' => 'Index',
-                                'action' => 'index'))?>">BEin3D</a>
+                        echo $this->url(array('controller' => 'Index',
+                            'action' => 'index'))
+                        ?>">BEin3D</a>
                     </h2>
                 </core-toolbar>
                 <core-menu fullbleed flex selected="{{menu}}" valueattr="menu-cat">
@@ -93,7 +94,7 @@
                         <core-item label="Nos Makers" menu-sub="makers">
                             <paper-ripple fit></paper-ripple>
                         </core-item>
-                        
+
                     </core-submenu>
                     <core-submenu icon="rotation-3d" label="Design" menu-cat="design" selected="{{sub}}" valueattr="menu-sub">
                         <paper-shadow z="1"></paper-shadow>
@@ -130,21 +131,25 @@
                     <paper-tabs flex selected="{{menu}}" valueattr="menu-cat" link noink noslide>
                         <paper-tab menu-cat="home">
                             <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'index'))?>" horizontal center-center layout>HOME</a>
+                            echo $this->url(array('controller' => 'Index',
+                                'action' => 'index'))
+                            ?>" horizontal center-center layout>HOME</a>
                         </paper-tab>
                         <paper-tab menu-cat="shop">
                             <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'boutique'))?>"horizontal center-center layout>SHOP</a>
+                            echo $this->url(array('controller' => 'Shop',
+                                'action' => 'boutique'))
+                            ?>"horizontal center-center layout>SHOP</a>
                         </paper-tab>
                         <paper-tab menu-cat="design"><a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'creer'))?>"horizontal center-center layout>DESIGN</a>
+                            echo $this->url(array('controller' => 'Design',
+                                'action' => 'creer'))
+                            ?>"horizontal center-center layout>DESIGN</a>
                         </paper-tab>
                         <paper-tab menu-cat="sell"><a href="<?php
-                                echo $this->url(array('controller' => 'Sell',
-                                    'action' => 'mesobjets'))?>"horizontal center-center layout>SELL</a>
+                            echo $this->url(array('controller' => 'Sell',
+                                'action' => 'mesobjets'))
+                            ?>"horizontal center-center layout>SELL</a>
                         </paper-tab>
                     </paper-tabs>
     <!--                <core-field>                 
@@ -154,7 +159,7 @@
                     </core-field>-->
                     <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                     <core-icon-button icon="search"></core-icon-button>
-                    
+
                     <paper-dialog  class="size-position"  >
                         <?php
                         if (isset($_SESSION['nbproduit'])) {
@@ -167,15 +172,27 @@
                         ?>
                     </paper-dialog>
 
-                    <?php //Import de pierre
-                          //include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; ?>
-                    
-                    <?php //Import de quentin - les chemins absolus ne correspondent pas. Chemin relatif ?
-                           include_once("../application/views/scripts/Panier/index.phtml"); ?>
-                    
+                    <?php
+                    //Import de pierre
+//include_once 'C:\wamp\www\bein3d\application\views\scripts\Panier\index.phtml'; 
+                    ?>
+
+                    <?php
+                    //Import de quentin - les chemins absolus ne correspondent pas. Chemin relatif ?
+                    include_once("../application/views/scripts/Panier/index.phtml");
+                    ?>
+
 
                     <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
-                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>
+
+                    <?php if (Zend_Session::sessionExists() == FALSE) { ?>
+                        <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>
+                    <?php
+                    } else {
+                        echo "<p>" . $_SESSION['email'] . "</p>";
+                    }
+                    ?>
+
                     <paper-dialog heading="CONNEXION" class="size-position" >
 
                         <core-form-connexion></core-form-connexion>
@@ -200,39 +217,45 @@
                         <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
                             <paper-tab menu-sub="accueil">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'index'))?>" horizontal center-center layout>ACCUEIL</a>
+                    echo $this->url(array('controller' => 'Index',
+                        'action' => 'index'))
+                    ?>" horizontal center-center layout>ACCUEIL</a>
                             </paper-tab>
                             <paper-tab menu-sub="qsn">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'qsn'))?>" horizontal center-center layout>QUI SOMMES NOUS</a>
+                    echo $this->url(array('controller' => 'Index',
+                        'action' => 'qsn'))
+                    ?>" horizontal center-center layout>QUI SOMMES NOUS</a>
                             </paper-tab>
                             <paper-tab menu-sub="nosproduits">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'nosproduits'))?>" horizontal center-center layout>NOS PRODUITS</a>
+                    echo $this->url(array('controller' => 'Index',
+                        'action' => 'nosproduits'))
+                    ?>" horizontal center-center layout>NOS PRODUITS</a>
                             </paper-tab>
                         </paper-tabs>
-                        
+
                     </section>
 
                     <section menu-cat="shop">
                         <paper-tabs flex selected="{{sub}}" valueattr="menu-sub">                            
                             <paper-tab menu-sub="boutique">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'boutique'))?>" horizontal center-center layout>LA BOUTIQUE</a>
+                    echo $this->url(array('controller' => 'Shop',
+                        'action' => 'boutique'))
+                    ?>" horizontal center-center layout>LA BOUTIQUE</a>
                             </paper-tab>
                             <paper-tab menu-sub="nouveautes">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'nouveautes'))?>" horizontal center-center layout>NOUVEAUTES</a>
+                    echo $this->url(array('controller' => 'Shop',
+                        'action' => 'nouveautes'))
+                    ?>" horizontal center-center layout>NOUVEAUTES</a>
                             </paper-tab>
                             <paper-tab menu-sub="makers">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'makers'))?>" horizontal center-center layout>NOS MAKERS</a>
+                    echo $this->url(array('controller' => 'Shop',
+                        'action' => 'makers'))
+                    ?>" horizontal center-center layout>NOS MAKERS</a>
                             </paper-tab>
                         </paper-tabs>
                     </section>
@@ -240,18 +263,21 @@
                         <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
                             <paper-tab menu-sub="creer">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'creer'))?>" horizontal center-center layout>CREER MON OBJET</a>
+                    echo $this->url(array('controller' => 'Design',
+                        'action' => 'creer'))
+                    ?>" horizontal center-center layout>CREER MON OBJET</a>
                             </paper-tab>
                             <paper-tab menu-sub="didacticiel">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'didact'))?>" horizontal center-center layout>DIDACTITIEL</a>
+                    echo $this->url(array('controller' => 'Design',
+                        'action' => 'didact'))
+                    ?>" horizontal center-center layout>DIDACTITIEL</a>
                             </paper-tab>
                             <paper-tab menu-sub="import">
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'importer'))?>" horizontal center-center layout>IMPORTER UN MODELE</a>
+                    echo $this->url(array('controller' => 'Design',
+                        'action' => 'importer'))
+                    ?>" horizontal center-center layout>IMPORTER UN MODELE</a>
                             </paper-tab>
                         </paper-tabs>
                     </section>
@@ -262,9 +288,9 @@
                         </paper-tabs>
                     </section>
                 </core-pages>               
-                <?php                
-                    echo $this->layout()->content;
-                ?>  
+<?php
+echo $this->layout()->content;
+?>  
             </core-header-panel>
 
         </core-drawer-panel>
@@ -299,7 +325,7 @@
         }
         d.toggle();
     };
-  
+
 
     var content = document.getElementById('super-template');
     //alert(content);
@@ -317,8 +343,8 @@
     //            drawerPanel.togglePanel();
     //        });
     //    });
-    
-    
+
+
 
 
 
