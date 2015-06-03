@@ -6,22 +6,27 @@ require_once '../application/models/Client.php';
 
 class IndexController extends Zend_Controller_Action {
 
-    public function init() {
-        /* Initialize action controller here */
+
+    public function init()
+    {
+        $layout=$this->_helper->layout();
+        $layout->assign('menu','home');
     }
 
-    public function indexAction() {
-
-        $this->view->acces = '../';
-        if (Zend_Session::sessionExists() == TRUE) {
+    public function indexAction()
+    {
+        
+        $this->view->acces='../';
+        if (Zend_Session::sessionExists()) {
             Zend_Session::start();
         }
+        //$this->layout()->_helper->setVariable('MaVariable','Valeur');
+       $p= new Produit();
+       $c= new Client();
+       $this->view->lesProduits=$p->fetchall();
 
-        $p = new Produit();
-        $c = new Client();
-        $this->view->lesProduits = $p->fetchall();
+       $tab=array();
 
-        $tab = array();
 //       foreach ($p->fetchall() as $unproduit){
 //           $idclient=$unproduit->idmaker;
 //           $client=$c->unClient($idclient);
