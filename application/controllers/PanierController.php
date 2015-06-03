@@ -37,24 +37,45 @@ class PanierController extends Zend_Controller_Action {
                 "prix" => $prod['prixunitaire'],
                 "quantite" => 1,
             );
-            if (!in_array($tabprod, $_SESSION['nbproduit'])) {
-                array_push($_SESSION['nbproduit'], $tabprod);
-            }else{
-                foreach($_SESSION['nbproduit'] as $key => $prod2){
-                    if($prod2['id']==$prod['id']){
-                        $_SESSION['nbproduit'][$key][$prod2]['quantite']=$_SESSION['nbproduit'][$key][$prod2]['quantite']+1;
-                    }
+            var_dump($tabprod['id']);
+            $c=0;
+            foreach ($_SESSION['nbproduit'] as $key => $prod2) {
+                var_dump($prod2['id']);
+                if ($prod2['id']==$tabprod['id']) {
+                    $c=1;
                 }
             }
+            if($c==0){
+                    array_push($_SESSION['nbproduit'], $tabprod);
+                } else {
+                    foreach ($_SESSION['nbproduit'] as $key => $prod2) {
+
+                        if ($prod2['id'] == $prod['id']) {
+
+                            $_SESSION['nbproduit'][$key]['quantite'] = $prod2['quantite'] + 1;
+                            echo "fepfoiezefnzeoifzioefze";
+                        }
+                    }
+                }
+            
         }
-
-
-
         var_dump($_SESSION['nbproduit']);
     }
 
-    public function sup() {
-        
+    public function supprimerAction() {
+        Zend_Session::start();
+        $this->_helper->layout->disableLayout();
+        foreach ($_SESSION['nbproduit'] as $key => $prod) {
+            if ($prod['id'] == $_POST['donnees']) {
+                unset($_SESSION['nbproduit'][$key]);
+            }
+        }
+//                $this->view->render('Panier/index.phtml');
+    }
+
+    public function refreshAction() {
+        Zend_Session::start();
+        $this->_helper->layout->disableLayout();
     }
 
 }

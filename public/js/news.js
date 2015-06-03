@@ -6,6 +6,7 @@
 
 $(document).ready(function(){
     setInterval(chargerNews,10000);
+    
 });
 var dernier_id;
 

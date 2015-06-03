@@ -27,10 +27,9 @@ function creerInstance(){
 
 function envoyerDonnees (num){
     
-//  var nbprod=parseInt(document.getElementById('nbproduit').value);
-//        document.getElementById('nbproduit').value = eval(nbprod + 1) ;
-//        var nbajout = document.getElementById('nbproduit').value;
-//        document.getElementById("panier").innerHTML = "("+nbajout+")";
+var nb = $("#nbpanier").val() * 1 + 1
+        $("#nbpanier").val(nb);
+        $("#nbpaniervue").html("(" + nb + ")");
   var req =  creerInstance();
   var donneeproduit;
  /* On récupère les données du formulaire */
@@ -54,6 +53,9 @@ function envoyerDonnees (num){
   req.open("POST", "../Panier", true);
   req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   req.send(donneeproduit);
+  $("#cart").load("http://localhost/bein3d/public/Panier/refresh");
+            $.ajaxSetup({cache: false});
+
 
   
 }

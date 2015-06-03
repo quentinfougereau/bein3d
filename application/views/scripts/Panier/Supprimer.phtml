@@ -1,0 +1,65 @@
+<?php
+echo "<paper-icon-button icon='shopping-cart' on-tap='{{toggleDialog1}}'></paper-icon-button>";
+echo "<paper-dialog  class='size-position'  >";
+
+if (isset($_SESSION['nbproduit'])) {
+    foreach ($_SESSION['nbproduit'] as $key => $prod) {
+//                              var_dump($prod);
+        echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ")'></core-icon-button>";
+        echo $prod['nom'] . "<paper-icon-button name='moins' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
+                                  <input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
+                                 <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></br>";
+    }
+}
+
+echo"  </paper-dialog>";
+if (isset($_SESSION['nbproduit'])) {
+    $nbpanier = count($_SESSION['nbproduit']);
+    echo "(" . $nbpanier . ")";
+}
+?>
+<script type="text/javascript">
+    function quantiteplus(choix) {
+
+            var nb = $("#" + choix).val() * 1 + 1;
+            $("#" + choix).val(nb);
+      
+    }
+    ;
+    function quantitemoins(choix) {
+            var nb = $("#" + choix).val() * 1 - 1;
+            $("#" + choix).val(nb);       
+    }
+    ;
+    function supDonnees (num){
+    
+
+  var req =  creerInstance();
+  var donneeproduit;
+ /* On récupère les données du formulaire */
+  var donneeClient = num;
+ 
+  req.onreadystatechange = function (){
+
+  if(req.readyState == 4){
+
+    if(req.status == 200){
+     
+      
+    }else{
+      alert("Error: returned status code " + req.status + " " + req.statusText);
+    }
+  }
+}   
+  donneeproduit = "donnees="+donneeClient ;
+   
+
+  req.open("POST", "../Panier/supprimer", true);
+  req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  req.send(donneeproduit);
+
+  
+}
+
+</script>
+ 
