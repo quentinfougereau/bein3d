@@ -1,8 +1,10 @@
 <script>
     $(document).ready(function(){
-                var tmp=document.querySelector('#super-template');
-                tmp.menu='home';
-                tmp.sub='accueil';             
+                //var tmp=document.querySelector('#super-template');
+                //tmp.menu=document.querySelector('paper-test').menu;
+                //tmp.menu='home';
+                //tmp.sub='accueil'; 
+                document.alert(document.querySelector('paper-test').menu);
             });
 </script>
 <style>
@@ -19,6 +21,8 @@
     <img class='pano' src='../public/images/panorama.jpg'>
     <h2>Bienvenue sur BEin3D</h2>
     <h3>Le site de l'impression 3D en ligne</h3>
+   
+    
 </div>
 
 
@@ -38,7 +42,7 @@
 
             },
             prepareSubmit: function () {
-                Array.prototype.forEach.call(this.children, function (child) {
+                Array.prototype.forEach.call(this.children, function (child) {                    
                     var name = child.getAttribute('name');
                     // Add <input type="hidden">s for all custom elements with a name and value besides submit buttons
                     if (child.localName.indexOf('-') !== -1 && name && 'value' in child && child.getAttribute('type') !== 'submit') {

@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18 févr. 2015, 14:18:53
+    Author     : quentin
+*/
+
+:host paper-input{
+    display: block;
+    font-family: 'Yanone Kaffeesatz', sans-serif; 
+    
+}
+
+paper-radio-group {
+    margin-right: 300px; 
+}

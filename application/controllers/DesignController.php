@@ -8,7 +8,8 @@
 class DesignController extends Zend_Controller_Action{
     
     public function init(){
-        
+        $layout=$this->_helper->layout();
+        $layout->assign('menu','design');
     }
     
     public function indexAction(){

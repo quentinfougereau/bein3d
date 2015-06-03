@@ -18,6 +18,10 @@ class Produit extends Zend_Db_Table_Abstract {
     //put your code here 
     protected $_name = 'produit';
     protected $_primary = 'id';
+    
+//    protected $_rowClass = 'ClientRow';
+ 
+
     protected $_rowClass = 'ProduitRow';
    
     protected $_referenceMap=array(

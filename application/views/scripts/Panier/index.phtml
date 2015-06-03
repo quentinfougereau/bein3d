@@ -1,9 +1,16 @@
+
 <html>
     <body>
     <paper-icon-button icon='shopping-cart' on-tap='{{toggleDialog1}}'></paper-icon-button>
     <paper-dialog  class='size-position'  > 
         <?php
         echo "<div id='cart'>";
+
+
+Zend_Session::start();
+
+    
+
 
         if (isset($_SESSION['nbproduit'])) {
             foreach ($_SESSION['nbproduit'] as $key => $prod) {
@@ -50,6 +57,7 @@
         $("#nbpaniervue").html("(" + nb + ")");
 
     }
+
     ;
     function quantitemoins(choix) {
         var nb = $("#" + choix).val() * 1 - 1;
@@ -91,3 +99,5 @@
 
 
 </script>
+
+

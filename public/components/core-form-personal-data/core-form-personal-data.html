@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<polymer-element name="core-form-personal-data" noscript>
+    <template>
+        <link rel="stylesheet" href="core-form-personal-data.css">
+        
+        <form  is="component-form" name="personal-data" method="POST" action="../../profil/index">
+
+
+            <paper-input floatingLabel label="Nom" type="text" name="name"></paper-input>
+            <paper-input floatingLabel label="Prénom" type="text" name="fname"></paper-input>
+            <paper-input floatingLabel label="Adresse" type="text" name="adress"></paper-input>
+            <br/>
+            <paper-radio-group name="sexe">
+                <paper-radio-button id="femme" name="femme" label="Femme" value="1"></paper-radio-button>
+                <paper-radio-button id="homme" name="homme" label="Homme" value="2"></paper-radio-button>
+            </paper-radio-group>
+            <br/>
+            <br/>
+           
+            <paper-button class="colored" type="submit" label='OK' >
+                <core-icon icon='check'> 
+                </core-icon>
+            </paper-button>
+            <paper-button type="reset"  label='CANCEL' onclick="resetForm()">
+                <core-icon icon='clear'> 
+                </core-icon>
+            </paper-button>
+
+        </form>
+    </template>
+    <script>
+        Polymer({
+            ready: function () {
+                //...
+            }
+        });
+
+        function resetForm() {
+            var name = document.querySelectorAll("paper-input")[1];
+
+            name.inputValue = "";
+            var name = document.querySelectorAll("paper-input")[2];
+
+            name.inputValue = "";
+
+
+
+        }
+        ;
+    </script>
+</polymer-element>

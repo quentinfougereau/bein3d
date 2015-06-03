@@ -8,7 +8,8 @@ require_once '../application/models/Produit.php';
 class ShopController extends Zend_Controller_Action{
     
     public function init(){
-        
+        $layout=$this->_helper->layout();
+        $layout->assign('menu','shop');
     }
     
     public function indexAction(){

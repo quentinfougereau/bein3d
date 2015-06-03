@@ -8,7 +8,8 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $layout=$this->_helper->layout();
+        $layout->assign('menu','home');
     }
 
     public function indexAction()
@@ -16,7 +17,7 @@ class IndexController extends Zend_Controller_Action
         
         $this->view->acces='../';
         Zend_Session::start();
-        
+        //$this->layout()->_helper->setVariable('MaVariable','Valeur');
        $p= new Produit();
        $c= new Client();
        $this->view->lesProduits=$p->fetchall();
