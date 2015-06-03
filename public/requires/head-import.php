@@ -57,6 +57,16 @@
               href="<?php echo $chemin; ?>public/components/paper-ripple/paper-ripple.html">
         <link rel="import" 
               href="<?php echo $chemin; ?>public/components/core-collapse/core-collapse.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>public/components/paper-toast/paper-toast.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>public/components/more-routing-master/more-routing-config.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>public/components/more-routing-master/more-routing.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>public/components/more-routing-master/more-route.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>public/components/more-routing-master/more-route-selector.html">
         <!-- NEW ELEMENTS -->
         <link rel="import"
               href="<?php echo $chemin; ?>public/components/core-form-inscription/core-form-inscription.html">     
@@ -70,8 +80,11 @@
               href="<?php echo $chemin; ?>public/components/paper-test/paper-test.html">
  
         <!-- Form element for profile -->
-        <link rel="import"
+        <link rel="import"           
               href="<?php echo $chemin; ?>public/components/form-profile-personal-data/form-profile-personal-data.html" >
+        <!-- POLYMER ROUTES -->
+        <link rel="import"
+              href="<?php echo $chemin; ?>public/requires/polymer-routes.html">
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="<?php echo $chemin; ?>/public/style/CSS.css" type="text/css">

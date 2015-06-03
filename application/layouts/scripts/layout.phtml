@@ -42,25 +42,29 @@
 
     </head>
     <body fullbleed vertical layout unresolved>
-        
+        <input type="hidden" id="valmenu" value="<?php echo $this->layout()->menu?>">
         
     
         <script>
     document.addEventListener('polymer-ready', function(){
+        document.querySelector('paper-test').menu='<?php echo $this->layout()->menu?>';
+        
         var navicon=document.getElementById('navicon');
         var drawerPanel=document.getElementById('drawerPanel');
         navicon.addEventListener('click',function(){
             drawerPanel.togglePanel();
         });
+        
     });  
             
         </script>
-        <template is="auto-binding" id="super-template">
+        
         <core-drawer-panel  id="drawerPanel">
             <!--DRAWER-->
             <core-header-panel drawer>
                 <core-toolbar class="medium">
                     <h2 id="left-title">
+                        
                         <a href="<?php
                             echo $this->url(array('controller' => 'Index',
                                 'action' => 'index'))?>">BEin3D</a>
@@ -127,7 +131,7 @@
                     <!-- TOP TOOLBAR -->
                     <core-icon-button id="navicon" icon="menu"></core-icon-button>
                     <!--<paper-test></paper-test>-->
-                    <paper-tabs flex selected="{{menu}}" valueattr="menu-cat" link noink noslide>
+                    <paper-tabs flex selected="<?php echo $this->layout()->menu?>" valueattr="menu-cat" link noink noslide>
                         <paper-tab menu-cat="home">
                             <a href="<?php
                                 echo $this->url(array('controller' => 'Index',
@@ -260,7 +264,7 @@
             </core-header-panel>
             
         </core-drawer-panel>
-    </template>
+   
 </body>
 
 <script type="text/javascript">

@@ -8,18 +8,24 @@
 <link href="../polymer/polymer.html" rel="import">
 <link href="../paper-tabs/paper-tabs.html" rel="import">
 <link href="../paper-tabs/paper-tab.html" rel="import">
+<link href="../more-routing-master/more-route-selector.html" rel="import">
 
 <polymer-element name="paper-test" layout horizontal>
 
   <template>
-
+      <more-route-selector>
       <paper-tabs valueattr="menu-cat" selected="{{menu}}">
           <template repeat="{{m in menusCat}}">
-            <paper-tab menu-cat="{{m.value}}">{{m.name}}</paper-tab>
+            <paper-tab menu-cat="{{m.value}}" route="{{m.value}}">
+                <a href="{{urlFor('home')}}">{{m.name}}</a></paper-tab>
           </template>
       </paper-tabs>
-
-    
+    </more-route-selector>
+      <style>
+          :host a{
+              color:white;
+          }
+      </style>
 
   </template>
 
@@ -28,7 +34,7 @@
   Polymer('paper-test', {
       
       ready: function() {
-        this.menu ='shop';
+        this.menu ='';
         
         this.menusCat = [
           {name: 'HOME', value: 'home'},
