@@ -183,22 +183,22 @@
                         <paper-dialog heading="CONNEXION" class="size-position" >
                             <core-form-connexion></core-form-connexion>
                         </paper-dialog>
+                        <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')" ></paper-button>
+                        
+                        <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
+                            <core-form-inscription>           
+                            </core-form-inscription>
+                        </paper-dialog>
                         <?php
                     } else {
                         echo "<p>" . $_SESSION['email'] . "</p>";
                     }
                     ?>
-<!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->
+    <!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->
 
                 </template>
 
-                <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')" ></paper-button>
-                <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
-
-                    <core-form-inscription>           
-                    </core-form-inscription>
-
-                </paper-dialog><!--
+                <!--
                     
                 </core-pages>
                                 
