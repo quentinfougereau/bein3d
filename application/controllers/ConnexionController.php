@@ -21,7 +21,11 @@ class ConnexionController extends Zend_Controller_Action {
 
     public function indexAction() {
         
+<<<<<<< HEAD
         $this->view->acces='../../';
+=======
+        $this->view->acces='../';
+>>>>>>> 67d58af577edfa99819a9a4dbf98e004ff3bedc1
 
         if ($_POST['email'] != "" && $_POST['mdp'] != "") {
             $ct = new Client();
@@ -31,9 +35,14 @@ class ConnexionController extends Zend_Controller_Action {
                 if ($client->login == $_POST['email'] && $client->motdepasse == $_POST['mdp']) {
                     $connect = 1;
                     $this->view->login=$client->nom;
+                    Zend_Session::start();
+                    //On met l'email dans $_SESSION pour pouvoir le réutiliser
+                    $_SESSION['email'] = $_POST['email'];
+                    $this->view->test = $connect;
                 }
             }
             if ($connect == 1) {
+                
                 $this->_redirect('profil/index');
             } else {
                 $this->render('no-connexion');

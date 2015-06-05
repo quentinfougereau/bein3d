@@ -1,25 +1,100 @@
-<?php
-Zend_Session::start();
-
+<html>
+    <body>
     
+    
+    <paper-icon-button icon='shopping-cart' on-tap='{{toggleDialog1}}'></paper-icon-button>
+    <paper-dialog  class='size-position'  > 
+        <?php
+        echo "<div id='cart'>";
 
-echo "<paper-icon-button icon='shopping-cart' on-tap='{{toggleDialog1}}'></paper-icon-button>";
-echo "<paper-dialog  class='size-position'  >";
 
-if (isset($_SESSION['nbproduit'])) {
-    foreach ($_SESSION['nbproduit'] as $key => $prod) {
+        Zend_Session::start();
+
+
+
+
+        if (isset($_SESSION['nbproduit'])) {
+            foreach ($_SESSION['nbproduit'] as $key => $prod) {
 //                              var_dump($prod);
-        echo "<core-icon-button icon='cancel' onclick='alert()'></core-icon-button>";
-        echo $prod['nom'] . "<paper-icon-button icon='remove-circle' ></paper-icon-button>
-                                  <input type='text' value='" . $prod['quantite'] . "' size='1'>
-                                 <paper-icon-button icon='add-circle' ></paper-icon-button></br>";
+                echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ")'></core-icon-button>";
+                echo $prod['nom'] . "     <paper-icon-button name='moins' class='sup' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
+                                  <input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
+                                 <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></br>";
+            }
+        }
+
+
+        echo"  </div>";
+        echo"  </paper-dialog>";
+        $nbpanier = 0;
+        if (isset($_SESSION['nbproduit'])) {
+            $nbpanier = count($_SESSION['nbproduit']);
+        }
+
+
+        echo "<input type='hidden' id='nbpanier' value=" . $nbpanier . ">";
+        echo "<div id='nbpaniervue'>(" . $nbpanier . ") </div>";
+        ?>
+
+
+    </body>
+</html>
+<script type="text/javascript">
+
+    function quantiteplus(choix) {
+
+        var nb = $("#" + choix).val() * 1 + 1;
+        $("#" + choix).val(nb);
+
     }
-}
+    ;
+    function maj() {
 
-echo"  </paper-dialog>";
-if (isset($_SESSION['nbproduit'])) {
-    $nbpanier = count($_SESSION['nbproduit']);
-    echo "(" . $nbpanier . ")";
-}
+        var nb = $("#nbpanier").val() * 1 - 1;
+        $("#nbpaniervue").html("(" + nb + ")");
 
-?>
+    }
+
+    ;
+    function quantitemoins(choix) {
+        var nb = $("#" + choix).val() * 1 - 1;
+        $("#" + choix).val(nb);
+    }
+    ;
+    function supDonnees(num) {
+
+        var nb = $("#nbpanier").val() * 1 - 1
+        $("#nbpanier").val(nb);
+        $("#nbpaniervue").html("(" + nb + ")");
+        var req = creerInstance();
+        var donneeproduit;
+        /* On récupère les données du formulaire */
+        var donneeClient = num;
+
+        req.onreadystatechange = function () {
+
+            if (req.readyState == 4) {
+
+                if (req.status == 200) {
+
+
+                } else {
+                    alert("Error: returned status code " + req.status + " " + req.statusText);
+                }
+            }
+        }
+        donneeproduit = "donnees=" + donneeClient;
+
+
+        req.open("POST", "../Panier/supprimer", true);
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        req.send(donneeproduit);
+        $("#cart").load("http://localhost/bein3d/public/Panier/refresh");
+        $.ajaxSetup({cache: false});
+
+    }
+
+
+</script>
+
+
