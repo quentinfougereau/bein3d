@@ -81,6 +81,8 @@
               href="<?php echo $chemin; ?>components/paper-footer/paper-footer.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/menu-toolbar-hsds/menu-toolbar-hsds.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/menu-drawer-hsds/menu-drawer-hsds.html">
  
         <!-- Form element for profile -->
         <link rel="import"           
