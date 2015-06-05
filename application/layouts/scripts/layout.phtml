@@ -191,7 +191,8 @@
                         </paper-dialog>
                         <?php
                     } else {
-                        echo "<p>" . $_SESSION['email'] . "</p>";
+                        echo "<a href=".$this->url(array('controller' => 'profil',
+                            'action' => 'index'))."/><core-icon icon='account-circle'></core-icon></a>";
                     }
                     ?>
     <!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->

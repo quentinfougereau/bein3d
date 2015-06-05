@@ -4,9 +4,8 @@
         <div class="avatar">
             <core-icon class="big" icon="social:person"></core-icon>
         </div>
-        <h2> <?php echo $this->prenomCurrentClient." ".$this->nomCurrentClient ?> </h2>
+        <h2 id="nomClient"><?php echo $this->nomCurrentClient . " " . $this->prenomCurrentClient ?> </h2>
     </div>
-
 
     <div class="collapse">
         <div class="head-collapse" onclick="document.querySelector('#collapse').toggle();">Information personnelles</div>
@@ -16,6 +15,7 @@
             </div>
         </core-collapse>
     </div>
+
 </div>
 
 <!-- ACCES A SHADOW DOM !!! -->
@@ -32,4 +32,5 @@
         $('body /deep/ #adresse').val(adresse);
         $('body /deep/ #ville').val(ville);
         $('body /deep/ #cp').val(cp);
-    });</script>
+    });
+</script>

@@ -16,6 +16,7 @@ class ProfilController extends Zend_Controller_Action {
         $client = new Client();
         $currentClient = $client->fetchRow($client->select()->where('login = ?', $_SESSION['email']));
         
+        $_SESSION["idClient"] = $currentClient["Id"];
         $this->view->nomCurrentClient = $currentClient['nom'];
         $this->view->prenomCurrentClient = $currentClient['prenom'];
         $this->view->emailCurrentClient = $currentClient['email'];
@@ -26,6 +27,7 @@ class ProfilController extends Zend_Controller_Action {
     }
 
     public function updatePersonalDataAction() {
+        Zend_Session::start(); 
         
         if (isset($_POST['nom'])) {
             //recupération de la valeur envoyée par ajax-form
@@ -35,9 +37,7 @@ class ProfilController extends Zend_Controller_Action {
             $adresse = $_POST["adresse"];
             $ville = $_POST["ville"];
             $cp = $_POST["cp"];
-//            valeur de test
-            $id = 45;
-
+            
             //mise à jour du client dans la table client
             $client = new Client();
             $data = array(
@@ -48,7 +48,7 @@ class ProfilController extends Zend_Controller_Action {
                 'ville' => $ville,
                 'cp' => $cp,
             );
-            $where = $client->getAdapter()->quoteInto('Id = ?', $id);
+            $where = $client->getAdapter()->quoteInto('Id = ?', $_SESSION["idClient"]);
 
             $client->update($data, $where);
         }
