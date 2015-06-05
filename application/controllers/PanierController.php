@@ -63,7 +63,7 @@ class PanierController extends Zend_Controller_Action {
                 }
             
         }
-        var_dump($_SESSION['nbproduit']);
+
     }
 
     public function supprimerAction() {
@@ -74,7 +74,27 @@ class PanierController extends Zend_Controller_Action {
                 unset($_SESSION['nbproduit'][$key]);
             }
         }
-//                $this->view->render('Panier/index.phtml');
+
+    }
+    public function ajouterAction() {
+        Zend_Session::start();
+        $this->_helper->layout->disableLayout();
+        foreach ($_SESSION['nbproduit'] as $key => $prod) {
+            if ($prod['id'] == $_POST['donnees']) {
+                $_SESSION['nbproduit'][$key]['quantite']=$prod['quantite']+1;
+            }
+        }
+
+    }
+    public function enleverAction() {
+         Zend_Session::start();
+        $this->_helper->layout->disableLayout();
+        foreach ($_SESSION['nbproduit'] as $key => $prod) {
+            if ($prod['id'] == $_POST['donnees']) {
+                $_SESSION['nbproduit'][$key]['quantite']=$prod['quantite']-1;
+            }
+        }
+
     }
 
     public function refreshAction() {
