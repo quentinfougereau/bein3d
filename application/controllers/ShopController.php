@@ -10,15 +10,16 @@ class ShopController extends Zend_Controller_Action{
     public function init(){
         $layout=$this->_helper->layout();
         $layout->assign('menu','shop');
+        $layout->assign('chemin','../');
     }
     
     public function indexAction(){
-        $this->view->acces='../../';
         Zend_Session::start();
     }
     
     public function boutiqueAction(){
-        $this->view->acces='../../';
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
         $p= new Produit();
         $this->view->lesProduits=$p->fetchall();
        
@@ -26,9 +27,9 @@ class ShopController extends Zend_Controller_Action{
         
     }
     public function nouveautesAction(){
-        $this->view->acces='../../';
+        
     }
     public function makersAction(){
-        $this->view->acces='../../';
+        
     }
 }

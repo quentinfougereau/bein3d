@@ -1,7 +1,7 @@
 <?php echo $this->doctype() ?>
 <html>
     <head>
-          <style shim-shadowdom>
+        <style shim-shadowdom>
             html /deep/ [autofocus] {
                 color: #03a9f4;
             }
@@ -42,12 +42,12 @@
 
     </head>
     <body fullbleed vertical layout unresolved>
-        <input type="hidden" id="valmenu" value="<?php echo $this->layout()->menu?>">
-        
-    
+
+
         <script>
     document.addEventListener('polymer-ready', function(){
-        document.querySelector('paper-test').menu='<?php echo $this->layout()->menu?>';
+        document.querySelector('menu-toolbar-hsds').menu='<?php echo $this->layout()->menu?>';
+        document.querySelector('menu-toolbar-hsds').chemin='<?php echo $this->layout()->chemin?>';
         
         var navicon=document.getElementById('navicon');
         var drawerPanel=document.getElementById('drawerPanel');
@@ -58,215 +58,213 @@
     });  
             
         </script>
-        
-        <core-drawer-panel  id="drawerPanel">
-            <!--DRAWER-->
-            <core-header-panel drawer>
-                <core-toolbar class="medium">
-                    <h2 id="left-title">
+
+    <core-drawer-panel  id="drawerPanel">
+        <!--DRAWER-->
+        <core-header-panel drawer>
+            <core-toolbar class="medium">
+                <h2 id="left-title">
+
+                    <a href="<?php
+                    echo $this->url(array('controller' => 'Index',
+                        'action' => 'index'))
+                    ?>">BEin3D</a>
+                </h2>
+            </core-toolbar>
+            <core-menu fullbleed flex selected="{{menu}}"  valueattr="menu-cat">
+                <core-submenu icon="home" label="Home" menu-cat="home" selected="{{sub}}" valueattr="menu-sub">
+                    <paper-shadow z="1"></paper-shadow>
+                    <core-item label="Accueil" menu-sub="accueil">
+                        <a href="../"></a>
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>
+                    <core-item label="Qui sommes nous ?" menu-sub="qsn">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>
+                    <core-item label="Nos produits" menu-sub="nosproduits">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>
+                </core-submenu>
+                <core-submenu icon="store" label="Shop" menu-cat="shop" selected="{{sub}}" valueattr="menu-sub">
+                    <paper-shadow z="1"></paper-shadow>
+                    <core-item label="La Boutique" menu-sub="boutique">
+                        <paper-ripple fit></paper-ripple>
+                        <a href="../../"></a>
+                    </core-item>
+                    <core-item label="Nouveautés" menu-sub="nouveautes">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>
+                    <core-item label="Nos Makers" menu-sub="makers">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>
+
+                </core-submenu>
+                <core-submenu icon="rotation-3d" label="Design" menu-cat="design" selected="{{sub}}" valueattr="menu-sub">
+                    <paper-shadow z="1"></paper-shadow>
+                    <core-item label="Créer mon objet" menu-sub="creer">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>                        
+                    <core-item label="Didacticiel" menu-sub="didacticiel">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>                       
+                    <core-item label="Importer un modèle" menu-sub="import">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>
+                </core-submenu>
+                <core-submenu icon="payment" label="Sell" menu-cat="sell"selected="{{sub}}" valueattr="menu-sub">
+                    <paper-shadow z="1"></paper-shadow>
+                    <core-item label="Mes Objets" menu-sub="mesobjets">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>
+                    <core-item label="Mes Ventes" menu-sub="mesventes">
+                        <paper-ripple fit></paper-ripple>
+                    </core-item>
+                </core-submenu>
+            </core-menu>
+            <div id='divfoot' flex></div>
+            <footer flex>Footer</footer>
+        </core-header-panel>
+
+        <!-- MAIN -->
+        <core-header-panel main >
+
+            <core-toolbar class="medium" id="barre2">
+                <!-- TOP TOOLBAR -->
+                <core-icon-button id="navicon" icon="menu"></core-icon-button>
+                <!--<paper-test></paper-test>-->
+                <menu-toolbar-hsds></menu-toolbar-hsds>
+                <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
+                <core-icon-button icon="search"></core-icon-button>
+
+                <paper-dialog  class="size-position"  >
+                    <?php
+                    if (isset($_SESSION['nbproduit'])) {
+                        foreach ($_SESSION['nbproduit'] as $key => $prod) {
+//                              var_dump($prod);
+                            echo "<core-icon-button icon='cancel' onclick='alert()'></core-icon-button>";
+                            echo $prod['nom'] . "</br>";
+                        }
+                    }
+                    ?>
+                </paper-dialog>
+
+                <template is="auto-binding">
+                    <?php include_once("../application/views/scripts/Panier/index.phtml"); ?>
+
+
+                    <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
+                    <?php if (!isset($_SESSION['email'])) { ?>
+                        <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>
+                        <paper-dialog heading="CONNEXION" class="size-position" >
+                            <core-form-connexion></core-form-connexion>
+                        </paper-dialog>
+                        <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')" ></paper-button>
                         
-                        <a href="<?php
+                        <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
+                            <core-form-inscription>           
+                            </core-form-inscription>
+                        </paper-dialog>
+                        <?php
+                    } else {
+                        echo "<p>" . $_SESSION['email'] . "</p>";
+                    }
+                    ?>
+    <!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->
+
+                </template>
+
+                <!--
+                    
+                </core-pages>
+                                
+                <!--</div>-->          
+            </core-toolbar>
+
+            <core-pages selected="<?php echo $this->layout()->menu?>" valueattr="menu-cat">
+                <section menu-cat="home">
+                    <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
+                        <paper-tab menu-sub="accueil">
+                            <a href="<?php
                             echo $this->url(array('controller' => 'Index',
-                                'action' => 'index'))?>">BEin3D</a>
-                    </h2>
-                </core-toolbar>
-                <core-menu fullbleed flex selected="{{menu}}"  valueattr="menu-cat">
-                    <core-submenu icon="home" label="Home" menu-cat="home" selected="{{sub}}" valueattr="menu-sub">
-                        <paper-shadow z="1"></paper-shadow>
-                        <core-item label="Accueil" menu-sub="accueil">
-                            <a href="../"></a>
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>
-                        <core-item label="Qui sommes nous ?" menu-sub="qsn">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>
-                        <core-item label="Nos produits" menu-sub="nosproduits">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>
-                    </core-submenu>
-                    <core-submenu icon="store" label="Shop" menu-cat="shop" selected="{{sub}}" valueattr="menu-sub">
-                        <paper-shadow z="1"></paper-shadow>
-                        <core-item label="La Boutique" menu-sub="boutique">
-                            <paper-ripple fit></paper-ripple>
-                            <a href="../../"></a>
-                        </core-item>
-                        <core-item label="Nouveautés" menu-sub="nouveautes">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>
-                        <core-item label="Nos Makers" menu-sub="makers">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>
-                        
-                    </core-submenu>
-                    <core-submenu icon="rotation-3d" label="Design" menu-cat="design" selected="{{sub}}" valueattr="menu-sub">
-                        <paper-shadow z="1"></paper-shadow>
-                        <core-item label="Créer mon objet" menu-sub="creer">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>                        
-                        <core-item label="Didacticiel" menu-sub="didacticiel">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>                       
-                        <core-item label="Importer un modèle" menu-sub="import">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>
-                    </core-submenu>
-                    <core-submenu icon="payment" label="Sell" menu-cat="sell"selected="{{sub}}" valueattr="menu-sub">
-                        <paper-shadow z="1"></paper-shadow>
-                        <core-item label="Mes Objets" menu-sub="mesobjets">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>
-                        <core-item label="Mes Ventes" menu-sub="mesventes">
-                            <paper-ripple fit></paper-ripple>
-                        </core-item>
-                    </core-submenu>
-                </core-menu>
-                <div id='divfoot' flex></div>
-                <footer flex>Footer</footer>
-            </core-header-panel>
-
-            <!-- MAIN -->
-            <core-header-panel main >
-
-                <core-toolbar class="medium" id="barre2">
-                    <!-- TOP TOOLBAR -->
-                    <core-icon-button id="navicon" icon="menu"></core-icon-button>
-                    <!--<paper-test></paper-test>-->
-                    <paper-tabs flex selected="<?php echo $this->layout()->menu?>" valueattr="menu-cat" link noink noslide>
-                        <paper-tab menu-cat="home">
+                                'action' => 'index'))
+                            ?>" horizontal center-center layout>ACCUEIL</a>
+                        </paper-tab>
+                        <paper-tab menu-sub="qsn">
                             <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'index'))?>" horizontal center-center layout>HOME</a>
+                            echo $this->url(array('controller' => 'Index',
+                                'action' => 'qsn'))
+                            ?>" horizontal center-center layout>QUI SOMMES NOUS</a>
                         </paper-tab>
-                        <paper-tab menu-cat="shop">
+                        <paper-tab menu-sub="nosproduits">
                             <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'boutique'))?>"horizontal center-center layout>SHOP</a>
-                        </paper-tab>
-                        <paper-tab menu-cat="design"><a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'creer'))?>"horizontal center-center layout>DESIGN</a>
-                        </paper-tab>
-                        <paper-tab menu-cat="sell"><a href="<?php
-                                echo $this->url(array('controller' => 'Sell',
-                                    'action' => 'mesobjets'))?>"horizontal center-center layout>SELL</a>
+                            echo $this->url(array('controller' => 'Index',
+                                'action' => 'nosproduits'))
+                            ?>" horizontal center-center layout>NOS PRODUITS</a>
                         </paper-tab>
                     </paper-tabs>
-                    <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
-                    <core-icon-button icon="search"></core-icon-button>
-                    
-                    <paper-dialog  class="size-position"  >
-                        <?php
-                        if (isset($_SESSION['nbproduit'])) {
-                            foreach ($_SESSION['nbproduit'] as $key => $prod) {
-//                              var_dump($prod);
-                                echo "<core-icon-button icon='cancel' onclick='alert()'></core-icon-button>";
-                                echo $prod['nom'] . "</br>";
-                            }
-                        }
-                        ?>
-                    </paper-dialog>
-                    <template is="auto-binding">
-                         <?php  include_once("../application/views/scripts/Panier/index.phtml"); ?>
-                    
+                </section>
 
-                    
-                    
-                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>
-                    <paper-dialog heading="CONNEXION" class="size-position" >
 
-                        <core-form-connexion></core-form-connexion>
+                <section menu-cat="shop">
+                    <paper-tabs flex selected="{{sub}}" valueattr="menu-sub">                            
+                        <paper-tab menu-sub="boutique">
+                            <a href="<?php
+                            echo $this->url(array('controller' => 'Shop',
+                                'action' => 'boutique'))
+                            ?>" horizontal center-center layout>LA BOUTIQUE</a>
+                        </paper-tab>
+                        <paper-tab menu-sub="nouveautes">
+                            <a href="<?php
+                            echo $this->url(array('controller' => 'Shop',
+                                'action' => 'nouveautes'))
+                            ?>" horizontal center-center layout>NOUVEAUTES</a>
+                        </paper-tab>
+                        <paper-tab menu-sub="makers">
+                            <a href="<?php
+                            echo $this->url(array('controller' => 'Shop',
+                                'action' => 'makers'))
+                            ?>" horizontal center-center layout>NOS MAKERS</a>
+                        </paper-tab>
+                    </paper-tabs>
+                </section>
+                <section menu-cat="design">
+                    <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
+                        <paper-tab menu-sub="creer">
+                            <a href="<?php
+                            echo $this->url(array('controller' => 'Design',
+                                'action' => 'creer'))
+                            ?>" horizontal center-center layout>CREER MON OBJET</a>
+                        </paper-tab>
+                        <paper-tab menu-sub="didacticiel">
+                            <a href="<?php
+                            echo $this->url(array('controller' => 'Design',
+                                'action' => 'didact'))
+                            ?>" horizontal center-center layout>DIDACTITIEL</a>
+                        </paper-tab>
+                        <paper-tab menu-sub="import">
+                            <a href="<?php
+                            echo $this->url(array('controller' => 'Design',
+                                'action' => 'importer'))
+                            ?>" horizontal center-center layout>IMPORTER UN MODELE</a>
+                        </paper-tab>
+                    </paper-tabs>
+                </section>
+                <section menu-cat="sell">                   
+                    <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
+                        <paper-tab menu-sub="mesobjets">MES OBJETS</paper-tab>
+                        <paper-tab menu-sub="mesventes">MES VENTES</paper-tab>
+                    </paper-tabs>
+                </section>
+            </core-pages>
 
-                    </paper-dialog>
-                     </template>
+            <?php
+            echo $this->layout()->content;
+            ?>  
 
-                    <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')" ></paper-button>
-                    <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
+        </core-header-panel>
 
-                        <core-form-inscription>           
-                        </core-form-inscription>
+    </core-drawer-panel>
 
-                    </paper-dialog><!--
-                        
-                    </core-pages>
-                                    
-                    <!--</div>-->          
-                </core-toolbar>
-                
-                <core-pages selected="{{menu}}" valueattr="menu-cat">
-                    <section menu-cat="home">
-                        <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
-                            <paper-tab menu-sub="accueil">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'index'))?>" horizontal center-center layout>ACCUEIL</a>
-                            </paper-tab>
-                            <paper-tab menu-sub="qsn">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'qsn'))?>" horizontal center-center layout>QUI SOMMES NOUS</a>
-                            </paper-tab>
-                            <paper-tab menu-sub="nosproduits">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'nosproduits'))?>" horizontal center-center layout>NOS PRODUITS</a>
-                            </paper-tab>
-                        </paper-tabs>
-                        
-                    </section>
-
-                    <section menu-cat="shop">
-                        <paper-tabs flex selected="{{sub}}" valueattr="menu-sub">                            
-                            <paper-tab menu-sub="boutique">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'boutique'))?>" horizontal center-center layout>LA BOUTIQUE</a>
-                            </paper-tab>
-                            <paper-tab menu-sub="nouveautes">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'nouveautes'))?>" horizontal center-center layout>NOUVEAUTES</a>
-                            </paper-tab>
-                            <paper-tab menu-sub="makers">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'makers'))?>" horizontal center-center layout>NOS MAKERS</a>
-                            </paper-tab>
-                        </paper-tabs>
-                    </section>
-                    <section menu-cat="design">
-                        <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
-                            <paper-tab menu-sub="creer">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'creer'))?>" horizontal center-center layout>CREER MON OBJET</a>
-                            </paper-tab>
-                            <paper-tab menu-sub="didacticiel">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'didact'))?>" horizontal center-center layout>DIDACTITIEL</a>
-                            </paper-tab>
-                            <paper-tab menu-sub="import">
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'importer'))?>" horizontal center-center layout>IMPORTER UN MODELE</a>
-                            </paper-tab>
-                        </paper-tabs>
-                    </section>
-                    <section menu-cat="sell">                   
-                        <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
-                            <paper-tab menu-sub="mesobjets">MES OBJETS</paper-tab>
-                            <paper-tab menu-sub="mesventes">MES VENTES</paper-tab>
-                        </paper-tabs>
-                    </section>
-                </core-pages>
-            
-                <?php                
-                    echo $this->layout()->content;
-                ?>  
-            </core-header-panel>
-            
-        </core-drawer-panel>
-   
 </body>
 
 <script type="text/javascript">
@@ -297,7 +295,7 @@
         }
         d.toggle();
     };
-  
+
 
     var content = document.getElementById('super-template');
     //alert(content);
@@ -315,8 +313,8 @@
     //            drawerPanel.togglePanel();
     //        });
     //    });
-    
-    
+
+
 
 
 

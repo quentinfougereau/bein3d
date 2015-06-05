@@ -1,10 +1,11 @@
 <?php
+
 require_once '../application/models/News.php';
 require_once '../application/models/Produit.php';
 require_once '../application/models/Client.php';
 
-class IndexController extends Zend_Controller_Action
-{
+class IndexController extends Zend_Controller_Action {
+
 
     public function init()
     {
@@ -14,15 +15,21 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        
-        $this->view->acces='../';
+
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','');
         Zend_Session::start();
+
+        if (Zend_Session::sessionExists()) {
+            Zend_Session::start();
+        }
         //$this->layout()->_helper->setVariable('MaVariable','Valeur');
        $p= new Produit();
        $c= new Client();
        $this->view->lesProduits=$p->fetchall();
 
        $tab=array();
+
 //       foreach ($p->fetchall() as $unproduit){
 //           $idclient=$unproduit->idmaker;
 //           $client=$c->unClient($idclient);
@@ -35,20 +42,21 @@ class IndexController extends Zend_Controller_Action
     }
     
     public function qsnAction(){
-        $this->view->acces='../../';
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
     
     public function nosproduitsAction(){
-        $this->view->acces='../../';
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
-    
-    public function formAction(){
-     
-        $this->view->login= $_POST['login'];
-        $this->view->mdp=$_POST['mdp'];
-        
+
+    public function formAction() {
+
+        $this->view->login = $_POST['login'];
+        $this->view->mdp = $_POST['mdp'];
+
         $this->render('form');
     }
 
 }
-
