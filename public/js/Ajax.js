@@ -59,3 +59,4 @@ var nb = $("#nbpanier").val() * 1 + 1
 
   
 }
+

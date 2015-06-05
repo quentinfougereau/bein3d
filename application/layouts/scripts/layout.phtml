@@ -43,22 +43,22 @@
     </head>
     <body fullbleed vertical layout unresolved>
 
-        <input type="hidden" id="valmenu" value="<?php echo $this->layout()->menu ?>">
-
 
         <script>
-            document.addEventListener('polymer-ready', function () {
-                document.querySelector('paper-test').menu = '<?php echo $this->layout()->menu ?>';
-
-                var navicon = document.getElementById('navicon');
-                var drawerPanel = document.getElementById('drawerPanel');
-                navicon.addEventListener('click', function () {
-                    drawerPanel.togglePanel();
-                });
-
-            });
-
-
+    document.addEventListener('polymer-ready', function(){
+        document.querySelector('menu-toolbar-hsds').menu='<?php echo $this->layout()->menu?>';
+        document.querySelector('menu-toolbar-hsds').chemin='<?php echo $this->layout()->chemin?>';
+        document.querySelector('menu-drawer-hsds').menu='<?php echo $this->layout()->menu?>';
+        document.querySelector('menu-drawer-hsds').chemin='<?php echo $this->layout()->chemin?>';
+        
+        var navicon=document.getElementById('navicon');
+        var drawerPanel=document.getElementById('drawerPanel');
+        navicon.addEventListener('click',function(){
+            drawerPanel.togglePanel();
+        });
+        
+    });  
+            
         </script>
 
     <core-drawer-panel  id="drawerPanel">
@@ -73,56 +73,8 @@
                     ?>">BEin3D</a>
                 </h2>
             </core-toolbar>
-            <core-menu fullbleed flex selected="{{menu}}"  valueattr="menu-cat">
-                <core-submenu icon="home" label="Home" menu-cat="home" selected="{{sub}}" valueattr="menu-sub">
-                    <paper-shadow z="1"></paper-shadow>
-                    <core-item label="Accueil" menu-sub="accueil">
-                        <a href="../"></a>
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>
-                    <core-item label="Qui sommes nous ?" menu-sub="qsn">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>
-                    <core-item label="Nos produits" menu-sub="nosproduits">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>
-                </core-submenu>
-                <core-submenu icon="store" label="Shop" menu-cat="shop" selected="{{sub}}" valueattr="menu-sub">
-                    <paper-shadow z="1"></paper-shadow>
-                    <core-item label="La Boutique" menu-sub="boutique">
-                        <paper-ripple fit></paper-ripple>
-                        <a href="../../"></a>
-                    </core-item>
-                    <core-item label="Nouveautés" menu-sub="nouveautes">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>
-                    <core-item label="Nos Makers" menu-sub="makers">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>
+            <menu-drawer-hsds></menu-drawer-hsds>
 
-                </core-submenu>
-                <core-submenu icon="rotation-3d" label="Design" menu-cat="design" selected="{{sub}}" valueattr="menu-sub">
-                    <paper-shadow z="1"></paper-shadow>
-                    <core-item label="Créer mon objet" menu-sub="creer">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>                        
-                    <core-item label="Didacticiel" menu-sub="didacticiel">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>                       
-                    <core-item label="Importer un modèle" menu-sub="import">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>
-                </core-submenu>
-                <core-submenu icon="payment" label="Sell" menu-cat="sell"selected="{{sub}}" valueattr="menu-sub">
-                    <paper-shadow z="1"></paper-shadow>
-                    <core-item label="Mes Objets" menu-sub="mesobjets">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>
-                    <core-item label="Mes Ventes" menu-sub="mesventes">
-                        <paper-ripple fit></paper-ripple>
-                    </core-item>
-                </core-submenu>
-            </core-menu>
             <div id='divfoot' flex></div>
             <footer flex>Footer</footer>
         </core-header-panel>
@@ -134,30 +86,7 @@
                 <!-- TOP TOOLBAR -->
                 <core-icon-button id="navicon" icon="menu"></core-icon-button>
                 <!--<paper-test></paper-test>-->
-                <paper-tabs flex selected="<?php echo $this->layout()->menu ?>" valueattr="menu-cat" link noink noslide>
-                    <paper-tab menu-cat="home">
-                        <a href="<?php
-                        echo $this->url(array('controller' => 'Index',
-                            'action' => 'index'))
-                        ?>" horizontal center-center layout>HOME</a>
-                    </paper-tab>
-                    <paper-tab menu-cat="shop">
-                        <a href="<?php
-                        echo $this->url(array('controller' => 'Shop',
-                            'action' => 'boutique'))
-                        ?>"horizontal center-center layout>SHOP</a>
-                    </paper-tab>
-                    <paper-tab menu-cat="design"><a href="<?php
-                        echo $this->url(array('controller' => 'Design',
-                            'action' => 'creer'))
-                        ?>"horizontal center-center layout>DESIGN</a>
-                    </paper-tab>
-                    <paper-tab menu-cat="sell"><a href="<?php
-                        echo $this->url(array('controller' => 'Sell',
-                            'action' => 'mesobjets'))
-                        ?>"horizontal center-center layout>SELL</a>
-                    </paper-tab>
-                </paper-tabs>
+                <menu-toolbar-hsds></menu-toolbar-hsds>
                 <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                 <core-icon-button icon="search"></core-icon-button>
 
@@ -206,7 +135,7 @@
                 <!--</div>-->          
             </core-toolbar>
 
-            <core-pages selected="{{menu}}" valueattr="menu-cat">
+            <core-pages selected="<?php echo $this->layout()->menu?>" valueattr="menu-cat">
                 <section menu-cat="home">
                     <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
                         <paper-tab menu-sub="accueil">
@@ -228,8 +157,8 @@
                             ?>" horizontal center-center layout>NOS PRODUITS</a>
                         </paper-tab>
                     </paper-tabs>
-
                 </section>
+
 
                 <section menu-cat="shop">
                     <paper-tabs flex selected="{{sub}}" valueattr="menu-sub">                            
@@ -281,7 +210,6 @@
                         <paper-tab menu-sub="mesventes">MES VENTES</paper-tab>
                     </paper-tabs>
                 </section>
-
             </core-pages>
 
             <?php

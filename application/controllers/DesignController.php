@@ -10,22 +10,22 @@ class DesignController extends Zend_Controller_Action{
     public function init(){
         $layout=$this->_helper->layout();
         $layout->assign('menu','design');
+        $layout->assign('chemin','../');
     }
     
     public function indexAction(){
-        $this->view->acces='../../';
-        Zend_Session::start();
+
     }
     
     public function creerAction(){
-        $this->view->acces='../../';
+
     }
     
     public function didactAction(){
-        $this->view->acces='../../';
+
     }
     
     public function importerAction(){
-        $this->view->acces='../../';
+
     }
 }

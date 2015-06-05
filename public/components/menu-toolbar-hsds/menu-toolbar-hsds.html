@@ -1,0 +1,48 @@
+<link href="../polymer/polymer.html" rel="import">
+<link href="../paper-tabs/paper-tabs.html" rel="import">
+<link href="../paper-tabs/paper-tab.html" rel="import">
+<link href="../more-routing-master/more-route-selector.html" rel="import">
+
+<polymer-element name="menu-toolbar-hsds" layout horizontal flex>
+
+  <template>
+      <more-route-selector flex>
+      <paper-tabs valueattr="menu-cat" selected="{{menu}}" link noink noslide>
+          <template repeat="{{m in menusCat}}">
+            <paper-tab menu-cat="{{m.value}}" route="{{m.value}}">
+                <a href="{{chemin}}{{m.controller}}/{{m.action}}" horizontal center-center layout>{{m.name}}</a>
+            </paper-tab>
+          </template>
+      </paper-tabs>
+    </more-route-selector>
+      <style>
+          :host a{
+              font-size:18px;
+              text-decoration:none;
+              color:white;
+          }
+      </style>
+
+  </template>
+
+  <script>
+
+  Polymer('menu-toolbar-hsds', {
+      
+      ready: function() {
+        this.menu ='';
+        
+        this.chemin='';
+        
+        this.menusCat = [
+          {name: 'HOME', value: 'home', controller:'Index' ,action:'../'},
+          {name: 'SHOP', value: 'shop', controller:'Shop' ,action:'boutique'},
+          {name: 'DESIGN', value: 'design', controller:'Design' ,action:'creer'},
+          {name: 'SELL', value: 'sell', controller:'Sell' ,action:'mesobjets'}
+        ];
+      }
+  });
+
+  </script>
+
+</polymer-element>

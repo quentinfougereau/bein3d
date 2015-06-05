@@ -21,7 +21,11 @@ class ConnexionController extends Zend_Controller_Action {
 
     public function indexAction() {
         
+<<<<<<< HEAD
+        $this->view->acces='../../';
+=======
         $this->view->acces='../';
+>>>>>>> 67d58af577edfa99819a9a4dbf98e004ff3bedc1
 
         if ($_POST['email'] != "" && $_POST['mdp'] != "") {
             $ct = new Client();

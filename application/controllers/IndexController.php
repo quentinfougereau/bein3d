@@ -15,8 +15,11 @@ class IndexController extends Zend_Controller_Action {
 
     public function indexAction()
     {
-        
-        $this->view->acces='../';
+
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','');
+        Zend_Session::start();
+
         if (Zend_Session::sessionExists()) {
             Zend_Session::start();
         }
@@ -37,13 +40,15 @@ class IndexController extends Zend_Controller_Action {
         $this->view->news = $news->getLast5News();
         // action body
     }
-
-    public function qsnAction() {
-        $this->view->acces = '../../';
+    
+    public function qsnAction(){
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
-
-    public function nosproduitsAction() {
-        $this->view->acces = '../../';
+    
+    public function nosproduitsAction(){
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
 
     public function formAction() {

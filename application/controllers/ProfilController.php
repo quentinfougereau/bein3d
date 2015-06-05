@@ -5,13 +5,15 @@ require_once '../application/models/Client.php';
 class ProfilController extends Zend_Controller_Action {
 
     public function init() {
-        
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
 
     public function indexAction() {
         
+
         Zend_Session::start();  
-        $this->view->acces = '../../';
+
         
         $client = new Client();
         $currentClient = $client->fetchRow($client->select()->where('login = ?', $_SESSION['email']));

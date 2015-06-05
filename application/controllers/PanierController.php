@@ -15,9 +15,13 @@ require_once '../application/models/Client.php';
 require_once '../application/models/Produit.php';
 
 class PanierController extends Zend_Controller_Action {
+    
+    public function init(){
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
+    }
 
     public function indexAction() {
-        $this->view->acces = '../../';
         Zend_Session::start();
         if (!isset($_SESSION['nbproduit'])) {
 //            $nbproduit = new Zend_Session_Namespace('nbproduit');
@@ -59,7 +63,7 @@ class PanierController extends Zend_Controller_Action {
                 }
             
         }
-        var_dump($_SESSION['nbproduit']);
+
     }
 
     public function supprimerAction() {
@@ -70,7 +74,27 @@ class PanierController extends Zend_Controller_Action {
                 unset($_SESSION['nbproduit'][$key]);
             }
         }
-//                $this->view->render('Panier/index.phtml');
+
+    }
+    public function ajouterAction() {
+        Zend_Session::start();
+        $this->_helper->layout->disableLayout();
+        foreach ($_SESSION['nbproduit'] as $key => $prod) {
+            if ($prod['id'] == $_POST['donnees']) {
+                $_SESSION['nbproduit'][$key]['quantite']=$prod['quantite']+1;
+            }
+        }
+
+    }
+    public function enleverAction() {
+         Zend_Session::start();
+        $this->_helper->layout->disableLayout();
+        foreach ($_SESSION['nbproduit'] as $key => $prod) {
+            if ($prod['id'] == $_POST['donnees']) {
+                $_SESSION['nbproduit'][$key]['quantite']=$prod['quantite']-1;
+            }
+        }
+
     }
 
     public function refreshAction() {

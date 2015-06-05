@@ -15,6 +15,10 @@ require_once '../application/models/News.php';
 
 class RecupController extends Zend_Controller_Action {
 
+    public function init(){
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
+    }
     //put your code here
     public function indexAction() {
         $news = new News();
