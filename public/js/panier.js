@@ -3,26 +3,118 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$(document).ready(function(){
-  
-function supprimer_actualite(){
- //mettre les donners dans un tableau HTML 
- //Puis leur donner $prod[id] comme id
- //enfin faire une fonction js supprimant l'id correspondant
-//    if(confirm('Confirmez vous la suppression ?')){
-//        $.ajax({
-//        url: 'Panier/sup?id='+dernier_id,
-//        success: function(data){
-//           
-//            if(data.length>1){
-//                $(data).prependTo('#actus').hide().animate({'height':'toggle','opacity':'toggle'},2000);
-//                $('#actus li:last-child').animate({'height':'toggle','opacity':'toggle'},2000,function(){
-//                    $(this).remove();
-//                });
-//            }
-//            
-//        }
-//    })
-       
-       }
-   })
+
+
+    function quantiteplus(choix) {
+        //faire appel ajax pour modifier la session un pour chaque bouton (+ et -)= action + vues
+        var nb = $("#" + choix).val() * 1 + 1;
+        $("#" + choix).val(nb);
+        var nb1 = $("#nbpanier").val() * 1 + 1;
+        $("#nbpanier").val(nb1);
+        $("#nbpaniervue").html("(" + nb1 + ")");
+        var req = creerInstance();
+            var donneeproduit;
+            /* On récupère les données du formulaire */
+            var donneeClient = choix;
+
+            req.onreadystatechange = function () {
+
+                if (req.readyState == 4) {
+
+                    if (req.status == 200) {
+
+
+                    } else {
+                        alert("Error: returned status code " + req.status + " " + req.statusText);
+                    }
+                }
+            }
+            donneeproduit = "donnees=" + donneeClient;
+
+
+            req.open("POST", "../Panier/ajouter", true);
+            req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            req.send(donneeproduit);
+            $("#cart").load("http://localhost/bein3d/public/Panier/refresh");
+            $.ajaxSetup({cache: false});
+
+    }
+    ;
+    function maj() {
+
+        var nb = $("#nbpanier").val() * 1 - 1;
+        $("#nbpaniervue").html("(" + nb + ")");
+
+    }
+
+    ;
+    function quantitemoins(choix) {
+        var nb = $("#" + choix).val() * 1 - 1;
+        $("#" + choix).val(nb);
+        var nb1 = $("#nbpanier").val() * 1 - 1;
+        $("#nbpanier").val(nb1) ;
+        $("#nbpaniervue").html("(" + nb1 + ")");
+        var req = creerInstance();
+            var donneeproduit;
+            /* On récupère les données du formulaire */
+            var donneeClient = choix;
+
+            req.onreadystatechange = function () {
+
+                if (req.readyState == 4) {
+
+                    if (req.status == 200) {
+
+
+                    } else {
+                        alert("Error: returned status code " + req.status + " " + req.statusText);
+                    }
+                }
+            }
+            donneeproduit = "donnees=" + donneeClient;
+
+
+            req.open("POST", "../Panier/enlever", true);
+            req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            req.send(donneeproduit);
+            $("#cart").load("http://localhost/bein3d/public/Panier/refresh");
+            $.ajaxSetup({cache: false});
+        
+    }
+    ;
+    function supDonnees(num,quantite) {
+        
+        var nb = $("#nbpanier").val() * 1 - quantite;
+        if(nb>=0){
+        $("#nbpanier").val(nb);
+        $("#nbpaniervue").html("(" + nb + ")");
+    }
+        var req = creerInstance();
+        var donneeproduit;
+        /* On récupère les données du formulaire */
+        var donneeClient = num;
+
+        req.onreadystatechange = function () {
+
+            if (req.readyState == 4) {
+
+                if (req.status == 200) {
+
+
+                } else {
+                    alert("Error: returned status code " + req.status + " " + req.statusText);
+                }
+            }
+        }
+        donneeproduit = "donnees=" + donneeClient;
+
+
+        req.open("POST", "../Panier/supprimer", true);
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        req.send(donneeproduit);
+        $("#cart").load("http://localhost/bein3d/public/Panier/refresh");
+        $.ajaxSetup({cache: false});
+
+    }
+
+

@@ -1,10 +1,12 @@
 <html>
+    <script type=text/javascript src="../../public/js/panier.js"></script>
     <body>
     
     
     <paper-icon-button icon='shopping-cart' on-tap='{{toggleDialog1}}'></paper-icon-button>
     <paper-dialog  class='size-position'  > 
         <?php
+        $nbpanier = 0;
         echo "<div id='cart'>";
 
 
@@ -15,6 +17,7 @@
 
         if (isset($_SESSION['nbproduit'])) {
             foreach ($_SESSION['nbproduit'] as $key => $prod) {
+                 $nbpanier += $prod['quantite'];
 //                              var_dump($prod);
                 echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ",".$prod['quantite'].")'></core-icon-button>";
                 echo $prod['nom'] . "     <paper-icon-button name='moins' class='sup' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
@@ -26,10 +29,8 @@
 
         echo"  </div>";
         echo"  </paper-dialog>";
-        $nbpanier = 0;
-        if (isset($_SESSION['nbproduit'])) {
-            $nbpanier = count($_SESSION['nbproduit']);
-        }
+        
+        
 
 
         echo "<input type='hidden' id='nbpanier' value=" . $nbpanier . ">";
@@ -38,71 +39,7 @@
 
 
     </body>
-    <script type="text/javascript">
-
-    function quantiteplus(choix) {
-        //faire appel ajax pour modifier la session un pour chaque bouton (+ et -)= action + vues
-        var nb = $("#" + choix).val() * 1 + 1;
-        $("#" + choix).val(nb);
-        var nb1 = $("#nbpanier").val() * 1 + 1;
-        $("#nbpanier").val(nb);
-        $("#nbpaniervue").html("(" + nb1 + ")");
-
-    }
-    ;
-    function maj() {
-
-        var nb = $("#nbpanier").val() * 1 - 1;
-        $("#nbpaniervue").html("(" + nb + ")");
-
-    }
-
-    ;
-    function quantitemoins(choix) {
-        var nb = $("#" + choix).val() * 1 - 1;
-        $("#" + choix).val(nb);
-        var nb1 = $("#nbpanier").val() * 1 - 1;
-        $("#nbpaniervue").html("(" + nb1 + ")");
-        
-    }
-    ;
-    function supDonnees(num,quantite) {
-        
-        var nb = $("#nbpanier").val() * 1 - quantite;
-        if(nb>=0){
-        $("#nbpanier").val(nb);
-        $("#nbpaniervue").html("(" + nb + ")");
-    }
-        var req = creerInstance();
-        var donneeproduit;
-        /* On récupère les données du formulaire */
-        var donneeClient = num;
-
-        req.onreadystatechange = function () {
-
-            if (req.readyState == 4) {
-
-                if (req.status == 200) {
-
-
-                } else {
-                    alert("Error: returned status code " + req.status + " " + req.statusText);
-                }
-            }
-        }
-        donneeproduit = "donnees=" + donneeClient;
-
-
-        req.open("POST", "../Panier/supprimer", true);
-        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        req.send(donneeproduit);
-        $("#cart").load("http://localhost/bein3d/public/Panier/refresh");
-        $.ajaxSetup({cache: false});
-
-    }
-
-
-</script>
+    
 
 </html>
 
