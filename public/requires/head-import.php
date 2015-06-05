@@ -34,6 +34,8 @@
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-icon-button/core-icon-button.html">
         <link rel="import"
+              href="<?php echo $chemin; ?>components/core-ajax/core-ajax.html">
+        <link rel="import"
               href="<?php echo $chemin; ?>components/paper-icon-button/paper-icon-button.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-menu-button/paper-menu-button.html">

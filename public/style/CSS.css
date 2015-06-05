@@ -209,16 +209,16 @@ ul{
     border:1px solid black;
     margin:0px;
     padding:0px;
-    width:250px;
+    width:350px;
     background-color:#d6e1f1;
 }
 
 li{
     display:block;
-    width:250px;
+    width:350px;
     font-family:monospace;
     font-size:30px;
-    height:50px;
+    height:100px;
 }
 
 .id{

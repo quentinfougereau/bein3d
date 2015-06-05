@@ -21,6 +21,7 @@ class RecupController extends Zend_Controller_Action {
     }
     //put your code here
     public function indexAction() {
+        $this->_helper->layout->disableLayout();
         $news = new News();
         if (!isset($_GET['id'])) {
             
