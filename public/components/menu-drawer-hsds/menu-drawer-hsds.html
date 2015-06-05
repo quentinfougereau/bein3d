@@ -1,0 +1,78 @@
+<link href="../polymer/polymer.html" rel="import">
+<link href="../core-menu/core-menu.html" rel="import">
+<link href="../core-menu/core-submenu.html" rel="import">
+<link href="../paper-shadow/paper-shadow.html" rel="import">
+<link href="../core-item/core-item.html" rel="import">
+<link href="../paper-ripple/paper-ripple.html" rel="import">
+<link href="../more-routing-master/more-route-selector.html" rel="import">
+
+<polymer-element name="menu-drawer-hsds" layout horizontal flex>
+
+  <template>
+      <more-route-selector flex>
+      <core-menu fullbleed flex selected="{{menu}}"  valueattr="menu-cat">
+          <template repeat="{{m in menusCat}}">
+            <core-submenu icon="{{m.icon}}" label="{{m.name}}" menu-cat="{{m.value}}" selected="" valueattr="menu-sub">
+                <paper-shadow z="1"></paper-shadow>
+                <template repeat="{{t in m.tab}}" bind="{{m}}">
+                    <core-item label="{{t.name}}" menu-sub="accueil">
+                        <a href="{{chemin}}{{m.controller}}/{{t.value}}"></a>
+                        
+                    </core-item>
+                </template>
+                
+            </core-submenu>
+          </template>
+      </core-menu>
+    </more-route-selector>
+      <style>
+          :host core-menu{
+              background-image:linear-gradient(#4BB5C1,#01579B,#1B2C6E);
+              color:white;
+          }
+          
+          :host a{
+              font-size:18px;
+              text-decoration:none;
+              color:white;
+          }
+      </style>
+
+  </template>
+
+  <script>
+
+  Polymer('menu-drawer-hsds', {
+      
+      ready: function() {
+        this.menu='';
+        
+        this.chemin='';
+        
+        this.menusCat = [
+            {name: 'HOME', value: 'index', controller: '' ,action:'../', icon:'home',tab: [
+              {name:'Accueil', value:''},
+              {name:'Qui sommes nous', value:'qsn'},
+              {name:'Nos Produits', value:'nos produits'}
+          ]},
+            {name: 'SHOP', value: 'shop', controller:'Shop' ,action:'boutique', icon:'store', tab: [
+              {name:'Boutique', value:'boutique'},
+              {name:'Nouveautes', value:'nouveautes'},
+              {name:'Nos Makers', value:'nosmakers'}
+          ]},
+            {name: 'DESIGN', value: 'design', controller:'Design' ,action:'creer', icon:'rotation-3d', tab: [
+              {name:'Créer votre objet', value:'creer'},
+              {name:'Didacticiel', value:'didact'},
+              {name:'Importer Un modèle', value:'importer'}
+          ]},
+            {name: 'SELL', value: 'sell', controller:'Sell' ,action:'mesobjets', icon:'payment', tab: [
+              {name:'Mes objets', value:'mesobjets'},
+              {name:'Mes ventes', value:'mesventes'}
+          ]}
+        ];
+      }
+  });
+
+  </script>
+
+</polymer-element>
