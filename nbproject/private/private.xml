@@ -4,21 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/bein3d/application/controllers/ShopController.php</file>
-<<<<<<< HEAD
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/Panier/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/controllers/PanierController.php</file>
-            <file>file:/C:/wamp/www/bein3d/public/style/CSS.css</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Panier/Supprimer.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Panier/refresh.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/controllers/RecupController.php</file>
+            <file>file:/C:/wamp/www/bein3d/public/js/panier.js</file>
             <file>file:/C:/wamp/www/bein3d/public/js/news.js</file>
-=======
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/public/components/paper-test/paper-test.html</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/PanierController.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/index/index.phtml</file>
->>>>>>> 4b7fbe851309239faaf32b8a21dd3490a99a78d8
             <file>file:/C:/wamp/www/bein3d/public/requires/head-import.php</file>
+            <file>file:/C:/wamp/www/bein3d/public/js/Ajax.js</file>
         </group>
     </open-files>
 </project-private>

@@ -16,7 +16,7 @@
         if (isset($_SESSION['nbproduit'])) {
             foreach ($_SESSION['nbproduit'] as $key => $prod) {
 //                              var_dump($prod);
-                echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ")'></core-icon-button>";
+                echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ",".$prod['quantite'].")'></core-icon-button>";
                 echo $prod['nom'] . "     <paper-icon-button name='moins' class='sup' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
                                   <input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
                                  <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></br>";
@@ -38,13 +38,15 @@
 
 
     </body>
-</html>
-<script type="text/javascript">
+    <script type="text/javascript">
 
     function quantiteplus(choix) {
-
+        //faire appel ajax pour modifier la session un pour chaque bouton (+ et -)= action + vues
         var nb = $("#" + choix).val() * 1 + 1;
         $("#" + choix).val(nb);
+        var nb1 = $("#nbpanier").val() * 1 + 1;
+        $("#nbpanier").val(nb);
+        $("#nbpaniervue").html("(" + nb1 + ")");
 
     }
     ;
@@ -59,13 +61,18 @@
     function quantitemoins(choix) {
         var nb = $("#" + choix).val() * 1 - 1;
         $("#" + choix).val(nb);
+        var nb1 = $("#nbpanier").val() * 1 - 1;
+        $("#nbpaniervue").html("(" + nb1 + ")");
+        
     }
     ;
-    function supDonnees(num) {
-
-        var nb = $("#nbpanier").val() * 1 - 1
+    function supDonnees(num,quantite) {
+        
+        var nb = $("#nbpanier").val() * 1 - quantite;
+        if(nb>=0){
         $("#nbpanier").val(nb);
         $("#nbpaniervue").html("(" + nb + ")");
+    }
         var req = creerInstance();
         var donneeproduit;
         /* On récupère les données du formulaire */
@@ -96,5 +103,7 @@
 
 
 </script>
+
+</html>
 
 

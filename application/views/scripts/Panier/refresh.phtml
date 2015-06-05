@@ -6,7 +6,7 @@
         if (isset($_SESSION['nbproduit'])) {
             foreach ($_SESSION['nbproduit'] as $key => $prod) {
 
-                echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ")'></core-icon-button>";
+                echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ",".$prod['quantite'].")'></core-icon-button>";
                 echo $prod['nom'] . "<paper-icon-button name='moins' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
                                   <input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
                                  <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></br>";
@@ -22,23 +22,32 @@
 
             var nb = $("#" + choix).val() * 1 + 1;
             $("#" + choix).val(nb);
+            var nb = $("#nbpanier").val() * 1 + 1;
+            $("#nbpanier").val(nb);
+        $("#nbpaniervue").html("(" + nb + ")");
 
         }
         ;
         function maj() {
-
+            var nb = $("#nbpanier").val() * 1 - 1;
+        $("#nbpaniervue").html("(" + nb + ")");
         }
         ;
         function quantitemoins(choix) {
             var nb = $("#" + choix).val() * 1 - 1;
             $("#" + choix).val(nb);
+            var nb = $("#nbpanier").val() * 1 - 1;
+            $("#nbpaniervue").html("(" + nb + ")");
+            
         }
         ;
-        function supDonnees(num) {
-
-            var nb = $("#nbpanier").val() * 1 - 1;
+        function supDonnees(num, quantite) {
+            
+            var nb = $("#nbpanier").val() * 1 - quantite;
+            if(nb>=0){
             $("#nbpanier").val(nb);
             $("#nbpaniervue").html("(" + nb + ")");
+        }
             var req = creerInstance();
             var donneeproduit;
             /* On récupère les données du formulaire */
@@ -71,3 +80,4 @@
 
 
     </script>
+</html>
