@@ -17,25 +17,55 @@
             $nbt = 0;
             //var_dump($_SESSION['nbproduit']);
             foreach ($this->lesProduits as $produit) {
-                echo "<td class='produit-catalogue'>"
-                . "<paper-shadow z='1' animated>";
-                echo "<img src='../../public/images/produits/$produit->image'>";
-                echo "<h4>$produit->nom</h4>";
-                //echo "<p class='nom'>";
-                echo "<span flex><p class='prix-produit'>$produit->prixunitaire €</p>";
-                echo "<paper-button raised role='button' class='like'>"
-                . "<core-icon icon='favorite'></core-icon></paper-button>";
-                ?>
+//                echo "<td class='produit-catalogue'>"
+//                . "<paper-shadow z='1' animated>";
+//                echo "<img src='../../public/images/produits/$produit->image'>";
+//                echo "<h4>$produit->nom</h4>";
+//                //echo "<p class='nom'>";
+//                echo "<span flex><p class='prix-produit'>$produit->prixunitaire €</p>";
+//                echo "<paper-button raised role='button' class='like'>"
+//                . "<core-icon icon='favorite'></core-icon></paper-button>";
+//                ?>
+<!--            <paper-button raised role='button' tabindex="0" class='add-panier' 
+                          onclick='envoyerDonnees(//<?php echo $produit->id; ?>);
+                                  document.querySelector(".toast//<?php echo $nbt; ?>").show()'>
+                <core-icon icon='add-shopping-cart'></core-icon>
+            </paper-button>
+            <paper-toast class="toast//<?php echo $nbt; ?>" role="alert" text="<?php echo $produit->nom ?> a été ajouté au panier" 
+                         touch-action="none" tabindex="-1" class="core-transition core-transition-bottom" 
+                         style="position: fixed; outline: none; display: none;">
+            </paper-toast>
+            </paper-shadow> -->
+            <td>
+            <core-menu id="produit2">
+        <core-item><?php echo "<img src='../../public/images/produits/$produit->image'>"; ?></core-item>
+        <core-item label="<?php echo $produit->nom ?>">
+            <paper-ripple fit></paper-ripple>
+            <div flex></div><?php echo $produit->prixunitaire." € ";?>
+        </core-item>
+        <core-submenu label="Caractéristiques">
+            <core-item label="Matiere"><div flex></div>Plastique</core-item>
+            <core-item label="Taille"><div flex></div>21cm</core-item>
+        </core-submenu>
+        <core-item label="Like">
+            <div flex></div>
+            <paper-button raised role='button' class='like'>
+                <core-icon icon='favorite'></core-icon></paper-button>
+        </core-item>
+        <core-item label="Ajouter au panier">
+            <div flex></div>
             <paper-button raised role='button' tabindex="0" class='add-panier' 
                           onclick='envoyerDonnees(<?php echo $produit->id; ?>);
                                   document.querySelector(".toast<?php echo $nbt; ?>").show()'>
                 <core-icon icon='add-shopping-cart'></core-icon>
             </paper-button>
-            <paper-toast class="toast<?php echo $nbt; ?>" role="alert" text="<?php echo $produit->nom ?> a été ajouté au panier" 
+            <paper-toast class="toast<?php echo $nbt; ?>" role="alert" text="<?php echo $produit->nom." a été ajouté au panier"?>" 
                          touch-action="none" tabindex="-1" class="core-transition core-transition-bottom" 
                          style="position: fixed; outline: none; display: none;">
             </paper-toast>
-            </paper-shadow></td>
+        </core-item>
+    </core-menu>
+    </td>
 
 
             <?php

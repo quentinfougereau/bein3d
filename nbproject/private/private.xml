@@ -6,9 +6,10 @@
             <file>file:/C:/wamp/www/bein3d/application/controllers/ShopController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/public/components/paper-test/paper-test.html</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/PanierController.php</file>
+            <file>file:/C:/wamp/www/bein3d/public/components/menu-toolbar-hsds/menu-toolbar-hsds.html</file>
+            <file>file:/C:/wamp/www/bein3d/application/controllers/IndexController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/index/index.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/public/style/CSS.css</file>
             <file>file:/C:/wamp/www/bein3d/public/requires/head-import.php</file>
         </group>
     </open-files>

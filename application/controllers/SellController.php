@@ -10,14 +10,15 @@ class SellController extends Zend_Controller_Action{
     public function init(){
         $layout=$this->_helper->layout();
         $layout->assign('menu','sell');
+        $layout->assign('chemin','../');
     }
     
     public function indexAction(){
-        $this->view->acces='../../';
+
         Zend_Session::start();
     }
     
     public function mesobjetsAction(){
-        $this->view->acces='../../';
+
     }
 }

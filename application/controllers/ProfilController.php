@@ -5,12 +5,12 @@ require_once '../application/models/Client.php';
 class ProfilController extends Zend_Controller_Action {
 
     public function init() {
-        /* Initialize action controller here */
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
 
     public function indexAction() {
         
-        $this->view->acces = '../../';
         
         //if (($_POST['name'] != null) && ($_POST['fname'] != null) && ($_POST['adress'] != null) && ($_POST['sexe'] != null)) {
         if (isset($_POST['name'])) {

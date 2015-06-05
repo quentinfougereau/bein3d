@@ -47,7 +47,8 @@
     
         <script>
     document.addEventListener('polymer-ready', function(){
-        document.querySelector('paper-test').menu='<?php echo $this->layout()->menu?>';
+        document.querySelector('menu-toolbar-hsds').menu='<?php echo $this->layout()->menu?>';
+        document.querySelector('menu-toolbar-hsds').chemin='<?php echo $this->layout()->chemin?>';
         
         var navicon=document.getElementById('navicon');
         var drawerPanel=document.getElementById('drawerPanel');
@@ -130,27 +131,8 @@
                 <core-toolbar class="medium" id="barre2">
                     <!-- TOP TOOLBAR -->
                     <core-icon-button id="navicon" icon="menu"></core-icon-button>
-                    <!--<paper-test></paper-test>-->
-                    <paper-tabs flex selected="<?php echo $this->layout()->menu?>" valueattr="menu-cat" link noink noslide>
-                        <paper-tab menu-cat="home">
-                            <a href="<?php
-                                echo $this->url(array('controller' => 'Index',
-                                    'action' => 'index'))?>" horizontal center-center layout>HOME</a>
-                        </paper-tab>
-                        <paper-tab menu-cat="shop">
-                            <a href="<?php
-                                echo $this->url(array('controller' => 'Shop',
-                                    'action' => 'boutique'))?>"horizontal center-center layout>SHOP</a>
-                        </paper-tab>
-                        <paper-tab menu-cat="design"><a href="<?php
-                                echo $this->url(array('controller' => 'Design',
-                                    'action' => 'creer'))?>"horizontal center-center layout>DESIGN</a>
-                        </paper-tab>
-                        <paper-tab menu-cat="sell"><a href="<?php
-                                echo $this->url(array('controller' => 'Sell',
-                                    'action' => 'mesobjets'))?>"horizontal center-center layout>SELL</a>
-                        </paper-tab>
-                    </paper-tabs>
+                    <menu-toolbar-hsds></menu-toolbar-hsds>
+                    
                     <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
                     <core-icon-button icon="search"></core-icon-button>
                     
@@ -165,6 +147,7 @@
                         }
                         ?>
                     </paper-dialog>
+                    <template id="super-template" is="auto-binding">
                          <?php  include_once("../application/views/scripts/Panier/index.phtml"); ?>
                     
 
@@ -175,7 +158,7 @@
                         <core-form-connexion></core-form-connexion>
 
                     </paper-dialog>
-
+                    </template>
 
                     <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')" ></paper-button>
                     <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
@@ -189,10 +172,10 @@
                                     
                     <!--</div>-->          
                 </core-toolbar>
-                
-                <core-pages selected="{{menu}}" valueattr="menu-cat">
+                <?php echo $this->layout()->submenu?>
+                <core-pages selected="<?php echo $this->layout()->menu?>" valueattr="menu-cat">
                     <section menu-cat="home">
-                        <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
+                        <paper-tabs flex selected="<?php echo $this->layout()->submenu?>" valueattr="menu-sub" noslide>                            
                             <paper-tab menu-sub="accueil">
                                 <a href="<?php
                                 echo $this->url(array('controller' => 'Index',
@@ -213,7 +196,7 @@
                     </section>
 
                     <section menu-cat="shop">
-                        <paper-tabs flex selected="{{sub}}" valueattr="menu-sub">                            
+                        <paper-tabs flex selected="<?php echo $this->layout()->submenu?>" valueattr="menu-sub">                            
                             <paper-tab menu-sub="boutique">
                                 <a href="<?php
                                 echo $this->url(array('controller' => 'Shop',
@@ -232,7 +215,7 @@
                         </paper-tabs>
                     </section>
                     <section menu-cat="design">
-                        <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
+                        <paper-tabs flex selected="<?php echo $this->layout()->submenu?>" valueattr="menu-sub" noslide>                            
                             <paper-tab menu-sub="creer">
                                 <a href="<?php
                                 echo $this->url(array('controller' => 'Design',
@@ -251,7 +234,7 @@
                         </paper-tabs>
                     </section>
                     <section menu-cat="sell">                   
-                        <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
+                        <paper-tabs flex selected="<?php echo $this->layout()->submenu?>" valueattr="menu-sub" noslide>                            
                             <paper-tab menu-sub="mesobjets">MES OBJETS</paper-tab>
                             <paper-tab menu-sub="mesventes">MES VENTES</paper-tab>
                         </paper-tabs>

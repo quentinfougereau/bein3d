@@ -14,8 +14,8 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        
-        $this->view->acces='../';
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','');
         Zend_Session::start();
         //$this->layout()->_helper->setVariable('MaVariable','Valeur');
        $p= new Produit();
@@ -35,11 +35,13 @@ class IndexController extends Zend_Controller_Action
     }
     
     public function qsnAction(){
-        $this->view->acces='../../';
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
     
     public function nosproduitsAction(){
-        $this->view->acces='../../';
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
     
     public function formAction(){

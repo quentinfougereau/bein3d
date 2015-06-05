@@ -16,12 +16,14 @@ require_once '../application/models/Produit.php';
 class ClientController extends Zend_Controller_Action {
     
     
+    public function init(){
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
+    }
+    
     public function inscriptionAction(){
-        
-        $this->view->acces='../../../';
-        
-
-        
+            
+       
         $client=new Client();
         if ($_POST['typeform']=='inscription'){           
             $tab=array(

@@ -329,7 +329,7 @@ core-pages section h1{
     position:relative;
     bottom:10px;
     color:#1B2C6E;
-    font-family: 'Merriweather', serif;
+    //font-family: 'Merriweather', serif;
     font-size:18px;
     margin-bottom:10px;
     text-align:center;
@@ -367,4 +367,44 @@ core-pages section h1{
 
 .produit-catalogue .add-panier{
     background-color:#4CAF50;
+}
+#produit2{
+    font-family: 'Merriweather', serif;
+    font-size:14px;
+    background-image:linear-gradient(white,#efefef,#ECEFF1);
+    margin:auto;
+    width:300px;
+    -moz-box-shadow: 1px 1px 15px 0px #656565;
+    -webkit-box-shadow: 1px 1px 15px 0px #656565;
+    -o-box-shadow: 1px 1px 15px 0px #656565;
+    box-shadow: 1px 1px 15px 0px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
+}
+
+#produit2 core-item{
+    color:black;
+    
+}
+
+#produit2 core-submenu{
+    color:black;
+}
+
+#produit2 img{
+    border-radius:4px 4px 0px 0px;
+    width:300px;
+    height:300px;
+}
+
+#produit2 .like{
+    color:#F3284A;
+}
+
+#produit2 .add-panier{
+    color:#4CAF50;
+}
+
+paper-toast img{
+    width:50px;
+    height:50px;
 }

@@ -3,7 +3,8 @@ class TestController extends Zend_Controller_Action {
     
     public function init()
     {
-        $this->view->acces='../../';
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../');
     }
     
     public function indexAction(){
