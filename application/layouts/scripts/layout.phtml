@@ -180,7 +180,7 @@
                 <!--</div>-->          
             </core-toolbar>
 
-            <core-pages selected="{{menu}}" valueattr="menu-cat">
+            <core-pages selected="<?php echo $this->layout()->menu?>" valueattr="menu-cat">
                 <section menu-cat="home">
                     <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
                         <paper-tab menu-sub="accueil">
