@@ -95,7 +95,7 @@
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="<?php echo $cheminsup ?>public/style/CSS.css" type="text/css">
-        <link rel="stylesheet" href="<?php echo $cheminsup ?>/style/shadow-dom.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo $cheminsup ?>public/style/shadow-dom.css" type="text/css">
         <!-- FONTS -->
         <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>

@@ -14,7 +14,7 @@
                 <paper-input floatingLabel id="ville" name="ville" label="ville" value="{{ville}}"></paper-input>
                 <paper-input floatingLabel id="cp" name="cp" label="Code Postal" value="{{cp}}"></paper-input>
             </div>
-            <paper-button class="colored" label='OK' on-click="{{send}}">
+            <paper-button id="validateForm" class="colored" label='OK' on-click="{{send}}{{afficherNomPrenomClient}}">
                 <core-icon icon='check'> 
                 </core-icon>
             </paper-button>
@@ -23,51 +23,14 @@
     </template>
     <script>
         Polymer('form-profile-personal-data', {
-            send: function() {
-                this.$.ajax.go();
+            send: function () {
+                this.$.ajax.go();                
+            },
+            afficherNomPrenomClient: function () {
+                var nom = this.$.nom.value;
+                var prenom = this.$.prenom.value;
+                $('#nomClient').replaceWith("<h2 id='nomClient'>" + nom + " " + prenom + "</h2>");
             }
         });
-        /* Polymer({
-         ready: function () {
-         var form = this.$.form,
-         content = document.getElementById('content');
-         var infoPerso = this.$.infoPerso;
-         
-         form.addEventListener('invalid', function () {
-         alertify.error('Some form fields are invalid!');
-         });
-         form.addEventListener('submitting', function (event) {
-         content.className = 'hidden';
-         event.detail.raytest = 'foobar';
-         event.detail.color = 'blue';
-         }); 
-         form.addEventListener('submitted', function (event) {
-         //content.className = '';
-         if (event.detail.status > 299) {
-         alertify.error('Submission failed!  Please try again.')
-         }
-         else {
-         //je récupère la valeur du paper input d'id nomUser
-         var nom = infoPerso.children[0].value;
-         console.log(nom);
-         var prenom = infoPerso.children()[1].value;
-         var email = infoPerso.children()[2].value;
-         var adresse = infoPerso.children()[3].value;
-         var ville = infoPerso.children()[4].value;
-         var cp = infoPerso.children()[5].value;
-         $.ajax({
-         url: 'http://localhost/bein3d/public/profil/formdata',
-         type: 'POST', // Le type de la requête HTTP, ici devenu POST
-         dataType: 'html',
-         data: 'nom=' + nom + '&prenom=' + prenom + '&email=' + email + '&adresse=' + adresse + '&ville=' + ville + '&cp=' + cp,
-         success: function (result)//retour de requête
-         {
-         alert("Vos informations ont bien été mises à jour");
-         }
-         });
-         }
-         });
-         }
-         }); */
     </script>
 </polymer-element>
