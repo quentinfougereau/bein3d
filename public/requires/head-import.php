@@ -83,7 +83,9 @@
               href="<?php echo $chemin; ?>components/menu-toolbar-hsds/menu-toolbar-hsds.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/menu-drawer-hsds/menu-drawer-hsds.html">
- 
+        <!--  element for news -->
+        <link rel="import"           
+              href="<?php echo $chemin; ?>components/paper-commentaire/paper-commentaire.html" >
         <!-- Form element for profile -->
         <link rel="import"           
               href="<?php echo $chemin; ?>components/form-profile-personal-data/form-profile-personal-data.html" >
