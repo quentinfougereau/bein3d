@@ -15,10 +15,13 @@ class SellController extends Zend_Controller_Action{
     
     public function indexAction(){
 
-        Zend_Session::start();
+        
     }
     
     public function mesobjetsAction(){
+
+    }
+    public function mesventesAction(){
 
     }
 }
