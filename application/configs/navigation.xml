@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <nav>
+        <clients>
+            <label>Clients</label>
+            <uri>#</uri>
+            <pages>
+                <voir>
+                    <label>Voir les clients</label>
+                    <controller>backoffice_client</controller>
+                    <action>voir</action>
+                </voir>
+                <ajouter>
+                    <label>Ajouter un client</label>
+                    <controller>backoffice_client</controller>
+                    <action>ajouter</action>
+                </ajouter>
+            </pages>
+        </clients>
+        <produits>
+            <label>Produits</label>
+            <uri>#</uri>
+            <pages>
+                <voir>
+                    <label>Voir les produits</label>
+                    <controller></controller>
+                    <action></action>
+                </voir>
+                <ajouter>
+                    <label>Ajouter un produit</label>
+                    <controller></controller>
+                    <action></action>
+                </ajouter>
+            </pages>
+        </produits>
+    </nav>
+</config>
