@@ -44,7 +44,7 @@ class RecupController extends Zend_Controller_Action {
             "iduser"=>$_POST['iduser'],
             "idnew"=>$_POST['idnew'],
         );
-//        $com->insert($tab);
+       $com->insert($tab);
         
      
     }

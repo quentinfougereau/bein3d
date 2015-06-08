@@ -9,17 +9,30 @@
             $first = false;
         }
         print '<li><span class="id">' . $news["id"] . '</span>' . $news["message"] . '<core-icon-button icon="create" onclick="champ(' . $news["id"] . ')"></core-icon-button>'
-                . '<div id=' . $news["id"] . ' style="visibility : hidden"><paper-commentaire ></paper-commntaire><div></li>';
+                . '<div id=' . $news["id"] . ' style="visibility : hidden"><paper-commentaire id=' . $news["id"] . ' ></paper-commntaire><div></li>';
     }
     ?>
 
 </html>
+<script>
+
+</script>
 <script type="text/javascript">
     function champ(id) {
-        var element = $('body /deep/ .idnew');
-        
-        element.attr('value',id);
-        alert(element.attr('value'));
+//        var element = $('body /deep/ .idnews');
+//        
+//        element.attr('value','id');
+//        alert(element.attr('value'));
+       // alert(document.querySelectorAll('paper-commentaire'));
+        var cellules = document.querySelectorAll('paper-commentaire');
+        for (var i = 0; i < cellules.length; i++) {
+ 
+                
+            cellules[i].idnew=id;
+         //   alert(cellules[i].idnew);
+        }
+
+        //alert($('paper-commentaire').idnew);
         if ($('#' + id).css('visibility') == "hidden") {
             $('#' + id).css('visibility', 'visible');
         } else {

@@ -3,32 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/controllers/PanierController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/index/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Panier/refresh.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/controllers/RecupController.php</file>
-            <file>file:/C:/wamp/www/bein3d/public/style/CSS.css</file>
+            <file>file:/C:/wamp/www/bein3d/application/models/CommentaireRow.php</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/panier/refresh.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/News/index.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Recup/commentaire.phtml</file>
             <file>file:/C:/wamp/www/bein3d/public/requires/head-import.php</file>
             <file>file:/C:/wamp/www/bein3d/public/js/Ajax.js</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/panier/index.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/public/components/paper-commentaire/paper-commentaire.html</file>
+            <file>file:/C:/wamp/www/bein3d/application/configs/application.ini</file>
             <file>file:/C:/wamp/www/bein3d/application/controllers/ShopController.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Panier/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/Recup/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Panier/Supprimer.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/public/style/Newcss.css</file>
             <file>file:/C:/wamp/www/bein3d/public/js/panier.js</file>
             <file>file:/C:/wamp/www/bein3d/public/js/news.js</file>
-=======
-            <file>file:/var/www/html/bein3d/application/views/scripts/Panier/refresh.phtml</file>
-            <file>file:/var/www/html/bein3d/public/js/panier.js</file>
-            <file>file:/var/www/html/bein3d/application/layouts/scripts/layout.phtml</file>
-            <file>file:/var/www/html/bein3d/application/controllers/PanierController.php</file>
-            <file>file:/var/www/html/bein3d/public/js/Ajax.js</file>
-            <file>file:/var/www/html/bein3d/public/components/core-icons/core-icons.html</file>
->>>>>>> c47aee810c07a3a6e4880fd8e1ffd4b87962e509
+            <file>file:/C:/wamp/www/bein3d/application/models/Commentaire.php</file>
         </group>
     </open-files>
 </project-private>
