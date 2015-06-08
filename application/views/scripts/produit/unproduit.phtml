@@ -1,0 +1,41 @@
+<?php
+    $produit=$this->produit;
+    $nomdossier=$this->nomdossier;
+    $images=$produit->obtenirImages($produit->id);
+    $nomimg;
+    
+?>
+
+<core-item class="unproduit">
+    <img src="../../../../public/images/produits/<?php echo $nomdossier.'/'.$images[0]->nom; ?>">
+    <core-menu flex>
+        <core-item center-center><?php echo $produit->nom?></core-item>
+        <core-item center-center>Description</core-item>
+        <core-item center-center>Matière</core-item>
+        <core-item center-center>Dimension</core-item>
+    </core-menu>
+</core-item>
+
+<style>
+    .unproduit{
+        margin-top:100px;
+        margin-left:50px;
+        margin-right:50px;
+        background-image:linear-gradient(white,#efefef,#ECEFF1);
+        -moz-box-shadow: 1px 1px 15px 0px #656565;
+    -webkit-box-shadow: 1px 1px 15px 0px #656565;
+    -o-box-shadow: 1px 1px 15px 0px #656565;
+    box-shadow: 1px 1px 15px 0px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
+    }
+    
+    .unproduit core-item{
+        height:80px;
+    }
+    
+    .unproduit img{
+        width:450px;
+        height:450px;
+    }
+    
+</style>
