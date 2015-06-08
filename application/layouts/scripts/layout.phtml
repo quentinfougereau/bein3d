@@ -120,6 +120,12 @@
                         </paper-dialog>
                         <?php
                     } else {
+                        echo "<p>" . $_SESSION['email'] . "</p>";
+                        
+                        ?>
+                        <core-icon-button icon="more-vert"></core-icon-button>
+                        <?php
+
                         echo "<a href=".$this->url(array('controller' => 'profil',
                             'action' => 'index'))."/><core-icon icon='account-circle'></core-icon></a>";
                     }

@@ -23,17 +23,17 @@ class ConnexionController extends Zend_Controller_Action {
         
         $this->view->acces='../';
 
-        if ($_POST['email'] != "" && $_POST['mdp'] != "") {
+        if ($_POST['login'] != "" && $_POST['mdp'] != "") {
             $ct = new Client();
             $all = $ct->fetchAll();
             $connect = 0;
             foreach ($all as $client) {
-                if ($client->login == $_POST['email'] && $client->motdepasse == $_POST['mdp']) {
+                if ($client->login == $_POST['login'] && $client->motdepasse == $_POST['mdp']) {
                     $connect = 1;
                     $this->view->login=$client->nom;
                     Zend_Session::start();
                     //On met l'email dans $_SESSION pour pouvoir le réutiliser
-                    $_SESSION['email'] = $_POST['email'];
+                    $_SESSION['email'] = $_POST['login'];
                     $this->view->test = $connect;
                 }
             }
