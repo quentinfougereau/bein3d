@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function(){
-    setInterval(chargerNews,10000);
+    setInterval(chargerNews,1000000);
     
 });
 var dernier_id;

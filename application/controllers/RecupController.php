@@ -12,7 +12,7 @@
  * @author Pierre
  */
 require_once '../application/models/News.php';
-
+require_once '../application/models/Commentaire.php';
 class RecupController extends Zend_Controller_Action {
 
     public function init(){
@@ -32,6 +32,20 @@ class RecupController extends Zend_Controller_Action {
             $this->view->news =$news->getLastNews($_GET['id']);
             
         }
+     
+    }
+    public function commentaireAction() {
+        $this->_helper->layout->disableLayout();
+        $com = new Commentaire();
+        var_dump($_POST);
+        $tab=array(
+            "sujet"=>null,
+            "texte"=>$_POST['texte'],
+            "iduser"=>$_POST['iduser'],
+            "idnew"=>$_POST['idnew'],
+        );
+//        $com->insert($tab);
+        
      
     }
 

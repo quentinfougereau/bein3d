@@ -103,7 +103,7 @@
                 </paper-dialog>
 
                 <template is="auto-binding">
-                    <?php include_once("../application/views/scripts/Panier/index.phtml"); ?>
+                    <?php include_once("../application/views/scripts/panier/index.phtml"); ?>
 
 
                     <input type="hidden" id="nbproduit" value="0"><p id="panier"></p>
@@ -125,6 +125,9 @@
                         ?>
                         <core-icon-button icon="more-vert"></core-icon-button>
                         <?php
+
+                        echo "<a href=".$this->url(array('controller' => 'profil',
+                            'action' => 'index'))."/><core-icon icon='account-circle'></core-icon></a>";
                     }
                     ?>
     <!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->

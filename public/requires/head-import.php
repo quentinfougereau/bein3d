@@ -83,7 +83,9 @@
               href="<?php echo $chemin; ?>components/menu-toolbar-hsds/menu-toolbar-hsds.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/menu-drawer-hsds/menu-drawer-hsds.html">
- 
+        <!--  element for news -->
+        <link rel="import"           
+              href="<?php echo $chemin; ?>components/paper-commentaire/paper-commentaire.html" >
         <!-- Form element for profile -->
         <link rel="import"           
               href="<?php echo $chemin; ?>components/form-profile-personal-data/form-profile-personal-data.html" >
@@ -93,7 +95,7 @@
         <!-- STYLESHEETS -->
 
         <link rel="stylesheet" href="<?php echo $cheminsup ?>public/style/CSS.css" type="text/css">
-        <link rel="stylesheet" href="<?php echo $cheminsup ?>/style/shadow-dom.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo $cheminsup ?>public/style/shadow-dom.css" type="text/css">
         <!-- FONTS -->
         <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
