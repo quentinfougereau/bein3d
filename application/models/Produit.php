@@ -18,10 +18,8 @@ class Produit extends Zend_Db_Table_Abstract {
     //put your code here 
     protected $_name = 'produit';
     protected $_primary = 'id';
+    protected $_dependentTables = array('Image');
     
-//    protected $_rowClass = 'ClientRow';
- 
-
     protected $_rowClass = 'ProduitRow';
    
     protected $_referenceMap=array(
@@ -32,7 +30,19 @@ class Produit extends Zend_Db_Table_Abstract {
             
         ));
     
-
+    public function obtenirProduit($id){
+        $row=$this->fetchRow("id='".$id."'");
+        if(!$row){
+            throw new Exception("Impossible de trouver le produit num : ".$id);
+        }
+        return $row;
+    }
+    
+    public function obtenirImages($id){
+        $row=$this->obtenirProduit($id);
+        $images=$row->obtenirImages();
+        return $images;
+    }
     
     
     public function getproduit($id) {

@@ -17,7 +17,7 @@ core-toolbar a{
 
 core-header-panel[drawer]{
     //background-color:#ECEFF1;
-    background-image:linear-gradient(#d1d1d1,#BCAAA4);
+    background-image:linear-gradient(white,#efefef,#ECEFF1);
 }
 
 core-menu{
@@ -395,6 +395,14 @@ core-pages section h1{
     height:300px;
 }
 
+#produit2 paper-tab{
+    font-size:12px;
+}
+
+#produit2 paper-button{
+
+}
+
 #produit2 .like{
     color:#F3284A;
 }
@@ -406,4 +414,8 @@ core-pages section h1{
 paper-toast img{
     width:50px;
     height:50px;
+}
+
+.imgproduits{
+    height:300px;
 }

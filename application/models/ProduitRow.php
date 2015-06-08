@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of ClientRow
+ * Description of ProduitRow
  *
  * @author Pierre
  */
@@ -16,5 +16,16 @@ class ProduitRow extends Zend_Db_Table_Row_Abstract{
 
     public function getMaker(){
         
+    }
+
+    public function obtenirImages(){
+        $images=$this->findDependentRowset('Image');
+        return $images;
+    }
+    
+    public function obtenirFirstImageId(){
+        $images=$this->obtenirImages();
+        $id=$images->current()->id;
+        return $id;
     }
 }
