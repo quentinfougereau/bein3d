@@ -1,5 +1,6 @@
 <?php echo $this->doctype() ?>
 <html>
+     
     <head>
         <style shim-shadowdom>
             html /deep/ [autofocus] {
@@ -24,6 +25,7 @@
                 left: 65%;
             }
 
+            
             html /deep/ .size-position::shadow #scroller {
                 width: 300px;
                 height: 300px;
@@ -42,23 +44,23 @@
 
     </head>
     <body fullbleed vertical layout unresolved>
-
+        <input type="hidden" value="'<?php echo $this->layout()->menu ?>" id="chemin">
 
         <script>
-    document.addEventListener('polymer-ready', function(){
-        document.querySelector('menu-toolbar-hsds').menu='<?php echo $this->layout()->menu?>';
-        document.querySelector('menu-toolbar-hsds').chemin='<?php echo $this->layout()->chemin?>';
-        document.querySelector('menu-drawer-hsds').menu='<?php echo $this->layout()->menu?>';
-        document.querySelector('menu-drawer-hsds').chemin='<?php echo $this->layout()->chemin?>';
-        
-        var navicon=document.getElementById('navicon');
-        var drawerPanel=document.getElementById('drawerPanel');
-        navicon.addEventListener('click',function(){
-            drawerPanel.togglePanel();
-        });
-        
-    });  
-            
+            document.addEventListener('polymer-ready', function () {
+                document.querySelector('menu-toolbar-hsds').menu = '<?php echo $this->layout()->menu ?>';
+                document.querySelector('menu-toolbar-hsds').chemin = '<?php echo $this->layout()->chemin ?>';
+                document.querySelector('menu-drawer-hsds').menu = '<?php echo $this->layout()->menu ?>';
+                document.querySelector('menu-drawer-hsds').chemin = '<?php echo $this->layout()->chemin ?>';
+
+                var navicon = document.getElementById('navicon');
+                var drawerPanel = document.getElementById('drawerPanel');
+                navicon.addEventListener('click', function () {
+                    drawerPanel.togglePanel();
+                });
+
+            });
+
         </script>
 
     <core-drawer-panel  id="drawerPanel">
@@ -113,7 +115,7 @@
                             <core-form-connexion></core-form-connexion>
                         </paper-dialog>
                         <paper-button  id="inscription-button" label="INSCRIPTION" onclick="toggleDialog('paper-dialog-transition-center')" ></paper-button>
-                        
+
                         <paper-dialog heading="Inscription" transition="paper-dialog-transition-center">
                             <core-form-inscription>           
                             </core-form-inscription>
@@ -121,16 +123,14 @@
                         <?php
                     } else {
                         echo "<p>" . $_SESSION['email'] . "</p>";
-                        
                         ?>
                         <core-icon-button icon="more-vert"></core-icon-button>
                         <?php
-
-                        echo "<a href=".$this->url(array('controller' => 'profil',
-                            'action' => 'index'))."/><core-icon icon='account-circle'></core-icon></a>";
+                        echo "<a href=" . $this->url(array('controller' => 'profil',
+                            'action' => 'index')) . "/><core-icon icon='account-circle'></core-icon></a>";
                     }
                     ?>
-    <!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->
+<!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->
 
                 </template>
 
@@ -141,7 +141,7 @@
                 <!--</div>-->          
             </core-toolbar>
 
-            <core-pages selected="<?php echo $this->layout()->menu?>" valueattr="menu-cat">
+            <core-pages selected="<?php echo $this->layout()->menu ?>" valueattr="menu-cat">
                 <section menu-cat="home">
                     <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
                         <paper-tab menu-sub="accueil">

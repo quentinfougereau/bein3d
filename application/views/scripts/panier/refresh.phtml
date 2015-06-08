@@ -2,17 +2,26 @@
     <script type=text/javascript src="../../public/js/panier.js"></script>
 
     <div id="cart">
+        <table>
         <?php
-        if (isset($_SESSION['nbproduit'])) {
+        $prixtotal=0;
+        
+        if (count($_SESSION['nbproduit'])!=0) {
             foreach ($_SESSION['nbproduit'] as $key => $prod) {
 
-                echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ",".$prod['quantite'].")'></core-icon-button>";
-                echo $prod['nom'] . "<paper-icon-button name='moins' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
+                    $prixtotal+=$prod['prix']*$prod['quantite'];
+                
+//                              var_dump($prod);
+                echo "<tr><td><core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . "," . $prod['quantite'] . ")'></core-icon-button></td><td>";
+                echo $prod['nom'] . " </td><td><paper-icon-button name='moins' class='sup' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
                                   <input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
-                                 <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></br>";
+            <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></td><td>";
+                echo $prod['prix'] . "<td></tr>";
             }
+             echo "<tr><td></td><td></td><td>Prix total:</td><td>".$prixtotal."</td></tr>";
         }
         ?>
+        </table>
     </div>
     <?php
     ?>
