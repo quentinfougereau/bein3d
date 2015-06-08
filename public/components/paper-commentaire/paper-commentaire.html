@@ -11,7 +11,7 @@ and open the template in the editor.
 
         
         <input type="text" class="idsujet" value="{{commentaire}}">
-        <input type="hidden" class="idnew" value="{{idnew}}">
+        <div class="idnews" value="{{idnew}}" ></div>
         
        <paper-button class="colored custom" on-click="{{send}}">
            <core-icon icon="check"></core-icon>
@@ -26,7 +26,7 @@ and open the template in the editor.
     <script>
         Polymer('paper-commentaire',{
             send: function(){
-            
+              
               this.$.ajax.go();
             }
             
