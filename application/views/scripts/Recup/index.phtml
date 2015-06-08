@@ -1,27 +1,43 @@
 <html>
-    
-<?php
-require "../public/requires/head-import.php";
-$first = true;
-foreach ($this->news as $news) {
-    if ($first) {
-        print '<script>setId(' . $news["id"] . ');</script>';
-        $first = false;
+
+    <?php
+    include_once "../public/requires/head-import.php";
+    $first = true;
+    foreach ($this->news as $news) {
+        if ($first) {
+            print '<script>setId(' . $news["id"] . ');</script>';
+            $first = false;
+        }
+        print '<li><span class="id">' . $news["id"] . '</span>' . $news["message"] . '<core-icon-button icon="create" onclick="champ(' . $news["id"] . ')"></core-icon-button>'
+                . '<div id=' . $news["id"] . ' style="visibility : hidden"><paper-commentaire id=' . $news["id"] . ' ></paper-commntaire><div></li>';
     }
-    print '<li><span class="id">' . $news["id"] . '</span>' . $news["message"] . '<core-icon-button icon="create" onclick="champ('.$news["id"] .')"></core-icon-button>'
-            .'<input id='.$news["id"] .' type="hidden"></li>';
-}
-?>
-    <core-ajax  id="ajax" url="http://gdata.youtube.com/feeds/api/videos/"></core-ajax>
+    ?>
+
+
 </html>
+<script>
+
+</script>
 <script type="text/javascript">
-    function champ(id){
-        if($("#"+id).attr('type')=="hidden"){
-        $("#"+id).attr("type","text");
-    }else{
-        $("#"+id).attr("type","hidden");
+    function champ(id) {
+//        var element = $('body /deep/ .idnews');
+//        
+//        element.attr('value','id');
+//        alert(element.attr('value'));
+       // alert(document.querySelectorAll('paper-commentaire'));
+        var cellules = document.querySelectorAll('paper-commentaire');
+        for (var i = 0; i < cellules.length; i++) {
+ 
+                
+            cellules[i].idnew=id;
+         //   alert(cellules[i].idnew);
+        }
+
+        //alert($('paper-commentaire').idnew);
+        if ($('#' + id).css('visibility') == "hidden") {
+            $('#' + id).css('visibility', 'visible');
+        } else {
+            $('#' + id).css('visibility', 'hidden');
+        }
     }
-    }
-    </script>
-    <script>
-        </script>
+</script>

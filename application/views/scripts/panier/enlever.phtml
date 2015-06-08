@@ -1,0 +1,21 @@
+<html>
+    <script type=text/javascript src="../../public/js/panier.js"></script>
+
+    <div id="cart">
+        <?php
+        if (isset($_SESSION['nbproduit'])) {
+            foreach ($_SESSION['nbproduit'] as $key => $prod) {
+
+                echo "<core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . ",".$prod['quantite'].")'></core-icon-button>";
+                echo $prod['nom'] . "<paper-icon-button name='moins' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
+                                  <input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
+                                 <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></br>";
+            }
+        }
+        ?>
+    </div>
+    <?php
+    ?>
+
+
+</html>

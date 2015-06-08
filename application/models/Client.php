@@ -32,5 +32,9 @@ class Client extends Zend_Db_Table_Abstract {
         }
         return $row->toArray();
     }
+    
+    public function supprimerClient($id) {
+        $this->delete("Id = '".$id."'");
+    }
 
 }

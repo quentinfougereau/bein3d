@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<polymer-element name="paper-commentaire" >
+    <template>
+        <link rel="stylesheet" href="paper-commentaire.css">
+
+        
+        <input type="text" class="idsujet" value="{{commentaire}}">
+        <div class="idnews" value="{{idnew}}" ></div>
+        
+       <paper-button class="colored custom" on-click="{{send}}">
+           <core-icon icon="check"></core-icon>
+           Envoyer
+        </paper-button> 
+        <core-ajax  id="ajax" 
+                    url="http://localhost/bein3d/public/Recup/commentaire" 
+                    method="POST" 
+                    params='{"texte" : "{{commentaire}}","idnew" : "{{idnew}}" , "iduser" : "1"}' 
+                    response="{{response}}"></core-ajax>
+    </template>
+    <script>
+        Polymer('paper-commentaire',{
+            send: function(){
+              
+              this.$.ajax.go();
+            }
+            
+        });
+
+        
+    </script>
+</polymer-element>

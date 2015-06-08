@@ -24,10 +24,10 @@ class Backoffice_ClientController extends Zend_Controller_Action {
             $supprimer = $this->getRequest()->getPost('supprimer');
             if ($supprimer == 'Oui') {
                 $id = $this->getRequest()->getPost('id');
-                $lesVisiteurs = new Application_Model_DbTable_Visiteur();
-                $lesVisiteurs->supprimerVisiteur($id);
+                $lesClients = new Client();
+                $lesClients->supprimerClient($id);
             }
-            $this->redirect('/visiteur');
+            $this->redirect(''); //redirection a mettre
         } else {
             $id = $this->_getParam('id', 0);
             $lesClients = new Client();
