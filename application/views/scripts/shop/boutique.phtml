@@ -58,8 +58,12 @@
                         </div>
 
                     </core-item>
-                    <core-item icon="loyalty" label="<?php echo $produit->nom ?>">
-                        <paper-ripple fit></paper-ripple>
+                    <core-item icon="loyalty" label="<?php ?>">
+                        <?php
+                    echo "<a href='".$this->url(array('controller' => 'produit',
+                        'action' => 'unproduit', 'id' => $produit->id))."' horizontal center-center layout"
+                            . ">$produit->nom</a>";?>
+                    
                         <div flex></div><?php echo $produit->prixunitaire . " € "; ?>
                     </core-item>
                     

@@ -1,5 +1,6 @@
 <?php echo $this->doctype() ?>
 <html>
+     
     <head>
         <style shim-shadowdom>
             html /deep/ [autofocus] {
@@ -24,6 +25,7 @@
                 left: 65%;
             }
 
+            
             html /deep/ .size-position::shadow #scroller {
                 width: 300px;
                 height: 300px;
@@ -42,7 +44,7 @@
 
     </head>
     <body fullbleed vertical layout unresolved>
-
+        <input type="hidden" value="'<?php echo $this->layout()->menu ?>" id="chemin">
 
         <script>
             document.addEventListener('polymer-ready', function () {
@@ -129,11 +131,11 @@
                             echo "<a href=" . $this->url(array('controller' => 'profil',
                                 'action' => 'index')) . "/><core-icon icon='account-circle'></core-icon></a>";
                         }
-                        
+
+                        echo "<p>" . $_SESSION['email'] . "</p>";
                         ?>
                         <core-icon-button icon="more-vert"></core-icon-button>
                         <?php
-
                     }
                     ?>
 <!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->

@@ -27,7 +27,7 @@ class Backoffice_ClientController extends Zend_Controller_Action {
                 $lesClients = new Client();
                 $lesClients->supprimerClient($id);
             }
-            $this->redirect(''); //redirection a mettre
+            $this->redirect('backoffice_client/voir');
         } else {
             $id = $this->_getParam('id', 0);
             $lesClients = new Client();
