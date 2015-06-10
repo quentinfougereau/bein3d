@@ -71,6 +71,8 @@
               href="<?php echo $chemin; ?>components/more-routing-master/more-route.html">
         <link rel="import" 
               href="<?php echo $chemin; ?>components/more-routing-master/more-route-selector.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>components/paper-slider/paper-slider.html">
         <!-- NEW ELEMENTS -->
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-form-inscription/core-form-inscription.html">     

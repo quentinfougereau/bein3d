@@ -1,0 +1,28 @@
+<?php $this->layout()->setLayout('backoffice_layout'); ?>
+
+<table border="1px">
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Prix Unitaire</th>
+    <th>Id Maker</th>
+    <th>Categorie</th>
+    <th>Action</th>
+    <?php foreach ($this->lesProduits as $unProduit) : ?>
+        <tr>
+            <td><?php echo $this->escape($unProduit->id) ?></td>
+            <td><?php echo $this->escape($unProduit->nom); ?></td>
+            <td><?php echo $this->escape($unProduit->prixunitaire); ?></td>
+            <td><?php echo $this->escape($unProduit->idmaker); ?></td>
+            <td><?php echo $this->escape($unProduit->categorie); ?></td>
+            <td><a href="<?php
+                echo $this->url(array('controller' => 'backoffice_produit',
+                    'action' => 'modifier', 'id' => $unProduit->id));
+                ?>">Modifier</a>
+                <a href="<?php
+                   echo $this->url(array('controller' => 'backoffice_produit',
+                       'action' => 'supprimer', 'id' => $unProduit->id))
+                   ?>">Supprimer</a>
+            </td>
+        </tr>
+<?php endforeach; ?>
+</table>
