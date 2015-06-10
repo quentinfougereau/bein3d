@@ -1,18 +1,35 @@
 <?php
-    $produit=$this->produit;
-    $nomdossier=$this->nomdossier;
-    $images=$produit->obtenirImages($produit->id);
-    $nomimg;
-    
+$produit = $this->produit;
+$nomdossier = $this->nomdossier;
+$images = $produit->obtenirImages($produit->id);
+$nomimg;
 ?>
 
 <core-item class="unproduit">
-    <img src="../../../../public/images/produits/<?php echo $nomdossier.'/'.$images[0]->nom; ?>">
+    <img src="../../../../public/images/produits/<?php echo $nomdossier . '/' . $images[0]->nom; ?>">
     <core-menu flex>
-        <core-item center-center><?php echo $produit->nom?></core-item>
+        <core-item center-center><?php echo $produit->nom ?></core-item>
         <core-item center-center>Description</core-item>
         <core-item center-center>Matière</core-item>
         <core-item center-center>Dimension</core-item>
+        <core-item>
+
+
+            <div flex></div>
+            <paper-button raised role='button'>
+                <core-icon icon='cached'></core-icon>
+            </paper-button>
+            <div flex></div>
+            <paper-button raised role='button' onclick='envoyerDonnees(<?php echo $produit->id; ?>);
+                    document.querySelector(".toast").show()'>
+                <core-icon icon='add-shopping-cart'></core-icon>
+            </paper-button>
+            <paper-toast class="toast" role="alert" text="<?php echo $produit->nom . " a été ajouté au panier" ?>" 
+                         touch-action="none" tabindex="-1" class="core-transition core-transition-bottom" 
+                         style="position: fixed; outline: none; display: none;">
+            </paper-toast>
+            <div flex></div>
+        </core-item>
     </core-menu>
 </core-item>
 
@@ -23,19 +40,19 @@
         margin-right:50px;
         background-image:linear-gradient(white,#efefef,#ECEFF1);
         -moz-box-shadow: 1px 1px 15px 0px #656565;
-    -webkit-box-shadow: 1px 1px 15px 0px #656565;
-    -o-box-shadow: 1px 1px 15px 0px #656565;
-    box-shadow: 1px 1px 15px 0px #656565;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
+        -webkit-box-shadow: 1px 1px 15px 0px #656565;
+        -o-box-shadow: 1px 1px 15px 0px #656565;
+        box-shadow: 1px 1px 15px 0px #656565;
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
     }
-    
+
     .unproduit core-item{
         height:80px;
     }
-    
+
     .unproduit img{
         width:450px;
         height:450px;
     }
-    
+
 </style>
