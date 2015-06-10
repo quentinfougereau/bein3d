@@ -48,6 +48,11 @@ class News extends Zend_Db_Table_Abstract {
         $news = $this->_db->fetchall($sql);
         return $news;
     }
+    public function getrechercher ($data){
+        $sql= $this->_db->select();
+        $sql->from('news')
+                ->where('sujet LIKE '.$data.'%');
+    }
     
 
 }

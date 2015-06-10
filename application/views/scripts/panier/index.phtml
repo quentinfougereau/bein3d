@@ -1,44 +1,47 @@
 <html>
-   
+
     <body>
 
 
     <paper-icon-button icon='shopping-cart' on-tap='{{toggleDialog1}}'></paper-icon-button>
     <paper-dialog  class='size-position'  > 
-        
+
         <?php
         $nbpanier = 0;
-        $prixtotal=0;
+        $prixtotal = 0;
         echo "<div id='cart'>";
 
 
         Zend_Session::start();
 
 
-        
-        
-        if (count($_SESSION['nbproduit'])!=0) {
-           
-            echo "<table>";
-            foreach ($_SESSION['nbproduit'] as $key => $prod) {
-                $prixtotal+=$prod['prix']*$prod['quantite'];
-                $nbpanier += $prod['quantite'];
+
+        if (isset($_SESSION['nbproduit'])) {
+            if (count($_SESSION['nbproduit']) != 0) {
+
+                echo "<table>";
+                foreach ($_SESSION['nbproduit'] as $key => $prod) {
+                    $prixtotal+=$prod['prix'] * $prod['quantite'];
+                    $nbpanier += $prod['quantite'];
 //                              var_dump($prod);
-                echo "<tr><td><core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . "," . $prod['quantite'] . ")'></core-icon-button></td><td>";
-                echo $prod['nom'] . " </td><td><paper-icon-button name='moins' class='sup' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
+                    echo "<tr><td><core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . "," . $prod['quantite'] . ")'></core-icon-button></td><td>";
+                    echo $prod['nom'] . " </td><td><paper-icon-button name='moins' class='sup' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
                                   <input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
             <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></td><td>";
-                echo $prod['prix'] . "<td></tr>";
+                    echo $prod['prix'] . "<td></tr>";
+                }
+                echo "<tr><td></td><td></td><td>Prix total :</td><td>" . $prixtotal . "</td></tr>";
+                echo "tamere";
+                echo "</table>";
+            } else {
+                echo "Votre panier est vide,veuillez le remplir.";
             }
-            echo "<tr><td></td><td></td><td>Prix total :</td><td>".$prixtotal."</td></tr>";
-            echo "tamere";
-             echo "</table>";
-        }else{
+        } else {
             echo "Votre panier est vide,veuillez le remplir.";
         }
-        
-       
-       
+
+
+
         echo"  </div>";
         echo"  </paper-dialog>";
 

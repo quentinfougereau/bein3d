@@ -52,6 +52,13 @@ class Produit extends Zend_Db_Table_Abstract {
         $produit =$this->_db->fetchall($sql);
         return $produit;
     }
+    public function getrechercher ($data){
+        $sql= $this->_db->select();
+        $sql->from('produit')
+                ->where("nom LIKE '".$data."%'");
+       $produit =$this->_db->fetchall($sql);
+       return $produit;
+    }
     
     
 }
