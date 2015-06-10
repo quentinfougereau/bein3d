@@ -24,13 +24,13 @@
             <pages>
                 <voir>
                     <label>Voir les produits</label>
-                    <controller></controller>
-                    <action></action>
+                    <controller>backoffice_produit</controller>
+                    <action>voir</action>
                 </voir>
                 <ajouter>
                     <label>Ajouter un produit</label>
-                    <controller></controller>
-                    <action></action>
+                    <controller>backoffice_produit</controller>
+                    <action>ajouter</action>
                 </ajouter>
             </pages>
         </produits>

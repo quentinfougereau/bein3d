@@ -4,12 +4,24 @@
     <th>ID</th>
     <th>Nom</th>
     <th>Prenom</th>
+    <th>Login</th>
+    <th>Mot de passe</th>
+    <th>E-mail</th>
+    <th>Adresse</th>
+    <th>Code Postal</th>
+    <th>Ville</th>
     <th>Action</th>
     <?php foreach ($this->lesClients as $unClient) : ?>
         <tr>
             <td><?php echo $this->escape($unClient->Id) ?></td>
             <td><?php echo $this->escape($unClient->nom); ?></td>
             <td><?php echo $this->escape($unClient->prenom); ?></td>
+            <td><?php echo $this->escape($unClient->login); ?></td>
+            <td><?php echo $this->escape($unClient->motdepasse); ?></td>
+            <td><?php echo $this->escape($unClient->email); ?></td>
+            <td><?php echo $this->escape($unClient->adresse); ?></td>
+            <td><?php echo $this->escape($unClient->cp); ?></td>
+            <td><?php echo $this->escape($unClient->ville); ?></td>
             <td><a href="<?php
                 echo $this->url(array('controller' => 'backoffice_client',
                     'action' => 'modifier', 'id' => $unClient->Id));
