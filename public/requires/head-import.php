@@ -7,11 +7,12 @@
         <script
             src="<?php echo $chemin; ?>/components/platform/platform.js">
         </script>
+        <script type=text/javascript src="../../public/js/panier.js"></script>
         
         <script type="text/javascript" src="<?php echo $chemin; ?>/js/Ajax.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
         <script type="text/javascript" src="<?php echo $chemin; ?>/app.js"></script>
-        <script src="<?php echo $chemin; ?>js/news.js"></script>
+        
         <script
             src="<?php echo $chemin; ?>/js/news.js">
         </script>
@@ -70,6 +71,8 @@
               href="<?php echo $chemin; ?>components/more-routing-master/more-route.html">
         <link rel="import" 
               href="<?php echo $chemin; ?>components/more-routing-master/more-route-selector.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>components/paper-slider/paper-slider.html">
         <!-- NEW ELEMENTS -->
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-form-inscription/core-form-inscription.html">     

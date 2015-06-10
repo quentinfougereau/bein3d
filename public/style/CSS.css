@@ -29,7 +29,7 @@ core-drawer-panel:not([narrow]) #navicon{
 }
 
 section paper-tabs{
-    background-image:linear-gradient(#ECEFF1,#c4af91);
+    background-image:linear-gradient(white,#efefef,#d3d6d8);
 }
 
 paper-tabs.pink::shadow #selectionBar {
@@ -359,12 +359,12 @@ core-pages section h1{
 }
 
 .produit-catalogue .like{
-    background-color:#F3284A;
+    color:#F3284A;
     width:50px;
 }
 
 .produit-catalogue .add-panier{
-    background-color:#4CAF50;
+    color:#4CAF50;
 }
 #produit2{
     font-family: 'Merriweather', serif;
@@ -406,7 +406,7 @@ core-pages section h1{
     color:#F3284A;
 }
 
-#produit2 .add-panier{
+.add-panier{
     color:#4CAF50;
 }
 
@@ -417,4 +417,8 @@ paper-toast img{
 
 .imgproduits{
     height:300px;
+}
+
+.renew{
+    color:#4BB5C1;
 }

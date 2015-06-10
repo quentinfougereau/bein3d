@@ -1,0 +1,10 @@
+<?php $this->layout()->setLayout('backoffice_layout'); ?>
+
+<h1> Backoffice Connexion </h1>
+
+<?php
+echo $this->form;
+if ($this->errorMessage) {
+    echo $this->errorMessage;
+}
+?>

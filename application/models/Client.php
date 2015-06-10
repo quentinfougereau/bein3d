@@ -17,12 +17,24 @@ class Client extends Zend_Db_Table_Abstract {
     protected $_name = 'client';
     protected $_primary = 'Id';
     protected $_sequence = false;
+
 //    protected $_rowClass = 'ClientRow';
- 
-    
-    public function inscription($tabclient){
-        $this->insert($tabclient,'client');
+
+
+    public function inscription($tabclient) {
+        $this->insert($tabclient, 'client');
+    }
+
+    public function obtenirClient($id) {
+        $row = $this->fetchRow("Id = '" . $id . "'");
+        if (!$row) {
+            throw new Exception("impossible de trouver l'enregistrement $id");
+        }
+        return $row->toArray();
     }
     
+    public function supprimerClient($id) {
+        $this->delete("Id = '".$id."'");
+    }
 
 }

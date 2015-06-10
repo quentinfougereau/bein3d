@@ -1,0 +1,11 @@
+<?php $this->layout()->setLayout('backoffice_layout'); ?>
+
+<p>Etes-vous sur de vouloir supprimer le client : 
+    '<?php echo $this->client['nom'] . " (identifiant: " . $this->client['Id'] . ")" ?>'
+</p>
+<form action="<?php echo $this->url(array('controller' => 'backoffice_client', 'action' => 'supprimer')); ?>" method="post">
+    <div><input type="hidden" name="id" value="<?php echo $this->client['Id']; ?>"/>
+        <input type="submit" name="supprimer" value="Oui"/>
+        <input type="submit" name="supprimer" value="Non"/>
+    </div>
+</form>

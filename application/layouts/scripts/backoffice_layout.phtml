@@ -1,0 +1,44 @@
+<?php
+$this->doctype('XHTML1_STRICT');
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headMeta()->appendName('description', 'layout ZF');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('BackOffice GSB');
+?> 
+<?php echo $this->doctype(); ?> 
+<html> 
+    <head> 
+        <?php echo $this->headMeta(); ?> 
+        <?php echo $this->headTitle(); ?> 
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/style/backoffice_layout_style.css'); ?> 
+    </head> 
+    <body> 
+        <div id="header" align="center">[Header - Titre de la vue en cours: ] 
+            <?php echo $this->title; ?> 
+        </div> 
+        <div id="bar">[Barre]</div> 
+        <div id="bodyblock" align="right"> 
+            <div id="column" align="left"> 
+                <h4>[Menu]</h4> 
+                <?php
+                if (Zend_Auth::getInstance()->hasIdentity()) {
+                    echo 'connecte : ' .
+                    Zend_Auth::getInstance()->getIdentity()->login . '(' .
+                    Zend_Auth::getInstance()->getIdentity()->role . ')';
+                } else {
+                    echo 'non connecte';
+                }
+                echo $this->navigation();
+                ?> 
+
+            </div> 
+            <div id="content"> 
+                <h4>[Rendu de la vue en cours]</h4>
+                <?php echo $this->navigation()->breadcrumbs() . "<br>"; ?>
+                <?php echo $this->layout()->content; ?> 
+            </div> 
+        </div> 
+        <div id="footer" align="center">[Footer]</div> 
+    </div> 
+</body> 
+</html> 

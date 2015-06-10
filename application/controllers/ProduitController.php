@@ -13,6 +13,7 @@ class ProduitController extends Zend_Controller_Action {
     
     public function init() {
         $layout=$this->_helper->layout();
+        $layout->assign('menu','produit');
         $layout->assign('chemin','../');
     }
     
