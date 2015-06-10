@@ -1,0 +1,24 @@
+<?php $this->layout()->setLayout('backoffice_layout'); ?>
+
+<table border="1px">
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Action</th>
+    <?php foreach ($this->lesClients as $unClient) : ?>
+        <tr>
+            <td><?php echo $this->escape($unClient->Id) ?></td>
+            <td><?php echo $this->escape($unClient->nom); ?></td>
+            <td><?php echo $this->escape($unClient->prenom); ?></td>
+            <td><a href="<?php
+                echo $this->url(array('controller' => 'backoffice_client',
+                    'action' => 'modifier', 'id' => $unClient->Id));
+                ?>">Modifier</a>
+                <a href="<?php
+                   echo $this->url(array('controller' => 'backoffice_client',
+                       'action' => 'supprimer', 'id' => $unClient->Id))
+                   ?>">Supprimer</a>
+            </td>
+        </tr>
+<?php endforeach; ?>
+</table>

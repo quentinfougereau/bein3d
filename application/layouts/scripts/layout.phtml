@@ -122,12 +122,20 @@
                         </paper-dialog>
                         <?php
                     } else {
+                        
+                        if ($_SESSION["role"] == "user") {
+                            echo "<a href=" . $this->url(array('controller' => 'profil',
+                                'action' => 'index')) . "/><core-icon icon='account-circle'></core-icon></a>";
+                        } else {
+                            echo "<a href =" . $this->url(array('controller' => 'backoffice_connexion', 'action' => 'index')) . ">Backoffice</a>";
+                            echo "<a href=" . $this->url(array('controller' => 'profil',
+                                'action' => 'index')) . "/><core-icon icon='account-circle'></core-icon></a>";
+                        }
+
                         echo "<p>" . $_SESSION['email'] . "</p>";
                         ?>
                         <core-icon-button icon="more-vert"></core-icon-button>
                         <?php
-                        echo "<a href=" . $this->url(array('controller' => 'profil',
-                            'action' => 'index')) . "/><core-icon icon='account-circle'></core-icon></a>";
                     }
                     ?>
 <!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->

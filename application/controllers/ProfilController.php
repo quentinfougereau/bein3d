@@ -19,6 +19,7 @@ class ProfilController extends Zend_Controller_Action {
         $currentClient = $client->fetchRow($client->select()->where('login = ?', $_SESSION['email']));
         
         $_SESSION["idClient"] = $currentClient["Id"];
+        $_SESSION["role"] = $currentClient["role"];
         $this->view->nomCurrentClient = $currentClient['nom'];
         $this->view->prenomCurrentClient = $currentClient['prenom'];
         $this->view->emailCurrentClient = $currentClient['email'];

@@ -1,0 +1,50 @@
+body { 
+ margin:10px; 
+ background:#808080; 
+ color: #333333; 
+ text-align:center; 
+} 
+#header { /* # fait reference a l'attribut id du layout */ 
+ height:60px; 
+ background:#eeeeee; 
+ color: #333333; 
+ width: 100%; 
+} 
+#bar { 
+ height:25px; 
+ background:#c0c0c0; 
+ color: #333333; 
+ border:solid black; 
+ border-width:1px; 
+} 
+#bodyblock { 
+ background: #dcdcdc; 
+ color: #333333; 
+} 
+#column { 
+ width:20%; 
+ float:left; 
+ background:#dcdcdc; 
+ color: #333333; 
+ padding: 10px; 
+} 
+#content { 
+ width:70%; 
+ background:#ffffff; 
+ color: #333333; 
+ border-width:0 0 0 1px; 
+ text-align: left; 
+ padding: 2px; 
+ overflow: auto; 
+} 
+#footer { 
+ height:25px; 
+ background:#c0c0c0; 
+ color: #333333; 
+ border:solid black; 
+ border-width:1px; 
+}
+
+#td {
+   color: blue; 
+}
