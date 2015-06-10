@@ -53,5 +53,30 @@ class Produit extends Zend_Db_Table_Abstract {
         return $produit;
     }
     
+    public function modifierProduit($id, $nom, $prixunitaire, $idmaker, $categorie) {
+        $data = array(
+            'id' => $id,
+            'nom' => $nom,
+            'prixunitaire' => $prixunitaire,
+            'idmaker' => $idmaker,
+            'categorie' => $categorie
+        );
+        $this->update($data, "id = '" . $id . "'");
+    }
+
+    public function ajouterProduit($id, $nom, $prixunitaire, $idmaker, $categorie) {
+        $data = array(
+            'id' => $id,
+            'nom' => $nom,
+            'prixunitaire' => $prixunitaire,
+            'idmaker' => $idmaker,
+            'categorie' => $categorie
+        );
+        $this->insert($data);
+    }
+
+    public function supprimerProduit($id) {
+        $this->delete("id = '" . $id . "'");
+    }
     
 }

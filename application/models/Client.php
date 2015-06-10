@@ -32,9 +32,39 @@ class Client extends Zend_Db_Table_Abstract {
         }
         return $row->toArray();
     }
-    
+
+    public function modifierClient($id, $nom, $prenom, $login, $mdp, $email, $adresse, $cp, $ville) {
+        $data = array(
+            'Id' => $id,
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'login' => $login,
+            'motdepasse' => $mdp,
+            'email' => $email,
+            'adresse' => $adresse,
+            'cp' => $cp,
+            'ville' => $ville
+        );
+        $this->update($data, "Id = '" . $id . "'");
+    }
+
+    public function ajouterClient($id, $nom, $prenom, $login, $mdp, $email, $adresse, $cp, $ville) {
+        $data = array(
+            'Id' => $id,
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'login' => $login,
+            'motdepasse' => $mdp,
+            'email' => $email,
+            'adresse' => $adresse,
+            'cp' => $cp,
+            'ville' => $ville
+        );
+        $this->insert($data);
+    }
+
     public function supprimerClient($id) {
-        $this->delete("Id = '".$id."'");
+        $this->delete("Id = '" . $id . "'");
     }
 
 }
