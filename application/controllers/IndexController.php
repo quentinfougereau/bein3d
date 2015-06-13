@@ -18,7 +18,8 @@ class IndexController extends Zend_Controller_Action {
 
         $layout=$this->_helper->layout();
         $layout->assign('chemin','');
-        Zend_Session::start();
+        $layout->assign('menusub','accueil');
+        Zend_Session::start();     
 
         if (Zend_Session::sessionExists()) {
             Zend_Session::start();
@@ -29,13 +30,6 @@ class IndexController extends Zend_Controller_Action {
        $this->view->lesProduits=$p->fetchall();
 
        $tab=array();
-
-//       foreach ($p->fetchall() as $unproduit){
-//           $idclient=$unproduit->idmaker;
-//           $client=$c->unClient($idclient);
-//           //$tab[$unproduit->id]=$client->login;
-//           //var_dump($client);
-//       }
         $news = new News();
         $this->view->news = $news->getLast5News();
         // action body
@@ -44,6 +38,7 @@ class IndexController extends Zend_Controller_Action {
     public function qsnAction(){
         $layout=$this->_helper->layout();
         $layout->assign('chemin','../');
+        $layout->assign('menusub','qsn');
     }
     
     public function nosproduitsAction(){

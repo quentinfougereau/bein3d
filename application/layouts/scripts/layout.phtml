@@ -45,13 +45,19 @@
     </head>
     <body fullbleed vertical layout unresolved>
         <input type="hidden" value="<?php echo $this->layout()->menu ?>" id="chemin">
-
+        
         <script>
             document.addEventListener('polymer-ready', function () {
+                var action='<?php echo Zend_Controller_Front::getInstance()->getRequest()->getActionName() ?>';
                 document.querySelector('menu-toolbar-hsds').menu = '<?php echo $this->layout()->menu ?>';
                 document.querySelector('menu-toolbar-hsds').chemin = '<?php echo $this->layout()->chemin ?>';
                 document.querySelector('menu-drawer-hsds').menu = '<?php echo $this->layout()->menu ?>';
                 document.querySelector('menu-drawer-hsds').chemin = '<?php echo $this->layout()->chemin ?>';
+                document.querySelector('menu-drawer-hsds').menusub = action;
+                document.querySelector('submenu-mainpage').menu = '<?php echo $this->layout()->menu ?>';
+                document.querySelector('submenu-mainpage').chemin = '<?php echo $this->layout()->chemin ?>';
+                document.querySelector('submenu-mainpage').menusub =action;
+                        
 
                 var navicon = document.getElementById('navicon');
                 var drawerPanel = document.getElementById('drawerPanel');
@@ -138,93 +144,11 @@
                         <?php
                     }
                     ?>
-<!--                    <paper-button  id="connexion-button" label="CONNEXION"  on-tap="{{toggleDialog1}}" ></paper-button>-->
 
-                </template>
-
-                <!--
-                    
-                </core-pages>
-                                
-                <!--</div>-->          
+                </template>        
             </core-toolbar>
 
-            <core-pages selected="<?php echo $this->layout()->menu ?>" valueattr="menu-cat">
-                <section menu-cat="home">
-                    <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
-                        <paper-tab menu-sub="accueil">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Index',
-                                'action' => 'index'))
-                            ?>" horizontal center-center layout>ACCUEIL</a>
-                        </paper-tab>
-                        <paper-tab menu-sub="qsn">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Index',
-                                'action' => 'qsn'))
-                            ?>" horizontal center-center layout>QUI SOMMES NOUS</a>
-                        </paper-tab>
-                        <paper-tab menu-sub="nosproduits">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Index',
-                                'action' => 'nosproduits'))
-                            ?>" horizontal center-center layout>NOS PRODUITS</a>
-                        </paper-tab>
-                    </paper-tabs>
-                </section>
-
-
-                <section menu-cat="shop">
-                    <paper-tabs flex selected="{{sub}}" valueattr="menu-sub">                            
-                        <paper-tab menu-sub="boutique">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Shop',
-                                'action' => 'boutique'))
-                            ?>" horizontal center-center layout>LA BOUTIQUE</a>
-                        </paper-tab>
-                        <paper-tab menu-sub="nouveautes">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Shop',
-                                'action' => 'nouveautes'))
-                            ?>" horizontal center-center layout>NOUVEAUTES</a>
-                        </paper-tab>
-                        <paper-tab menu-sub="makers">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Shop',
-                                'action' => 'makers'))
-                            ?>" horizontal center-center layout>NOS MAKERS</a>
-                        </paper-tab>
-                    </paper-tabs>
-                </section>
-                <section menu-cat="design">
-                    <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
-                        <paper-tab menu-sub="creer">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Design',
-                                'action' => 'creer'))
-                            ?>" horizontal center-center layout>CREER MON OBJET</a>
-                        </paper-tab>
-                        <paper-tab menu-sub="didacticiel">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Design',
-                                'action' => 'didact'))
-                            ?>" horizontal center-center layout>DIDACTITIEL</a>
-                        </paper-tab>
-                        <paper-tab menu-sub="import">
-                            <a href="<?php
-                            echo $this->url(array('controller' => 'Design',
-                                'action' => 'importer'))
-                            ?>" horizontal center-center layout>IMPORTER UN MODELE</a>
-                        </paper-tab>
-                    </paper-tabs>
-                </section>
-                <section menu-cat="sell">                   
-                    <paper-tabs flex selected="{{sub}}" valueattr="menu-sub" noslide>                            
-                        <paper-tab menu-sub="mesobjets">MES OBJETS</paper-tab>
-                        <paper-tab menu-sub="mesventes">MES VENTES</paper-tab>
-                    </paper-tabs>
-                </section>
-            </core-pages>
+            <submenu-mainpage></submenu-mainpage>
 
             <?php
             echo $this->layout()->content;

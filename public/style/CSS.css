@@ -20,24 +20,8 @@ core-header-panel[drawer]{
     background-image:linear-gradient(white,#efefef,#ECEFF1);
 }
 
-menu-drawer-hsds{
-    
-}
-
 core-drawer-panel:not([narrow]) #navicon{
     display:none;
-}
-
-section paper-tabs{
-    background-image:linear-gradient(white,#efefef,#d3d6d8);
-}
-
-paper-tabs.pink::shadow #selectionBar {
-  background-color: red;
-}
-
-paper-tabs.pink paper-tab::shadow #ink {
-  color: red;
 }
 
 paper-tab{
