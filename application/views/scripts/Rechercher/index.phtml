@@ -1,0 +1,36 @@
+<html><body>
+
+
+
+        <div id="resultrecherche">
+
+            
+
+            <?php
+            echo "<table><tr>Actualités</tr>";
+            
+            if (isset($_SESSION['newsrechercher'])) {
+                foreach ($_SESSION['newsrechercher'] as $key) {
+                    foreach ($key as $prod) {
+                        echo "<td>".$prod['sujet']."</td>";
+                    }
+                }
+            }
+            echo "</table>";
+             echo "<table><tr>produit</tr>";
+            if (isset($_SESSION['produitrechercher'])) {
+                foreach ($_SESSION['produitrechercher'] as $key) {
+                    foreach ($key as $prod) {
+                        echo "<td>".$prod['nom']."</td>";
+                    }
+                }
+            }
+            echo "</table>";
+            ?>
+        </div>
+
+    </body>
+</html>
+<script>
+
+</script>

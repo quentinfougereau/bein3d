@@ -103,22 +103,15 @@
                 <core-icon-button id="navicon" icon="menu"></core-icon-button>
                 <!--<paper-test></paper-test>-->
                 <menu-toolbar-hsds></menu-toolbar-hsds>
-                <paper-input id="search-mainpage-input" label="Rechercher"></paper-input>
-                <core-icon-button icon="search"></core-icon-button>
-
-                <paper-dialog  class="size-position"  >
-                    <?php
-                    if (isset($_SESSION['nbproduit'])) {
-                        foreach ($_SESSION['nbproduit'] as $key => $prod) {
-//                              var_dump($prod);
-                            echo "<core-icon-button icon='cancel' onclick='alert()'></core-icon-button>";
-                            echo $prod['nom'] . "</br>";
-                        }
-                    }
-                    ?>
-                </paper-dialog>
+                
+                
+               
 
                 <template is="auto-binding">
+                    <paper-rechercher></paper-rechercher>
+                     <paper-icon-button id="recherche" icon='search' on-tap='{{toggleDialog1}}' onclick="search()"></paper-icon-button>
+                     
+                     <paper-dialog  class='size-position'>     <?php include_once("../application/views/scripts/Rechercher/index.phtml"); ?></paper-dialog>
                     <?php include_once("../application/views/scripts/panier/index.phtml"); ?>
 
 
@@ -187,7 +180,10 @@
         if (!d) {
             return;
         }
+        $("#resultrecherche").load("http://localhost/bein3d/public/Rechercher/refresh");
+         $.ajaxSetup({cache: false});
         d.toggle();
+        
     };
 
 
@@ -207,7 +203,6 @@
     //            drawerPanel.togglePanel();
     //        });
     //    });
-
 
 
 

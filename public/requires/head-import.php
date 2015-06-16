@@ -97,6 +97,8 @@
         <!--  element for news -->
         <link rel="import"           
               href="<?php echo $chemin; ?>components/paper-commentaire/paper-commentaire.html" >
+        <link rel="import"           
+              href="<?php echo $chemin; ?>components/paper-rechercher/paper-rechercher.html" >
         <!-- Form element for profile -->
         <link rel="import"           
               href="<?php echo $chemin; ?>components/form-profile-personal-data/form-profile-personal-data.html" >
