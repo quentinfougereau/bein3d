@@ -95,6 +95,9 @@
 
                 <template is="auto-binding">
                     <paper-rechercher></paper-rechercher>
+                     <paper-icon-button id="recherche" icon='search' on-tap='{{toggleDialog1}}' onclick="search()"></paper-icon-button>
+                     
+                     <paper-dialog  class='size-position'>     <?php include_once("../application/views/scripts/Rechercher/index.phtml"); ?></paper-dialog>
                     <?php include_once("../application/views/scripts/panier/index.phtml"); ?>
 
 
@@ -252,7 +255,10 @@
         if (!d) {
             return;
         }
+        $("#resultrecherche").load("http://localhost/bein3d/public/Rechercher/refresh");
+         $.ajaxSetup({cache: false});
         d.toggle();
+        
     };
 
 
@@ -272,7 +278,6 @@
     //            drawerPanel.togglePanel();
     //        });
     //    });
-
 
 
 

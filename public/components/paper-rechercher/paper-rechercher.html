@@ -16,16 +16,10 @@ and open the template in the editor.
 
 
         <core-item>
-            <paper-input id="search-mainpage-input" label="Rechercher" value="{{rechercher}}" ></paper-input>
+            <paper-input  id="search-mainpage-input" label="Rechercher" on-keydown="{{send}}"  value="{{rechercher}}" ></paper-input>
+        
 
-
-            <paper-icon-button id="recherche" icon='search' on-tap='{{toggleDialog1}}'></paper-icon-button>
-
-            <paper-dialog  class='size-position'>
-                
-                    jhhhvj
-               
-            </paper-dialog>
+           
         </core-item>
 
         <core-ajax  id="ajax" 
@@ -37,10 +31,9 @@ and open the template in the editor.
     <script>
         Polymer('paper-rechercher', {
             send: function () {
-
+                
                 this.$.ajax.go();
-                $("#resultrecherche").load("http://localhost/bein3d/public/Rechercher/index");
-                $.ajaxSetup({cache: false});
+                
             },
         });
 
