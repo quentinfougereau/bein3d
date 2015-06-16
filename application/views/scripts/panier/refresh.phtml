@@ -7,24 +7,33 @@
         $prixtotal=0;
         
         if (count($_SESSION['nbproduit'])!=0) {
-            foreach ($_SESSION['nbproduit'] as $key => $prod) {
-
-                    $prixtotal+=$prod['prix']*$prod['quantite'];
-                
+            
+               echo "<core-toolbar fullbleed>Panier</core-toolbar>";
+                foreach ($_SESSION['nbproduit'] as $key => $prod) {
+                    $prixtotal+=$prod['prix'] * $prod['quantite'];
 //                              var_dump($prod);
-                echo "<tr><td><core-icon-button icon='cancel' onclick='supDonnees(" . $prod['id'] . "," . $prod['quantite'] . ")'></core-icon-button></td><td>";
-                echo $prod['nom'] . " </td><td><paper-icon-button name='moins' class='sup' icon='remove-circle' onclick='quantitemoins(" . $prod['id'] . ")'></paper-icon-button>
-                                  <input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
-            <paper-icon-button name='plus' icon='add-circle'  onclick='quantiteplus(" . $prod['id'] . ")'></paper-icon-button></td><td>";
-                echo $prod['prix'] . "<td></tr>";
-            }
-             echo "<tr><td></td><td></td><td>Prix total:</td><td>".$prixtotal."</td></tr>";
+                    echo "<core-menu class='produit-panier' vertical>";
+                    
+                    echo "<core-item flex>";
+                    echo "<core-image sizing='contain' src='../images/cortex.png'></core-image>"
+                            . "<div flex></div>";
+                    echo "<p><a href='".$this->url(array('controller' => 'produit',
+                        'action' => 'unproduit', 'id' => $prod['id']))."' horizontal center layout"
+                            . ">".$prod['nom']."</a></p>"
+                            . "<div flex></div>"
+                            . "<core-icon-button icon='close' float='right' onclick='supDonnees(" . $prod['id'] . "," . $prod['quantite'] . ")'>"                  
+                            . "</core-icon-button>"
+                            . "</core-item>";
+                    echo " <core-item><paper-button name='moins' class='sup' onclick='quantitemoins(" . $prod['id'] . ")'>"
+                        . "<core-icon icon='remove'></core-icon></paper-button>"
+                                  ."<input type='text'  id='" . $prod['id'] . "' value='" . $prod['quantite'] . "' size='1'>
+            <paper-button name='plus' onclick='quantiteplus(" . $prod['id'] . ")'>"
+                            . "<core-icon icon='add'></core-icon></paper-button>";
+                    echo "Eur : ".$prod['prix'] . "</core-item></core-menu>";
+                }
+                echo "<core-item>Prix total :</td><td>" . $prixtotal . "</core-item>";
         }
         ?>
         </table>
     </div>
-    <?php
-    ?>
-
-
 </html>
