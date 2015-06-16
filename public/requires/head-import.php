@@ -31,6 +31,10 @@
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-icons/core-icons.html">
         <link rel="import"
+              href="<?php echo $chemin; ?>components/core-icons/social-icons.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/core-icons/social-icons_1.html">
+        <link rel="import"
               href="<?php echo $chemin; ?>components/core-icons/hardware-icons.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-icon-button/core-icon-button.html">
@@ -48,6 +52,8 @@
               href="<?php echo $chemin; ?>components/paper-input/paper-input.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-image/core-image.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/core-list/core-list.html">
 
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-dialog/paper-dialog.html">

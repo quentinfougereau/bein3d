@@ -1,6 +1,6 @@
 <?php echo $this->doctype() ?>
 <html>
-     
+
     <head>
         <style shim-shadowdom>
             html /deep/ [autofocus] {
@@ -25,7 +25,7 @@
                 left: 65%;
             }
 
-            
+
             html /deep/ .size-position::shadow #scroller {
                 width: 300px;
                 height: 300px;
@@ -45,10 +45,10 @@
     </head>
     <body fullbleed vertical layout unresolved>
         <input type="hidden" value="<?php echo $this->layout()->menu ?>" id="chemin">
-        
+
         <script>
             document.addEventListener('polymer-ready', function () {
-                var action='<?php echo Zend_Controller_Front::getInstance()->getRequest()->getActionName() ?>';
+                var action = '<?php echo Zend_Controller_Front::getInstance()->getRequest()->getActionName() ?>';
                 document.querySelector('menu-toolbar-hsds').menu = '<?php echo $this->layout()->menu ?>';
                 document.querySelector('menu-toolbar-hsds').chemin = '<?php echo $this->layout()->chemin ?>';
                 document.querySelector('menu-drawer-hsds').menu = '<?php echo $this->layout()->menu ?>';
@@ -56,8 +56,8 @@
                 document.querySelector('menu-drawer-hsds').menusub = action;
                 document.querySelector('submenu-mainpage').menu = '<?php echo $this->layout()->menu ?>';
                 document.querySelector('submenu-mainpage').chemin = '<?php echo $this->layout()->chemin ?>';
-                document.querySelector('submenu-mainpage').menusub =action;
-                        
+                document.querySelector('submenu-mainpage').menusub = action;
+
 
                 var navicon = document.getElementById('navicon');
                 var drawerPanel = document.getElementById('drawerPanel');
@@ -82,6 +82,14 @@
                 </h2>
             </core-toolbar>
             <menu-drawer-hsds></menu-drawer-hsds>
+            <div id="social-bar" flex>
+                <a href="https://www.facebook.com/pages/Bein3D/1652017601699642?fref=ts" target="blank">
+                    <core-icon icon="post-facebook"></core-icon>
+                </a>
+                <a href="#"><core-icon icon="post-twitter"></core-icon></a>
+                <a href="#"> <core-icon icon="post-instagram"></core-icon></a>
+
+            </div>
 
             <div id='divfoot' flex></div>
             <footer flex>Footer</footer>
@@ -128,7 +136,7 @@
                         </paper-dialog>
                         <?php
                     } else {
-                        
+
                         if ($_SESSION["role"] == "user") {
                             echo "<a href=" . $this->url(array('controller' => 'profil',
                                 'action' => 'index')) . "/><core-icon icon='account-circle'></core-icon></a>";
@@ -144,22 +152,15 @@
                         <?php
                     }
                     ?>
-
                 </template>        
             </core-toolbar>
-
             <submenu-mainpage></submenu-mainpage>
-
             <?php
             echo $this->layout()->content;
             ?>  
-
         </core-header-panel>
-
     </core-drawer-panel>
-
 </body>
-
 <script type="text/javascript">
     //
     //    function addName() {

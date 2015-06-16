@@ -61,7 +61,7 @@ footer{
 }
 
 #divfoot{
-    height:350px;
+    height:300px;
     max-height:500px;
     min-height: 40px;
 }
@@ -73,13 +73,7 @@ footer{
     color:whitesmoke;
 }
 
-#sous-menu{
-    white-space: nowrap;
-}
 
-#sous-menu paper-button{
-    font-size:19px;
-}
 
 div{
     text-align:center;
@@ -331,9 +325,6 @@ core-pages section h1{
     height:300px;
 }
 
-.produit-catalogue .prix-produit{
-    text-align:right;
-}
 
 .produit-catalogue paper-button{
     color:white;
@@ -382,8 +373,14 @@ core-pages section h1{
     font-size:12px;
 }
 
-#produit2 paper-button{
+#produit2 a{
+    text-decoration:underline;
+    color:black;
+    margin-left:45px;
+}
 
+#produit2 .prix-produit{
+    margin-right:10px;
 }
 
 #produit2 .like{
@@ -405,4 +402,17 @@ paper-toast img{
 
 .renew{
     color:#4BB5C1;
+}
+
+#social-bar{
+    margin:12px;
+}
+
+#social-bar a{
+    text-decoration:none;
+    color:#1B2C6E;
+}
+
+#social-bar core-icon{
+    width:30px;
 }

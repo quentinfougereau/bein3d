@@ -18,10 +18,16 @@
         </template>       
     </core-pages> 
     <style>
-        :host paper-tabs{
+        :host paper-tab{
             background-image:linear-gradient(white,#efefef,#d3d6d8);
             font-size:18px;
         }
+        
+        :host paper-tabs .core-selected{
+            background-image:linear-gradient(#d3d6d8,#efefef,white);
+        }
+        
+        
         
         :host paper-tab a{
             margin-top:25px;

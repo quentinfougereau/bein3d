@@ -58,13 +58,15 @@
                         </div>
 
                     </core-item>
-                    <core-item icon="loyalty" label="<?php ?>">
+                    <core-item icon="loyalty">
+                        <div flex></div>
                         <?php
                     echo "<a href='".$this->url(array('controller' => 'produit',
-                        'action' => 'unproduit', 'id' => $produit->id))."' horizontal center-center layout"
+                        'action' => 'unproduit', 'id' => $produit->id))."' horizontal center layout"
                             . ">$produit->nom</a>";?>
                     
-                        <div flex></div><?php echo $produit->prixunitaire . " € "; ?>
+                        <div flex></div><p class="prix-produit"><?php echo $produit->prixunitaire . " € "; ?></p>
+                        
                     </core-item>
                     
                 
@@ -135,5 +137,5 @@
     paper-toast {
         right: 10px;
         left: auto;
-    } 
+    }  
 </style>

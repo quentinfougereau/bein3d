@@ -4,77 +4,88 @@ $nomdossier = $this->nomdossier;
 $images = $produit->obtenirImages($produit->id);
 $nomimg;
 ?>
-    <template is="auto-binding" class="produittmp">  
-<paper-tabs selected="{{menuproduit}}" valueattr="menu-produit">
-    <paper-tab menu-produit="return">
-        <paper-button flex class="goback" role="button" onclick="javascript:window.history.back();">
-    <core-icon icon="arrow-back">
-    </core-icon>
-   
-</paper-button>
-    </paper-tab>
-    <paper-tab menu-produit="produit">Produit</paper-tab>
-    <paper-tab menu-produit="matiere">Matière</paper-tab>
-    <paper-tab menu-produit="photos">Photos</paper-tab>
-</paper-tabs>
-<core-pages selected="{{menuproduit}}" valueattr="menu-produit">
-    <section menu-produit="return"></section>
-    <section menu-produit="produit">
-        <core-item class="unproduit">
-    <img src="../../../../public/images/produits/<?php echo $nomdossier . '/' . $images[0]->nom; ?>">
-    
-    <core-menu flex>
-        
-            <script>
-                document.querySelector('.produittmp').menuproduit="produit";
-                document.querySelector('.produittmp').hauteur=150;
-                document.querySelector('.produittmp').longueur=65;
-                document.querySelector('.produittmp').profondeur=70;
-            
-        </script>
-        <core-item center-center><?php echo $produit->nom ?></core-item>
-        <core-item center-center>Description</core-item>
-        <core-item center-center>Matière</core-item>
-        <core-submenu center-center label="Dimensions">
-            <core-item label="Hauteur">
-                <paper-slider flex min="10" max="200" editable value="{{hauteur}}"></paper-slider>
-            </core-item>
-            <core-item label="Longueur">
-                <paper-slider flex min="10" max="200" editable value="{{longueur}}"></paper-slider>
-            </core-item>
-            <core-item label="Profondeur">
-                <paper-slider flex min="10" max="200"  editable value="{{profondeur}}"></paper-slider>
-            </core-item>
-        </core-submenu>
-        <script>
-            
-        </script>
-        
-        <core-item>
-        
+<template is="auto-binding" class="produittmp">  
+    <paper-tabs selected="{{menuproduit}}" valueattr="menu-produit">
+        <paper-tab menu-produit="return">
+            <paper-button flex class="goback" role="button" onclick="javascript:window.history.back();">
+                <core-icon icon="arrow-back">
+                </core-icon>
+
+            </paper-button>
+        </paper-tab>
+        <paper-tab menu-produit="produit">Produit</paper-tab>
+        <paper-tab menu-produit="matiere">Matière</paper-tab>
+        <paper-tab menu-produit="photos">Photos</paper-tab>
+    </paper-tabs>
+    <core-pages selected="{{menuproduit}}" valueattr="menu-produit">
+        <section menu-produit="return"></section>
+        <section menu-produit="produit">
+            <core-item class="unproduit">
+
+                <core-image
+                            sizing="contain" preload src="../../../../public/images/produits/<?php echo $nomdossier . '/' . $images[0]->nom; ?>">
+                </core-image>
+                <core-menu flex>
+
+                    <script>
+                        document.querySelector('menu-toolbar-hsds').menu = 'shop';
+                        document.querySelector('menu-drawer-hsds').menu = 'shop';
+                        document.querySelector('.produittmp').menuproduit = "produit";
+                        document.querySelector('.produittmp').hauteur = 150;
+                        document.querySelector('.produittmp').longueur = 65;
+                        document.querySelector('.produittmp').profondeur = 70;
+
+                    </script>
+                    <core-item center-center><?php echo $produit->nom ?></core-item>
+                    <core-item center-center>Description</core-item>
+                    <core-item center-center>Matière</core-item>
+                    <core-submenu center-center label="Dimensions">
+                        <core-item label="Hauteur">
+                            <paper-slider flex min="10" max="200" editable value="{{hauteur}}"></paper-slider>
+                        </core-item>
+                        <core-item label="Longueur">
+                            <paper-slider flex min="10" max="200" editable value="{{longueur}}"></paper-slider>
+                        </core-item>
+                        <core-item label="Profondeur">
+                            <paper-slider flex min="10" max="200"  editable value="{{profondeur}}"></paper-slider>
+                        </core-item>
+                    </core-submenu>
+                    <script>
+
+                    </script>
+
+                    <core-item>
 
 
-            <div flex></div>
-            <paper-button raised class="renew" role='button'>
-                <core-icon icon='cached'></core-icon>
-            </paper-button>
-            <div flex></div>
-            <paper-button raised class='add-panier' role='button' onclick='envoyerDonnees(<?php echo $produit->id; ?>);
-                    document.querySelector(".toast").show()'>
-                <core-icon icon='add-shopping-cart'></core-icon>
-            </paper-button>
-            <paper-toast class="toast" role="alert" text="<?php echo $produit->nom . " a été ajouté au panier" ?>" 
-                         touch-action="none" tabindex="-1" class="core-transition core-transition-bottom" 
-                         style="position: fixed; outline: none; display: none;">
-            </paper-toast>
-            <div flex></div>
-        </core-item>
-    </core-menu>
-</core-item>
-    </section>
-    <section menu-produit="matiere"></section>
-    <section menu-produit="photos"></section>
-</core-pages>
+
+                        <div flex></div>
+                        <paper-button raised class="renew" role='button'>
+                            <core-icon icon='cached'></core-icon>
+                        </paper-button>
+                        <div flex></div>
+                        <paper-button raised class='add-panier' role='button' onclick='envoyerDonnees(<?php echo $produit->id; ?>);
+                                document.querySelector(".toast").show()'>
+                            <core-icon icon='add-shopping-cart'></core-icon>
+                        </paper-button>
+                        <paper-toast class="toast" role="alert" text="<?php echo $produit->nom . " a été ajouté au panier" ?>" 
+                                     touch-action="none" tabindex="-1" class="core-transition core-transition-bottom" 
+                                     style="position: fixed; outline: none; display: none;">
+                        </paper-toast>
+                        <div flex></div>
+                    </core-item>
+                </core-menu>
+            </core-item>
+        </section>
+        <section menu-produit="matiere"></section>
+        <section menu-produit="photos">
+            <p>test</p>
+            <core-image
+                            sizing="cover" preload src="../../../../public/images/cortex.png">
+                </core-image><core-image
+                            sizing="cover" preload src="../../../../public/images/image4.PNG">
+                </core-image>
+        </section>
+    </core-pages>
 </template>
 
 
@@ -83,16 +94,16 @@ $nomimg;
     paper-tabs{
         background-image:linear-gradient(white,#efefef,#d3d6d8);
     }
-    
-    papere-tabs::shadow #selectionBar{
-        color:red;
+
+    paper-tabs .core-selected{
+        background-image:linear-gradient(#d3d6d8,#efefef,white);
     }
-    
+
     .goback{
-       
+
     }
-    
-    
+
+
     .unproduit{
         margin-top:25px;
         margin-left:50px;
@@ -105,16 +116,24 @@ $nomimg;
         filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
     }
     .unproduit core-submenu::shadow > #submenuItem {
-            margin-left:43px;
-          }
+        margin-left:43px;
+    }
 
     .unproduit core-item{
         height:80px;
+        font-size:20px;
     }
 
-    .unproduit img{
-        width:450px;
-        height:450px;
+     core-image{
+        width:400px;
+        height:400px;
+        min-width:150px;
+        min-height:150px;
+        //background-color: lightgray;
+    }
+    
+    .unproduit core-menu{
+        min-width:250px;
     }
 
 </style>
