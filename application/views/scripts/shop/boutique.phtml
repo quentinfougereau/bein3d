@@ -107,7 +107,7 @@
                     <paper-button raised role='button' tabindex="0" class='add-panier' 
                                   onclick='envoyerDonnees(<?php echo $produit->id; ?>);
                                           document.querySelector(".toast<?php echo $nbt; ?>").show()'>
-                        <core-icon icon='add-shopping-cart'></core-icon>
+                        
                     </paper-button>
                     <paper-toast class="toast<?php echo $nbt; ?>" role="alert" text="<?php echo $produit->nom . " a été ajouté au panier" ?>" 
                                  touch-action="none" tabindex="-1" class="core-transition core-transition-bottom" 

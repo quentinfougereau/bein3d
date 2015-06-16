@@ -416,3 +416,7 @@ paper-toast img{
 #social-bar core-icon{
     width:30px;
 }
+
+.produit-panier{
+    background-image:linear-gradient(white,#efefef,#ECEFF1);
+}
