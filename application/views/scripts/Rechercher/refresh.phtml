@@ -21,7 +21,9 @@
             if (isset($_SESSION['produitrechercher'])) {
                 foreach ($_SESSION['produitrechercher'] as $key) {
                     foreach ($key as $prod) {
-                        echo "<td>".$prod['nom']."</td>";
+                        echo "<tr><td><p><a href='".$this->url(array('controller' => 'produit',
+                        'action' => 'unproduit', 'id' => $prod['id']))."' horizontal center layout"
+                            . ">".$prod['nom']."</a></p></td></tr>";
                     }
                 }
             }
