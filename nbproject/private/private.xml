@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/bein3d/application/controllers/RechercherController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/Rechercher/refresh.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
@@ -21,6 +22,18 @@
             <file>file:/C:/wamp/www/bein3d/public/js/news.js</file>
             <file>file:/C:/wamp/www/bein3d/application/models/News.php</file>
             <file>file:/C:/wamp/www/bein3d/application/models/Produit.php</file>
+=======
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Recup/index.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/controllers/ProduitController.php</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/produit/unproduit.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/public/style/CSS.css</file>
+            <file>file:/C:/wamp/www/bein3d/public/components/core-menu/core-submenu.html</file>
+            <file>file:/C:/wamp/www/bein3d/public/requires/head-import.php</file>
+            <file>file:/C:/wamp/www/bein3d/application/models/Produit.php</file>
+            <file>file:/C:/wamp/www/bein3d/public/components/paper-tabs/paper-tabs.html</file>
+>>>>>>> ed9022ca90d101d03904b4b9a38b83a8098c1b8f
         </group>
     </open-files>
 </project-private>
