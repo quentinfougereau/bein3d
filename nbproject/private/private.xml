@@ -3,41 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/wamp/www/bein3d/application/controllers/ShopController.php</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/wamp/www/bein3d/application/controllers/RechercherController.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Rechercher/refresh.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Recup/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/PanierController.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/RecupController.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/panier/refresh.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Rechercher/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/public/requires/head-import.php</file>
-            <file>file:/C:/wamp/www/bein3d/public/js/Ajax.js</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/panier/index.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/public/components/paper-commentaire/paper-commentaire.html</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/ShopController.php</file>
-            <file>file:/C:/wamp/www/bein3d/public/components/paper-rechercher/paper-rechercher.html</file>
-            <file>file:/C:/wamp/www/bein3d/public/js/panier.js</file>
-            <file>file:/C:/wamp/www/bein3d/public/js/news.js</file>
-            <file>file:/C:/wamp/www/bein3d/application/models/News.php</file>
-            <file>file:/C:/wamp/www/bein3d/application/models/Produit.php</file>
-=======
->>>>>>> 1636f0375256402fd9c581c5ee7ff79743867ca6
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
-            <file>file:/C:/wamp/www/bein3d/application/controllers/ProduitController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/produit/unproduit.phtml</file>
             <file>file:/C:/wamp/www/bein3d/public/components/menu-drawer-hsds/menu-drawer-hsds.html</file>
             <file>file:/C:/wamp/www/bein3d/public/style/CSS.css</file>
-            <file>file:/C:/wamp/www/bein3d/application/views/scripts/panier/refresh.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Rechercher/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/public/requires/head-import.php</file>
-            <file>file:/C:/wamp/www/bein3d/public/components/submenu-mainpage/submenu-mainpage.html</file>
-            <file>file:/C:/wamp/www/bein3d/public/components/paper-tabs/paper-tabs.html</file>
->>>>>>> ed9022ca90d101d03904b4b9a38b83a8098c1b8f
         </group>
     </open-files>
 </project-private>

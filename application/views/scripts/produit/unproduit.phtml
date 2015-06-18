@@ -5,8 +5,8 @@ $images = $produit->obtenirImages($produit->id);
 $nomimg;
 ?>
 <template is="auto-binding" class="produittmp">  
-    <paper-tabs selected="{{menuproduit}}" valueattr="menu-produit">
-        <paper-tab menu-produit="return">
+    <paper-tabs selected="{{menuproduit}}" valueattr="menu-produit" id="tabs-unproduit">
+        <paper-tab>
             <paper-button flex class="goback" role="button" onclick="javascript:window.history.back();">
                 <core-icon icon="arrow-back">
                 </core-icon>
@@ -21,7 +21,6 @@ $nomimg;
         <section menu-produit="return"></section>
         <section menu-produit="produit">
             <core-item class="unproduit">
-
                 <core-image
                             sizing="contain" preload src="../../../../public/images/produits/<?php echo $nomdossier . '/' . $images[0]->nom; ?>">
                 </core-image>
@@ -105,6 +104,7 @@ $nomimg;
 
 
     .unproduit{
+        height:auto;
         margin-top:25px;
         margin-left:50px;
         margin-right:50px;
@@ -125,8 +125,8 @@ $nomimg;
     }
 
      core-image{
-        width:400px;
         height:400px;
+        width:400px;
         min-width:150px;
         min-height:150px;
         //background-color: lightgray;

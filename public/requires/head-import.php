@@ -79,6 +79,10 @@
               href="<?php echo $chemin; ?>components/more-routing-master/more-route-selector.html">
         <link rel="import" 
               href="<?php echo $chemin; ?>components/paper-slider/paper-slider.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/core-animated-pages/core-animated-pages.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/core-scroll-threshold/core-scroll-threshold.html">
         <!-- NEW ELEMENTS -->
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-form-inscription/core-form-inscription.html">     

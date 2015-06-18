@@ -16,7 +16,10 @@
                 background-color: #b7e1cd;
                 color: #0f9d58;
             }
-
+            
+            paper-tabs /deep/ #selectionBar{
+                background-color:#4BB5C1;
+            }
             html /deep/ .size-position {
                 position: fixed;
                 top: 156px;
@@ -32,11 +35,6 @@
             }
 
             // fin toogle
-
-
-            html paper-tabs /deep/ .pink::shadow #selectionBar {
-                background-color: red;
-            }
         </style>
         <?php
         require '../public/requires/head-import.php';
@@ -185,27 +183,5 @@
         d.toggle();
         
     };
-
-
-    var content = document.getElementById('super-template');
-    //alert(content);
-    var nav = document.getElementById('navicon');
-    //alert(nav);
-    content.addEventListerner('template-bound', function () {
-        console.log(document.query - selector('navicon'));
-    })
-
-    //    document.addEventListener('polymer-ready', function(){
-    //        var navicon=document.getElementById('navicon');
-    //        alert(navicon);
-    //        var drawerPanel=document.getElementById('drawerPanel');
-    //        navicon.addEventListener('click',function(){
-    //            drawerPanel.togglePanel();
-    //        });
-    //    });
-
-
-
-
 </script>
 </html>
