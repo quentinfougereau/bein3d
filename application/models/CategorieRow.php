@@ -7,30 +7,24 @@
  */
 
 /**
- * Description of ProduitRow
+ * Description of CategorieRow
  *
  * @author Pierre
  */
-class ProduitRow extends Zend_Db_Table_Row_Abstract{
+class CategorieRow extends Zend_Db_Table_Row_Abstract{
    
 
     public function getMaker(){
         
     }
 
-    public function obtenirImages(){
-        $images=$this->findDependentRowset('Image');
+    public function obtenirImagescat(){
+        $images=$this->findDependentRowset('Imagecat');
         return $images;
     }
     
-    public function obtenirFirstImage(){
-        $images=$this->obtenirImages();
-        $img=$images->current();
-        return $img;
-    }
-    
     public function obtenirFirstImageId(){
-        $images=$this->obtenirImages();
+        $images=$this->obtenirImagescat();
         $id=$images->current()->id;
         return $id;
     }
