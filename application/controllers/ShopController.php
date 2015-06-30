@@ -49,7 +49,18 @@ class ShopController extends Zend_Controller_Action{
         
     }
     public function makersAction(){
-        $clients= new Produit();
+        $produits= new Produit();
+        $clients=new Client();
+        $idMakers=$produits->getIdMakers();        
+        $tabMakers=new ArrayObject();
+        foreach ($idMakers as $tabId){
+            foreach($tabId as $id){
+                $tabMakers->append($clients->obtenirClient($id));
+            }
+            
+        }
+        $this->view->ids=$idMakers;
+        $this->view->lesmakers=$tabMakers;
     }
     
     public function nomDossierImage($nom){

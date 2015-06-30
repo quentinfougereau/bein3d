@@ -1,10 +1,31 @@
 <script>
-    $(document).ready(function(){
-                var tmp=document.querySelector('#super-template');
-                tmp.menu='shop';
-                tmp.sub='makers';             
-            });
+    $(document).ready(function () {
+        var tmp = document.querySelector('#super-template');
+        tmp.menu = 'shop';
+        tmp.sub = 'makers';
+    });
 </script>
 <div class="contenu">
     <h3>Nos Makers</h3>
+    <div horizontal layout>
+
+        <div flex></div>
+        <?php
+        //var_dump($this->lesmakers);
+        foreach ($this->lesmakers as $maker) {
+            echo "<core-item class='card-maker'><a href='" . $this->url(array('controller' => 'client',
+                'action' => 'unmaker', 'id' => $maker['Id'])) . "' horizontal center layout"
+            . ">" . $maker['login'] . "</a></core-item><div flex></div>";
+        }
+        ?>
+        </tr>
+        </table>
+    </div>
 </div>
+<style>
+    
+.card-maker{
+    background-image:linear-gradient(white,#efefef,#ECEFF1);
+    color:red;
+}
+</style>

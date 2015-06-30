@@ -40,4 +40,13 @@ class ClientController extends Zend_Controller_Action {
         $this->redirect('http://localhost/bein3d/public/');
 
     }
+    
+    public function unmakerAction(){
+        $layout=$this->_helper->layout();
+        $layout->assign('chemin','../../../');
+        $c=new Client();
+        $id=$this->_getParam('id',0);
+        $row=$c->obtenirClient($id);
+        $this->view->maker=$row;
+    }
 }
