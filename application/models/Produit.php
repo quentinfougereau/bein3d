@@ -86,4 +86,11 @@ class Produit extends Zend_Db_Table_Abstract {
         $this->delete("id = '" . $id . "'");
     }
     
+    public function getIdMakers() {
+        $sql = $this->_db->select()->distinct();
+        $sql->from('produit', 'idmaker');
+        $idMakers =$this->_db->fetchall($sql);
+        return $idMakers;
+    }
+    
 }
