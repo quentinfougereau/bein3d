@@ -55,7 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   bottom: 0;
   left: 0;
   width: 0;
-  background-color: white;
+  background-color: #64ceda;
   transition: width, left;
 }
 

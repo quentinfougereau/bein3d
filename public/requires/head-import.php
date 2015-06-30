@@ -7,7 +7,7 @@
         <script
             src="<?php echo $chemin; ?>/components/platform/platform.js">
         </script>
-        <script type=text/javascript src="../../public/js/panier.js"></script>
+        <script type=text/javascript src="http://localhost/bein3d/public/js/panier.js"></script>
         
         <script type="text/javascript" src="<?php echo $chemin; ?>/js/Ajax.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -31,6 +31,10 @@
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-icons/core-icons.html">
         <link rel="import"
+              href="<?php echo $chemin; ?>components/core-icons/social-icons.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/core-icons/social-icons_1.html">
+        <link rel="import"
               href="<?php echo $chemin; ?>components/core-icons/hardware-icons.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-icon-button/core-icon-button.html">
@@ -48,6 +52,8 @@
               href="<?php echo $chemin; ?>components/paper-input/paper-input.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-image/core-image.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/core-list/core-list.html">
 
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-dialog/paper-dialog.html">
@@ -71,6 +77,8 @@
               href="<?php echo $chemin; ?>components/more-routing-master/more-route.html">
         <link rel="import" 
               href="<?php echo $chemin; ?>components/more-routing-master/more-route-selector.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>components/paper-slider/paper-slider.html">
         <!-- NEW ELEMENTS -->
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-form-inscription/core-form-inscription.html">     
@@ -84,9 +92,13 @@
               href="<?php echo $chemin; ?>components/menu-toolbar-hsds/menu-toolbar-hsds.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/menu-drawer-hsds/menu-drawer-hsds.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/submenu-mainpage/submenu-mainpage.html">
         <!--  element for news -->
         <link rel="import"           
               href="<?php echo $chemin; ?>components/paper-commentaire/paper-commentaire.html" >
+        <link rel="import"           
+              href="<?php echo $chemin; ?>components/paper-rechercher/paper-rechercher.html" >
         <!-- Form element for profile -->
         <link rel="import"           
               href="<?php echo $chemin; ?>components/form-profile-personal-data/form-profile-personal-data.html" >

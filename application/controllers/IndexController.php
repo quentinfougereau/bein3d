@@ -3,7 +3,8 @@
 require_once '../application/models/News.php';
 require_once '../application/models/Produit.php';
 require_once '../application/models/Client.php';
-
+require_once '../application/models/Categorie.php';
+require_once '../application/models/Imagecat.php';
 class IndexController extends Zend_Controller_Action {
 
 
@@ -18,7 +19,8 @@ class IndexController extends Zend_Controller_Action {
 
         $layout=$this->_helper->layout();
         $layout->assign('chemin','');
-        Zend_Session::start();
+        $layout->assign('menusub','accueil');
+        Zend_Session::start();     
 
         if (Zend_Session::sessionExists()) {
             Zend_Session::start();
@@ -29,13 +31,6 @@ class IndexController extends Zend_Controller_Action {
        $this->view->lesProduits=$p->fetchall();
 
        $tab=array();
-
-//       foreach ($p->fetchall() as $unproduit){
-//           $idclient=$unproduit->idmaker;
-//           $client=$c->unClient($idclient);
-//           //$tab[$unproduit->id]=$client->login;
-//           //var_dump($client);
-//       }
         $news = new News();
         $this->view->news = $news->getLast5News();
         // action body
@@ -44,11 +39,24 @@ class IndexController extends Zend_Controller_Action {
     public function qsnAction(){
         $layout=$this->_helper->layout();
         $layout->assign('chemin','../');
+        $layout->assign('menusub','qsn');
     }
     
     public function nosproduitsAction(){
         $layout=$this->_helper->layout();
         $layout->assign('chemin','../');
+        $c= new Categorie();
+        $categorie=$c->getcat();
+        $imagescat =  Array();
+        foreach($categorie as $cat){
+            
+            $img=$c->getimagecategorie($cat['Id']);
+            array_push($imagescat, $img);
+          
+        }
+        
+        $this->view->lesimages=$imagescat;
+        $this->view->lesCategories=$categorie;
     }
 
     public function formAction() {

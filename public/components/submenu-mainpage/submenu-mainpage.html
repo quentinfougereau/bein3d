@@ -1,0 +1,82 @@
+<link rel="import" href="../core-pages/core-pages.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+<link rel="import" href="../paper-tabs/paper-tab.html">
+
+<polymer-element name="submenu-mainpage" inline flex center-center layout>
+<template>
+    <core-pages selected="{{menu}}" valueattr="menu-cat">
+        <template repeat="{{m in menusCat}}">
+            <section menu-cat="{{m.value}}">
+                <paper-tabs selected="{{menusub}}" valueattr="menu-sub" noslide>
+                    <template repeat="{{s in m.tab}}">
+                        <paper-tab menu-sub="{{s.sub}}">
+                            <a href="{{chemin}}{{m.controller}}/{{s.value}}">{{s.name}}</a>
+                        </paper-tab>
+                    </template>
+                </paper-tabs>
+            </section>
+        </template>       
+    </core-pages> 
+    <style>
+        :host paper-tab{
+            background-image:linear-gradient(white,#efefef,#d3d6d8);
+            font-size:18px;
+        }
+        
+        :host paper-tabs .core-selected{
+            background-image:linear-gradient(#d3d6d8,#efefef,white);
+        }
+        
+        
+        
+        :host paper-tab a{
+            margin-top:25px;
+            text-decoration:none;
+            text-align:center;
+            color:#01579B;
+        }
+        
+        paper-tabs::shadow > #selectionBar{
+            color:red;
+        }
+    </style>
+</template>
+    
+<script>
+
+  Polymer('submenu-mainpage', {
+    
+    ready: function() {
+        this.menu='';
+        
+        this.menusub='';
+        
+        this.chemin='';
+        
+        this.menusCat = [
+            {name: 'HOME', value: 'home', controller: 'Index', icon:'home',tab: [
+              {name:'Accueil', value:'../',sub:'index'},
+              {name:'Qui sommes nous', value:'qsn',sub:'qsn'},
+              {name:'Nos Produits', value:'nosproduits',sub:'nosproduits'}
+          ]},
+            {name: 'SHOP', value: 'shop', controller:'Shop', icon:'store', tab: [
+              {name:'Boutique', value:'boutique',sub:'boutique'},
+              {name:'Nouveautes', value:'nouveautes',sub:'nouveautes'},
+              {name:'Nos Makers', value:'makers',sub:'makers'}
+          ]},
+            {name: 'DESIGN', value: 'design', controller:'Design', icon:'rotation-3d', tab: [
+              {name:'Créer votre objet', value:'creer',sub:'creer'},
+              {name:'Didacticiel', value:'didact',sub:'didact'},
+              {name:'Importer Un modèle', value:'importer',sub:'importer'}
+          ]},
+            {name: 'SELL', value: 'sell', controller:'Sell', icon:'payment', tab: [
+              {name:'Mes objets', value:'mesobjets', sub:'mesobjets'},
+              {name:'Mes ventes', value:'mesventes', sub:'mesventes'}
+          ]}
+        ];
+    }   
+    
+  });
+  
+</script>
+</polymer-element>

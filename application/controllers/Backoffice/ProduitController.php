@@ -12,7 +12,11 @@ class Backoffice_ProduitController extends Zend_Controller_Action {
     }
 
     public function ajouterAction() {
+        $lesProduits = new Produit();
+        $idmakers = $lesProduits->getIdMakers();
+        
         $form = new Application_Form_AjouterModifierProduit();
+        $form->getElement('idmaker')->setMultiOptions($idmakers);
         $form->envoyer->setLabel('Ajouter');
         $this->view->form = $form;
         if ($this->getRequest()->isPost()) {

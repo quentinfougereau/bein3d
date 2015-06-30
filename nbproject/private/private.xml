@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/var/www/html/bein3d/application/configs/navigation.xml</file>
             <file>file:/var/www/html/bein3d/application/views/scripts/backoffice/produit/voir.phtml</file>
             <file>file:/var/www/html/bein3d/application/controllers/Backoffice/ProduitController.php</file>
@@ -22,10 +23,20 @@
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/panier/refresh.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/News/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/Recup/commentaire.phtml</file>
+=======
+            <file>file:/C:/wamp/www/bein3d/application/controllers/RechercherController.php</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Rechercher/refresh.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/shop/boutique.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/layouts/scripts/layout.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/controllers/PanierController.php</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/panier/refresh.phtml</file>
+            <file>file:/C:/wamp/www/bein3d/application/views/scripts/Rechercher/index.phtml</file>
+>>>>>>> fb7f6a15ed69a8f5a62871dfd6573598b42fab7b
             <file>file:/C:/wamp/www/bein3d/public/requires/head-import.php</file>
             <file>file:/C:/wamp/www/bein3d/public/js/Ajax.js</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/panier/index.phtml</file>
             <file>file:/C:/wamp/www/bein3d/public/components/paper-commentaire/paper-commentaire.html</file>
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/bein3d/application/configs/application.ini</file>
             <file>file:/C:/wamp/www/bein3d/application/controllers/ShopController.php</file>
             <file>file:/C:/wamp/www/bein3d/application/views/scripts/Recup/index.phtml</file>
@@ -36,6 +47,14 @@
             <file>file:/C:/wamp/www/bein3d/.gitignore</file>
             <file>file:/C:/wamp/www/bein3d/application/models/Commentaire.php</file>
 >>>>>>> fbb0a9101ca14ffb7d85f10da871bb5750b12391
+=======
+            <file>file:/C:/wamp/www/bein3d/application/controllers/ShopController.php</file>
+            <file>file:/C:/wamp/www/bein3d/public/components/paper-rechercher/paper-rechercher.html</file>
+            <file>file:/C:/wamp/www/bein3d/public/js/panier.js</file>
+            <file>file:/C:/wamp/www/bein3d/public/js/news.js</file>
+            <file>file:/C:/wamp/www/bein3d/application/models/News.php</file>
+            <file>file:/C:/wamp/www/bein3d/application/models/Produit.php</file>
+>>>>>>> fb7f6a15ed69a8f5a62871dfd6573598b42fab7b
         </group>
     </open-files>
 </project-private>

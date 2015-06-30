@@ -52,6 +52,13 @@ class Produit extends Zend_Db_Table_Abstract {
         $produit =$this->_db->fetchall($sql);
         return $produit;
     }
+    public function getrechercher ($data){
+        $sql= $this->_db->select();
+        $sql->from('produit')
+                ->where("nom LIKE '".$data."%'");
+       $produit =$this->_db->fetchall($sql);
+       return $produit;
+    }
     
     public function modifierProduit($id, $nom, $prixunitaire, $idmaker, $categorie) {
         $data = array(
@@ -77,6 +84,13 @@ class Produit extends Zend_Db_Table_Abstract {
 
     public function supprimerProduit($id) {
         $this->delete("id = '" . $id . "'");
+    }
+    
+    public function getIdMakers() {
+        $sql = $this->_db->select()->distinct();
+        $sql->from('produit', 'idmaker');
+        $idMakers =$this->_db->fetchall($sql);
+        return $idMakers;
     }
     
 }

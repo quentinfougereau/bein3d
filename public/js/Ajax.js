@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+*/
 function creerInstance(){
   if(window.XMLHttpRequest){
     /* Firefox, Opera, Google Chrome */
@@ -27,6 +27,17 @@ function creerInstance(){
 
 function envoyerDonnees (num){
     
+    var chemin = $('#chemin').val();
+    var cheminjs='';
+
+    switch(chemin){
+        case 'home': cheminjs = '';
+            break;
+        case 'produit':cheminjs ='../../..';
+            break;
+        case 'shop': cheminjs= '..';
+    };
+      
 var nb = $("#nbpanier").val() * 1 + 1
         $("#nbpanier").val(nb);
         $("#nbpaniervue").html("(" + nb + ")");
@@ -50,7 +61,7 @@ var nb = $("#nbpanier").val() * 1 + 1
   donneeproduit = "donnees="+donneeClient ;
    
 
-  req.open("POST", "../Panier", true);
+  req.open("POST", cheminjs+"/Panier", true);
   req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   req.send(donneeproduit);
   $("#cart").load("http://localhost/bein3d/public/Panier/refresh");

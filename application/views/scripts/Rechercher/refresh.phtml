@@ -1,0 +1,38 @@
+<html><body>
+
+
+
+        <div id="resultrecherche">
+        
+
+        
+        <?php
+          echo "<table><tr>Actualités</tr>";
+            
+            if (isset($_SESSION['newsrechercher'])) {
+                foreach ($_SESSION['newsrechercher'] as $key) {
+                    foreach ($key as $prod) {
+                        echo "<td>".$prod['sujet']."</td>";
+                    }
+                }
+            }
+            echo "</table>";
+             echo "<table><tr>Produit</tr>";
+            if (isset($_SESSION['produitrechercher'])) {
+                foreach ($_SESSION['produitrechercher'] as $key) {
+                    foreach ($key as $prod) {
+                        echo "<tr><td><p><a href='".$this->url(array('controller' => 'produit',
+                        'action' => 'unproduit', 'id' => $prod['id']))."' horizontal center layout"
+                            . ">".$prod['nom']."</a></p></td></tr>";
+                    }
+                }
+            }
+            echo "</table>";
+        ?>
+        </div>
+
+</body>
+</html>
+<script>
+
+</script>

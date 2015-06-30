@@ -9,13 +9,12 @@
 <polymer-element name="menu-drawer-hsds" layout horizontal flex>
 
   <template>
-      <more-route-selector flex>
       <core-menu fullbleed flex selected="{{menu}}"  valueattr="menu-cat">
           <template repeat="{{m in menusCat}}">
-            <core-submenu icon="{{m.icon}}" label="{{m.name}}" menu-cat="{{m.value}}" selected="" valueattr="menu-sub">
+            <core-submenu icon="{{m.icon}}" label="{{m.name}}" menu-cat="{{m.value}}" selected="{{menusub}}" valueattr="menu-sub">
                 <paper-shadow z="1"></paper-shadow>
                 <template repeat="{{t in m.tab}}" bind="{{m}}">
-                    <core-item label="{{t.name}}" menu-sub="accueil">
+                    <core-item label="{{t.name}}" menu-sub="{{t.sub}}">
                         <a href="{{chemin}}{{m.controller}}/{{t.value}}"></a>
                         
                     </core-item>
@@ -24,13 +23,12 @@
             </core-submenu>
           </template>
       </core-menu>
-    </more-route-selector>
       <style>
           :host core-menu{
               background-image:linear-gradient(#4BB5C1,#01579B,#1B2C6E);
               color:white;
           }
-          
+                   
           :host a{
               font-size:18px;
               text-decoration:none;
@@ -47,27 +45,29 @@
       ready: function() {
         this.menu='';
         
+        this.menusub='';
+        
         this.chemin='';
         
         this.menusCat = [
-            {name: 'HOME', value: 'index', controller: 'Index' ,action:'../', icon:'home',tab: [
-              {name:'Accueil', value:'../'},
-              {name:'Qui sommes nous', value:'qsn'},
-              {name:'Nos Produits', value:'nos produits'}
+            {name: 'HOME', value: 'home', controller: 'Index' ,action:'../', icon:'home',tab: [
+              {name:'Accueil', value:'../',sub:'index'},
+              {name:'Qui sommes nous', value:'qsn',sub:'qsn'},
+              {name:'Nos Produits', value:'nosproduits',sub:'nosproduits'}
           ]},
             {name: 'SHOP', value: 'shop', controller:'Shop' ,action:'boutique', icon:'store', tab: [
-              {name:'Boutique', value:'boutique'},
-              {name:'Nouveautes', value:'nouveautes'},
-              {name:'Nos Makers', value:'makers'}
+              {name:'Boutique', value:'boutique',sub:'boutique'},
+              {name:'Nouveautes', value:'nouveautes',sub:'nouveautes'},
+              {name:'Nos Makers', value:'makers',sub:'makers'}
           ]},
             {name: 'DESIGN', value: 'design', controller:'Design' ,action:'creer', icon:'rotation-3d', tab: [
-              {name:'Créer votre objet', value:'creer'},
-              {name:'Didacticiel', value:'didact'},
-              {name:'Importer Un modèle', value:'importer'}
+              {name:'Créer votre objet', value:'creer',sub:'creer'},
+              {name:'Didacticiel', value:'didact',sub:'didact'},
+              {name:'Importer Un modèle', value:'importer',sub:'importer'}
           ]},
             {name: 'SELL', value: 'sell', controller:'Sell' ,action:'mesobjets', icon:'payment', tab: [
-              {name:'Mes objets', value:'mesobjets'},
-              {name:'Mes ventes', value:'mesventes'}
+              {name:'Mes objets', value:'mesobjets', sub:'mesobjets'},
+              {name:'Mes ventes', value:'mesventes', sub:'mesventes'}
           ]}
         ];
       }

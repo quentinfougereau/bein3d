@@ -1,10 +1,21 @@
 <script>
-    $(document).ready(function(){
-                var tmp=document.querySelector('#super-template');
-                tmp.menu='home';
-                tmp.sub='nosproduits';             
-            });
+   
 </script>
 <div class="contenu">
     <h3>Nos Produits</h3>
+    <table>
+    <?php
+    foreach($this->lesCategories as $cat){
+        echo "<tr><td>".$cat['libelle']."</td></tr>";
+        foreach($this->lesimages as $img){
+            foreach ($img as $i){
+                if($i->idcat==$cat['Id']){
+                echo "<tr><td><img src='../../public/images/categories/". $i->libelle."'></td></tr>";
+                }
+            }
+            
+        }
+    }
+    ?>
+        </table>
 </div>

@@ -4,16 +4,40 @@
  * and open the template i
  */
 
-
+function creerInstance(){
+  if(window.XMLHttpRequest){
+    /* Firefox, Opera, Google Chrome */
+    return new XMLHttpRequest();
+  }else if(window.ActiveXObject){
+    /* Internet Explorer */
+    var names = [
+      "Msxml2.XMLHTTP.6.0",
+      "Msxml2.XMLHTTP.3.0",
+      "Msxml2.XMLHTTP",
+      "Microsoft.XMLHTTP"
+    ];
+    for(var i in names){
+      /* On test les différentes versions */
+      try{ return new ActiveXObject(names[i]); }
+      catch(e){}
+    }
+    alert("Non supporte");
+    return null; // non supporté
+  }
+};
 
 
 function quantiteplus(choix) {
-    var cheminjs = '';
     var chemin = $('#chemin').val();
-    if (chemin != 'home') {
-        cheminjs = '../'
-    }
-    ;
+    var cheminjs='';
+
+    switch(chemin){
+        case 'home': cheminjs = ''
+            break;
+        case 'produit':cheminjs ='../../../';
+            break;
+        case 'shop': cheminjs= '../';
+    };
     //faire appel ajax pour modifier la session un pour chaque bouton (+ et -)= action + vues
     var nb = $("#" + choix).val() * 1 + 1;
     $("#" + choix).val(nb);
@@ -40,7 +64,7 @@ function quantiteplus(choix) {
     donneeproduit = "donnees=" + donneeClient;
 
 
-    req.open("POST", cheminjs + "/Panier/ajouter", true);
+    req.open("POST", cheminjs + "Panier/ajouter", true);
     req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     req.send(donneeproduit);
     $("#cart").load("http://localhost/bein3d/public/Panier/refresh");
@@ -57,12 +81,16 @@ function maj() {
 
 ;
 function quantitemoins(choix) {
-    var cheminjs = '';
     var chemin = $('#chemin').val();
-    if (chemin != 'home') {
-        cheminjs = '../'
-    }
-    ;
+    var cheminjs='';
+
+    switch(chemin){
+      case 'home': cheminjs = '';
+            break;
+        case 'produit':cheminjs ='../../../';
+            break;
+        case 'shop': cheminjs= '../';
+    };
     var nb = $("#" + choix).val() * 1 - 1;
     $("#" + choix).val(nb);
     var nb1 = $("#nbpanier").val() * 1 - 1;
@@ -97,12 +125,16 @@ function quantitemoins(choix) {
 }
 ;
 function supDonnees(num, quantite) {
-var cheminjs = '';
-    var chemin = $('#chemin').val();
-    if (chemin != 'home') {
-        cheminjs = '../'
-    }
-    ;
+var chemin = $('#chemin').val();
+    var cheminjs='';
+
+    switch(chemin){
+        case 'home': cheminjs = '';
+            break;
+        case 'produit':cheminjs ='../../../';
+            break;
+        case 'shop': cheminjs= '../';
+    };
     var nb = $("#nbpanier").val() * 1 - quantite;
     if (nb >= 0) {
         $("#nbpanier").val(nb);
