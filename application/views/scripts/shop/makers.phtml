@@ -13,19 +13,80 @@
         <?php
         //var_dump($this->lesmakers);
         foreach ($this->lesmakers as $maker) {
-            echo "<core-item class='card-maker'><a href='" . $this->url(array('controller' => 'client',
-                'action' => 'unmaker', 'id' => $maker['Id'])) . "' horizontal center layout"
-            . ">" . $maker['login'] . "</a></core-item><div flex></div>";
-        }
-        ?>
-        </tr>
-        </table>
+            ?>
+            <div class='card-maker'>
+                <div flex>
+                    <table>
+                        <tr><td>
+                        <core-image sizing="cover" class="avatar-maker" src="../images/makers/<?php echo $maker['imgavatar'] ?>">
+                        </core-image>
+                    </td><td class='information-maker'>
+                    <a href='<?php echo $this->url(array('controller' => 'client',
+                        'action' => 'unmaker', 'id' => $maker['Id']))
+                        ?>' horizontal center layout>
+                <?php echo $maker['login'] ?></a>
+                    <core-item icon='room'>
+                        <?php echo $maker['ville'] ?>
+                    </core-item>
+                    
+                    </td><td><paper-button icon='add' label='FOLLOW'></paper-button>
+                        </tr>
+            </table>
+
+
+
+        </div>
     </div>
+    <div flex></div>
+<?php } ?>
+</div>
 </div>
 <style>
+
+    .card-maker{
+        background-image:linear-gradient(white,#efefef,#ECEFF1);
+        text-align:center;
+        -moz-box-shadow: 1px 1px 15px 0px #656565;
+        -webkit-box-shadow: 1px 1px 15px 0px #656565;
+        -o-box-shadow: 1px 1px 15px 0px #656565;
+        box-shadow: 1px 1px 15px 0px #656565;
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
+    }
+
+    .card-maker a{
+        display:block;
+        margin-left:45px;
+        color:#01579B;
+        text-decoration:none;
+    }
+
+    .card-maker .banniere-maker{
+        position:relative;
+        width:250px;
+        height:100px;
+    }
+
+    .card-maker div {
+        padding:15px;
+        width:320px;
+        height:150px;
+    }
+
+    .card-maker .avatar-maker{
+        width:80px;
+        height:80px;
+    }
     
-.card-maker{
-    background-image:linear-gradient(white,#efefef,#ECEFF1);
-    color:red;
-}
+    .card-maker .icon-loc{
+        float:left;
+    }
+    
+    .card-maker .information-maker{
+        padding-left:15px;
+    }
+</style>
+<style shim-shadowdom>
+    html /deep/ paper-button{
+        width:20px;
+    }
 </style>

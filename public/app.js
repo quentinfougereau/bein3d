@@ -1,9 +1,4 @@
-var app=document.querySelector('super-template');
 
-page('/',home);
-page('/',shop);
-page('/',design);
-page('/',sell);
 
 //page({hashbang:true});
 
