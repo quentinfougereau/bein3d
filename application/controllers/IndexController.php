@@ -5,6 +5,7 @@ require_once '../application/models/Produit.php';
 require_once '../application/models/Client.php';
 require_once '../application/models/Categorie.php';
 require_once '../application/models/Imagecat.php';
+
 class IndexController extends Zend_Controller_Action {
 
 
