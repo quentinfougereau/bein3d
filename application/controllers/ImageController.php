@@ -12,3 +12,4 @@ class ImageController extends Zend_Controller_Action{
         $layout=$this->_helper->layout();
         $layout->assign('chemin','../');
     }
+}

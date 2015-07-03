@@ -67,4 +67,11 @@ class Client extends Zend_Db_Table_Abstract {
         $this->delete("Id = '" . $id . "'");
     }
 
+    public function getIdClients() {
+        $sql = $this->_db->select()->distinct();
+        $sql->from('client', 'Id');
+        $idClients =$this->_db->fetchall($sql);
+        return $idClients;
+    }
+    
 }

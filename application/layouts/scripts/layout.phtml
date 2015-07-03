@@ -142,7 +142,9 @@
                         echo "<p>" . $_SESSION['email'] . "</p>";
                         ?>
                         <core-icon-button icon="more-vert"></core-icon-button>
+                       
                         <?php
+                        echo "<a href =" . $this->url(array('controller' => 'deconnexion', 'action' => 'index')) . ">Deconnexion</a>";
                     }
                     ?>
                 </template>        
