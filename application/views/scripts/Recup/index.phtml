@@ -12,11 +12,23 @@
                 . '<div id=' . $news["id"] . ' style="visibility : hidden"><paper-commentaire id=' . $news["id"] . ' ></paper-commntaire><div></li>';
     }
     ?>
+    <core-scroll-threshold id="threshold" lowerThreshold="500"
+  on-lower-trigger="{{loadMore}}" lowerTriggered="{{news}}">
+        <core-item label="{{news}}"></core-item>  
+    </core-scroll-threshold>
 
 
 </html>
 <script>
+Polymer('core-croll-threshold',{
+    loadMore: function() {
+  this.asyncLoadStuffThen(function() {
+    this.$.threshold.clearLower();
+  }.bind(this));
+}
 
+    this.news='1';
+});
 </script>
 <script type="text/javascript">
     function champ(id) {

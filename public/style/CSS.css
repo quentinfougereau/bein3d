@@ -43,9 +43,7 @@ paper-tab a{
 }
 
 footer{
-    position:relative;
     margin:auto;
-    bottom:0px;
     padding-top:24px;
     width:232px;
     height:48px;
@@ -61,7 +59,7 @@ footer{
 }
 
 #divfoot{
-    height:300px;
+    height:30px;
     max-height:500px;
     min-height: 40px;
 }
@@ -419,6 +417,11 @@ paper-toast img{
 
 .produit-panier{
     background-image:linear-gradient(white,#efefef,#ECEFF1);
+    -moz-box-shadow: 1px 1px 15px 0px #656565;
+    -webkit-box-shadow: 1px 1px 15px 0px #656565;
+    -o-box-shadow: 1px 1px 15px 0px #656565;
+    box-shadow: 1px 1px 15px 0px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
 }
 
 .produit-panier core-image{
@@ -428,4 +431,12 @@ paper-toast img{
 
 .produit-panier:first-child{
     width:100%;
+}
+
+.produit-panier a{
+    color:black;
+}
+
+#resultrecherche a{
+    color:black
 }

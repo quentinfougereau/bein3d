@@ -24,8 +24,6 @@ class PanierController extends Zend_Controller_Action {
     public function indexAction() {
         Zend_Session::start();
         if (!isset($_SESSION['nbproduit'])) {
-//            $nbproduit = new Zend_Session_Namespace('nbproduit');
-//           $nbproduit->array = array();
             $_SESSION['nbproduit'] = array();
         };
 
@@ -101,5 +99,5 @@ class PanierController extends Zend_Controller_Action {
         Zend_Session::start();
         $this->_helper->layout->disableLayout();
     }
-
+    
 }

@@ -23,6 +23,12 @@ class ProduitRow extends Zend_Db_Table_Row_Abstract{
         return $images;
     }
     
+    public function obtenirFirstImage(){
+        $images=$this->obtenirImages();
+        $img=$images->current();
+        return $img;
+    }
+    
     public function obtenirFirstImageId(){
         $images=$this->obtenirImages();
         $id=$images->current()->id;

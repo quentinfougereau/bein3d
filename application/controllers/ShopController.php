@@ -1,6 +1,7 @@
 <?php
 require_once '../application/models/Produit.php';
 require_once '../application/models/Image.php';
+require_once '../application/models/Client.php';
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -48,7 +49,18 @@ class ShopController extends Zend_Controller_Action{
         
     }
     public function makersAction(){
-        
+        $produits= new Produit();
+        $clients=new Client();
+        $idMakers=$produits->getIdMakers();        
+        $tabMakers=new ArrayObject();
+        foreach ($idMakers as $tabId){
+            foreach($tabId as $id){
+                $tabMakers->append($clients->obtenirClient($id));
+            }
+            
+        }
+        $this->view->ids=$idMakers;
+        $this->view->lesmakers=$tabMakers;
     }
     
     public function nomDossierImage($nom){
