@@ -1,6 +1,7 @@
 <?php
 
 include ('../application/models/Produit.php');
+include ('../application/models/Client.php');
 
 class Backoffice_ProduitController extends Zend_Controller_Action {
 
@@ -12,11 +13,11 @@ class Backoffice_ProduitController extends Zend_Controller_Action {
     }
 
     public function ajouterAction() {
-        $lesProduits = new Produit();
-        $idmakers = $lesProduits->getIdMakers();
-        
+        $lesClients = new Client();
+        $idClients = $lesClients->getIdClients();
+        var_dump($idClients);
         $form = new Application_Form_AjouterModifierProduit();
-        $form->getElement('idmaker')->setMultiOptions($idmakers);
+        $form->getElement('idmaker')->setMultiOptions($idClients);
         $form->envoyer->setLabel('Ajouter');
         $this->view->form = $form;
         if ($this->getRequest()->isPost()) {

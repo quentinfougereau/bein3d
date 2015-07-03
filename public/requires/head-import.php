@@ -5,16 +5,16 @@
     <title>BE in 3D</title>
         <!-- Load Polymer -->
         <script
-            src="<?php echo $chemin; ?>/components/platform/platform.js">
+            src="<?php echo $chemin; ?>components/platform/platform.js">
         </script>
         <script type=text/javascript src="http://localhost/bein3d/public/js/panier.js"></script>
         
-        <script type="text/javascript" src="<?php echo $chemin; ?>/js/Ajax.js"></script>
+        <script type="text/javascript" src="<?php echo $chemin; ?>js/Ajax.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-        <script type="text/javascript" src="<?php echo $chemin; ?>/app.js"></script>
+        <script type="text/javascript" src="<?php echo $chemin; ?>app.js"></script>
         
         <script
-            src="<?php echo $chemin; ?>/js/news.js">
+            src="<?php echo $chemin; ?>js/news.js">
         </script>
         <script type="text/javascript" 
         src="<?php echo $chemin; ?>components/webcomponentsjs/webcomponents.js"></script>
