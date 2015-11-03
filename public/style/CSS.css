@@ -1,34 +1,42 @@
 body {
-    height: 2000px;
     font-family: 'Yanone Kaffeesatz', sans-serif; 
 }
 
-core-toolbar {
+paper-toolbar {
     background-image:linear-gradient(#1B2C6E,#01579B,#4BB5C1);
     //background-color:#111C47;
     color:whitesmoke;
 
 }
 
-core-toolbar a{
+paper-toolbar a{
     color:white;
     text-decoration:none;
 }
 
-core-header-panel[drawer]{
+paper-header-panel[drawer]{
     //background-color:#ECEFF1;
     background-image:linear-gradient(white,#efefef,#ECEFF1);
 }
 
-core-drawer-panel:not([narrow]) #navicon{
+paper-drawer-panel:not([narrow]) #navicon{
     display:none;
+}
+
+#drawer-content{
+    padding:20px;
+}
+
+paper-card{
+    margin-top:5px;
+    margin-bottom:5px;
 }
 
 paper-tab{
     font-size:20px;
 }
 
-core-toolbar paper-tab a{
+paper-toolbar paper-tab a{
     text-decoration:none;
     color:whitesmoke;
 }
@@ -40,28 +48,6 @@ paper-tab a{
 .contenu{
     position:relative;
     top:48px;
-}
-
-footer{
-    margin:auto;
-    padding-top:24px;
-    width:232px;
-    height:48px;
-    color:whitesmoke;
-    text-align:center;
-    background-image:linear-gradient(#A6A5A5,#4F4B4B);
-    border-radius:2px 2px 2px 2px;
-    -moz-box-shadow: 1px 1px 15px 0px #656565;
-    -webkit-box-shadow: 1px 1px 15px 0px #656565;
-    -o-box-shadow: 1px 1px 15px 0px #656565;
-    box-shadow: 1px 1px 15px 0px #656565;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=15);
-}
-
-#divfoot{
-    height:30px;
-    max-height:500px;
-    min-height: 40px;
 }
 
 #inscription-button{

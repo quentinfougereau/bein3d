@@ -1,29 +1,45 @@
 <link href="../polymer/polymer.html" rel="import">
-<link href="../core-menu/core-menu.html" rel="import">
-<link href="../core-menu/core-submenu.html" rel="import">
-<link href="../paper-shadow/paper-shadow.html" rel="import">
-<link href="../core-item/core-item.html" rel="import">
+<link href="../paper-menu/paper-menu.html" rel="import">
+<link href="../paper-menu/paper-submenu.html" rel="import">
+<link href="../paper-material/paper-material.html" rel="import">
+<link href="../paper-item/paper-item.html" rel="import">
 <link href="../paper-ripple/paper-ripple.html" rel="import">
-<link href="../more-routing-master/more-route-selector.html" rel="import">
 
-<polymer-element name="menu-drawer-hsds" layout horizontal flex>
-
-  <template>
-      <core-menu fullbleed flex selected="{{menu}}"  valueattr="menu-cat">
-          <template repeat="{{m in menusCat}}">
-            <core-submenu icon="{{m.icon}}" label="{{m.name}}" menu-cat="{{m.value}}" selected="{{menusub}}" valueattr="menu-sub">
-                <paper-shadow z="1"></paper-shadow>
-                <template repeat="{{t in m.tab}}" bind="{{m}}">
-                    <core-item label="{{t.name}}" menu-sub="{{t.sub}}">
-                        <a href="{{chemin}}{{m.controller}}/{{t.value}}"></a>
-                        
-                    </core-item>
-                </template>
-                
-            </core-submenu>
-          </template>
-      </core-menu>
-      <style>
+  <style is="custom-style">
+    /* TODO(polyup): For speed, consider reworking these styles with .classes
+                     and #ids rather than [attributes].
+    */
+    [layout] {
+      @apply(--layout);
+    }
+    [layout][horizontal] {
+      @apply(--layout-horizontal);
+    }
+    [layout][flex] {
+      @apply(--layout-flex);
+    }
+  </style>
+  <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<dom-module id="menu-drawer-hsds">
+  <style>
+    /* TODO(polyup): For speed, consider reworking these styles with .classes
+                     and #ids rather than [attributes].
+    */
+    :host[layout] {
+      @apply(--layout);
+    }
+    :host[layout][horizontal] {
+      @apply(--layout-horizontal);
+    }
+    :host[layout][flex] {
+      @apply(--layout-flex);
+    }
+    [fullbleed] {
+      margin: 0;
+      //height:100vh;
+    }
+  </style>
+  <style>
           :host core-menu{
               background-image:linear-gradient(#4BB5C1,#01579B,#1B2C6E);
               color:white;
@@ -35,44 +51,132 @@
               color:white;
           }
       </style>
+  <template>
+      <paper-menu fullbleed="" flex="" selected="{{menu}}" valueattr="menu-cat">
+          <template is="dom-repeat" items="{{menusCat}}" as="m">
+            <paper-submenu icon="{{m.icon}}" label="{{m.name}}" menu-cat="{{m.value}}" selected="{{menusub}}" valueattr="menu-sub">
+                <paper-material elevation="1"></paper-material>
+                <template is="dom-repeat" items="{{m.tab}}" as="t" bind="{{m}}">
+                    <paper-item undefined="{{t.name}}" menu-sub="{{t.sub}}">
+                        <a href="{{_computeHref(chemin, m, t)}}"></a>
+                        
+                    </paper-item>
+                </template>
+                
+            </paper-submenu>
+          </template>
+      </paper-menu>
 
   </template>
-
   <script>
-
-  Polymer('menu-drawer-hsds', {
-      
-      ready: function() {
-        this.menu='';
-        
-        this.menusub='';
-        
-        this.chemin='';
-        
+    Polymer({
+      is: 'menu-drawer-hsds',
+      ready: function () {
+        this.menu = '';
+        this.menusub = '';
+        this.chemin = '';
         this.menusCat = [
-            {name: 'HOME', value: 'home', controller: 'Index' ,action:'../', icon:'home',tab: [
-              {name:'Accueil', value:'../',sub:'index'},
-              {name:'Qui sommes nous', value:'qsn',sub:'qsn'},
-              {name:'Nos Produits', value:'nosproduits',sub:'nosproduits'}
-          ]},
-            {name: 'SHOP', value: 'shop', controller:'Shop' ,action:'boutique', icon:'store', tab: [
-              {name:'Boutique', value:'boutique',sub:'boutique'},
-              {name:'Nouveautes', value:'nouveautes',sub:'nouveautes'},
-              {name:'Nos Makers', value:'makers',sub:'makers'}
-          ]},
-            {name: 'DESIGN', value: 'design', controller:'Design' ,action:'creer', icon:'rotation-3d', tab: [
-              {name:'Créer votre objet', value:'creer',sub:'creer'},
-              {name:'Didacticiel', value:'didact',sub:'didact'},
-              {name:'Importer Un modèle', value:'importer',sub:'importer'}
-          ]},
-            {name: 'SELL', value: 'sell', controller:'Sell' ,action:'mesobjets', icon:'payment', tab: [
-              {name:'Mes objets', value:'mesobjets', sub:'mesobjets'},
-              {name:'Mes ventes', value:'mesventes', sub:'mesventes'}
-          ]}
+          {
+            name: 'HOME',
+            value: 'home',
+            controller: 'Index',
+            action: '../',
+            icon: 'home',
+            tab: [
+              {
+                name: 'Accueil',
+                value: '../',
+                sub: 'index'
+              },
+              {
+                name: 'Qui sommes nous',
+                value: 'qsn',
+                sub: 'qsn'
+              },
+              {
+                name: 'Nos Produits',
+                value: 'nosproduits',
+                sub: 'nosproduits'
+              }
+            ]
+          },
+          {
+            name: 'SHOP',
+            value: 'shop',
+            controller: 'Shop',
+            action: 'boutique',
+            icon: 'store',
+            tab: [
+              {
+                name: 'Boutique',
+                value: 'boutique',
+                sub: 'boutique'
+              },
+              {
+                name: 'Nouveautes',
+                value: 'nouveautes',
+                sub: 'nouveautes'
+              },
+              {
+                name: 'Nos Makers',
+                value: 'makers',
+                sub: 'makers'
+              }
+            ]
+          },
+          {
+            name: 'DESIGN',
+            value: 'design',
+            controller: 'Design',
+            action: 'creer',
+            icon: 'rotation-3d',
+            tab: [
+              {
+                name: 'Créer votre objet',
+                value: 'creer',
+                sub: 'creer'
+              },
+              {
+                name: 'Didacticiel',
+                value: 'didact',
+                sub: 'didact'
+              },
+              {
+                name: 'Importer Un modèle',
+                value: 'importer',
+                sub: 'importer'
+              }
+            ]
+          },
+          {
+            name: 'SELL',
+            value: 'sell',
+            controller: 'Sell',
+            action: 'mesobjets',
+            icon: 'payment',
+            tab: [
+              {
+                name: 'Mes objets',
+                value: 'mesobjets',
+                sub: 'mesobjets'
+              },
+              {
+                name: 'Mes ventes',
+                value: 'mesventes',
+                sub: 'mesventes'
+              }
+            ]
+          }
         ];
+      },
+      hostAttributes: {
+        'layout': '',
+        'horizontal': '',
+        'flex': ''
+      },
+      _computeHref: function (chemin, m, t) {
+        return chemin + m.controller + '/' + t.value;
       }
-  });
-
+    });
   </script>
-
-</polymer-element>
+</dom-module>

@@ -3,51 +3,108 @@
 <link href="../paper-tabs/paper-tab.html" rel="import">
 <link href="../more-routing-master/more-route-selector.html" rel="import">
 
-<polymer-element name="menu-toolbar-hsds" layout horizontal flex>
-
-  <template>
-      <more-route-selector flex>
-      <paper-tabs valueattr="menu-cat" selected="{{menu}}" link noink noslide>
-          <template repeat="{{m in menusCat}}">
-            <paper-tab menu-cat="{{m.value}}" route="{{m.value}}">
-                <a href="{{chemin}}{{m.controller}}/{{m.action}}" horizontal center-center layout>{{m.name}}</a>
-            </paper-tab>
-          </template>
-      </paper-tabs>
-    </more-route-selector>
-      <style>
-          :host a{
+  <style is="custom-style">
+    /* TODO(polyup): For speed, consider reworking these styles with .classes
+                     and #ids rather than [attributes].
+    */
+    [layout] {
+      @apply(--layout);
+    }
+    [layout][horizontal] {
+      @apply(--layout-horizontal);
+    }
+    [layout][flex] {
+      @apply(--layout-flex);
+    }
+  </style>
+  <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<dom-module id="menu-toolbar-hsds">
+  <style>
+    /* TODO(polyup): For speed, consider reworking these styles with .classes
+                     and #ids rather than [attributes].
+    */
+    :host[layout] {
+      @apply(--layout);
+    }
+    :host[layout][horizontal] {
+      @apply(--layout-horizontal);
+    }
+    :host[layout][flex] {
+      @apply(--layout-flex);
+    }
+    [layout] {
+      @apply(--layout);
+    }
+    [layout][horizontal] {
+      @apply(--layout-horizontal);
+    }
+    [layout][center-center] {
+      @apply(--layout-center-center);
+    }
+  </style>
+  <style>  
+      :host a{
               font-size:18px;
               text-decoration:none;
-              color:white;
+              color:whitesmoke;
           }        
       </style>
-      <style shim-shadowdom>
+  <style shim-shadowdom="">
           paper-tabs /deep/ #selectionBar{
                 background-color:whitesmoke;
             }
       </style>
+  <template>
+      <paper-tabs valueattr="menu-cat" selected="{{menu}}" noink="">
+          <template is="dom-repeat" items="{{menusCat}}" as="m">
+            <paper-tab menu-cat="{{m.value}}" route="{{m.value}}">
+                <a horizontal="" center-center="" layout="" href="{{_computeHref(chemin, m)}}">{{m.name}}</a>
+            </paper-tab>
+          </template>
+      </paper-tabs>
 
   </template>
-
   <script>
-
-  Polymer('menu-toolbar-hsds', {
-      
-      ready: function() {
-        this.menu ='';
-        
-        this.chemin='';
-        
+    Polymer({
+      is: 'menu-toolbar-hsds',
+      ready: function () {
+        this.menu = document.getElementById("menu").value;
+        this.chemin = document.getElementById("chemin").value;
         this.menusCat = [
-          {name: 'HOME', value: 'home', controller:'Index' ,action:'../'},
-          {name: 'SHOP', value: 'shop', controller:'Shop' ,action:'boutique'},
-          {name: 'DESIGN', value: 'design', controller:'Design' ,action:'creer'},
-          {name: 'SELL', value: 'sell', controller:'Sell' ,action:'mesobjets'}
+          {
+            name: 'HOME',
+            value: 'home',
+            controller: 'Index',
+            action: '../'
+          },
+          {
+            name: 'SHOP',
+            value: 'shop',
+            controller: 'Shop',
+            action: 'boutique'
+          },
+          {
+            name: 'DESIGN',
+            value: 'design',
+            controller: 'Design',
+            action: 'creer'
+          },
+          {
+            name: 'SELL',
+            value: 'sell',
+            controller: 'Sell',
+            action: 'mesobjets'
+          }
         ];
+      },
+      hostAttributes: {
+        'layout': '',
+        'horizontal': '',
+        'flex': ''
+      },
+      _computeHref: function (chemin, m) {
+        return chemin + m.controller + '/' + m.action;
       }
-  });
-
+    });
   </script>
-
-</polymer-element>
+</dom-module>

@@ -1,5 +1,11 @@
 <?php
-    $chemin=Zend_Layout::getMvcInstance()->chemin;
+    
+    if(Zend_Controller_Front::getInstance()->getRequest()->getControllerName()=="index"){
+        $chemin="";
+    }
+    else{
+        $chemin=Zend_Layout::getMvcInstance()->chemin;
+    }
     $cheminsup=$chemin."../";
 ?>
     <title>BE in 3D</title>
@@ -11,35 +17,32 @@
         
         <script type="text/javascript" src="<?php echo $chemin; ?>js/Ajax.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-        <script type="text/javascript" src="<?php echo $chemin; ?>app.js"></script>
-        
-        <script
-            src="<?php echo $chemin; ?>js/news.js">
-        </script>
+        <script type="text/javascript" src="<?php echo $chemin; ?>app.js"></script>        
+        <script src="<?php echo $chemin; ?>js/news.js"></script>
         <script type="text/javascript" 
         src="<?php echo $chemin; ?>components/webcomponentsjs/webcomponents.js"></script>
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-toolbar/core-toolbar.html">
+              href="<?php echo $chemin; ?>components/polymer/polymer.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-drawer-panel/core-drawer-panel.html">
+              href="<?php echo $chemin; ?>components/paper-toolbar/paper-toolbar.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-header-panel/core-header-panel.html">
+              href="<?php echo $chemin; ?>components/paper-drawer-panel/paper-drawer-panel.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-item/core-item.html">
+              href="<?php echo $chemin; ?>components/paper-header-panel/paper-header-panel.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-icon/core-icon.html">
+              href="<?php echo $chemin; ?>components/paper-item/paper-item.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-icons/core-icons.html">
+              href="<?php echo $chemin; ?>components/iron-icon/iron-icon.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-icons/social-icons.html">
+              href="<?php echo $chemin; ?>components/iron-icons/iron-icons.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-icons/social-icons_1.html">
+              href="<?php echo $chemin; ?>components/iron-icons/social-icons.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-icons/hardware-icons.html">
+              href="<?php echo $chemin; ?>components/iron-icons/social-icons_1.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-icon-button/core-icon-button.html">
+              href="<?php echo $chemin; ?>components/iron-icons/hardware-icons.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-ajax/core-ajax.html">
+              href="<?php echo $chemin; ?>components/iron-ajax/iron-ajax.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-icon-button/paper-icon-button.html">
         <link rel="import"
@@ -51,38 +54,27 @@
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-input/paper-input.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-image/core-image.html">
+              href="<?php echo $chemin; ?>components/iron-image/iron-image.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-list/core-list.html">
-
+              href="<?php echo $chemin; ?>components/iron-list/iron-list.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-dialog/paper-dialog.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-button/paper-button.html">
         <link rel="import"
-              href="<?php echo $chemin; ?>components/core-pages/core-pages.html">
+              href="<?php echo $chemin; ?>components/iron-pages/iron-pages.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-shadow/paper-shadow.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/paper-ripple/paper-ripple.html">
         <link rel="import" 
-              href="<?php echo $chemin; ?>components/core-collapse/core-collapse.html">
+              href="<?php echo $chemin; ?>components/iron-collapse/iron-collapse.html">
         <link rel="import" 
               href="<?php echo $chemin; ?>components/paper-toast/paper-toast.html">
         <link rel="import" 
-              href="<?php echo $chemin; ?>components/more-routing-master/more-routing-config.html">
-        <link rel="import" 
-              href="<?php echo $chemin; ?>components/more-routing-master/more-routing.html">
-        <link rel="import" 
-              href="<?php echo $chemin; ?>components/more-routing-master/more-route.html">
-        <link rel="import" 
-              href="<?php echo $chemin; ?>components/more-routing-master/more-route-selector.html">
-        <link rel="import" 
               href="<?php echo $chemin; ?>components/paper-slider/paper-slider.html">
-        <link rel="import"
-              href="<?php echo $chemin; ?>components/core-animated-pages/core-animated-pages.html">
-        <link rel="import"
-              href="<?php echo $chemin; ?>components/core-scroll-threshold/core-scroll-threshold.html">
+        <link rel="import" 
+              href="<?php echo $chemin; ?>components/paper-card/paper-card.html">
         <!-- NEW ELEMENTS -->
         <link rel="import"
               href="<?php echo $chemin; ?>components/core-form-inscription/core-form-inscription.html">     
@@ -98,6 +90,10 @@
               href="<?php echo $chemin; ?>components/menu-drawer-hsds/menu-drawer-hsds.html">
         <link rel="import"
               href="<?php echo $chemin; ?>components/submenu-mainpage/submenu-mainpage.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/social-drawer-card/social-drawer-card.html">
+        <link rel="import"
+              href="<?php echo $chemin; ?>components/client-drawer-card/client-drawer-card.html">
         <!--  element for news -->
         <link rel="import"           
               href="<?php echo $chemin; ?>components/paper-commentaire/paper-commentaire.html" >

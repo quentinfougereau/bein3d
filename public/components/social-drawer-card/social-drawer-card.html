@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<dom-module id="social-drawer-card">
+    <template>
+    <paper-card heading="Social Networks" image="{{chemin}}components/social-drawer-card/fond.jpg">
+        <div class="card-actions">
+            <a href="#"><paper-icon-button icon="post-facebook"></paper-icon-button></a>
+            <a href="#"><paper-icon-button icon="post-twitter" href="#"></paper-icon-button></a>
+            <a href="#"><paper-icon-button icon="post-instagram" href="#"></paper-icon-button></a>  
+            
+        </div>
+    </paper-card>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+
+    is: 'social-drawer-card',
+    
+    properties:{
+        chemin:{
+            type:String,
+            value:document.getElementById("chemin").value
+        }
+    }
+});
+</script>
+
+<style>
+    a{
+        text-decoration:none;
+    }
+    paper-icon-button[icon="post-facebook"]{
+        color:#3A548C;
+    }
+    paper-icon-button[icon="post-twitter"]{
+        color:#55acee;
+    }
+    paper-icon-button[icon="post-instagram"]{
+        color:#907c64;
+    }
+</style>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-menu/paper-menu.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../paper-ripple/paper-ripple.html">
+
+<dom-module id="client-drawer-card">
+    <template>
+        <paper-card flex>
+            <paper-menu>
+                <paper-item>
+                    <iron-icon icon="person"></iron-icon>
+                    <paper-item-body>
+                        <div>Mon Compte</div>
+                    </paper-item-body>  
+                </paper-item>
+                <paper-item>
+                    <paper-ripple></paper-ripple>
+                    <iron-icon icon="star"></iron-icon>
+                    <paper-item-body>
+                        <div>Makers</div>
+                    </paper-item-body>               
+                </paper-item>
+                <paper-item>
+                    <paper-ripple></paper-ripple>
+                    <iron-icon icon="3d-rotation"></iron-icon>
+                    <paper-item-body>
+                        <div>Objets 3D</div>
+                    </paper-item-body>               
+                </paper-item>
+                <paper-item>
+                    <paper-ripple></paper-ripple>
+                    <iron-icon icon="build"></iron-icon>
+                    <paper-item-body>
+                        <div>Créer mon objet</div>
+                    </paper-item-body>               
+                </paper-item>
+                <paper-item>
+                    <paper-ripple></paper-ripple>
+                    <iron-icon icon="power-settings-new"></iron-icon>
+                    <paper-item-body>
+                        <div>Deconnexion</div>
+                    </paper-item-body>               
+                </paper-item>
+            </paper-menu>
+        </paper-card>
+    </template>
+    <style>
+        paper-menu{
+            background-image:linear-gradient(white,#efefef,#ECEFF1);
+        }
+        paper-item[aria-selected=true]{
+            text-decoration:underline;
+        }
+
+        paper-item[aria-selected=true] iron-icon{
+            color:#01579B;
+        }
+        paper-item iron-icon{
+            margin-right:25px;
+        }
+    </style>
+</dom-module>
+<script>
+    Polymer({
+        is: 'client-drawer-card',
+    });
+</script>
+

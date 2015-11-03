@@ -19,7 +19,7 @@ class IndexController extends Zend_Controller_Action {
     {
 
         $layout=$this->_helper->layout();
-        $layout->assign('chemin','');
+        $layout->assign('chemin','../');
         $layout->assign('menusub','accueil');
         Zend_Session::start();     
 
